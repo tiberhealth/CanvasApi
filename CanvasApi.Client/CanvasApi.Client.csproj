@@ -11,11 +11,13 @@
     <LangVersion>9.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="TiberHealth.Serializer" Version="1.0.18" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Acconts\" />
+    <Folder Include="OAuth2\Enums" />
     <Folder Include="_Base\" />
     <Folder Include="Acconts\Models\" />
     <Folder Include="Acconts\Enums\" />

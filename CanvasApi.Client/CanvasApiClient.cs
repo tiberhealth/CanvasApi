@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using CanvasApi.Client.Acconts;
 using CanvasApi.Client.Enums;
 using CanvasApi.Client.Extentions;
+using CanvasApi.Client.OAuth2;
 using Newtonsoft.Json;
 
 [assembly: InternalsVisibleTo("CanvasApi.Client.Test")]
@@ -19,8 +20,9 @@ namespace CanvasApi.Client
     {
         private HttpClient Client { get; set; }
         private readonly Lazy<AccountsClient> AccountsClient;
-
-        public PagingOptions DefaultPaginOptions { get; private set; }
+        private readonly Lazy<OAuth2Client> OAuth2Client;
+        
+        public PagingOptions DefaultPagingOptions { get; private set; }
 
         /// <summary>
         /// Constructor - builds Http Client based on Domain and Key
@@ -43,13 +45,17 @@ namespace CanvasApi.Client
         public CanvasApiClient(HttpClient client)
         {
             this.Client = client;
+            
             this.AccountsClient = new Lazy<AccountsClient>(() => new AccountsClient(this));
-
-            this.DefaultPaginOptions = new PagingOptions(); 
+            this.OAuth2Client = new Lazy<OAuth2Client>(() => new OAuth2Client(this));
+            
+            this.DefaultPagingOptions = new PagingOptions(); 
         }
 
         #region ICanvasApi
         public IAccountsApi Accounts => this.AccountsClient.Value;
+        public IOAuth2Api OAuth2 => this.OAuth2Client.Value;
+        
 
         public bool VerifyConfiguration()
         {
@@ -91,12 +97,13 @@ namespace CanvasApi.Client
             PagingOptions pagingOptions = null,
             CancellationToken cancellationToken = default)
         {
-            var pageLinks = new PageLinks((pagingOptions ?? this.DefaultPaginOptions)?.AddPagingUrl(url) ?? url); 
+            var pageLinks = new PageLinks((pagingOptions ?? this.DefaultPagingOptions)?.AddPagingUrl(url) ?? url); 
             var initialBuffer = await this.ApiOperation<IEnumerable<TResult>, TBody>(verb, pageLinks.OriginalUrl, body, pageLinks, cancellationToken);
             return new PageableResult<TResult>(initialBuffer, this, pageLinks);
         }
 
         internal Task<TResult> ApiOperation<TResult>(ApiVerb verb, string url) => this.ApiOperation<TResult, object>(verb, url, null);
+        
         internal async Task<TResult> ApiOperation<TResult, TBody>(
             ApiVerb verb,
             string url,

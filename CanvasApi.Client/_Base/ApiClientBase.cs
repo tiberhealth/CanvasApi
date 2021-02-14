@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text.Encodings.Web;
+
 namespace CanvasApi.Client._Base
 {
     public abstract class ApiClientBase
@@ -7,5 +9,6 @@ namespace CanvasApi.Client._Base
 
         protected ApiClientBase(CanvasApiClient parent) => this.ApiClient = parent;
 
+        protected string UrlEncode(string source) => Uri.EscapeUriString(source);
     }
 }

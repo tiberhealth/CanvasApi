@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 
 namespace CanvasApi.Client
 {
@@ -61,7 +62,7 @@ namespace CanvasApi.Client
             if (string.IsNullOrWhiteSpace(url)) return false;
 
             var newPageLinks = new PageLinks(this.Links.OriginalUrl);
-            var apiCall = this.ApiClient.ApiOperation<IEnumerable<TResult>, object>(Enums.ApiVerb.Get, this.Links.Next, null, newPageLinks);
+            var apiCall = this.ApiClient.ApiOperation<IEnumerable<TResult>, object>(HttpMethod.Get, this.Links.Next, null, newPageLinks);
             apiCall.Wait();
 
             this.Buffer = apiCall.Result.ToArray();

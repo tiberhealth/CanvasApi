@@ -86,7 +86,7 @@ namespace CanvasApi.Client.OAuth2.Models
 
     internal class AuthorizationCodeRequest : TokenRequest, IAuthCodeToken
     {
-        public override string GrantType => "authorization_Code";
+        public override string GrantType => "authorization_code";
         public override bool Validate()
         {
             this.RequiredField(nameof(this.Code), this.Code);

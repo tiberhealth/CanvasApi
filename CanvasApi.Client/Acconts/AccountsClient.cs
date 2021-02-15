@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using CanvasApi.Client._Base;
 using CanvasApi.Client.Acconts.Enums;
@@ -45,7 +46,7 @@ namespace CanvasApi.Client.Acconts
         public async Task<IEnumerable<Account>> GetSubAccounts(long accountId, bool recursive = false)
         {
             var url = $"/api/v1/accounts/{accountId}/sub_accounts?recursive={recursive.ToString()}";
-            var results = await this.ApiClient.PagableApiOperation<Account>(Client.Enums.ApiVerb.Get, url);
+            var results = await this.ApiClient.PagableApiOperation<Account>(HttpMethod.Get, url);
 
             return results;
         }
@@ -63,7 +64,7 @@ namespace CanvasApi.Client.Acconts
             var url = "/api/v1/accounts";
             if ((include?.Length ?? 0) > 0) url += $"?include[]={string.Join(',', include)}";
 
-            var results = await this.ApiClient.PagableApiOperation<Account>(Client.Enums.ApiVerb.Get, url);
+            var results = await this.ApiClient.PagableApiOperation<Account>(HttpMethod.Get, url);
 
             return results;
         }

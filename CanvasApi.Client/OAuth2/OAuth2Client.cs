@@ -1,3 +1,4 @@
+using System.Net.Http;
 using System.Threading.Tasks;
 using CanvasApi.Client._Base;
 using CanvasApi.Client.OAuth2.Models;
@@ -11,11 +12,11 @@ namespace CanvasApi.Client.OAuth2
         }
 
 
-        public async Task<IAuthToken> Token(IOAuthTokenRequest request)
+        public async Task<IAuthToken> Token<TRequest>(TRequest request) where TRequest: class, IOAuthTokenRequest
         {
             const string url = "/login/oauth2/token";
             var results =
-                await this.ApiClient.ApiOperation<AuthToken, IOAuthTokenRequest>(Client.Enums.ApiVerb.Post, url,
+                await this.ApiClient.ApiOperation<AuthToken, TRequest>(HttpMethod.Post, url,
                     request);
 
             return results;
@@ -26,7 +27,7 @@ namespace CanvasApi.Client.OAuth2
             const string url = "/login/oauth2/token";
 
             var results = await this.ApiClient.ApiOperation<LogoutResponse, object>(
-                Client.Enums.ApiVerb.Delete,
+                HttpMethod.Delete,
                 url,
                 expireSessions ? new {expireSessions = 1} : null
             );
@@ -40,7 +41,7 @@ namespace CanvasApi.Client.OAuth2
             if (!string.IsNullOrWhiteSpace(returnTo)) url += $"?return_to={this.UrlEncode(returnTo)}";
             
             var results = await this.ApiClient.ApiOperation<WebSessionResponse>(
-                Client.Enums.ApiVerb.Get,
+                HttpMethod.Get,
                 url);
 
             return results;

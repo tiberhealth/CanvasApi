@@ -6,7 +6,7 @@ namespace CanvasApi.Client
 {
     public static class CanvasApiServiceBinder
     {
-        public static void AddCanvasApi(this IServiceCollection services)
+        public static void AddTiberCanvasApi(this IServiceCollection services)
         {
             services.TryAddTransient<IAuthCodeToken, AuthorizationCodeRequest>();
             services.TryAddTransient<IAuthRefreshToken, RefreshTokenRequest>();

@@ -1,28 +1,34 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using CanvasApi.Client.Acconts;
+using CanvasApi.Client.AssignmentGroups;
+using CanvasApi.Client.Enrollments;
 using CanvasApi.Client.Extentions;
 using CanvasApi.Client.OAuth2;
 using CanvasApi.Client.Users;
 using Newtonsoft.Json;
 using TiberHealth.Serializer;
+using System.Web;
 
 [assembly: InternalsVisibleTo("CanvasApi.Client.Test")]
 namespace CanvasApi.Client
 {
     public class CanvasApiClient: ICanvasApiClient, IDisposable
     {
-        private HttpClient Client { get; set; }
-        private readonly Lazy<AccountsClient> AccountsClient;
+        private HttpClient Client { get; }
+        private IServiceProvider ServiceProvider { get; }
+
         private readonly Lazy<OAuth2Client> OAuth2Client;
+
+        private readonly Lazy<AccountsClient> AccountsClient;
+        private readonly Lazy<AssignmentGroupsApiClient> AssignmentGroupsClient;
+        private readonly Lazy<EnrollmentApiClient> EnrollmentClient;
         private readonly Lazy<UsersClient> UsersClient;
 
         public PagingOptions DefaultPagingOptions { get; private set; }
@@ -32,8 +38,10 @@ namespace CanvasApi.Client
         /// </summary>
         /// <param name="canvasDomain">The domain address to the Canvas Instance</param>
         /// <param name="apiKey">The API Key defined on the Canvas Instance for this application</param>
-        public CanvasApiClient(string canvasDomain, string apiKey): this(new HttpClient().ConfigureCanvasApi(canvasDomain, apiKey))
-        {}
+        public CanvasApiClient(string canvasDomain, string apiKey, IServiceProvider serviceProvider):
+            this(new HttpClient().ConfigureCanvasApi(canvasDomain, apiKey), serviceProvider)
+        {
+        }
 
         /// <summary>
         /// Constructor for an already initialized HttpClient.
@@ -45,23 +53,31 @@ namespace CanvasApi.Client
         /// 
         /// </summary>
         /// <param name="client">Http Client object already initialized to the Canvas API domain/root and headers preparred.</param>
-        public CanvasApiClient(HttpClient client)
+        public CanvasApiClient(HttpClient client, IServiceProvider serviceProvider)
         {
             this.Client = client;
+            this.ServiceProvider = serviceProvider;
+
             this.DefaultPagingOptions = new PagingOptions();
 
             // Build the Apis            
-            this.AccountsClient = this.SetLazy(() => new AccountsClient(this));
             this.OAuth2Client = this.SetLazy(() => new OAuth2Client(this));
+
+            this.AccountsClient = this.SetLazy(() => new AccountsClient(this));
+            this.AssignmentGroupsClient = this.SetLazy(() => new AssignmentGroupsApiClient(this)); 
+            this.EnrollmentClient = this.SetLazy(() => new EnrollmentApiClient(this));
             this.UsersClient = this.SetLazy(() => new Users.UsersClient(this));
         }
 
         private Lazy<TType> SetLazy<TType>(Func<TType> factory) => new Lazy<TType>(factory);
 
         #region ICanvasApi
-        public IAccountsApi Accounts => this.AccountsClient.Value;
         public IOAuth2Api OAuth2 => this.OAuth2Client.Value;
+
+        public IAccountsApi Accounts => this.AccountsClient.Value;
+        public IAssignmentGroupsApiClient AssignmentGroups => this.AssignmentGroupsClient.Value;
         public IUsersApi Users => this.UsersClient.Value;
+        public IEnrollmentApiClient Enrollments => this.EnrollmentClient.Value;
 
         public bool VerifyConfiguration()
         {
@@ -94,14 +110,15 @@ namespace CanvasApi.Client
         #endregion
 
         internal Task<IEnumerable<TResult>> PagableApiOperation<TResult>(HttpMethod verb, string url, PagingOptions pagingOptions = null) =>
-            this.PagableApiOperation<TResult, object>(verb, url, null, pagingOptions);
+                this.PagableApiOperation<TResult, object>(verb, url, null, pagingOptions);
 
         internal async Task<IEnumerable<TResult>> PagableApiOperation<TResult, TBody>(
             HttpMethod verb,
             string url,
             TBody body,
             PagingOptions pagingOptions = null,
-            CancellationToken cancellationToken = default) where TBody: class
+            CancellationToken cancellationToken = default)
+                where TBody: class
         {
             var pageLinks = new PageLinks((pagingOptions ?? this.DefaultPagingOptions)?.AddPagingUrl(url) ?? url); 
             var initialBuffer = await this.ApiOperation<IEnumerable<TResult>, TBody>(verb, pageLinks.OriginalUrl, body, pageLinks, cancellationToken);
@@ -115,7 +132,8 @@ namespace CanvasApi.Client
             string url,
             TBody body,
             PageLinks pageLinks = null,
-            CancellationToken cancellationToken = default) where TBody: class
+            CancellationToken cancellationToken = default)
+                where TBody : class
         {
             var httpMessage = this.GenerateHttpRequest(verb, url, body);
 
@@ -130,7 +148,8 @@ namespace CanvasApi.Client
                 using var streamReader = new StreamReader(contentStream);
                 using var reader = new JsonTextReader(streamReader);
 
-                return new JsonSerializer().Deserialize<TResult>(reader) ?? default(TResult);
+                var serializedCollection = new JsonSerializer().Deserialize<TResult>(reader);
+                return serializedCollection ?? default(TResult);
             }
 
             throw result.ToEException();
@@ -141,12 +160,29 @@ namespace CanvasApi.Client
         private HttpRequestMessage GenerateHttpRequest<TBody>(HttpMethod method, string url, TBody body)
             where TBody: class
         {
-            var httpMessage = new HttpRequestMessage(method, url);
-
+            HttpContent messageContent = null;
+            var requestUrl = url;
             if (body != null)
             {
-                httpMessage.Content = FormDataSerializer.Serialize(body);
+                messageContent = FormDataSerializer.Serialize(body);
+
+                if (method == HttpMethod.Get && messageContent is MultipartFormDataContent multipartFormDataContent)
+                {
+                    foreach(var content in multipartFormDataContent)
+                    {
+                        var dataTask = content.ReadAsStringAsync();
+                        dataTask.Wait();
+
+                        if (!string.IsNullOrWhiteSpace(dataTask.Result)) {
+                        var paramName = content.Headers.ContentDisposition.Name.Trim('"');
+                        requestUrl += $"{(requestUrl.Contains('?') ? '&' : '?')}{paramName}={HttpUtility.UrlEncode(dataTask.Result)}";
+                        }
+                    }
+                }
             }
+
+            var httpMessage = new HttpRequestMessage(method, requestUrl);
+            httpMessage.Content = messageContent;
 
             return httpMessage;
         }

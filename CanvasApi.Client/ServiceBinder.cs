@@ -1,3 +1,5 @@
+using CanvasApi.Client.AssignmentGroups.Models;
+using CanvasApi.Client.Enrollments.Models;
 using CanvasApi.Client.OAuth2.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -8,9 +10,19 @@ namespace CanvasApi.Client
     {
         public static void AddTiberCanvasApi(this IServiceCollection services)
         {
+            // Authentication
             services.TryAddTransient<IAuthCodeToken, AuthorizationCodeRequest>();
             services.TryAddTransient<IAuthRefreshToken, RefreshTokenRequest>();
             services.TryAddTransient<IAuthClientCredentials, ClientCredentialsRequest>();
+
+            // Enrollments
+            services.TryAddTransient<IEnrollmentRequest, EnrollmentRequest>();
+
+            // Assignment Groups
+            services.TryAddTransient<IAssignmentGroupGetOptions, AssignmentGroupGetOptions>();
+            services.TryAddTransient<IAssignmentGroupListOptions, AssignmentGroupListOptions>();
+            services.TryAddTransient<IAssignmentGroupNewEdit, AssignmentGroupNewEdit>();
+            services.TryAddTransient<IDeleteAssignmentGroup, DeleteAssignmentGroup>(); 
         }
     }
 }

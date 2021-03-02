@@ -13,7 +13,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="TiberHealth.Serializer" Version="1.0.19" />
+    <PackageReference Include="TiberHealth.Serializer" Version="1.0.23" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
   </ItemGroup>
   <ItemGroup>
@@ -22,10 +22,19 @@
     <Folder Include="_Base\" />
     <Folder Include="Acconts\Models\" />
     <Folder Include="Acconts\Enums\" />
-    <Folder Include="Enums\" />
     <Folder Include="Extentions\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Users\" />
     <Folder Include="Users\Models\" />
+    <Folder Include="Enrollments\" />
+    <Folder Include="Enrollments\Models\" />
+    <Folder Include="Atrributes\" />
+    <Folder Include="Enrollments\Enums\" />
+    <Folder Include="AssignmentGroups\" />
+    <Folder Include="AssignmentGroups\Models\" />
+    <Folder Include="Assignments\" />
+    <Folder Include="Assignments\Models\" />
+    <Folder Include="Assignments\Enums\" />
+    <Folder Include="AssignmentGroups\Enums\" />
   </ItemGroup>
 </Project>

@@ -15,6 +15,7 @@ using CanvasApi.Client.Users;
 using Newtonsoft.Json;
 using TiberHealth.Serializer;
 using System.Web;
+using CanvasApi.Client.Submissions;
 
 [assembly: InternalsVisibleTo("CanvasApi.Client.Test")]
 namespace CanvasApi.Client
@@ -26,9 +27,11 @@ namespace CanvasApi.Client
 
         private readonly Lazy<OAuth2Client> OAuth2Client;
 
+
         private readonly Lazy<AccountsClient> AccountsClient;
         private readonly Lazy<AssignmentGroupsApiClient> AssignmentGroupsClient;
         private readonly Lazy<EnrollmentApiClient> EnrollmentClient;
+        private readonly Lazy<SubmissionsApiClient> SubmissionsApiClient;
         private readonly Lazy<UsersClient> UsersClient;
 
         public PagingOptions DefaultPagingOptions { get; private set; }
@@ -66,6 +69,7 @@ namespace CanvasApi.Client
             this.AccountsClient = this.SetLazy(() => new AccountsClient(this));
             this.AssignmentGroupsClient = this.SetLazy(() => new AssignmentGroupsApiClient(this)); 
             this.EnrollmentClient = this.SetLazy(() => new EnrollmentApiClient(this));
+            this.SubmissionsApiClient = this.SetLazy(() => new SubmissionsApiClient(this));
             this.UsersClient = this.SetLazy(() => new Users.UsersClient(this));
         }
 
@@ -78,6 +82,7 @@ namespace CanvasApi.Client
         public IAssignmentGroupsApiClient AssignmentGroups => this.AssignmentGroupsClient.Value;
         public IUsersApi Users => this.UsersClient.Value;
         public IEnrollmentApiClient Enrollments => this.EnrollmentClient.Value;
+        public ISubmissionsApiClient Submissions => this.SubmissionsApiClient.Value;
 
         public bool VerifyConfiguration()
         {

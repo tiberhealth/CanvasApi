@@ -36,5 +36,10 @@
     <Folder Include="Assignments\Models\" />
     <Folder Include="Assignments\Enums\" />
     <Folder Include="AssignmentGroups\Enums\" />
+    <Folder Include="Submissions\" />
+    <Folder Include="Submissions\Models\" />
+    <Folder Include="Courses\" />
+    <Folder Include="Courses\Models\" />
+    <Folder Include="Submissions\Enums\" />
   </ItemGroup>
 </Project>

@@ -23,6 +23,6 @@ namespace CanvasApi.Client.AssignmentGroups.Models
         /// <summary>
         /// The id of the grading period in which assignment groups are being requested (Requires grading periods to exist on the account)
         /// </summary>
-        [JsonProperty("grading_period_id")] long GradingPeriodId { get; set; }
+        [JsonProperty("grading_period_id")] long? GradingPeriodId { get; set; }
     }
 }

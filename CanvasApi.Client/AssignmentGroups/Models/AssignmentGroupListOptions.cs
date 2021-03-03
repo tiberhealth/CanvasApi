@@ -10,7 +10,7 @@ namespace CanvasApi.Client.AssignmentGroups.Models
         public IEnumerable<long> AssignmentIds { get; set; }
         public IEnumerable<SubmissionTypes> ExcludedAssignmentSubmissionTypes { get; set; }
         public bool? OverrideAssignmentDates { get; set; }
-        public long GradingPeriodId { get; set; }
+        public long? GradingPeriodId { get; set; }
         public bool? ScopeAssignmentsToStudent { get; set; }
     }
 }

@@ -16,14 +16,14 @@ steps:
   displayName: 'Build Library'
   inputs:
     command: 'build'
-    projects: 'Serializer/Serializer.csproj'
+    projects: 'CanvasApi.Client/CanvasApi.Client.csproj'
     arguments: '--configuration $(BuildConfiguration) /p:Version=$(Build.BuildNumber)'
 
 - task: DotNetCoreCLI@2
   displayName: 'Test Library'
   inputs:
     command: 'test'
-    projects: 'SerializerTest/SerializerTest.csproj'
+    projects: 'CanvasApi.Client.Test/CanvasApi.Client.Test.csproj'
     testRunTitle: 'Canvas API Test'
 
 - task: DotNetCoreCLI@2
@@ -31,12 +31,12 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: false
-    projects: 'Serializer/Serializer.csproj'
+    projects: 'CanvasApi.Client/CanvasApi.Client.csproj'
     arguments: '--configuration $(BuildConfiguration) /p:Version=$(Build.BuildNumber)'
     
 - task: DotNetCoreCLI@2
   displayName: 'Pack Library'
   inputs:
     command: 'pack'
-    packagesToPack: '**/*.csproj'
+    packagesToPack: 'CanvasApi.Client/CanvasApi.Client.csproj'
     versioningScheme: 'byBuildNumber'

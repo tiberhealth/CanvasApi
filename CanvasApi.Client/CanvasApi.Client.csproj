@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <Authors>Bryan M Lenihan</Authors>
+    <Copyright>2021</Copyright>
+    <PackageIconUrl>https://cdn.tiberhealth.com/assets/TiberLogoImage_1E384B_128Icon.png</PackageIconUrl>
+    <Owners>Tiber Health innovations, Inc.</Owners>
+    <PackageProjectUrl>https://github.com/tiberhealth/CanvasApi</PackageProjectUrl>
+    <Summary>.Net 5.0 wrapper for the Canvas LMS API</Summary>
+    <PackageTags>Canvas LMS Instructure Tiber Health tiberhealth</PackageTags>
+    <Title>Canvas LMS API Wrapper</Title>
+    <Description>.Net Wrapper for Canvas LMS API.</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

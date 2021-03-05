@@ -1,6 +1,8 @@
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using CanvasApi.Client._Base;
+using CanvasApi.Client.Extentions;
 using CanvasApi.Client.OAuth2.Models;
 
 namespace CanvasApi.Client.OAuth2
@@ -12,12 +14,13 @@ namespace CanvasApi.Client.OAuth2
         }
 
 
-        public async Task<IAuthToken> Token<TRequest>(TRequest request) where TRequest: class, IOAuthTokenRequest
+        public async Task<IAuthToken> Token<TRequest>(Action<TRequest> request) where TRequest: class, IOAuthTokenRequest, new()
         {
             const string url = "/login/oauth2/token";
             var results =
                 await this.ApiClient.ApiOperation<AuthToken, TRequest>(HttpMethod.Post, url,
-                    request);
+                    request.GetOptions<TRequest, TRequest>()
+            );
 
             return results;
         }

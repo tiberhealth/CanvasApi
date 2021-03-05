@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using CanvasApi.Client.Submissions.Models;
 
@@ -21,7 +22,7 @@ namespace CanvasApi.Client.Submissions
         /// <param name="assignmentId"></param>
         /// <param name="submission"></param>
         /// <returns></returns>
-        Task<ISubmission> SubmitCourse(long courseId, long assignmentId, ISubmissionSubmit submission);
+        Task<ISubmission> SubmitCourse(long courseId, long assignmentId, Action<ISubmissionSubmit> submission);
 
         /// <summary>
         /// Make a submission for an assignment. You must be enrolled as a student in the course/section to do this.
@@ -38,7 +39,7 @@ namespace CanvasApi.Client.Submissions
         /// <param name="assignmentId"></param>
         /// <param name="submission"></param>
         /// <returns></returns>
-        Task<ISubmission> SubmitSection(long sectionId, long assignmentId, ISubmissionSubmit submission);
+        Task<ISubmission> SubmitSection(long sectionId, long assignmentId,Action<ISubmissionSubmit> submission);
 
         /// <summary>
         /// A paginated list of all existing submissions for an assignment.
@@ -46,7 +47,7 @@ namespace CanvasApi.Client.Submissions
         /// <param name="courseId"></param>
         /// <param name="includes"></param>
         /// <returns></returns>
-        Task<IEnumerable<ISubmission>> ListCourse(long courseId, long assignmentId, ISubmissionIncludes includes = null);
+        Task<IEnumerable<ISubmission>> ListCourse(long courseId, long assignmentId, Action<ISubmissionIncludes> includes = null);
 
         /// <summary>
         /// A paginated list of all existing submissions for an assignment.
@@ -54,7 +55,7 @@ namespace CanvasApi.Client.Submissions
         /// <param name="courseId"></param>
         /// <param name="includes"></param>
         /// <returns></returns>
-        Task<IEnumerable<ISubmission>> ListSection(long sectionId, long assignmentId, ISubmissionIncludes includes = null);
+        Task<IEnumerable<ISubmission>> ListSection(long sectionId, long assignmentId, Action<ISubmissionIncludes> includes = null);
 
         /// <summary>
         /// A paginated list of all existing submissions for an assignment, group By Student Ids
@@ -62,7 +63,7 @@ namespace CanvasApi.Client.Submissions
         /// <param name="courseId"></param>
         /// <param name="includes"></param>
         /// <returns></returns>
-        Task<IEnumerable<IGroupedSubmissions>> ListCourseGroupedByStudent(long courseId, long assignmentId, ISubmissionIncludes includes = null);
+        Task<IEnumerable<IGroupedSubmissions>> ListCourseGroupedByStudent(long courseId, long assignmentId, Action<ISubmissionIncludes> includes = null);
 
         /// <summary>
         /// A paginated list of all existing submissions for an assignment, group By Student Ids
@@ -70,7 +71,7 @@ namespace CanvasApi.Client.Submissions
         /// <param name="courseId"></param>
         /// <param name="includes"></param>
         /// <returns></returns>
-        Task<IEnumerable<IGroupedSubmissions>> ListSectionGroupedByStudent(long sectionId, long assignmentId, ISubmissionIncludes includes = null);
+        Task<IEnumerable<IGroupedSubmissions>> ListSectionGroupedByStudent(long sectionId, long assignmentId, Action<ISubmissionIncludes> includes = null);
 
         /// <summary>
         /// A paginated list of all existing submissions for a given set of students and assignments.
@@ -78,7 +79,7 @@ namespace CanvasApi.Client.Submissions
         /// <param name="courseId"></param>
         /// <param name="listParams"></param>
         /// <returns></returns>
-        Task<IEnumerable<ISubmission>> ListCourse(long courseId, ISubmissionListParams listParams);
+        Task<IEnumerable<ISubmission>> ListCourse(long courseId, Action<ISubmissionListParams> listParams);
 
         /// <summary>
         /// A paginated list of all existing submissions for a given set of students and assignments.
@@ -86,7 +87,7 @@ namespace CanvasApi.Client.Submissions
         /// <param name="courseId"></param>
         /// <param name="listParams"></param>
         /// <returns></returns>
-        Task<IEnumerable<ISubmission>> ListSection(long sectionId, ISubmissionListParams listParams);
+        Task<IEnumerable<ISubmission>> ListSection(long sectionId, Action<ISubmissionListParams> listParams);
 
         /// <summary>
         /// A paginated list of all existing submissions for a given set of students and assignments grouped by student.
@@ -94,7 +95,7 @@ namespace CanvasApi.Client.Submissions
         /// <param name="courseId"></param>
         /// <param name="listParams"></param>
         /// <returns></returns>
-        Task<IEnumerable<IGroupedSubmissions>> ListCourseGroupedByStudent(long courseId, ISubmissionListParams listParams);
+        Task<IEnumerable<IGroupedSubmissions>> ListCourseGroupedByStudent(long courseId, Action<ISubmissionListParams> listParams);
 
         /// <summary>
         /// A paginated list of all existing submissions for a given set of students and assignments grouped by student
@@ -102,7 +103,7 @@ namespace CanvasApi.Client.Submissions
         /// <param name="courseId"></param>
         /// <param name="listParams"></param>
         /// <returns></returns>
-        Task<IEnumerable<IGroupedSubmissions>> ListSectionGroupedByStudent(long sectionId, ISubmissionListParams listParams);
+        Task<IEnumerable<IGroupedSubmissions>> ListSectionGroupedByStudent(long sectionId, Action<ISubmissionListParams> listParams);
 
         /// <summary>
         /// Get a single submission, based on user id.
@@ -112,7 +113,7 @@ namespace CanvasApi.Client.Submissions
         /// <param name="userId"></param>
         /// <param name="includes"></param>
         /// <returns></returns>
-        Task<ISubmission> GetSingleCourse(long courseId, long assignmentId, long userId, ISubmissionIncludes includes = null);
+        Task<ISubmission> GetSingleCourse(long courseId, long assignmentId, long userId, Action<ISubmissionIncludes> includes = null);
 
         /// <summary>
         /// Get a single submission, based on user id.
@@ -122,6 +123,6 @@ namespace CanvasApi.Client.Submissions
         /// <param name="userId"></param>
         /// <param name="includes"></param>
         /// <returns></returns>
-        Task<ISubmission> GetSingleSection(long sectionId, long assignmentId, long userId, ISubmissionIncludes includes = null);
+        Task<ISubmission> GetSingleSection(long sectionId, long assignmentId, long userId, Action<ISubmissionIncludes> includes = null);
     }
 }

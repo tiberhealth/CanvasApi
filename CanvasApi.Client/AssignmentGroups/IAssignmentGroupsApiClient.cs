@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using CanvasApi.Client.AssignmentGroups.Models;
 
@@ -11,7 +12,7 @@ namespace CanvasApi.Client.AssignmentGroups
         /// </summary>
         /// <param name="courseId"></param>
         /// <returns></returns>
-        Task<IEnumerable<IAssignmentGroup>> List(long courseId, IAssignmentGroupListOptions options = null);
+        Task<IEnumerable<IAssignmentGroup>> List(long courseId, Action<IAssignmentGroupListOptions> options = null);
 
         /// <summary>
         /// Returns the assignment group with the given id
@@ -20,7 +21,7 @@ namespace CanvasApi.Client.AssignmentGroups
         /// <param name="assignmentGroupId"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        Task<IAssignmentGroup> Get(long courseId, long assignmentGroupId, IAssignmentGroupGetOptions options = null);
+        Task<IAssignmentGroup> Get(long courseId, long assignmentGroupId, Action<IAssignmentGroupGetOptions> options = null);
 
         /// <summary>
         /// Create a new assignment group for this course
@@ -28,7 +29,7 @@ namespace CanvasApi.Client.AssignmentGroups
         /// <param name="courseId"></param>
         /// <param name="assignmentGroup"></param>
         /// <returns></returns>
-        Task<IAssignmentGroup> Create(long courseId, IAssignmentGroupNewEdit assignmentGroup);
+        Task<IAssignmentGroup> Create(long courseId, Action<IAssignmentGroupNewEdit> assignmentGroup);
 
         /// <summary>
         /// Modify an existing Assignment Group. Accepts the same parameters as Assignment Group creation
@@ -36,7 +37,7 @@ namespace CanvasApi.Client.AssignmentGroups
         /// <param name="courseId"></param>
         /// <param name="assignmentGroup"></param>
         /// <returns></returns>
-        Task<IAssignmentGroup> Edit(long courseId, long assignmentGroupId, IAssignmentGroupNewEdit assignmentGroup);
+        Task<IAssignmentGroup> Edit(long courseId, long assignmentGroupId, Action<IAssignmentGroupNewEdit> assignmentGroup);
 
         /// <summary>
         /// Deletes the assignment group with the given id.
@@ -44,6 +45,6 @@ namespace CanvasApi.Client.AssignmentGroups
         /// <param name="courseId"></param>
         /// <param name="assignmentGroupId"></param>
         /// <returns></returns>
-        Task<IAssignmentGroup> Destroy(long courseId, long assignmentGroupId, IDeleteAssignmentGroup body = null);
+        Task<IAssignmentGroup> Destroy(long courseId, long assignmentGroupId, Action<IDeleteAssignmentGroup> body = null);
     }
 }

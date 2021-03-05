@@ -8,5 +8,6 @@ namespace CanvasApi.Client.Submissions.Models
     public interface ISubmissionIncludes
     {
         [JsonProperty("include")] IEnumerable<SubmissionListInclude> Includes { get; set; }
+        [JsonProperty("grouped")] bool? Grouped { get; }
     }
 }

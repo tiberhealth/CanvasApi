@@ -20,7 +20,7 @@ namespace CanvasApi.Client.Enrollments
         /// <param name="courseId"></param>
         /// <param name="request"></param>
         /// <returns></returns>
-        Task<IEnumerable<IEnrollment>> CourseEnrollments(long courseId, IEnrollmentRequest request = null);
+        Task<IEnumerable<IEnrollment>> CourseEnrollments(long courseId, Action<IEnrollmentRequest> options = null);
         /// <summary>
         /// List enrollments
         ///
@@ -33,7 +33,7 @@ namespace CanvasApi.Client.Enrollments
         /// <param name="courseId"></param>
         /// <param name="request"></param>
         /// <returns></returns>
-        Task<IEnumerable<IEnrollment>> SectionEnrollments(long sectionId, IEnrollmentRequest request = null);
+        Task<IEnumerable<IEnrollment>> SectionEnrollments(long sectionId, Action<IEnrollmentRequest> options = null);
         /// <summary>
         /// List enrollments
         ///
@@ -46,7 +46,7 @@ namespace CanvasApi.Client.Enrollments
         /// <param name="courseId"></param>
         /// <param name="request"></param>
         /// <returns></returns>
-        Task<IEnumerable<IEnrollment>> UserEnrollments(long userId, IEnrollmentRequest request = null);
+        Task<IEnumerable<IEnrollment>> UserEnrollments(long userId, Action<IEnrollmentRequest> options = null);
         /// <summary>
         /// Get an Enrollment object by Enrollment ID
         /// </summary>

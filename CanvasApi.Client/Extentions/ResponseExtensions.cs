@@ -6,7 +6,7 @@ using CanvasApi.Client.Exceptions;
 
 namespace CanvasApi.Client.Extentions
 {
-    public static class ResponseExtensions
+    internal static class ResponseExtensions
     {
         public static CanvasApiException ToEException(this HttpResponseMessage response)
         {

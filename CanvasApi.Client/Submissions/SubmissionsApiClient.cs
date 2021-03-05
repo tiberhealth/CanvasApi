@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using CanvasApi.Client._Base;
+using CanvasApi.Client.Extentions;
 using CanvasApi.Client.Submissions.Models;
 
 namespace CanvasApi.Client.Submissions
@@ -10,97 +12,90 @@ namespace CanvasApi.Client.Submissions
     {
         public SubmissionsApiClient(CanvasApiClient parent) : base(parent) { }
 
-        public async Task<ISubmission> GetSingleCourse(long courseId, long assignmentId, long userId, ISubmissionIncludes includes = null) =>
+        public async Task<ISubmission> GetSingleCourse(long courseId, long assignmentId, long userId, Action<ISubmissionIncludes> includes = null) =>
             await this.ApiClient.ApiOperation<Submission, ISubmissionIncludes>(
                     HttpMethod.Get,
                     $"/api/v1/courses/{courseId}/assignments/{assignmentId}/submissions/{userId}",
-                    includes
+                    includes.GetOptions<ISubmissionIncludes, SubmissionIncludes>()
                 );
 
-        public async Task<ISubmission> GetSingleSection(long sectionId, long assignmentId, long userId, ISubmissionIncludes includes = null) =>
+        public async Task<ISubmission> GetSingleSection(long sectionId, long assignmentId, long userId, Action<ISubmissionIncludes> includes = null) =>
             await this.ApiClient.ApiOperation<Submission, ISubmissionIncludes>(
                     HttpMethod.Get,
                     $"/api/v1/sections/{sectionId}/assignments/{assignmentId}/submissions/{userId}",
-                    includes
+                    includes.GetOptions<ISubmissionIncludes, SubmissionIncludes>()
                 );
 
-        public async Task<IEnumerable<ISubmission>> ListCourse(long courseId, long assignmentId, ISubmissionIncludes includes = null) =>
-            await this.ApiClient.PagableApiOperation<Submission, SubmissionIncludes>(
+        public async Task<IEnumerable<ISubmission>> ListCourse(long courseId, long assignmentId, Action<ISubmissionIncludes> includes = null) =>
+            await this.ApiClient.PagableApiOperation<Submission, ISubmissionIncludes>(
                     HttpMethod.Get,
                     $"/api/v1/courses/{courseId}/assignments/{assignmentId}/submissions",
-                    SubmissionIncludes.Get(includes)
+                    includes.GetOptions<ISubmissionIncludes, SubmissionIncludes>()
                 );
 
-        public async Task<IEnumerable<ISubmission>> ListCourse(long courseId, ISubmissionListParams listParams) =>
+        public async Task<IEnumerable<ISubmission>> ListCourse(long courseId, Action<ISubmissionListParams> listParams) =>
             await this.ApiClient.PagableApiOperation<Submission, ISubmissionListParams>(
                     HttpMethod.Get,
                     $"/api/v1/courses/{courseId}/students/submissions",
-                    listParams
+                    listParams.GetOptions<ISubmissionListParams, SubmissionListParams>()
                 );
 
 
-        public async Task<IEnumerable<IGroupedSubmissions>> ListCourseGroupedByStudent(long courseId, long assignmentId, ISubmissionIncludes includes = null) =>
-            await this.ApiClient.PagableApiOperation<GroupedSubmissions, SubmissionIncludes>(
+        public async Task<IEnumerable<IGroupedSubmissions>> ListCourseGroupedByStudent(long courseId, long assignmentId, Action<ISubmissionIncludes> includes = null) =>
+            await this.ApiClient.PagableApiOperation<GroupedSubmissions, ISubmissionIncludes>(
                     HttpMethod.Get,
                     $"/api/v1/courses/{courseId}/assignments/{assignmentId}/submissions",
-                    SubmissionIncludes.Get(includes, true)
+                    includes.GetOptions<ISubmissionIncludes, SubmissionIncludes>(o => o.Grouped = true)
                 );
 
-        public async Task<IEnumerable<IGroupedSubmissions>> ListCourseGroupedByStudent(long courseId, ISubmissionListParams listParams)
-        {
-            listParams.Grouped = true;
-
-            return await this.ApiClient.PagableApiOperation<GroupedSubmissions, ISubmissionListParams>(
+        public async Task<IEnumerable<IGroupedSubmissions>> ListCourseGroupedByStudent(long courseId, Action<ISubmissionListParams> listParams) =>
+                await this.ApiClient.PagableApiOperation<GroupedSubmissions, ISubmissionListParams>(
                         HttpMethod.Get,
                         $"/api/v1/courses/{courseId}/students/submissions",
-                        listParams
+                        listParams.GetOptions<ISubmissionListParams, SubmissionListParams>(o => o.Grouped = true)
                     );
-        }
 
-        public async Task<IEnumerable<ISubmission>> ListSection(long sectionId, long assignmentId, ISubmissionIncludes includes = null) =>
-            await this.ApiClient.PagableApiOperation<Submission, SubmissionIncludes>(
+        public async Task<IEnumerable<ISubmission>> ListSection(long sectionId, long assignmentId, Action<ISubmissionIncludes> includes = null) =>
+            await this.ApiClient.PagableApiOperation<Submission, ISubmissionIncludes>(
                 HttpMethod.Get,
                 $"/api/v1/sections/{sectionId}/assignments/{assignmentId}/submissions",
-                SubmissionIncludes.Get(includes)
+                includes.GetOptions<ISubmissionIncludes, SubmissionIncludes>()
             );
 
-        public async Task<IEnumerable<ISubmission>> ListSection(long sectionId, ISubmissionListParams listParams) =>
+        public async Task<IEnumerable<ISubmission>> ListSection(long sectionId, Action<ISubmissionListParams> listParams) =>
             await this.ApiClient.PagableApiOperation<Submission, ISubmissionListParams>(
                 HttpMethod.Get,
                 $"/api/v1/sections/{sectionId}/students/submissions",
-                listParams
+                listParams.GetOptions<ISubmissionListParams, SubmissionListParams>()
             );
 
-        public async Task<IEnumerable<IGroupedSubmissions>> ListSectionGroupedByStudent(long sectionId, long assignmentId, ISubmissionIncludes includes = null) =>
-            await this.ApiClient.PagableApiOperation<GroupedSubmissions, SubmissionIncludes>(
+        public async Task<IEnumerable<IGroupedSubmissions>> ListSectionGroupedByStudent(long sectionId, long assignmentId, Action<ISubmissionIncludes> includes = null) =>
+            await this.ApiClient.PagableApiOperation<GroupedSubmissions, ISubmissionIncludes>(
                 HttpMethod.Get,
                 $"/api/v1/sections/{sectionId}/assignments/{assignmentId}/submissions",
-                SubmissionIncludes.Get(includes, true)
+                includes.GetOptions<ISubmissionIncludes, SubmissionIncludes>(o => o.Grouped = true)
             );
 
-        public async Task<IEnumerable<IGroupedSubmissions>> ListSectionGroupedByStudent(long sectionId, ISubmissionListParams listParams) {
-
-            listParams.Grouped = true;
-
-            return await this.ApiClient.PagableApiOperation<GroupedSubmissions, ISubmissionListParams>(
+        public async Task<IEnumerable<IGroupedSubmissions>> ListSectionGroupedByStudent(long sectionId, Action<ISubmissionListParams> listParams) =>
+            await this.ApiClient.PagableApiOperation<GroupedSubmissions, ISubmissionListParams>(
                 HttpMethod.Get,
                 $"/api/v1/sections/{sectionId}/students/submissions",
-                listParams
+                listParams.GetOptions<ISubmissionListParams, SubmissionListParams>(o => o.Grouped = true)
             );
-        }
+        
 
-        public async Task<ISubmission> SubmitCourse(long courseId, long assignmentId, ISubmissionSubmit submission) =>
+        public async Task<ISubmission> SubmitCourse(long courseId, long assignmentId, Action<ISubmissionSubmit> submission) =>
             await this.ApiClient.ApiOperation<Submission, ISubmissionSubmit>(
                 HttpMethod.Post,
                 $"/api/v1/courses/{courseId}/assignments/{assignmentId}/submissions",
-                submission
+                submission.GetOptions<ISubmissionSubmit, SubmissionSubmit>()
             );
 
-        public async Task<ISubmission> SubmitSection(long sectionId, long assignmentId, ISubmissionSubmit submission) =>
+        public async Task<ISubmission> SubmitSection(long sectionId, long assignmentId, Action<ISubmissionSubmit> submission) =>
             await this.ApiClient.ApiOperation<Submission, ISubmissionSubmit>(
                 HttpMethod.Post,
                 $"/api/v1/sections/{sectionId}/assignments/{assignmentId}/submissions",
-                submission
+                submission.GetOptions<ISubmissionSubmit, SubmissionSubmit>()
             );
 
         }

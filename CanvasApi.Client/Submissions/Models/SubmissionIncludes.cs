@@ -10,15 +10,7 @@ namespace CanvasApi.Client.Submissions.Models
     {
         public SubmissionIncludes() { }
 
-        [JsonProperty("include")] public IEnumerable<SubmissionListInclude> Includes { get; set; }
-        [JsonProperty("grouped")] public bool? Grouped { get; private set; }
-
-        internal static SubmissionIncludes Get(ISubmissionIncludes parent, bool? grouped = null) =>
-            new SubmissionIncludes()
-            {
-                Includes = parent.Includes,
-                Grouped = grouped
-            };
-
+        public IEnumerable<SubmissionListInclude> Includes { get; set; }
+        public bool? Grouped { get; set;  }
     }
 }

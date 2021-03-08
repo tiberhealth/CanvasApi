@@ -9,8 +9,8 @@ namespace CanvasApi.Client.AssignmentGroups.Models
     {
         [JsonProperty("id")] public long Id { get; set; }
         [JsonProperty("name")] public string Name { get; set; }
-        [JsonProperty("position")] public int Position { get; set; }
-        [JsonProperty("group_weight")] public decimal GroupWeight { get; set; }
+        [JsonProperty("position")] public int? Position { get; set; }
+        [JsonProperty("group_weight")] public decimal? GroupWeight { get; set; }
         [JsonProperty("sis_source_id")] public string SisSourceId { get; set; }
         [JsonProperty("integration_data")] public JObject IntegrationData { get; set; }
 

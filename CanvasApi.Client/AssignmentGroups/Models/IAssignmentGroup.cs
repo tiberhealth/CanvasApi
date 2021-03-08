@@ -18,11 +18,11 @@ namespace CanvasApi.Client.AssignmentGroups.Models
         /// <summary>
         /// the position of the Assignment Group
         /// </summary>
-        int Position { get; }
+        int? Position { get; }
         /// <summary>
         /// the weight of the Assignment Group
         /// </summary>
-        decimal GroupWeight { get; }
+        decimal? GroupWeight { get; }
         /// <summary>
         /// the sis source id of the Assignment Group
         /// </summary>

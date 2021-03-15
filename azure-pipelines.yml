@@ -50,7 +50,6 @@ steps:
     publishVstsFeed: '0bd21b8b-3ec1-4cf1-9e2a-c491e2a220a5'
 
 - task: NuGetCommand@2
-  displayName: 'Uploading to Nuget.Org'
 	condition: and(succeeded(), or(startsWith(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['Build.SourceBranch'], 'refs/heads/master')))	
   inputs:
     command: 'push'

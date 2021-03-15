@@ -11,18 +11,23 @@ namespace CanvasApi.Client.OAuth2
     {
         internal OAuth2Client(CanvasApiClient parent) : base(parent){ }
 
-
-        public async Task<IAuthToken> Token<TRequest>(Action<TRequest> request) where TRequest: class, IOAuthTokenRequest, new()
+        
+        internal async Task<IAuthToken> Token<TRequest>(Action<TRequest> optionsFactory) where TRequest: class, IOAuthTokenRequest, new()
         {
             const string url = "/login/oauth2/token";
+            var request = new TRequest();
+            optionsFactory?.Invoke(request);
+            
             var results =
-                await this.ApiClient.ApiOperation<AuthToken, TRequest>(HttpMethod.Post, url,
-                    request.GetOptions<TRequest, TRequest>()
-            );
+                await this.ApiClient.ApiOperation<AuthToken, TRequest>(HttpMethod.Post, url, request);
 
             return results;
         }
 
+        public Task<IAuthToken> Token(Action<IAuthCodeToken> optionsFactory) => this.Token<AuthorizationCodeRequest>(optionsFactory);
+        public Task<IAuthToken> Token(Action<IAuthRefreshToken> optionsFactory) => this.Token<RefreshTokenRequest>(optionsFactory);
+        public Task<IAuthToken> Token(Action<IAuthClientCredentials> optionsFactory) => this.Token<ClientCredentialsRequest>(optionsFactory);
+        
         public async Task<ILogoutResponse> Logout(bool expireSessions)
         {
             const string url = "/login/oauth2/token";

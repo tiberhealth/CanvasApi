@@ -11,7 +11,10 @@ namespace CanvasApi.Client.OAuth2
         /// </summary>
         /// <param name="request">The authentication request</param>
         /// <returns>Auth Token</returns>
-        Task<IAuthToken> Token<TRequest>(Action<TRequest> request) where TRequest : class, IOAuthTokenRequest, new();
+        Task<IAuthToken> Token(Action<IAuthCodeToken> request);
+        Task<IAuthToken> Token(Action<IAuthRefreshToken> request);
+        Task<IAuthToken> Token(Action<IAuthClientCredentials> request);
+        
         /// <summary>
         /// If your application supports logout functionality, you can revoke your own access token. This is useful for security reasons, as well as removing your application from the list of tokens on the user's profile page.
         /// Simply make an authenticated request to the following endpoint by including an Authorization header or providing the access_token as a request parameter.

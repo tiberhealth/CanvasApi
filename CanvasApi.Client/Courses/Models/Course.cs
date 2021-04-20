@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CanvasApi.Client.Enrollments.Models;
+using CanvasApi.Client.EnrollmentTerms.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -38,8 +39,8 @@ namespace CanvasApi.Client.Courses.Models
         [JsonProperty("syllabus_body")] public string SyllabusBody { get; set; }
         [JsonProperty("needs_grading_count")] public int? NeedsGradingCount { get; set; }
 
-        [JsonProperty("term")] public Term Term { get; set; }
-        ITerm ICourse.Term => this.Term;
+        [JsonProperty("term")] public EnrollmentTerm Term { get; set; }
+        IEnrollmentTerm ICourse.EnrollmentTerm => this.Term;
 
         [JsonProperty("course_progress")] public ICourseProgress CourseProgress { get; set; }
         ICourseProgress ICourse.CourseProgress => this.CourseProgress;

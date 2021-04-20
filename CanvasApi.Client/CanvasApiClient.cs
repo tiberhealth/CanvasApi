@@ -16,6 +16,9 @@ using Newtonsoft.Json;
 using TiberHealth.Serializer;
 using System.Web;
 using CanvasApi.Client.Submissions;
+using CanvasApi.Client.Pages;
+using CanvasApi.Client.Courses;
+using CanvasApi.Client._Base;
 
 [assembly: InternalsVisibleTo("CanvasApi.Client.Test")]
 namespace CanvasApi.Client
@@ -30,7 +33,9 @@ namespace CanvasApi.Client
 
         private readonly Lazy<AccountsClient> AccountsClient;
         private readonly Lazy<AssignmentGroupsApiClient> AssignmentGroupsClient;
+        private readonly Lazy<CourseApiClient> CoursesClient;
         private readonly Lazy<EnrollmentApiClient> EnrollmentClient;
+        private readonly Lazy<PageApiClient> PagesClient;
         private readonly Lazy<SubmissionsApiClient> SubmissionsApiClient;
         private readonly Lazy<UsersClient> UsersClient;
 
@@ -64,14 +69,23 @@ namespace CanvasApi.Client
             this.DefaultPagingOptions = new PagingOptions();
 
             // Build the Apis            
-            this.OAuth2Client = this.SetLazy(() => new OAuth2Client(this));
+            this.OAuth2Client = this.SetLazy<OAuth2Client>();
 
-            this.AccountsClient = this.SetLazy(() => new AccountsClient(this));
-            this.AssignmentGroupsClient = this.SetLazy(() => new AssignmentGroupsApiClient(this)); 
+            this.AccountsClient = this.SetLazy<AccountsClient>();
+            this.AssignmentGroupsClient = this.SetLazy<AssignmentGroupsApiClient>();
+            this.CoursesClient = this.SetLazy<CourseApiClient>(); 
             this.EnrollmentClient = this.SetLazy(() => new EnrollmentApiClient(this));
+            this.PagesClient = this.SetLazy(() => new PageApiClient(this)); 
             this.SubmissionsApiClient = this.SetLazy(() => new SubmissionsApiClient(this));
             this.UsersClient = this.SetLazy(() => new Users.UsersClient(this));
         }
+
+        private Lazy<TConcrete> SetLazy<TConcrete>() where TConcrete : ApiClientBase =>
+            this.SetLazy(() =>
+            {
+                var concrete =  (TConcrete)Activator.CreateInstance(typeof(TConcrete), this);
+                return concrete;
+            });
 
         private Lazy<TType> SetLazy<TType>(Func<TType> factory) => new Lazy<TType>(factory);
 
@@ -80,9 +94,10 @@ namespace CanvasApi.Client
 
         public IAccountsApi Accounts => this.AccountsClient.Value;
         public IAssignmentGroupsApiClient AssignmentGroups => this.AssignmentGroupsClient.Value;
-        public IUsersApi Users => this.UsersClient.Value;
         public IEnrollmentApiClient Enrollments => this.EnrollmentClient.Value;
+        public IPageApiClient Pages => this.PagesClient.Value;
         public ISubmissionsApiClient Submissions => this.SubmissionsApiClient.Value;
+        public IUsersApi Users => this.UsersClient.Value;
 
         public bool VerifyConfiguration()
         {

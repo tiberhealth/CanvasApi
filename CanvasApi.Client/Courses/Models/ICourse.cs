@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CanvasApi.Client.Enrollments.Models;
+using CanvasApi.Client.EnrollmentTerms.Models;
 using Newtonsoft.Json.Linq;
 
 namespace CanvasApi.Client.Courses.Models
@@ -135,7 +136,7 @@ namespace CanvasApi.Client.Courses.Models
         /// optional: the enrollment term object for the course returned only if
         /// include[]=term
         /// </summary>
-        ITerm Term { get; }
+        IEnrollmentTerm EnrollmentTerm { get; }
 
         /// <summary>
         /// optional: information on progress through the course returned only if

@@ -1,7 +1,7 @@
 ﻿using System;
-namespace CanvasApi.Client.Courses.Models
+namespace CanvasApi.Client.EnrollmentTerms.Models
 {
-    public interface ITerm
+    public interface IEnrollmentTerm
     {
         long Id { get; }
         string Name { get; }

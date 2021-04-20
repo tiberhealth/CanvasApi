@@ -43,6 +43,7 @@ steps:
 
 - task: DotNetCoreCLI@2
   displayName: 'Uploading to Private Nuget'
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'

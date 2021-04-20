@@ -3,6 +3,7 @@ using CanvasApi.Client.Acconts;
 using CanvasApi.Client.AssignmentGroups;
 using CanvasApi.Client.Enrollments;
 using CanvasApi.Client.OAuth2;
+using CanvasApi.Client.Pages;
 using CanvasApi.Client.Submissions;
 using CanvasApi.Client.Users;
 
@@ -31,6 +32,11 @@ namespace CanvasApi.Client
         /// API Calls for the Submissions subsystem in Canvas
         /// </summary>
         ISubmissionsApiClient Submissions { get; }
+
+        /// <summary>
+        /// API Calls for the Pages subsystem in Canvas
+        /// </summary>
+        IPageApiClient Pages { get; }
 
         /// <summary>
         /// API Calls for the Users Sub System

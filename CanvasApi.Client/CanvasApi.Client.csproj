@@ -50,5 +50,11 @@
     <Folder Include="Courses\" />
     <Folder Include="Courses\Models\" />
     <Folder Include="Submissions\Enums\" />
+    <Folder Include="Pages\" />
+    <Folder Include="Pages\Models\" />
+    <Folder Include="Pages\Enums\" />
+    <Folder Include="EnrollmentTerms\" />
+    <Folder Include="Courses\Enums\" />
+    <Folder Include="EnrollmentTerms\Models\" />
   </ItemGroup>
 </Project>

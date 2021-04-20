@@ -9,19 +9,19 @@ namespace CanvasApi.Client.OAuth2.Models
         /// [INTERNAL] Grant Type Requested
         /// Values currently supported "authorization_code", "refresh_token", and "client_credentials"
         /// </summary>
-        [JsonProperty("grant_type")] string GrantType { get; }
+        string GrantType { get; }
         /// <summary>
         /// The client id for your registered application.
         /// </summary>
-        [JsonProperty("client_id")] string ClientId { get; set; }
+        string ClientId { get; set; }
         /// <summary>
         /// The client secret for your registered application.
         /// </summary>
-        [JsonProperty("client_secret")] public string ClientSecret { get; set; }
+        string ClientSecret { get; set; }
         /// <summary>
         /// If a redirect_uri was passed to the initial request in step 1, the same redirect_uri must be given here.
         /// </summary>
-        [JsonProperty("redirect_uri")] public string RedirectUri { get; set; }
+        public string RedirectUri { get; set; }
 
         bool Validate();
     }
@@ -31,7 +31,7 @@ namespace CanvasApi.Client.OAuth2.Models
         /// <summary>
         /// Required if grant_type is authorization_code. The code you received in a redirect response.
         /// </summary>
-        [JsonProperty("code")] string Code { get; set; }
+        string Code { get; set; }
     }
 
     public interface IAuthRefreshToken : IOAuthTokenRequest
@@ -39,7 +39,7 @@ namespace CanvasApi.Client.OAuth2.Models
         /// <summary>
         /// Required if grant_type is refresh_token. The refresh_token you received in a redirect response.
         /// </summary>
-        [JsonProperty("refresh_token")] string RefreshToken { get; set; }
+        string RefreshToken { get; set; }
     }
 
     public interface IAuthClientCredentials : IOAuthTokenRequest
@@ -47,23 +47,23 @@ namespace CanvasApi.Client.OAuth2.Models
         /// <summary>
         /// Currently the only supported value for this field is `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
         /// </summary>
-        [JsonProperty("client_assertion_type")] string ClientAssertionType => "urn:ietf:params:oauth:client-assertion-type:jwt-bearer";
+        string ClientAssertionType => "urn:ietf:params:oauth:client-assertion-type:jwt-bearer";
         /// <summary>
         /// The signed jwt used to request an access token. Includes the value of Developer Key id as the sub claim of the jwt body. Should be signed by the private key of the stored public key on the DeveloperKey.
         /// </summary>
-        [JsonProperty("client_assertion")] string ClientAssertion { get; set; }
+        string ClientAssertion { get; set; }
         /// <summary>
         /// A list of scopes to be granted to the token. Currently only IMS defined scopes may be used.
         /// </summary>
-        [JsonProperty("scope")] string Scope { get; }
+        string Scope { get; }
     }
         
     internal abstract class TokenRequest: IOAuthTokenRequest
     {
-        public abstract string GrantType { get; }
-        public string ClientId { get; set; }
-        public string ClientSecret  { get; set; }
-        public string RedirectUri { get; set; }
+        [JsonProperty("grant_type")] public abstract string GrantType { get; }
+        [JsonProperty("client_id")] public string ClientId { get; set; }
+        [JsonProperty("client_secret")] public string ClientSecret  { get; set; }
+        [JsonProperty("redirect_uri")] public string RedirectUri { get; set; }
 
         public virtual bool Validate()
         {
@@ -93,7 +93,7 @@ namespace CanvasApi.Client.OAuth2.Models
             return base.Validate();
         }
 
-        public string Code { get; set; }
+        [JsonProperty("code")] public string Code { get; set; }
     }
 
 
@@ -106,7 +106,7 @@ namespace CanvasApi.Client.OAuth2.Models
             return base.Validate();
         }
 
-        public string RefreshToken { get; set; }
+        [JsonProperty("refresh_token")] public string RefreshToken { get; set; }
     }
 
     internal class ClientCredentialsRequest : TokenRequest, IAuthClientCredentials
@@ -120,8 +120,8 @@ namespace CanvasApi.Client.OAuth2.Models
             return base.Validate();
         }
 
-        public string ClientAssertionType { get; set; }
-        public string ClientAssertion { get; set; }
-        public string Scope { get; set; }
+        [JsonProperty("client_assertion_type")] public string ClientAssertionType { get; set; }
+        [JsonProperty("client_assertion")] public string ClientAssertion { get; set; }
+        [JsonProperty("scope")] public string Scope { get; set; }
     }
 }

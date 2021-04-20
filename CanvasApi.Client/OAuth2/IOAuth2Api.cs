@@ -25,6 +25,7 @@ namespace CanvasApi.Client.OAuth2
         /// </param>
         /// <returns></returns>
         Task<ILogoutResponse> Logout(bool expireSessions);
+
         /// <summary>
         /// If your application needs to begin a normal web session in order to access features not supported via API (such as quiz taking), you can use your API access token in order to get a time-limited URL that can be fed to a browser or web view to begin a new web session.
         /// </summary>

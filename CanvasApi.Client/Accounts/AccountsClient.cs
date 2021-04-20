@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using CanvasApi.Client._Base;
-using CanvasApi.Client.Acconts.Enums;
-using CanvasApi.Client.Acconts.Models;
+using CanvasApi.Client.Accounts.Enums;
+using CanvasApi.Client.Accounts.Models;
 
-namespace CanvasApi.Client.Acconts
+namespace CanvasApi.Client.Accounts
 {
     internal class AccountsClient: ApiClientBase, IAccountsApi
     {        

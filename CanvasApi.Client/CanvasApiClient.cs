@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
-using CanvasApi.Client.Acconts;
+using CanvasApi.Client.Accounts;
 using CanvasApi.Client.AssignmentGroups;
 using CanvasApi.Client.Enrollments;
 using CanvasApi.Client.Extentions;

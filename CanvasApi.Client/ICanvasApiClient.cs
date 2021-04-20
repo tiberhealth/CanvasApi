@@ -1,5 +1,5 @@
 ﻿using System;
-using CanvasApi.Client.Acconts;
+using CanvasApi.Client.Accounts;
 using CanvasApi.Client.AssignmentGroups;
 using CanvasApi.Client.Enrollments;
 using CanvasApi.Client.OAuth2;

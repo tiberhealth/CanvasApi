@@ -26,11 +26,11 @@
     <PackageReference Include="TiberHealth.Serializer" Version="1.0.35" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Acconts\" />
+    <Folder Include="Accounts\" />
     <Folder Include="OAuth2\Enums" />
     <Folder Include="_Base\" />
-    <Folder Include="Acconts\Models\" />
-    <Folder Include="Acconts\Enums\" />
+    <Folder Include="Accounts\Models\" />
+    <Folder Include="Accounts\Enums\" />
     <Folder Include="Extentions\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Users\" />

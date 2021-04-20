@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CanvasApi.Client.Acconts.Enums
+namespace CanvasApi.Client.Accounts.Enums
 {
     public enum Accountinclude
     {

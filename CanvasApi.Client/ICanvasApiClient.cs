@@ -2,6 +2,7 @@
 using CanvasApi.Client.Accounts;
 using CanvasApi.Client.AssignmentGroups;
 using CanvasApi.Client.Enrollments;
+using CanvasApi.Client.EnrollmentTerms;
 using CanvasApi.Client.OAuth2;
 using CanvasApi.Client.Pages;
 using CanvasApi.Client.Submissions;
@@ -27,6 +28,11 @@ namespace CanvasApi.Client
         /// API Calls for the Enrollments subsystem in Canvas
         /// </summary>
         IEnrollmentApiClient Enrollments { get; }
+
+        /// <summary>
+        /// API Calls for the Enrollment terms subsystem in Canvas
+        /// </summary>
+        IEnrollmentTermsApiClient EnrollmentTerms { get; }
 
         /// <summary>
         /// API Calls for the Submissions subsystem in Canvas

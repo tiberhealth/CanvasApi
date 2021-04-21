@@ -350,3 +350,7 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+## ignore test appsettings files
+CanvasApi.Client.Test/appsettings*.json
+

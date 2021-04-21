@@ -13,7 +13,7 @@ namespace CanvasApi.Client.EnrollmentTerms
         /// <param name="accountId"></param>
         /// <param name="enrollmentTerm"></param>
         /// <returns></returns>
-        Task<IEnrollmentTerm> Create(long accountId, Action<IEnrollmentTermNewUpdate> enrollmentTerm);
+        Task<IEnrollmentTerm> Create(long accountId, Action<IEnrollmentTermDetail> enrollmentTerm);
 
         /// <summary>
         /// Update an existing enrollment term for the specified account.
@@ -22,7 +22,7 @@ namespace CanvasApi.Client.EnrollmentTerms
         /// <param name="Id"></param>
         /// <param name="enrollmentTerm"></param>
         /// <returns></returns>
-        Task<IEnrollmentTerm> Update(long accountId, long Id, Action<IEnrollmentTermNewUpdate> enrollmentTerm);
+        Task<IEnrollmentTerm> Update(long accountId, long Id, Action<IEnrollmentTermDetail> enrollmentTerm);
 
         /// <summary>
         /// Delete the specified enrollment term.

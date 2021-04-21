@@ -13,11 +13,11 @@ namespace CanvasApi.Client.EnrollmentTerms
     {
         public EnrollmentTermsApiClient(CanvasApiClient parent) : base(parent) { }
 
-        public async Task<IEnrollmentTerm> Create(long accountId, Action<IEnrollmentTermNewUpdate> enrollmentTerm) =>
+        public async Task<IEnrollmentTerm> Create(long accountId, Action<IEnrollmentTermDetail> enrollmentTerm) =>
             await this.ApiClient.ApiOperation<EnrollmentTerm, IEnrollmentTermNewUpdate>(
-                HttpMethod.Get,
+                HttpMethod.Post,
                 $"/api/v1/accounts/{accountId}/terms",
-                enrollmentTerm.GetOptions<IEnrollmentTermNewUpdate, EnrollmentTermNewUpdate>()
+                (IEnrollmentTermNewUpdate)new EnrollmentTermNewUpdate { EnrollmentTerm = enrollmentTerm.GetOptions<IEnrollmentTermDetail, EnrollmentTermDetail>() }
                 );
 
         public async Task<IEnrollmentTerm> Delete(long accountId, long Id) =>
@@ -40,11 +40,11 @@ namespace CanvasApi.Client.EnrollmentTerms
                 options.GetOptions<IEnrollmentTermRetrieveOptions, EnrollmentTermRetrieveOptions>()
                 );
 
-        public async Task<IEnrollmentTerm> Update(long accountId, long Id, Action<IEnrollmentTermNewUpdate> enrollmentTerm) =>
+        public async Task<IEnrollmentTerm> Update(long accountId, long Id, Action<IEnrollmentTermDetail> enrollmentTerm) =>
             await this.ApiClient.ApiOperation<EnrollmentTerm, IEnrollmentTermNewUpdate>(
                 HttpMethod.Put,
                 $"/api/v1/accounts/{accountId}/terms/{Id}",
-                enrollmentTerm.GetOptions<IEnrollmentTermNewUpdate, EnrollmentTermNewUpdate>()
+                new EnrollmentTermNewUpdate { EnrollmentTerm = enrollmentTerm.GetOptions<IEnrollmentTermDetail, EnrollmentTermDetail>() }
                 );
     }
 }

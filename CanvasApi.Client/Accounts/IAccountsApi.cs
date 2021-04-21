@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using CanvasApi.Client.Acconts.Enums;
-using CanvasApi.Client.Acconts.Models;
+using CanvasApi.Client.Accounts.Enums;
+using CanvasApi.Client.Accounts.Models;
 
-namespace CanvasApi.Client.Acconts
+namespace CanvasApi.Client.Accounts
 {
     /// <summary>
     /// Accounts API as Definied at https://canvas.instructure.com/doc/api/accounts.html

@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace CanvasApi.Client.Acconts.Models
+namespace CanvasApi.Client.Accounts.Models
 {
     public class Account
     {

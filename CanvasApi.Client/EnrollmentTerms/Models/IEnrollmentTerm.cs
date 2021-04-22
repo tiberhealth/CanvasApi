@@ -1,7 +1,7 @@
 ﻿using System;
 namespace CanvasApi.Client.EnrollmentTerms.Models
 {
-    public interface IEnrollmentTerm
+    public interface IEnrollmentTerm: IEnrollmentDates
     {
         /// <summary>
         /// The unique identifier for the enrollment term.
@@ -18,21 +18,13 @@ namespace CanvasApi.Client.EnrollmentTerms.Models
         /// the unique identifier for the SIS import. This field is only included if the
         /// user has permission to manage SIS information.
         /// </summary>
-        long SisImportId { get; }
+        long? SisImportId { get; }
 
         /// <summary>
         /// The name of the term.
         /// </summary>
         string Name { get; }
 
-        /// <summary>
-        /// The datetime of the start of the term.
-        /// </summary>
-        DateTime? StartAt { get; }
-
-        /// <summary>
-        /// The datetime of the end of the term.
-        /// </summary>
-        DateTime? EndAt { get; }
+        IEnrollmentOverrides Overrides { get; }
     }
 }

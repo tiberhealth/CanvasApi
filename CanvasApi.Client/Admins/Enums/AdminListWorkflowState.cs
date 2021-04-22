@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using TiberHealth.Serializer.Attributes;
 
-namespace CanvasApi.Client.Modules.Enums
+namespace CanvasApi.Client.Admins.Enums
 {
     [Multipart(EnumAsString = true)]
     public enum AdminListWorkflowState

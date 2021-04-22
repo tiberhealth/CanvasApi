@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CanvasApi.Client.Modules.Models
+namespace CanvasApi.Client.Admins.Models
 {
     internal class AdminMake : IAdminMake
     {

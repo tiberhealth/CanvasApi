@@ -1,9 +1,9 @@
-﻿using CanvasApi.Client.Modules.Enums;
+﻿using CanvasApi.Client.Admins.Enums;
 using CanvasApi.Client.Role.Models;
 using CanvasApi.Client.Users.Models;
 using System.Collections.Generic;
 
-namespace CanvasApi.Client.Modules.Models
+namespace CanvasApi.Client.Admins.Models
 {
     public interface IAdmin
     {

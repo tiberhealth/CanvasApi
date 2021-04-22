@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace CanvasApi.Client.Modules.Models
+namespace CanvasApi.Client.Admins.Models
 {
     public interface IAdminMake
     {

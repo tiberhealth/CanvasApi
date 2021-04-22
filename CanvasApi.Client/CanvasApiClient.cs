@@ -99,6 +99,7 @@ namespace CanvasApi.Client
         public IOAuth2Api OAuth2 => this.OAuth2Client.Value;
 
         public IAccountsApi Accounts => this.AccountsClient.Value;
+        public IAdminApiClient Admin => this.AdminClient.Value;
         public IAssignmentGroupsApiClient AssignmentGroups => this.AssignmentGroupsClient.Value;
         public IEnrollmentApiClient Enrollments => this.EnrollmentClient.Value;
         public IEnrollmentTermsApiClient EnrollmentTerms => this.EnrollmentTermsClient.Value;

@@ -12,11 +12,14 @@ namespace CanvasApi.Client.Test
         [SetUp]
         public void Setup()
         {
-            var config = new ConfigurationBuilder()
-                .AddJsonFile("appsettings-test.json", true)
+            var builder = new ConfigurationBuilder();
+
+            builder
+                .AddUserSecrets<RolesvilleUniversityTest>()
                 .AddEnvironmentVariables()
                 .Build();
 
+            var config = builder.Build(); 
             var canvasDomain = config["CanvasHost"];
             var apiKey = config["TestCanvasApiToken"];
 

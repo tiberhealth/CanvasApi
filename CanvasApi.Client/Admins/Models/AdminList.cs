@@ -7,6 +7,6 @@ namespace CanvasApi.Client.Admins.Models
 {
     internal class AdminList : IAdminList
     {
-        [JsonProperty("user_id[]")] public int[] UserId { get; set; }
+        [JsonProperty("user_id[]")] public IEnumerable<Int32> UserId { get; set; }
     }
 }

@@ -33,8 +33,6 @@
     <Folder Include="Accounts\Enums\" />
     <Folder Include="Extentions\" />
     <Folder Include="Exceptions\" />
-    <Folder Include="Users\" />
-    <Folder Include="Users\Models\" />
     <Folder Include="Enrollments\" />
     <Folder Include="Enrollments\Models\" />
     <Folder Include="Atrributes\" />

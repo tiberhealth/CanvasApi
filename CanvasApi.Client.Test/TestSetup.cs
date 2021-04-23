@@ -5,7 +5,7 @@ using NUnit.Framework;
 
 namespace CanvasApi.Client.Test
 {
-    public abstract class RolesvilleUniversityTest
+    public abstract class TestSetup
     {
         protected ServiceCollection ServiceCollection { get; private set; }
 
@@ -15,7 +15,7 @@ namespace CanvasApi.Client.Test
             var builder = new ConfigurationBuilder();
 
             builder
-                .AddUserSecrets<RolesvilleUniversityTest>()
+                .AddUserSecrets<TestSetup>()
                 .AddEnvironmentVariables()
                 .Build();
 

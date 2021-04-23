@@ -5,9 +5,9 @@ using CanvasApi.Client.EnrollmentTerms.Models;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 
-namespace CanvasApi.Client.Test
+namespace CanvasApi.Client.Test.EnrollmentTerms
 {
-    public class TestEnrollmentTerms: RolesvilleUniversityTest
+    public class TestEnrollmentTerms: TestSetup
     {
         [Test]
         public async Task TestEnrollmentTermsFull()
@@ -28,9 +28,15 @@ namespace CanvasApi.Client.Test
                 );
 
             await this.TestRetrieveEnrollmentTerm(accountId, enrollmentTerm);
-            // await this.TestListEnrollmentTerm(accountId, enrollmentTerm); 
             await this.TestDeleteEnrollment(accountId, enrollmentTerm.Id);
         }
+
+        [Test]
+        public async Task TestEnrollmentTermsList()
+        {
+            await this.TestListEnrollmentTerm(1, null); 
+        }
+
 
         /// <summary>
         /// Test the creation of the enrollment term
@@ -121,13 +127,15 @@ namespace CanvasApi.Client.Test
             Assert.IsNotNull(enrollmentTerms);
             Assert.IsNotEmpty(enrollmentTerms);
 
+            var enrollmentTermsCount = enrollmentTerms.Count(); 
+            Assert.Greater(enrollmentTermsCount, 0);
+
             if (enrollmentTerm != null)
             {
                 var term = enrollmentTerms.SingleOrDefault(item => item.Name == enrollmentTerm.Name);
                 this.CompareTerms(enrollmentTerm, term);
             }
         }
-
 
 
         /// <summary>

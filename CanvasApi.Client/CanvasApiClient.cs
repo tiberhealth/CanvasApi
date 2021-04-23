@@ -31,7 +31,6 @@ namespace CanvasApi.Client
 
         private readonly Lazy<OAuth2Client> OAuth2Client;
 
-
         private readonly Lazy<AccountsClient> AccountsClient;
         private readonly Lazy<AssignmentGroupsApiClient> AssignmentGroupsClient;
         private readonly Lazy<CourseApiClient> CoursesClient;
@@ -136,6 +135,14 @@ namespace CanvasApi.Client
         internal Task<IEnumerable<TResult>> PagableApiOperation<TResult>(HttpMethod verb, string url, PagingOptions pagingOptions = null) =>
                 this.PagableApiOperation<TResult, object>(verb, url, null, pagingOptions);
 
+        internal Task<IEnumerable<TResult>> PagableApiOperation<TResult, TApiResult>(
+            HttpMethod verb,
+            string url,
+            PagingOptions pagingOptions,
+            Func<TApiResult, IEnumerable<TResult>> factory
+        ) =>
+            this.PagableApiOperation<TResult, TApiResult, object>(verb, url, null, factory, pagingOptions);
+
         internal async Task<IEnumerable<TResult>> PagableApiOperation<TResult, TBody>(
             HttpMethod verb,
             string url,
@@ -148,6 +155,22 @@ namespace CanvasApi.Client
             var initialBuffer = await this.ApiOperation<IEnumerable<TResult>, TBody>(verb, pageLinks.OriginalUrl, body, pageLinks, cancellationToken);
             return new PageableResult<TResult>(initialBuffer, this, pageLinks);
         }
+
+        internal async Task<IEnumerable<TResult>> PagableApiOperation<TResult, TApiResult, TBody>(
+            HttpMethod verb,
+            string url,
+            TBody body,
+            Func<TApiResult, IEnumerable<TResult>> factory,
+            PagingOptions pagingOptions = null,
+            CancellationToken cancellationToken = default)
+                where TBody : class
+        {
+            var pageLinks = new PageLinks((pagingOptions ?? this.DefaultPagingOptions)?.AddPagingUrl(url) ?? url);
+            var apiResults = await this.ApiOperation<TApiResult, TBody>(verb, pageLinks.OriginalUrl, body, pageLinks, cancellationToken);
+
+            return new PageableResult<TResult, TApiResult>(apiResults, this, pageLinks, factory);
+        }
+
 
         internal Task<TResult> ApiOperation<TResult>(HttpMethod verb, string url) => this.ApiOperation<TResult, object>(verb, url, null);
         

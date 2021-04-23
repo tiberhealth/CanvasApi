@@ -25,10 +25,14 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CanvasApi.Client\CanvasApi.Client.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Enrollments\" />
+    <Folder Include="EnrollmentTerms\" />
   </ItemGroup>
 </Project>

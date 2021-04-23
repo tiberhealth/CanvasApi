@@ -13,14 +13,14 @@ namespace CanvasApi.Client.Admins
     {
         public AdminApiClient(CanvasApiClient parent) : base(parent) { }
 
-        public async Task<IAdmin> Make(long accountId, Action<IAdminMake> admin) =>
+        public async Task<IAdmin> Promote(long accountId, Action<IAdminMake> admin) =>
             await ApiClient.ApiOperation<Admin, IAdminMake>(
                 HttpMethod.Post,
                 $"/api/v1/accounts/{accountId}/admins",
                 admin.GetOptions<IAdminMake, AdminMake>()
                 );
 
-        public async Task<IAdmin> Remove(long accountId, long userId, Action<IAdminRemove> options = null) =>
+        public async Task<IAdmin> Demote(long accountId, long userId, Action<IAdminRemove> options = null) =>
             await ApiClient.ApiOperation<Admin, IAdminRemove>(
                 HttpMethod.Delete,
                 $"/api/v1/accounts/{accountId}/admins/{userId}",

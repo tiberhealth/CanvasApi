@@ -19,6 +19,13 @@ steps:
     projects: 'CanvasApi.Client/CanvasApi.Client.csproj'
     arguments: '--configuration $(BuildConfiguration) /p:Version=$(Build.BuildNumber)'
 
+- task: AzureKeyVault@1
+  inputs:
+    azureSubscription: 'TiberHealth (06dd38aa-313f-4d43-aeb2-f493b2074633)'
+    KeyVaultName: 'tiber-app-certs'
+    SecretsFilter: '*'
+    RunAsPreJob: true
+
 - task: DotNetCoreCLI@2
   displayName: 'Test Library'
   inputs:

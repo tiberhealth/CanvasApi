@@ -15,7 +15,7 @@ namespace CanvasApi.Client.Test.Enrollments
             var services = this.ServiceCollection.BuildServiceProvider();
             var api = services.GetRequiredService<ICanvasApiClient>();
 
-            var results = await api.Enrollments.CourseEnrollments(1795, options => {
+            var results = await api.Enrollments.CourseEnrollments(1, options => {
                 options.Type = new [] { EnrollmentTypes.Student };
             });
 
@@ -24,7 +24,6 @@ namespace CanvasApi.Client.Test.Enrollments
 
             var resultCount = results.Count();
             Assert.Greater(resultCount, 0);
-
         }
     }
 }

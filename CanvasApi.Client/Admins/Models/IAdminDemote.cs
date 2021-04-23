@@ -2,7 +2,7 @@
 
 namespace CanvasApi.Client.Admins.Models
 {
-    public interface IAdminRemove
+    public interface IAdminDemote
     {
         [JsonProperty("role_id")] int? RoleId { get; set; }
     }

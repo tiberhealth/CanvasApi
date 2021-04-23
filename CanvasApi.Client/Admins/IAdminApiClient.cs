@@ -8,7 +8,7 @@ namespace CanvasApi.Client.Admins
     public interface IAdminApiClient
     {
         Task<IEnumerable<IAdmin>> List(long accountId, Action<IAdminList> body);
-        Task<IAdmin> Promote(long accountId, Action<IAdminMake> admin);
-        Task<IAdmin> Demote(long accountId, long userId, Action<IAdminRemove> options = null);
+        Task<IAdmin> Promote(long accountId, Action<IAdminPromote> admin);
+        Task<IAdmin> Demote(long accountId, long userId, Action<IAdminDemote> options = null);
     }
 }

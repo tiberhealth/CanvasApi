@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CanvasApi.Client.Admins.Models
 {
-    internal class AdminMake : IAdminMake
+    internal class AdminPromote : IAdminPromote
     {
         [JsonProperty("user_id")] public string Name { get; set; }
         [JsonProperty("role_id")] public int? RoleId { get; set; }

@@ -13,18 +13,18 @@ namespace CanvasApi.Client.Admins
     {
         public AdminApiClient(CanvasApiClient parent) : base(parent) { }
 
-        public async Task<IAdmin> Promote(long accountId, Action<IAdminMake> admin) =>
-            await ApiClient.ApiOperation<Admin, IAdminMake>(
+        public async Task<IAdmin> Promote(long accountId, Action<IAdminPromote> admin) =>
+            await ApiClient.ApiOperation<Admin, IAdminPromote>(
                 HttpMethod.Post,
                 $"/api/v1/accounts/{accountId}/admins",
-                admin.GetOptions<IAdminMake, AdminMake>()
+                admin.GetOptions<IAdminPromote, AdminPromote>()
                 );
 
-        public async Task<IAdmin> Demote(long accountId, long userId, Action<IAdminRemove> options = null) =>
-            await ApiClient.ApiOperation<Admin, IAdminRemove>(
+        public async Task<IAdmin> Demote(long accountId, long userId, Action<IAdminDemote> options = null) =>
+            await ApiClient.ApiOperation<Admin, IAdminDemote>(
                 HttpMethod.Delete,
                 $"/api/v1/accounts/{accountId}/admins/{userId}",
-                options.GetOptions<IAdminRemove, AdminRemove>()
+                options.GetOptions<IAdminDemote, AdminDemote>()
                 );
 
         public async Task<IEnumerable<IAdmin>> List(long accountId, Action<IAdminList> body) =>

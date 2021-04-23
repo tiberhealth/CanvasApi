@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CanvasApi.Client.Admins.Models
 {
-    class AdminRemove : IAdminRemove
+    class AdminDemote : IAdminDemote
     {
         [JsonProperty("role_id")] public int? RoleId { get; set; }
     }

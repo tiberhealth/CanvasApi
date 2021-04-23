@@ -19,22 +19,16 @@ steps:
     projects: 'CanvasApi.Client/CanvasApi.Client.csproj'
     arguments: '--configuration $(BuildConfiguration) /p:Version=$(Build.BuildNumber)'
 
-- task: AzureKeyVault@1
-  inputs:
-    azureSubscription: 'TiberHealth (06dd38aa-313f-4d43-aeb2-f493b2074633)'
-    KeyVaultName: 'tiber-app-certs'
-    SecretsFilter: '*'
-    RunAsPreJob: true
-
-- task: DotNetCoreCLI@2
-  displayName: 'Test Library'
-  inputs:
-    command: 'test'
-    projects: 'CanvasApi.Client.Test/CanvasApi.Client.Test.csproj'
-    testRunTitle: 'Canvas API Test'
+## - task: DotNetCoreCLI@2
+##  displayName: 'Test Library'
+##  inputs:
+##    command: 'test'
+##    projects: 'CanvasApi.Client.Test/CanvasApi.Client.Test.csproj'
+##    testRunTitle: 'Canvas API Test'
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish library'
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   inputs:
     command: 'publish'
     publishWebProjects: false
@@ -43,6 +37,7 @@ steps:
     
 - task: DotNetCoreCLI@2
   displayName: 'Pack Library'
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   inputs:
     command: 'pack'
     packagesToPack: 'CanvasApi.Client/CanvasApi.Client.csproj'

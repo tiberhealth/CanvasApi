@@ -20,6 +20,7 @@ using CanvasApi.Client.Pages;
 using CanvasApi.Client.Courses;
 using CanvasApi.Client._Base;
 using CanvasApi.Client.EnrollmentTerms;
+using CanvasApi.Client.Admins;
 
 [assembly: InternalsVisibleTo("CanvasApi.Client.Test")]
 namespace CanvasApi.Client
@@ -33,6 +34,7 @@ namespace CanvasApi.Client
 
 
         private readonly Lazy<AccountsClient> AccountsClient;
+        private readonly Lazy<AdminApiClient> AdminClient;
         private readonly Lazy<AssignmentGroupsApiClient> AssignmentGroupsClient;
         private readonly Lazy<CourseApiClient> CoursesClient;
         private readonly Lazy<EnrollmentApiClient> EnrollmentClient;
@@ -74,6 +76,7 @@ namespace CanvasApi.Client
             this.OAuth2Client = this.SetLazy<OAuth2Client>();
 
             this.AccountsClient = this.SetLazy<AccountsClient>();
+            this.AdminClient = this.SetLazy<AdminApiClient>();
             this.AssignmentGroupsClient = this.SetLazy<AssignmentGroupsApiClient>();
             this.CoursesClient = this.SetLazy<CourseApiClient>(); 
             this.EnrollmentClient = this.SetLazy(() => new EnrollmentApiClient(this));
@@ -96,6 +99,7 @@ namespace CanvasApi.Client
         public IOAuth2Api OAuth2 => this.OAuth2Client.Value;
 
         public IAccountsApi Accounts => this.AccountsClient.Value;
+        public IAdminApiClient Admin => this.AdminClient.Value;
         public IAssignmentGroupsApiClient AssignmentGroups => this.AssignmentGroupsClient.Value;
         public IEnrollmentApiClient Enrollments => this.EnrollmentClient.Value;
         public IEnrollmentTermsApiClient EnrollmentTerms => this.EnrollmentTermsClient.Value;

@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.OAuth2.Models
 {
@@ -60,10 +60,10 @@ namespace CanvasApi.Client.OAuth2.Models
         
     internal abstract class TokenRequest: IOAuthTokenRequest
     {
-        [JsonProperty("grant_type")] public abstract string GrantType { get; }
-        [JsonProperty("client_id")] public string ClientId { get; set; }
-        [JsonProperty("client_secret")] public string ClientSecret  { get; set; }
-        [JsonProperty("redirect_uri")] public string RedirectUri { get; set; }
+        [Multipart("grant_type")] public abstract string GrantType { get; }
+        [Multipart("client_id")] public string ClientId { get; set; }
+        [Multipart("client_secret")] public string ClientSecret  { get; set; }
+        [Multipart("redirect_uri")] public string RedirectUri { get; set; }
 
         public virtual bool Validate()
         {
@@ -93,7 +93,7 @@ namespace CanvasApi.Client.OAuth2.Models
             return base.Validate();
         }
 
-        [JsonProperty("code")] public string Code { get; set; }
+        [Multipart("code")] public string Code { get; set; }
     }
 
 
@@ -106,7 +106,7 @@ namespace CanvasApi.Client.OAuth2.Models
             return base.Validate();
         }
 
-        [JsonProperty("refresh_token")] public string RefreshToken { get; set; }
+        [Multipart("refresh_token")] public string RefreshToken { get; set; }
     }
 
     internal class ClientCredentialsRequest : TokenRequest, IAuthClientCredentials
@@ -120,8 +120,8 @@ namespace CanvasApi.Client.OAuth2.Models
             return base.Validate();
         }
 
-        [JsonProperty("client_assertion_type")] public string ClientAssertionType { get; set; }
-        [JsonProperty("client_assertion")] public string ClientAssertion { get; set; }
-        [JsonProperty("scope")] public string Scope { get; set; }
+        [Multipart("client_assertion_type")] public string ClientAssertionType { get; set; }
+        [Multipart("client_assertion")] public string ClientAssertion { get; set; }
+        [Multipart("scope")] public string Scope { get; set; }
     }
 }

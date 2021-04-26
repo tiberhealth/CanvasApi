@@ -1,5 +1,4 @@
-﻿using System;
-namespace CanvasApi.Client.EnrollmentTerms.Models
+﻿namespace CanvasApi.Client.EnrollmentTerms.Models
 {
     public interface IEnrollmentTerm: IEnrollmentDates
     {

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using TiberHealth.Serializer.Attributes;
+﻿using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Modules.Enums
 {
-    [Multipart(EnumAsString = true)]
+    [EnumAsString]
     public enum ModuleTypes
     {
         [EnumSerializedValue("file")] File,

@@ -1,7 +1,4 @@
-﻿using System;
-using Newtonsoft.Json;
-
-namespace CanvasApi.Client.Users.Models
+﻿namespace CanvasApi.Client.Users.Models
 {
     /// This mini-object is returned in place of UserDisplay when returning student
     /// data for anonymous assignments, and includes an anonymous ID to identify a

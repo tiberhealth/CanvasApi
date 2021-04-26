@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CanvasApi.Client.AssignmentGroups.Enums;
 
 namespace CanvasApi.Client.AssignmentGroups.Models.Concrete

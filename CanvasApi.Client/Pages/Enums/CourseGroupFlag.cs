@@ -1,5 +1,4 @@
-﻿using System;
-namespace CanvasApi.Client.Pages.Enums
+﻿namespace CanvasApi.Client.Pages.Enums
 {
     public enum CourseGroupFlag
     {

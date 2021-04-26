@@ -1,12 +1,19 @@
-﻿using System;
-using System.ComponentModel.Design;
-using TiberHealth.Serializer.Attributes;
+﻿using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Enrollments.Enums
 {
-    [Multipart(EnumAsString = true)]
+    [EnumAsString]
     public enum EnrollmentState
     {
-        Active, Invited, CreationPending, Deleted, Rejected, Completed, Inactive, CurrentAndInvited, CurrentAndFuture, CurrentAndConcluded
+        [EnumSerializedValue("active")] Active,
+        [EnumSerializedValue("invited")] Invited,
+        [EnumSerializedValue("creation_pending")] CreationPending,
+        [EnumSerializedValue("deleted")] Deleted,
+        [EnumSerializedValue("rejected")] Rejected,
+        [EnumSerializedValue("completed")] Completed,
+        [EnumSerializedValue("inactive")] Inactive,
+        [EnumSerializedValue("current_and_invited")] CurrentAndInvited,
+        [EnumSerializedValue("current_and_future")] CurrentAndFuture,
+        [EnumSerializedValue("current_and_concluded")] CurrentAndConcluded
     }
 }

@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CanvasApi.Client.EnrollmentTerms.Enums;
-using Newtonsoft.Json;
+using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.EnrollmentTerms
 {
@@ -13,7 +12,7 @@ namespace CanvasApi.Client.EnrollmentTerms
         /// Allowed values: <see cref="EnrollmentTermIncludes"/>
         /// overrides
         /// </summary>
-        [JsonProperty("include")] IEnumerable<EnrollmentTermIncludes> Include { get; set; }
+        [Multipart("include")] IEnumerable<EnrollmentTermIncludes> Include { get; set; }
 
         /// <summary>
         /// If set, only returns terms that are in the given state. Defaults to 'active'.
@@ -21,6 +20,6 @@ namespace CanvasApi.Client.EnrollmentTerms
         /// Allowed values: <see cref="EnrollmentTermListWorkflowState"/>
         /// overrides
         /// </summary>
-        [JsonProperty("workflow_state")] IEnumerable<EnrollmentTermListWorkflowState> WorkflowState { get; set; }
+        [Multipart("workflow_state")] IEnumerable<EnrollmentTermListWorkflowState> WorkflowState { get; set; }
     }
 }

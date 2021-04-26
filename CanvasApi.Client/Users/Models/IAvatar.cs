@@ -1,5 +1,4 @@
-﻿using System;
-namespace CanvasApi.Client.Users.Models
+﻿namespace CanvasApi.Client.Users.Models
 {
     public interface IAvatar
     {

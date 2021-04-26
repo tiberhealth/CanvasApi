@@ -1,5 +1,4 @@
-﻿using System;
-namespace CanvasApi.Client.Enrollments.Models
+﻿namespace CanvasApi.Client.Enrollments.Models
 {
     public interface IApiSuccess
     {

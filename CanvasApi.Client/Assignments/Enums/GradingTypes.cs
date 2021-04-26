@@ -1,29 +1,15 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using CanvasApi.Client.Assignments.Enums;
+﻿using CanvasApi.Client.Assignments.Enums;
+using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Assignments.Enums
 {
+    [EnumAsString]
     public enum GradingTypes
     {
-        PassFail,
-        Percent,
-        LetterGrade,
-        GpaScale,
-        Points
+        [EnumSerializedValue("pass_fail")] PassFail,
+        [EnumSerializedValue("percent")] Percent,
+        [EnumSerializedValue("letter_grade")] LetterGrade,
+        [EnumSerializedValue("gpa_scale")] GpaScale,
+        [EnumSerializedValue("points")] Points
     }
-}
-
-internal static class GradingTypeHelper
-{
-    public static GradingTypes? ToGradingType(this string value) =>
-        value?.Trim().ToLower() switch
-        {
-            "pass_fail" => GradingTypes.PassFail,
-            "percent" => GradingTypes.Percent,
-            "letter_grade" => GradingTypes.LetterGrade,
-            "gpa_scale" => GradingTypes.GpaScale,
-            "points" => GradingTypes.Points,
-            _ => null
-        };
 }

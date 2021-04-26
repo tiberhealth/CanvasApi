@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CanvasApi.Client.Submissions.Enums;
-using Newtonsoft.Json;
+using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Submissions.Models
 {
     public interface ISubmissionIncludes
     {
-        [JsonProperty("include")] IEnumerable<SubmissionListInclude> Includes { get; set; }
-        [JsonProperty("grouped")] bool? Grouped { get; }
+        [Multipart("include")] IEnumerable<SubmissionListInclude> Includes { get; set; }
+        [Multipart("grouped")] bool? Grouped { get; }
     }
 }

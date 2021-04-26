@@ -1,5 +1,4 @@
-﻿using System;
-using TiberHealth.Serializer.Attributes;
+﻿using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Courses.Enums
 {

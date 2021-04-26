@@ -4,7 +4,6 @@ using CanvasApi.Client.Extentions;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CanvasApi.Client.Admins
@@ -13,25 +12,25 @@ namespace CanvasApi.Client.Admins
     {
         public AdminApiClient(CanvasApiClient parent) : base(parent) { }
 
-        public async Task<IAdmin> Promote(long accountId, Action<IAdminPromote> admin) =>
-            await ApiClient.ApiOperation<Admin, IAdminPromote>(
+        public async Task<IAdmin> Promote(long accountId, Action<IAdminPromoteRequest> admin) =>
+            await ApiClient.ApiOperation<Admin, IAdminPromoteRequest>(
                 HttpMethod.Post,
                 $"/api/v1/accounts/{accountId}/admins",
-                admin.GetOptions<IAdminPromote, AdminPromote>()
+                admin.GetOptions<IAdminPromoteRequest, AdminPromoteRequest>()
                 );
 
-        public async Task<IAdmin> Demote(long accountId, long userId, Action<IAdminDemote> options = null) =>
-            await ApiClient.ApiOperation<Admin, IAdminDemote>(
+        public async Task<IAdmin> Demote(long accountId, long userId, Action<IAdminDemoteRequest> options = null) =>
+            await ApiClient.ApiOperation<Admin, IAdminDemoteRequest>(
                 HttpMethod.Delete,
                 $"/api/v1/accounts/{accountId}/admins/{userId}",
-                options.GetOptions<IAdminDemote, AdminDemote>()
+                options.GetOptions<IAdminDemoteRequest, AdminDemoteRequest>()
                 );
 
-        public async Task<IEnumerable<IAdmin>> List(long accountId, Action<IAdminList> body) =>
-            await ApiClient.PagableApiOperation<Admin, IAdminList>(
+        public async Task<IEnumerable<IAdmin>> List(long accountId, Action<IAdminListRequest> body) =>
+            await ApiClient.PagableApiOperation<Admin, IAdminListRequest>(
                 HttpMethod.Get,
                 $"/api/v1/accounts/{accountId}/admins",
-                body.GetOptions<IAdminList, AdminList>()
+                body.GetOptions<IAdminListRequest, AdminListRequest>()
                 );
     }
 }

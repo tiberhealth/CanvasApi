@@ -6,7 +6,7 @@ namespace CanvasApi.Client.Enrollments.Models
 {
     public interface IEnrollmentRequest
     {
-        [JsonProperty("type")] string[] Type { get; set; }
+        [JsonProperty("type")] EnrollmentTypes[] Type { get; set; }
         [JsonProperty("role")] string[] Role { get; set; }
         [JsonProperty("state")] EnrollmentState[] State { get; set; }
         [JsonProperty("include")] EnrollmentInclude[] Include { get; set; }

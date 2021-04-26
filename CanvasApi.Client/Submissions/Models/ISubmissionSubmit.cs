@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CanvasApi.Client.Submissions.Models.Concretes;
 using Newtonsoft.Json;
 
 namespace CanvasApi.Client.Submissions.Models

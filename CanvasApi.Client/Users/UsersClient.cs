@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using CanvasApi.Client._Base;
 using CanvasApi.Client.Users.Models;
+using CanvasApi.Client.Users.Models.Concretes;
 
 namespace CanvasApi.Client.Users
 {

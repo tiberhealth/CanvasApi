@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using CanvasApi.Client._Base;
 using CanvasApi.Client.Courses.Models;
+using CanvasApi.Client.Courses.Models.Concrete;
 
 namespace CanvasApi.Client.Courses
 {

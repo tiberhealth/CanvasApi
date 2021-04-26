@@ -1,40 +1,21 @@
 ﻿using CanvasApi.Client.Assignments.Enums;
+using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Assignments.Enums
 {
+    [EnumAsString]
     public enum FreezableAttributes
     {
-        Title,
-        Description,
-        LockAt,
-        PointsPossible,
-        GradingType,
-        SubmissionTypes,
-        AssignmentGroupId,
-        AllowedExtensions,
-        GroupCategoryId,
-        NotifyOfUpdate,
-        PeerReviews
+        [EnumSerializedValue("title")] Title,
+        [EnumSerializedValue("description")] Description,
+        [EnumSerializedValue("lock_at")] LockAt,
+        [EnumSerializedValue("points_possible")] PointsPossible,
+        [EnumSerializedValue("grading_type")] GradingType,
+        [EnumSerializedValue("submission_types")] SubmissionTypes,
+        [EnumSerializedValue("assignment_group_id")] AssignmentGroupId,
+        [EnumSerializedValue("allowed_extensions")] AllowedExtensions,
+        [EnumSerializedValue("group_category_id")] GroupCategoryId,
+        [EnumSerializedValue("notify_of_update")] NotifyOfUpdate,
+        [EnumSerializedValue("peer_reviews")] PeerReviews
     }
-}
-
-
-internal static class FreezableAttributesHelpers
-{
-    public static FreezableAttributes? ToFreezableAttribute(this string value) =>
-        value?.ToLower().Trim() switch
-        {
-            "title" => FreezableAttributes.Title,
-            "description" => FreezableAttributes.Description,
-            "lock_at" => FreezableAttributes.LockAt,
-            "points_possible" => FreezableAttributes.PointsPossible,
-            "grading_type" => FreezableAttributes.GradingType,
-            "submission_types" => FreezableAttributes.SubmissionTypes,
-            "assignment_group_id" => FreezableAttributes.AssignmentGroupId,
-            "allowed_extensions" => FreezableAttributes.AllowedExtensions,
-            "group_category_id" => FreezableAttributes.GroupCategoryId,
-            "notify_of_update" => FreezableAttributes.NotifyOfUpdate,
-            "peer_reviews" => FreezableAttributes.PeerReviews,
-            _ => null
-        };
 }

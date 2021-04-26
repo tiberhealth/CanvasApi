@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CanvasApi.Client.AssignmentGroups.Enums;
-using Newtonsoft.Json;
+using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.AssignmentGroups.Models
 {
@@ -13,16 +12,16 @@ namespace CanvasApi.Client.AssignmentGroups.Models
         /// Allowed values:
         /// assignments, discussion_topic, assignment_visibility, submission, score_statistics
         /// </summary>
-        [JsonProperty("include")] IEnumerable<AssignmentGroupGetIncludes> Include { get; set; }
+        [Multipart("include")] IEnumerable<AssignmentGroupGetIncludes> Include { get; set; }
 
         /// <summary>
         /// Apply assignment overrides for each assignment, defaults to true
         /// </summary>
-        [JsonProperty("override_assignment_dates")] bool? OverrideAssignmentDates { get; set; }
+        [Multipart("override_assignment_dates")] bool? OverrideAssignmentDates { get; set; }
 
         /// <summary>
         /// The id of the grading period in which assignment groups are being requested (Requires grading periods to exist on the account)
         /// </summary>
-        [JsonProperty("grading_period_id")] long? GradingPeriodId { get; set; }
+        [Multipart ("grading_period_id")] long? GradingPeriodId { get; set; }
     }
 }

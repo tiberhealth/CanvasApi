@@ -1,14 +1,11 @@
-﻿using System;
-using System.IO;
-using System.Net.Http;
-using System.Runtime.CompilerServices;
+﻿using System.Net.Http;
 using CanvasApi.Client.Exceptions;
 
 namespace CanvasApi.Client.Extentions
 {
     internal static class ResponseExtensions
     {
-        public static CanvasApiException ToEException(this HttpResponseMessage response)
+        public static CanvasApiException ToException(this HttpResponseMessage response)
         {
             return response.StatusCode switch
             {

@@ -1,5 +1,3 @@
-using Newtonsoft.Json;
-
 namespace CanvasApi.Client.OAuth2.Models
 {
     public interface IWebSessionResponse
@@ -9,6 +7,6 @@ namespace CanvasApi.Client.OAuth2.Models
     
     internal class WebSessionResponse: IWebSessionResponse
     {
-        [JsonProperty("session_url")] public string SessionUrl { get; set; }
+        public string SessionUrl { get; set; }
     }
 }

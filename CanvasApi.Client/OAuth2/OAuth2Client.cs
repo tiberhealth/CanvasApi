@@ -2,7 +2,6 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using CanvasApi.Client._Base;
-using CanvasApi.Client.Extentions;
 using CanvasApi.Client.OAuth2.Models;
 
 namespace CanvasApi.Client.OAuth2

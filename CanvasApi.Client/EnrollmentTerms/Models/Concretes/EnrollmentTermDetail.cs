@@ -1,5 +1,4 @@
 ﻿using System;
-using Newtonsoft.Json;
 
 namespace CanvasApi.Client.EnrollmentTerms.Models.Concretes
 {

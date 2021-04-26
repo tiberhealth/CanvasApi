@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CanvasApi.Client.EnrollmentTerms.Models.Concretes
+﻿namespace CanvasApi.Client.EnrollmentTerms.Models.Concretes
 {
     internal class EnrollmentTermNewUpdate : IEnrollmentTermNewUpdate
     {

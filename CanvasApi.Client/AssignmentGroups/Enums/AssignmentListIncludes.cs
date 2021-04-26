@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using TiberHealth.Serializer.Attributes;
+﻿using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.AssignmentGroups.Enums
 {

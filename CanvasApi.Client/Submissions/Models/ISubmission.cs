@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using CanvasApi.Client.Assignments.Models;
 using CanvasApi.Client.Courses.Models;
 using CanvasApi.Client.Users.Models;
-using Newtonsoft.Json.Linq;
 
 namespace CanvasApi.Client.Submissions.Models
 {

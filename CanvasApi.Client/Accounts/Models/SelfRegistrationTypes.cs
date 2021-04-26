@@ -1,5 +1,4 @@
-﻿using System;
-namespace CanvasApi.Client.Accounts.Models
+﻿namespace CanvasApi.Client.Accounts.Models
 {
     public enum SelfRegistrationTypes
     {

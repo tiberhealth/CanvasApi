@@ -1,9 +1,8 @@
-﻿using System;
-using TiberHealth.Serializer.Attributes;
+﻿using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Submissions.Enums
 {
-    [Multipart(EnumAsString = true)]
+    [EnumAsString]
     public enum SubmissionWorkFlowStates
     {
         [EnumSerializedValue("submitted")] Submitted,

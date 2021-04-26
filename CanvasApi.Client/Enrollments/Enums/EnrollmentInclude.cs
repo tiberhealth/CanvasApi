@@ -1,11 +1,16 @@
-﻿using System;
-using TiberHealth.Serializer.Attributes;
+﻿using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Enrollments.Enums
 {
-    [Multipart(EnumAsString = true)]
+    [EnumAsString]
     public enum EnrollmentInclude
     {
-        AvatarUrl, GroupIds, Locked, ObservedUsers, CanBeRemoved, Uuid, CurrentPoints
+        [EnumSerializedValue("avatar_url")] AvatarUrl,
+        [EnumSerializedValue("group_ids")] GroupIds,
+        [EnumSerializedValue("locked")] Locked,
+        [EnumSerializedValue("observed_users")] ObservedUsers,
+        [EnumSerializedValue("can_be_removed")] CanBeRemoved,
+        [EnumSerializedValue("uuid")] Uuid,
+        [EnumSerializedValue("current_points")] CurrentPoints
     }
 }

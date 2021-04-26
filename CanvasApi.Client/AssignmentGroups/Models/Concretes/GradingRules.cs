@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using System.Collections.Generic;
 
 namespace CanvasApi.Client.AssignmentGroups.Models.Concrete
 {
     internal class GradingRules : IGradingRules
     {
-        [JsonProperty("drop_lowest")] public int DropLowest { get; set; }
-        [JsonProperty("drop_highest")] public int DropHighest { get; set; }
-        [JsonProperty("never_drop")] public IEnumerable<long> NeverDrop { get; set; }
+        public int DropLowest { get; set; }
+        public int DropHighest { get; set; }
+        public IEnumerable<long> NeverDrop { get; set; }
     }
 }

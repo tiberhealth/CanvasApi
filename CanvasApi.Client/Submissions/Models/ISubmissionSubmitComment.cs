@@ -1,5 +1,4 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Submissions.Models
 {
@@ -8,6 +7,6 @@ namespace CanvasApi.Client.Submissions.Models
         /// <summary>
         /// Include a textual comment with the submission
         /// </summary>
-        [JsonProperty("text_comment")] string TextComment { get; set; }
+        [Multipart("text_comment")] string TextComment { get; set; }
     }
 }

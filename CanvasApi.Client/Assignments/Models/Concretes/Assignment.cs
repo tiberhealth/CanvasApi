@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using CanvasApi.Client.Assignments.Enums;
+using CanvasApi.Client.Helpers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -61,7 +62,7 @@ namespace CanvasApi.Client.Assignments.Models.Concretes
         [JsonProperty("submission_types")] public string[] SubmissionTypes { get; set; }
         IEnumerable<SubmissionTypes> IAssignment.SubmissionTypes =>
             this.SubmissionTypes?
-                .Select(item => item.ToSubmissionType())
+                .Select(item => item.ToEnum<SubmissionTypes>())
                 .Where(item => item != null)
                 .Select(item => item.Value)
                 .Distinct()
@@ -70,7 +71,7 @@ namespace CanvasApi.Client.Assignments.Models.Concretes
         [JsonProperty("has_submitted_submissions")] public bool? HasSubmittedSubmissions { get; set; }
 
         [JsonProperty("grading_type")] public string GradingType { get; set; }
-        GradingTypes? IAssignment.GradingType => this.GradingType?.ToGradingType();
+        GradingTypes? IAssignment.GradingType => this.GradingType?.ToEnum<GradingTypes>();
 
         [JsonProperty("grading_standard_id")] public long? GradingStandardId { get; set; }
         [JsonProperty("published")] public bool? Published { get; set; }
@@ -91,7 +92,7 @@ namespace CanvasApi.Client.Assignments.Models.Concretes
         [JsonProperty("frozen_attributes")] public string[] FrozenAttributes { get; set; }
         IEnumerable<FreezableAttributes> IAssignment.FrozenAttributes =>
             this.FrozenAttributes?
-            .Select(item => item.ToFreezableAttribute())
+            .Select(item => item.ToEnum<FreezableAttributes>())
             .Where(item => item != null)
             .Select(item => item.Value)
             .Distinct()

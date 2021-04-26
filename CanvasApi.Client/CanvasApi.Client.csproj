@@ -63,5 +63,7 @@
     <Folder Include="Users\Models\Concretes\" />
     <Folder Include="Admins\Models\Concretes\" />
     <Folder Include="Roles\Models\Concrete\" />
+    <Folder Include="Courses\Models\Concrete\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
 </Project>

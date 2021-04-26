@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CanvasApi.Client.Role.Models
+namespace CanvasApi.Client.Roles.Models.Concrete
 {
     internal class Role : IRole
     {

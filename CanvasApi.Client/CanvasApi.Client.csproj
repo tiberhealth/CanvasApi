@@ -61,5 +61,7 @@
     <Folder Include="Pages\Models\Concretes\" />
     <Folder Include="Submissions\Models\Concretes\" />
     <Folder Include="Users\Models\Concretes\" />
+    <Folder Include="Admins\Models\Concretes\" />
+    <Folder Include="Roles\Models\Concrete\" />
   </ItemGroup>
 </Project>

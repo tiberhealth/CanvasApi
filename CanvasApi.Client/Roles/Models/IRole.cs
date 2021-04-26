@@ -1,7 +1,7 @@
 ﻿using CanvasApi.Client.Roles.Enums;
 using System.Collections.Generic;
 
-namespace CanvasApi.Client.Role.Models
+namespace CanvasApi.Client.Roles.Models
 {
     public interface IRole
     {

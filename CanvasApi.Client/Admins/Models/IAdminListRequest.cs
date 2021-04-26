@@ -5,11 +5,11 @@ using System.Text;
 
 namespace CanvasApi.Client.Admins.Models
 {
-    public interface IAdminList
+    public interface IAdminListRequest
     {
         /// <summary>
         /// Scope the results to those with user IDs equal to any of the IDs specified here.
         /// </summary>
-        [JsonProperty("user_id[]")] IEnumerable<Int32> UserId { get; set; }
+        [JsonProperty("user_id")] IEnumerable<long> UserId { get; set; }
     }
 }

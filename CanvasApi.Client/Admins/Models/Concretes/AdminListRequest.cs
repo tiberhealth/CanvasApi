@@ -5,8 +5,8 @@ using System.Text;
 
 namespace CanvasApi.Client.Admins.Models
 {
-    class AdminDemote : IAdminDemote
+    internal class AdminListRequest : IAdminListRequest
     {
-        [JsonProperty("role_id")] public int? RoleId { get; set; }
+        public IEnumerable<long> UserId { get; set; }
     }
 }

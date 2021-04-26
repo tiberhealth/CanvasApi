@@ -21,6 +21,7 @@ namespace CanvasApi.Client.Enrollments
         /// <param name="request"></param>
         /// <returns></returns>
         Task<IEnumerable<IEnrollment>> CourseEnrollments(long courseId, Action<IEnrollmentRequest> options = null);
+
         /// <summary>
         /// List enrollments
         ///
@@ -34,6 +35,7 @@ namespace CanvasApi.Client.Enrollments
         /// <param name="request"></param>
         /// <returns></returns>
         Task<IEnumerable<IEnrollment>> SectionEnrollments(long sectionId, Action<IEnrollmentRequest> options = null);
+
         /// <summary>
         /// List enrollments
         ///
@@ -47,12 +49,14 @@ namespace CanvasApi.Client.Enrollments
         /// <param name="request"></param>
         /// <returns></returns>
         Task<IEnumerable<IEnrollment>> UserEnrollments(long userId, Action<IEnrollmentRequest> options = null);
+
         /// <summary>
         /// Get an Enrollment object by Enrollment ID
         /// </summary>
         /// <param name="enrollmentId"></param>
         /// <returns></returns>
         Task<IEnrollment> GetById(long enrollmentId);
+
         /// <summary>
         /// Create a new user enrollment for a course or section.
         /// </summary>
@@ -60,6 +64,7 @@ namespace CanvasApi.Client.Enrollments
         /// <param name="enrollment"></param>
         /// <returns></returns>
         Task<IEnrollment> EnrollCourseUser(long courseId, IEnrollment enrollment);
+
         /// <summary>
         /// Create a new user enrollment for a course or section.
         /// </summary>
@@ -67,6 +72,7 @@ namespace CanvasApi.Client.Enrollments
         /// <param name="enrollment"></param>
         /// <returns></returns>
         Task<IEnrollment> EnrollSection(long sectionId, IEnrollment enrollment);
+
         /// <summary>
         /// Conclude, deactivate, or delete an enrollment. If the task argument isn't given, the enrollment will be concluded.
         /// </summary>
@@ -75,6 +81,7 @@ namespace CanvasApi.Client.Enrollments
         /// <param name="task"></param>
         /// <returns></returns>
         Task<IEnrollment> DeactiveEnrollment(long courseId, long enrollmentId, EnrollmentDeactivateTasks task = EnrollmentDeactivateTasks.Conclude);
+
         /// <summary>
         /// accepts a pending course invitation for the current user
         /// </summary>
@@ -82,6 +89,7 @@ namespace CanvasApi.Client.Enrollments
         /// <param name="enrollmentId"></param>
         /// <returns></returns>
         Task<IApiSuccess> AcceptEnrollment(long courseId, long enrollmentId);
+
         /// <summary>
         /// rejects a pending course invitation for the current user
         /// </summary>
@@ -89,6 +97,7 @@ namespace CanvasApi.Client.Enrollments
         /// <param name="enrollmentId"></param>
         /// <returns></returns>
         Task<IApiSuccess> RejectEnrollment(long courseid, long enrollmentId);
+
         /// <summary>
         /// Activates an inactive enrollment
         /// </summary>
@@ -96,6 +105,7 @@ namespace CanvasApi.Client.Enrollments
         /// <param name="enrollmentId"></param>
         /// <returns></returns>
         Task<IEnrollment> Reactivate(long courseId, long enrollmentId);
+
         /// <summary>
         /// Adds last attended date to student enrollment in course
         /// (Canvas Documentation looks to be incomplete for this call)

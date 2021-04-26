@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using CanvasApi.Client.Enrollments.Models;
 using CanvasApi.Client.EnrollmentTerms.Models;
+using CanvasApi.Client.Enrollments.Models.Concretes;
+using CanvasApi.Client.EnrollmentTerms.Models.Concretes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 

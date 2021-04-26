@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CanvasApi.Client", "CanvasA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CanvasApi.Client.Test", "CanvasApi.Client.Test\CanvasApi.Client.Test.csproj", "{9A26ADCC-4240-4E1E-9E3E-382CE8A3EF9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CanvasApi.Client.Tiberhealth.Test", "CanvasApi.Client.Tiberhealth.Test\CanvasApi.Client.Tiberhealth.Test.csproj", "{0400D60C-998C-4779-8D1B-63DD478FD4D7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,17 +44,5 @@ Global
 		{9A26ADCC-4240-4E1E-9E3E-382CE8A3EF9B}.Release|x64.Build.0 = Release|Any CPU
 		{9A26ADCC-4240-4E1E-9E3E-382CE8A3EF9B}.Release|x86.ActiveCfg = Release|Any CPU
 		{9A26ADCC-4240-4E1E-9E3E-382CE8A3EF9B}.Release|x86.Build.0 = Release|Any CPU
-		{0400D60C-998C-4779-8D1B-63DD478FD4D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0400D60C-998C-4779-8D1B-63DD478FD4D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0400D60C-998C-4779-8D1B-63DD478FD4D7}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{0400D60C-998C-4779-8D1B-63DD478FD4D7}.Debug|x64.Build.0 = Debug|Any CPU
-		{0400D60C-998C-4779-8D1B-63DD478FD4D7}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{0400D60C-998C-4779-8D1B-63DD478FD4D7}.Debug|x86.Build.0 = Debug|Any CPU
-		{0400D60C-998C-4779-8D1B-63DD478FD4D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0400D60C-998C-4779-8D1B-63DD478FD4D7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0400D60C-998C-4779-8D1B-63DD478FD4D7}.Release|x64.ActiveCfg = Release|Any CPU
-		{0400D60C-998C-4779-8D1B-63DD478FD4D7}.Release|x64.Build.0 = Release|Any CPU
-		{0400D60C-998C-4779-8D1B-63DD478FD4D7}.Release|x86.ActiveCfg = Release|Any CPU
-		{0400D60C-998C-4779-8D1B-63DD478FD4D7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

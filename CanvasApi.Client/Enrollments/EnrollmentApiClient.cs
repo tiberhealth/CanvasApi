@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CanvasApi.Client._Base;
 using CanvasApi.Client.Enrollments.Enums;
 using CanvasApi.Client.Enrollments.Models;
+using CanvasApi.Client.Enrollments.Models.Concretes;
 using CanvasApi.Client.Extentions;
 
 namespace CanvasApi.Client.Enrollments

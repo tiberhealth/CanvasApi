@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CanvasApi.Client._Base;
 using CanvasApi.Client.Extentions;
 using CanvasApi.Client.Submissions.Models;
+using CanvasApi.Client.Submissions.Models.Concretes;
 
 namespace CanvasApi.Client.Submissions
 {

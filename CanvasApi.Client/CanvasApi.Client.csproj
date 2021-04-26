@@ -23,7 +23,7 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
-    <PackageReference Include="TiberHealth.Serializer" Version="1.0.35" />
+    <PackageReference Include="TiberHealth.Serializer" Version="1.0.41" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Accounts\" />
@@ -54,5 +54,14 @@
     <Folder Include="EnrollmentTerms\" />
     <Folder Include="Courses\Enums\" />
     <Folder Include="EnrollmentTerms\Models\" />
+    <Folder Include="EnrollmentTerms\Models\Concretes\" />
+    <Folder Include="Enrollments\Models\Concretes\" />
+    <Folder Include="AssignmentGroups\Models\Concretes\" />
+    <Folder Include="Assignments\Models\Concretes\" />
+    <Folder Include="Pages\Models\Concretes\" />
+    <Folder Include="Submissions\Models\Concretes\" />
+    <Folder Include="Users\Models\Concretes\" />
+    <Folder Include="Admins\Models\Concretes\" />
+    <Folder Include="Roles\Models\Concrete\" />
   </ItemGroup>
 </Project>

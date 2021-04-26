@@ -10,15 +10,25 @@ namespace CanvasApi.Client.Users.Models
         /// The ID of the user
         /// </summary>
         long Id { get; }
+
         string Name { get; }
+
         string ShortName { get; }
+
         string SortableName { get; }
+
         string Title { get; }
+
         string Bio { get; }
+
         string PrimaryEmail { get; }
+
         string LoginId { get; }
+
         string SisUserId { get; }
+
         string LtiUserId { get; }
+
         /// <summary>
         /// The avatar_url can change over time, so we recommend not caching it for more than a few hours
         /// </summary>

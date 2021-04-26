@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using CanvasApi.Client._Base;
 using CanvasApi.Client.AssignmentGroups.Models;
+using CanvasApi.Client.AssignmentGroups.Models.Concrete;
 using CanvasApi.Client.Extentions;
 
 namespace CanvasApi.Client.AssignmentGroups

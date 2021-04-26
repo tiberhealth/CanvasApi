@@ -13,10 +13,16 @@ namespace CanvasApi.Client
 
     public class PagingOptions
     {
+#if (DEBUG)
+        private const int defaultPageSize = 5;
+#else
+        private const int defaultPageSize = 50;
+#endif
+
         public int PageSize { get; set; }
 
-        public PagingOptions(): this(50)
-        {}
+        public PagingOptions(): this(defaultPageSize)
+        { }
 
         public PagingOptions(int pageSize)
         {

@@ -1,9 +1,8 @@
-﻿using System;
-using System.Runtime.Serialization;
-using TiberHealth.Serializer.Attributes;
+﻿using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Pages.Enums
 {
+    [EnumAsString]
     public enum PageSort
     {
         [EnumSerializedValue("title")] Title,

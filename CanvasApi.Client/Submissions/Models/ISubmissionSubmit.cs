@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using CanvasApi.Client.Submissions.Models.Concretes;
-using Newtonsoft.Json;
+﻿using CanvasApi.Client.Submissions.Models.Concretes;
+using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Submissions.Models
 {
     public interface ISubmissionSubmit
     {
-        [JsonProperty("comment")] ISubmissionSubmitComment Comment { get; set; }
-        [JsonProperty("submission")] ISubmissionSubmitDetail Submission { get; set; }
+        [Multipart("comment")] ISubmissionSubmitComment Comment { get; set; }
+        [Multipart("submission")] ISubmissionSubmitDetail Submission { get; set; }
     }
 
     public static class ISubmissionSubmitHelpers

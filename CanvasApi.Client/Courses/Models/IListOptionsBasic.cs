@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CanvasApi.Client.Courses.Enums;
 using CanvasApi.Client.Enrollments.Enums;
-using Newtonsoft.Json;
 using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Courses.Models
@@ -49,7 +47,7 @@ namespace CanvasApi.Client.Courses.Models
         /// Allowed values:
         /// needs_grading_count, syllabus_body, public_description, total_scores, current_grading_period_scores, term, account, course_progress, sections, storage_quota_used_mb, total_students, passback_status, favorites, teachers, observed_users, course_image, concluded
         /// </summary>
-        [JsonProperty("include"), EnumAsString] IEnumerable<CourseIncludes> Includes { get; set; }
+        [Multipart("include"), EnumAsString] IEnumerable<CourseIncludes> Includes { get; set; }
 
         /// <summary>
         /// When set, only return courses where the user has an enrollment with the given state.This will respect section/course/term date overrides.
@@ -57,7 +55,7 @@ namespace CanvasApi.Client.Courses.Models
         /// Allowed values:
         /// active, invited_or_pending, completed
         /// </summary>
-        [JsonProperty("enrollment_state"), EnumAsString] EnrollmentState? EnrollmentState { get; set; }
+        [Multipart("enrollment_state"), EnumAsString] EnrollmentState? EnrollmentState { get; set; }
 
         /// <summary>
         /// If set, only return courses that are in the given state(s). By default, “available” is returned for students and observers, and anything except “deleted”, for all other enrollment types
@@ -65,6 +63,6 @@ namespace CanvasApi.Client.Courses.Models
         /// Allowed values:
         /// unpublished, available, completed, deleted
         /// </summary>
-        [JsonProperty("state"), EnumAsString] IEnumerable<CourseState> State { get; set; }
+        [Multipart("state"), EnumAsString] IEnumerable<CourseState> State { get; set; }
     }
 }

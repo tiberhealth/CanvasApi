@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using CanvasApi.Client.Accounts.Enums;
 using CanvasApi.Client.Accounts.Models;

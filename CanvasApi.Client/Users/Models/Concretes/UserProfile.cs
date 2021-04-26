@@ -1,22 +1,20 @@
-﻿using Newtonsoft.Json;
-
-namespace CanvasApi.Client.Users.Models.Concretes
+﻿namespace CanvasApi.Client.Users.Models.Concretes
 {
-    internal class UserProfile: IUserProfile
+    internal class UserProfile : IUserProfile
     {
-        [JsonProperty("id")] public long Id { get; set; }
-        [JsonProperty("name")] public string Name { get; set; }
-        [JsonProperty("short_name")] public string ShortName { get; set; }
-        [JsonProperty("sortable_name")] public string SortableName { get; set; }
-        [JsonProperty("title")] public string Title { get; set; }
-        [JsonProperty("bio")] public string Bio { get; set; }
-        [JsonProperty("primary_email")] public string PrimaryEmail { get; set; }
-        [JsonProperty("login_id")] public string LoginId { get; set; }
-        [JsonProperty("sis_user_id")] public string SisUserId { get; set; }
-        [JsonProperty("lti_user_id")] public string LtiUserId { get; set; }
-        [JsonProperty("avatar_url")] public string AvatarUrl { get; set; }
-        [JsonProperty("calendar")] public object Calendar { get; set; }
-        [JsonProperty("time_zone")] public string TimeZone { get; set; }
-        [JsonProperty("locale")] public string Locale { get; set; }
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public string ShortName { get; set; }
+        public string SortableName { get; set; }
+        public string Title { get; set; }
+        public string Bio { get; set; }
+        public string PrimaryEmail { get; set; }
+        public string LoginId { get; set; }
+        public string SisUserId { get; set; }
+        public string LtiUserId { get; set; }
+        public string AvatarUrl { get; set; }
+        public object Calendar { get; set; }
+        public string TimeZone { get; set; }
+        public string Locale { get; set; }
     }
 }

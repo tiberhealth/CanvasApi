@@ -1,6 +1,4 @@
-﻿using System;
-using CanvasApi.Client.Enrollments.Enums;
-using Newtonsoft.Json;
+﻿using CanvasApi.Client.Enrollments.Enums;
 
 namespace CanvasApi.Client.Enrollments.Models.Concretes
 {

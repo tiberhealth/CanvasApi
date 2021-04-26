@@ -1,12 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.EnrollmentTerms.Models
 {
     public interface IEnrollmentOverrides
     {
-        [JsonProperty("TeacherEnrollment")] IEnrollmentOverrides Teacher { get; }
-        [JsonProperty("StudentEnrollment")] IEnrollmentOverrides Student { get; }
-        [JsonProperty("TaEnrollment")] IEnrollmentOverrides TeachingAssistant { get; }
-        [JsonProperty("DesignerEnrollment")] IEnrollmentOverrides Designer { get; }
+        [Multipart("TeacherEnrollment")] IEnrollmentOverrides Teacher { get; }
+        [Multipart("StudentEnrollment")] IEnrollmentOverrides Student { get; }
+        [Multipart("TaEnrollment")] IEnrollmentOverrides TeachingAssistant { get; }
+        [Multipart("DesignerEnrollment")] IEnrollmentOverrides Designer { get; }
     }
 }

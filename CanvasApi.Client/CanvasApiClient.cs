@@ -199,11 +199,14 @@ namespace CanvasApi.Client
                 using var streamReader = new StreamReader(contentStream);
                 using var reader = new JsonTextReader(streamReader);
 
-                var serializedCollection = new JsonSerializer().Deserialize<TResult>(reader);
+                var serializedCollection = new JsonSerializer() {
+                    ContractResolver = new DefaultNemesContractResolver()
+                }.Deserialize<TResult>(reader);
+
                 return serializedCollection ?? default(TResult);
             }
 
-            throw result.ToEException();
+            throw result.ToException();
         }
 
         private HttpRequestMessage GenerateHttpRequest(HttpMethod method, string url) => this.GenerateHttpRequest<object>(method, url, null);

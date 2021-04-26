@@ -1,5 +1,3 @@
-using Newtonsoft.Json;
-
 namespace CanvasApi.Client.OAuth2.Models
 {
     public interface IAuthUser
@@ -10,7 +8,7 @@ namespace CanvasApi.Client.OAuth2.Models
     
     internal class AuthUser: IAuthUser
     {
-        [JsonProperty("id")] public long Id { get; set; }
-        [JsonProperty("name")] public string Name { get; set; }
+        public long Id { get; set; }
+        public string Name { get; set; }
     }
 }

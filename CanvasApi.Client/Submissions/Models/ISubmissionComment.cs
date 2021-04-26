@@ -1,6 +1,5 @@
 ﻿using System;
 using CanvasApi.Client.Users.Models;
-using Newtonsoft.Json.Linq;
 
 namespace CanvasApi.Client.Submissions.Models
 {

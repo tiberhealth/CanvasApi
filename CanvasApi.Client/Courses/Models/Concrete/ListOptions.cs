@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using CanvasApi.Client.Courses.Enums;
-using CanvasApi.Client.Enrollments.Enums;
+﻿using CanvasApi.Client.Enrollments.Enums;
 
-namespace CanvasApi.Client.Courses.Models
+namespace CanvasApi.Client.Courses.Models.Concrete
 {
     internal class ListOptions : ListOptionsBasic, IListOptions
     {

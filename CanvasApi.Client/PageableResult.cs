@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq;
 using System.Net.Http;
-using System.Net.WebSockets;
 
 namespace CanvasApi.Client
 {

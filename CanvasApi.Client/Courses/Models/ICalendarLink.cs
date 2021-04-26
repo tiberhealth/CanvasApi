@@ -1,5 +1,4 @@
-﻿using System;
-namespace CanvasApi.Client.Courses.Models
+﻿namespace CanvasApi.Client.Courses.Models
 {
     public interface ICalendarLink
     {

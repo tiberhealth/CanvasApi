@@ -1,7 +1,5 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Admins.Models
 {
@@ -10,6 +8,6 @@ namespace CanvasApi.Client.Admins.Models
         /// <summary>
         /// Scope the results to those with user IDs equal to any of the IDs specified here.
         /// </summary>
-        [JsonProperty("user_id")] IEnumerable<long> UserId { get; set; }
+        [Multipart("user_id")] IEnumerable<long> UserId { get; set; }
     }
 }

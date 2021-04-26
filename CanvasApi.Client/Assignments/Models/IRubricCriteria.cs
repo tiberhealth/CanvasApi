@@ -1,5 +1,4 @@
-﻿using System;
-namespace CanvasApi.Client.Assignments.Models
+﻿namespace CanvasApi.Client.Assignments.Models
 {
     public interface IRubricCriteria
     {

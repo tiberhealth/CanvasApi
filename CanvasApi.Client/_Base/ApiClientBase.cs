@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.Encodings.Web;
 
 namespace CanvasApi.Client._Base
 {

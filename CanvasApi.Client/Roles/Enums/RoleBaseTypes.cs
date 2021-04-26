@@ -1,9 +1,8 @@
-﻿using System;
-using TiberHealth.Serializer.Attributes;
+﻿using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Roles.Enums
 {
-    [Multipart(EnumAsString = true)]
+    [EnumAsString]
     public enum RoleBaseTypes
     {
         [EnumSerializedValue("AccountMembership")] AccountMembership,

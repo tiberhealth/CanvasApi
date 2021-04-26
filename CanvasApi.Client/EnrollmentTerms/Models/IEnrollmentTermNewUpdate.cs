@@ -1,7 +1,4 @@
-﻿using System;
-using System.Dynamic;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.EnrollmentTerms.Models
 {
@@ -10,6 +7,6 @@ namespace CanvasApi.Client.EnrollmentTerms.Models
         /// <summary>
         /// Enrollment Term Details
         /// </summary>
-        [JsonProperty("enrollment_term")] IEnrollmentTermDetail EnrollmentTerm { get; }
+        [Multipart("enrollment_term")] IEnrollmentTermDetail EnrollmentTerm { get; }
     }
 }

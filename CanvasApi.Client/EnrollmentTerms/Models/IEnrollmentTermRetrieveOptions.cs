@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CanvasApi.Client.EnrollmentTerms.Enums;
-using Newtonsoft.Json;
+using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.EnrollmentTerms
 {
@@ -13,6 +12,6 @@ namespace CanvasApi.Client.EnrollmentTerms
         /// Allowed values: <see cref="EnrollmentTermIncludes"/>
         /// overrides
         /// </summary>
-        [JsonProperty("include")] IEnumerable<EnrollmentTermIncludes> Include { get; set; }
+        [Multipart("include")] IEnumerable<EnrollmentTermIncludes> Include { get; set; }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using CanvasApi.Client.Pages.Enums;
+﻿using CanvasApi.Client.Pages.Enums;
 
 namespace CanvasApi.Client.Pages.Models
 {

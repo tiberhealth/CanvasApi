@@ -1,5 +1,4 @@
-﻿using System;
-namespace CanvasApi.Client.Submissions.Models
+﻿namespace CanvasApi.Client.Submissions.Models
 {
     public interface IMediaComment
     {

@@ -1,5 +1,4 @@
-﻿using System;
-namespace CanvasApi.Client.Submissions.Models.Concretes
+﻿namespace CanvasApi.Client.Submissions.Models.Concretes
 {
     internal class SubmissionSubmit : ISubmissionSubmit
     {

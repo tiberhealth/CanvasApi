@@ -1,5 +1,4 @@
-﻿using System;
-namespace CanvasApi.Client.Users.Models
+﻿namespace CanvasApi.Client.Users.Models
 {
     /// <summary>
     /// This mini-object is used for secondary user responses, when we just want to

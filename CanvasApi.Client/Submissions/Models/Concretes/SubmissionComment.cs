@@ -1,22 +1,21 @@
 ﻿using System;
 using CanvasApi.Client.Users.Models;
 using CanvasApi.Client.Users.Models.Concretes;
-using Newtonsoft.Json;
 
 namespace CanvasApi.Client.Submissions.Models.Concretes
 {
     internal class SubmissionComment : ISubmissionComment
     {
-        [JsonProperty("id")] public long Id { get; set; }
-        [JsonProperty("author_id")] public long? AuthorId { get; set; }
-        [JsonProperty("author_name")] public string AuthorName { get; set; }
+        public long Id { get; set; }
+        public long? AuthorId { get; set; }
+        public string AuthorName { get; set; }
 
-        [JsonProperty("author")] public UserDisplay Author { get; set; }
+        public UserDisplay Author { get; set; }
         IUserDisplay ISubmissionComment.Author => this.Author;
 
-        [JsonProperty("comment")] public string Comment { get; set; }
-        [JsonProperty("created_at")] public DateTime? CreatedAt { get; set; }
-        [JsonProperty("edited_at")] public DateTime? EditedAt { get; set; }
-        [JsonProperty("media_comment")] public string MediaComment { get; set; }
+        public string Comment { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? EditedAt { get; set; }
+        public string MediaComment { get; set; }
     }
 }

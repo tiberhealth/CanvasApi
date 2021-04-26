@@ -1,5 +1,4 @@
-﻿using System;
-namespace CanvasApi.Client.Users.Models
+﻿namespace CanvasApi.Client.Users.Models
 {
     /// <summary>
     /// Profile details for a Canvas user

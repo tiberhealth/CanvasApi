@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CanvasApi.Client.Modules.Models.Concretes
 {
-    internal interface IModuleDetail
+    public interface IModuleDetail
     {
         string Name { get; set; }
         int? Position { get; set; }

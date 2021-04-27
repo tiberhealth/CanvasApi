@@ -1,12 +1,13 @@
 ﻿using Newtonsoft.Json;
+using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Modules.Models.Concretes
 {
     public interface IModuleItemSequenceNode
     {
-        [JsonProperty("current")] IModuleItem Current { get; set; }
-        [JsonProperty("mastery_path")] IMasteryPath MasteryPath { get; set; }
-        [JsonProperty("next")] IModuleItem Next { get; set; }
-        [JsonProperty("prev")] IModuleItem Prev { get; set; }
+        [Multipart("current")] IModuleItem Current { get; set; }
+        [Multipart("mastery_path")] IMasteryPath MasteryPath { get; set; }
+        [Multipart("next")] IModuleItem Next { get; set; }
+        [Multipart("prev")] IModuleItem Prev { get; set; }
     }
 }

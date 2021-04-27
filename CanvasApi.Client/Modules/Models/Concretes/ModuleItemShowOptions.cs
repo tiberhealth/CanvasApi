@@ -5,10 +5,9 @@ using System.Text;
 
 namespace CanvasApi.Client.Modules.Models.Concretes
 {
-    internal class ModuleListOptions
+    internal class ModuleItemShowOptions
     {
-        public IEnumerable<ModuleInclude> Include { get; set; }
-        public string SearchTerm { get; set; }
+        public IEnumerable<ModuleItemInclude> Include { get; set; }
         public string StudentId { get; set; }
     }
 }

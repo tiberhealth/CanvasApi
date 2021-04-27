@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using TiberHealth.Serializer.Attributes;
 
-namespace CanvasApi.Client.Modules.Models.Concretes
+namespace CanvasApi.Client.Modules.Models.Enums
 {
     [Multipart(EnumAsString = true)]
     public enum ModuleInclude

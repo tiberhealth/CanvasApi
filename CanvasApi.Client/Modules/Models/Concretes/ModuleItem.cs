@@ -14,7 +14,7 @@ namespace CanvasApi.Client.Modules.Models
         [Multipart("position")] public int? Position { get; set; }
         [Multipart("title")] public string Title { get; set; }
         [Multipart("indent")] public int? Indent { get; set; }
-        [Multipart("type")] public IEnumerable<ModuleTypes> Type { get; set; }
+        [Multipart("type")] public IEnumerable<ModuleItemTypes> Type { get; set; }
         [Multipart("content_id")] public long? ContentId { get; set; }
         [Multipart("html_url")] public string HtmlUrl { get; set; }
         [Multipart("url")] public string Url { get; set; }

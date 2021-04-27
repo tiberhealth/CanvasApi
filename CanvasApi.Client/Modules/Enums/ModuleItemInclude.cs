@@ -5,7 +5,7 @@ using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Modules.Models.Enums
 {
-    [Multipart(EnumAsString = true)]
+    [EnumAsString]
     public enum ModuleItemInclude
     {
         [EnumSerializedValue("content_details")] ContentDetails

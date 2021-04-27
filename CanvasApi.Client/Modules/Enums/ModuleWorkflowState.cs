@@ -5,7 +5,7 @@ using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Modules.Enums
 {
-    [Multipart(EnumAsString = true)]
+    [EnumAsString]
     public enum ModuleWorkflowState
     {
         [EnumSerializedValue("active")] MustView,

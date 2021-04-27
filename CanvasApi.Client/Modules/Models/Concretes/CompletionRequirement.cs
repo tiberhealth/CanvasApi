@@ -6,7 +6,7 @@ namespace CanvasApi.Client.Modules.Models
     internal class CompletionRequirement : ICompletionRequirement
     {
         public IEnumerable<CompletionRequirementTypes> Type { get; set; }
-        public int MinScore { get; set; }
-        public bool Completed { get; set; }
+        public int? MinScore { get; set; }
+        public bool? Completed { get; set; }
     }
 }

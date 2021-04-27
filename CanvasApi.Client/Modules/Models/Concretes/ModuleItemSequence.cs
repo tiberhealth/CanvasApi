@@ -6,7 +6,7 @@ using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Modules.Models.Concretes
 {
-    internal class ModuleItemSequence
+    internal class ModuleItemSequence : IModuleItemSequence
     {
         [Multipart("items")] public IEnumerable<IModuleItemSequenceNode> Items { get; set; }
         [Multipart("modules")] public IEnumerable<IModule> Modules { get; set; }

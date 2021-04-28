@@ -8,7 +8,9 @@ namespace CanvasApi.Client.Modules.Models.Concretes
 {
     internal class ModuleItemSequence : IModuleItemSequence
     {
-        [Multipart("items")] public IEnumerable<IModuleItemSequenceNode> Items { get; set; }
-        [Multipart("modules")] public IEnumerable<IModule> Modules { get; set; }
+        [Multipart("items")] public IEnumerable<ModuleItemSequenceNode> Items { get; set; }
+        IEnumerable<IModuleItemSequenceNode> IModuleItemSequence.Items => this.Items;
+        [Multipart("modules")] public IEnumerable<Module> Modules { get; set; }
+        IEnumerable<IModule> IModuleItemSequence.Modules => this.Modules;
     }
 }

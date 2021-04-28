@@ -14,6 +14,7 @@ namespace CanvasApi.Client.Modules.Models
         [Multipart("lock_at")] public DateTime? LockAt { get; set; }
         [Multipart("locked_for_user")] public bool? LockedForUser { get; set; }
         [Multipart("lock_explanation")] public string LockExplanation { get; set; }
-        [Multipart("lock_info")] public ILockInfo LockInfo { get; set; }
+        [Multipart("lock_info")] public LockInfo LockInfo { get; set; }
+        ILockInfo IContentDetails.LockInfo => this.LockInfo;
     }
 }

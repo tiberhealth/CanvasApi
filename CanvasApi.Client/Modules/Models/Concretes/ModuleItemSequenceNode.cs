@@ -9,9 +9,13 @@ namespace CanvasApi.Client.Modules.Models.Concretes
 {
     internal class ModuleItemSequenceNode : IModuleItemSequenceNode
     {
-        [Multipart("prev")] public IModuleItem Prev { get; set; }
-        [Multipart("current")] public IModuleItem Current { get; set; }
-        [Multipart("next")] public IModuleItem Next { get; set; }
-        [Multipart("mastery_path")] public IMasteryPath MasteryPath { get; set; }
+        [Multipart("prev")] public ModuleItem Prev { get; set; }
+        IModuleItem IModuleItemSequenceNode.Prev => this.Prev;
+        [Multipart("current")] public ModuleItem Current { get; set; }
+        IModuleItem IModuleItemSequenceNode.Current => this.Current;
+        [Multipart("next")] public ModuleItem Next { get; set; }
+        IModuleItem IModuleItemSequenceNode.Next => this.Next;
+        [Multipart("mastery_path")] public MasteryPath MasteryPath { get; set; }
+        IMasteryPath IModuleItemSequenceNode.MasteryPath => this.MasteryPath;
     }
 }

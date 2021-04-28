@@ -21,8 +21,10 @@ namespace CanvasApi.Client.Modules.Models
         [Multipart("page_url")] public string PageUrl { get; set; }
         [Multipart("external_url")] public string ExternalUrl { get; set; }
         [Multipart("new_tab")] public bool? NewTab { get; set; }
-        [Multipart("completion_requirement")] public ICompletionRequirement CompletionRequirement { get; set; }
-        [Multipart("content_details")] public IContentDetails ContentDetails { get; set; }
+        [Multipart("completion_requirement")] public CompletionRequirement CompletionRequirement { get; set; }
+        ICompletionRequirement IModuleItem.CompletionRequirement => this.CompletionRequirement;
+        [Multipart("content_details")] public ContentDetails ContentDetails { get; set; }
+        IContentDetails IModuleItem.ContentDetails => this.ContentDetails;
         [Multipart("published")] public bool? Published { get; set; }
     }
 }

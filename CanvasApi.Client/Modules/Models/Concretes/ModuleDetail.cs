@@ -10,7 +10,7 @@ namespace CanvasApi.Client.Modules.Models.Concretes
         public DateTime? UnlockAt { get; set; }
         public int? Position { get; set; }
         public bool? RequireSequentialProgress { get; set; }
-        public IEnumerable<Int32> PrerequisiteModuleIds { get; set; }
+        public IEnumerable<int> PrerequisiteModuleIds { get; set; }
         public bool? PublishFinalGrade { get; set; }
         public bool? Published { get; set; }
     }

@@ -14,11 +14,11 @@ namespace CanvasApi.Client.Modules
         public ModulesApiClient(CanvasApiClient parent) : base(parent) { }
 
         public async Task<IEnumerable<IModule>> ListModules(long courseId, Action<IModuleListOptions> options) =>
-            await this.ApiClient.PagableApiOperation<Module, IModuleListOptions>(
+            await this.ApiClient.PagableApiOperation<Module, ModulesListResult, IModuleListOptions>(
                 HttpMethod.Get,
                 $"/api/v1/courses/{courseId}/modules",
-                options.GetOptions<IModuleListOptions, ModuleListOptions>()
-                );
+                options.GetOptions<IModuleListOptions, ModuleListOptions>(),
+                ModulesListResult.ToArray);
 
         public async Task<IModule> ShowModule(long courseId, long id, Action<IModuleShowOptions> options) =>
             await this.ApiClient.ApiOperation<Module, IModuleShowOptions>(
@@ -54,11 +54,11 @@ namespace CanvasApi.Client.Modules
                 );
 
         public async Task<IEnumerable<IModuleItem>> ListModuleItems(long courseId, long moduleId, Action<IModuleItemListOptions> options) =>
-            await this.ApiClient.PagableApiOperation<ModuleItem, IModuleItemListOptions>(
+            await this.ApiClient.PagableApiOperation<ModuleItem, ModuleItemsListResult, IModuleItemListOptions>(
                 HttpMethod.Get,
                 $"/api/v1/courses/{courseId}/modules/{moduleId}/items",
-                options.GetOptions<IModuleItemListOptions, ModuleItemListOptions>()
-                );
+                options.GetOptions<IModuleItemListOptions, ModuleItemListOptions>(),
+                ModuleItemsListResult.ToArray);
 
         public async Task<IModuleItem> ShowModuleItem(long courseId, long moduleId, long id, Action<IModuleItemShowOptions> options) =>
             await this.ApiClient.ApiOperation<ModuleItem, IModuleItemShowOptions>(
@@ -90,6 +90,12 @@ namespace CanvasApi.Client.Modules
         public async void MarkModuleItemDone(long courseId, long moduleId, long id) =>
             await this.ApiClient.ApiOperation<ModuleItem>(
                 HttpMethod.Put,
+                $"/api/v1/courses/{courseId}/modules/{moduleId}/items/{id}/done"
+                );
+
+        public async void MarkModuleItemNotDone(long courseId, long moduleId, long id) =>
+            await this.ApiClient.ApiOperation<ModuleItem>(
+                HttpMethod.Delete,
                 $"/api/v1/courses/{courseId}/modules/{moduleId}/items/{id}/done"
                 );
 

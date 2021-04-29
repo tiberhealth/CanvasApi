@@ -34,7 +34,6 @@
   <ItemGroup>
     <Folder Include="Enrollments\" />
     <Folder Include="EnrollmentTerms\" />
-    <Folder Include="AdminTests\" />
     <Folder Include="HelpersTests\" />
   </ItemGroup>
 </Project>

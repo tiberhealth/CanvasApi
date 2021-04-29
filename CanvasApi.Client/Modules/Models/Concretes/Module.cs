@@ -9,7 +9,7 @@ namespace CanvasApi.Client.Modules.Models.Concretes
 {
     internal class Module : IModule
     {
-        [Multipart("id")] public long? Id { get; set; }
+        [Multipart("id")] public long Id { get; set; }
         [Multipart("wokflow_state")] public IEnumerable<ModuleWorkflowState> WorkflowState { get; set; }
         [Multipart("position")] public int? Position { get; set; }
         [Multipart("name")] public string Name { get; set; }

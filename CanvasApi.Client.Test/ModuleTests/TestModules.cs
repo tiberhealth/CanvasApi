@@ -15,17 +15,17 @@ namespace CanvasApi.Client.Test.ModuleTests
         [Test]
         public async Task TestModulesFull()
         {
-            var id = 42;
-            var state = ModuleWorkflowState.MustView;
-            var position = 1;
+            // var id = 42;
+            // var state = ModuleWorkflowState.MustView;
+            // var position = 1;
             var name = "Testing Module";
-            var requireSequentialProgress = false;
-            int[] prerequisiteModuleIds = { };
-            var itemsCount = 0;
-            var itemsUrl = "https://canvas.rolesvillesoftware.com/api/v1/modules/42/items";
-            IModuleItem[] items = null;
-            var publishFinalGrade = false;
-            var published = true;
+            // var requireSequentialProgress = false;
+            // int[] prerequisiteModuleIds = { };
+            // var itemsCount = 0;
+            // var itemsUrl = "https://canvas.rolesvillesoftware.com/api/v1/modules/42/items";
+            // IModuleItem[] items = null;
+            // var publishFinalGrade = false;
+            // var published = true;
 
             var module = await this.TestCreateModule(
                 name

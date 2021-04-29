@@ -11,7 +11,7 @@ namespace CanvasApi.Client.Modules.Models
         /// <summary>
         /// the unique identifier for the module
         /// </summary>
-        [Multipart("id")] long? Id { get; }
+        [Multipart("id")] long Id { get; }
         /// <summary>
         /// the state of the module: 'active', 'deleted'
         /// </summary>

@@ -30,7 +30,7 @@ namespace CanvasApi.Client.Modules
 
         public async Task<IModule> CreateModule(long courseId, Action<IModuleDetail> module) =>
             await this.ApiClient.ApiOperation<Module, IModuleCreateUpdateOptions>(
-                HttpMethod.Put,
+                HttpMethod.Post,
                 $"/api/v1/courses/{courseId}/modules",
                 (IModuleCreateUpdateOptions)new ModuleCreateUpdateOptions { Module = module.GetOptions<IModuleDetail, ModuleDetail>() }
                 );

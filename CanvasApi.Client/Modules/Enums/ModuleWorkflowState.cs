@@ -8,7 +8,9 @@ namespace CanvasApi.Client.Modules.Enums
     [EnumAsString]
     public enum ModuleWorkflowState
     {
-        [EnumSerializedValue("active")] MustView,
-        [EnumSerializedValue("deleted")] MustSubmit
+        [EnumSerializedValue("must_view")] MustView,
+        [EnumSerializedValue("must_submit")] MustSubmit,
+        [EnumSerializedValue("must_contribute")] MustContribute,
+        [EnumSerializedValue("must_mark_done")] MustMarkDone
     }
 }

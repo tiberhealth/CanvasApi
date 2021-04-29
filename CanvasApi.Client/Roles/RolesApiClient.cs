@@ -29,11 +29,11 @@ namespace CanvasApi.Client.Roles
                 options.GetOptions<IGetSingleRoleOptions, GetSingleRoleOptions>()
                 );
 
-        public async Task<JObject> CreateRole() =>
+        public Task<JObject> CreateRole() =>
             throw new NotImplementedException("Permissions API not completed as of yet.");
             // TODO: Update after Permission Serialization process - can be next release/version
 
-        public async Task<JObject> UpdateRole() =>
+        public Task<JObject> UpdateRole() =>
             throw new NotImplementedException("Permissions API not completed as of yet.");
             // TODO: Update after Permission Serialization process - can be next release/version
 

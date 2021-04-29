@@ -1,7 +1,7 @@
 ﻿using CanvasApi.Client.Modules.Enums;
 using System.Collections.Generic;
 
-namespace CanvasApi.Client.Modules.Models
+namespace CanvasApi.Client.Modules.Models.Concretes
 {
     internal class CompletionRequirement : ICompletionRequirement
     {

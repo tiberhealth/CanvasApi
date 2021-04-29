@@ -1,5 +1,6 @@
 ﻿using CanvasApi.Client.Modules.Models;
 using CanvasApi.Client.Modules.Models.Concretes;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -88,6 +89,15 @@ namespace CanvasApi.Client.Modules
         /// <param name="moduleItem"></param>
         /// <returns></returns>
         Task<IModuleItem> UpdateModuleItem(long courseId, long moduleId, long id, Action<IModuleItemDetail> moduleItem);
+        /// <summary>
+        /// Select a mastery path when module item includes several possible paths. Requires Mastery Paths feature to be enabled. Returns a compound document with the assignments included in the given path and any module items related to those assignments
+        /// </summary>
+        /// <param name="courseId"></param>
+        /// <param name="moduleId"></param>
+        /// <param name="id"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        Task<JObject> SelectMasteryPath(long courseId, long moduleId, long id, Action<IMasteryPathSelectOptions> options);
         /// <summary>
         /// Delete a module item
         /// </summary>

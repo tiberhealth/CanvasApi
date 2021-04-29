@@ -2,6 +2,7 @@
 using CanvasApi.Client.Extentions;
 using CanvasApi.Client.Modules.Models;
 using CanvasApi.Client.Modules.Models.Concretes;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -79,6 +80,13 @@ namespace CanvasApi.Client.Modules
                 HttpMethod.Post,
                 $"/api/v1/courses/{courseId}/modules/{moduleId}/items/{id}",
                 new ModuleItemCreateUpdateOptions { ModuleItem = moduleItem.GetOptions<IModuleItemDetail, ModuleItemDetail>() }
+                );
+
+        public async Task<JObject> SelectMasteryPath(long courseId, long moduleId, long id, Action<IMasteryPathSelectOptions> options) =>
+            await this.ApiClient.ApiOperation<JObject, IMasteryPathSelectOptions>(
+                HttpMethod.Post,
+                $"/api/v1/courses/{courseId}/modules/{moduleId}/items/{id}/select_mastery_path",
+                options.GetOptions<IMasteryPathSelectOptions, MasteryPathSelectOptions>()
                 );
 
         public async Task<IModuleItem> DeleteModuleItem(long courseId, long moduleId, long id) =>

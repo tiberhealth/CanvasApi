@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CanvasApi.Client.Roles
 {
-    public class RolesApiClient : ApiClientBase
+    public class RolesApiClient : ApiClientBase, IRolesApiClient
     {
         public RolesApiClient(CanvasApiClient parent) : base(parent) { }
 
@@ -31,11 +31,11 @@ namespace CanvasApi.Client.Roles
 
         public Task<JObject> CreateRole() =>
             throw new NotImplementedException("Permissions API not completed as of yet.");
-            // TODO: Update after Permission Serialization process - can be next release/version
+        // TODO: Update after Permission Serialization process - can be next release/version
 
         public Task<JObject> UpdateRole() =>
             throw new NotImplementedException("Permissions API not completed as of yet.");
-            // TODO: Update after Permission Serialization process - can be next release/version
+        // TODO: Update after Permission Serialization process - can be next release/version
 
         public async Task<IRole> DeactivateRole(long accountId, long id, Action<IDeactivateRole> options) =>
             await this.ApiClient.ApiOperation<Role, IDeactivateRole>(

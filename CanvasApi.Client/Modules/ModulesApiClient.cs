@@ -15,13 +15,12 @@ namespace CanvasApi.Client.Modules
         public ModulesApiClient(CanvasApiClient parent) : base(parent) { }
 
         public async Task<IEnumerable<IModule>> ListModules(long courseId, Action<IModuleListOptions> options) =>
-            await this.ApiClient.PagableApiOperation<Module, ModulesListResult, IModuleListOptions>(
+            await this.ApiClient.PagableApiOperation<Module, IModuleListOptions>(
                 HttpMethod.Get,
                 $"/api/v1/courses/{courseId}/modules",
-                options.GetOptions<IModuleListOptions, ModuleListOptions>(),
-                ModulesListResult.ToArray);
+                options.GetOptions<IModuleListOptions, ModuleListOptions>());
 
-        public async Task<IModule> ShowModule(long courseId, long id, Action<IModuleShowOptions> options) =>
+        public async Task<IModule> ShowModule(long courseId, long id, Action<IModuleShowOptions> options = null) =>
             await this.ApiClient.ApiOperation<Module, IModuleShowOptions>(
                 HttpMethod.Get,
                 $"/api/v1/courses/{courseId}/modules/{id}",
@@ -37,7 +36,7 @@ namespace CanvasApi.Client.Modules
 
         public async Task<IModule> UpdateModule(long courseId, long id, Action<IModuleDetail> module) =>
             await this.ApiClient.ApiOperation<Module, IModuleCreateUpdateOptions>(
-                HttpMethod.Post,
+                HttpMethod.Put,
                 $"/api/v1/courses/{courseId}/modules/{id}",
                 new ModuleCreateUpdateOptions { Module = module.GetOptions<IModuleDetail, ModuleDetail>() }
                 );

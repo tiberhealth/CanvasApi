@@ -69,14 +69,14 @@ namespace CanvasApi.Client.Modules
 
         public async Task<IModuleItem> CreateModuleItem(long courseId, long moduleId, Action<IModuleItemDetail> moduleItem) =>
             await this.ApiClient.ApiOperation<ModuleItem, IModuleItemCreateUpdateOptions>(
-                HttpMethod.Put,
+                HttpMethod.Post,
                 $"/api/v1/courses/{courseId}/modules/{moduleId}/items",
                 (IModuleItemCreateUpdateOptions)new ModuleItemCreateUpdateOptions { ModuleItem = moduleItem.GetOptions<IModuleItemDetail, ModuleItemDetail>() }
                 );
 
         public async Task<IModuleItem> UpdateModuleItem(long courseId, long moduleId, long id, Action<IModuleItemDetail> moduleItem) =>
             await this.ApiClient.ApiOperation<ModuleItem, IModuleItemCreateUpdateOptions>(
-                HttpMethod.Post,
+                HttpMethod.Put,
                 $"/api/v1/courses/{courseId}/modules/{moduleId}/items/{id}",
                 new ModuleItemCreateUpdateOptions { ModuleItem = moduleItem.GetOptions<IModuleItemDetail, ModuleItemDetail>() }
                 );

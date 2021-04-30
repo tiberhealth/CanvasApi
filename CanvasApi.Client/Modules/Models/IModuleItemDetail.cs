@@ -40,6 +40,6 @@ namespace CanvasApi.Client.Modules.Models
         /// 
         /// Allowed values: <see cref="ModuleItemTypes"/>
         /// </summary>
-        [Multipart("type")] IEnumerable<ModuleItemTypes> Type { get; set; }
+        [Multipart("type")] ModuleItemTypes Type { get; set; }
     }
 }

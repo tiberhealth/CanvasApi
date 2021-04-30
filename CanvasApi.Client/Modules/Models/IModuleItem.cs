@@ -10,7 +10,7 @@ namespace CanvasApi.Client.Modules.Models
         /// <summary>
         /// the unique identifier for the module item
         /// </summary>
-        [Multipart("id")] long? Id { get; }
+        [Multipart("id")] long Id { get; }
         /// <summary>
         /// the id of the Module this item appears in
         /// </summary>
@@ -31,7 +31,7 @@ namespace CanvasApi.Client.Modules.Models
         /// the type of object referred to one of 'File', 'Page', 'Discussion',
         /// 'Assignment', 'Quiz', 'SubHeader', 'ExternalUrl', 'ExternalTool'
         /// </summary>
-        [Multipart("type")] IEnumerable<ModuleItemTypes> Type { get; }
+        [Multipart("type")] ModuleItemTypes Type { get; }
         /// <summary>
         /// the id of the object referred to applies to 'File', 'Discussion',
         /// 'Assignment', 'Quiz', 'ExternalTool' types

@@ -20,6 +20,6 @@ namespace CanvasApi.Client.Modules.Models
         /// the caller is a student or if the optional parameter 'student_id' is
         /// included)
         /// </summary>
-        [Multipart("type")] public IEnumerable<CompletionRequirementTypes> Type { get; }
+        [Multipart("type")] public CompletionRequirementTypes Type { get; }
     }
 }

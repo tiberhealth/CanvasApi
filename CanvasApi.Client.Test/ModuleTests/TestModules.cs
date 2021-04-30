@@ -21,6 +21,7 @@ namespace CanvasApi.Client.Test.ModuleTests
             // var position = 1;
             var name = "Testing Module";
             int courseId = 1;
+            var title = "Module Item";
             // var requireSequentialProgress = false;
             // int[] prerequisiteModuleIds = { };
             // var itemsCount = 0;
@@ -33,6 +34,8 @@ namespace CanvasApi.Client.Test.ModuleTests
 
             await this.TestListModules(courseId, module);
             await this.TestUpdateModule(courseId, module.Id);
+            var moduleItem = await this.TestCreateModuleItem(courseId, module.Id, title);
+            await this.TestDeleteModuleItem(courseId, module.Id, moduleItem.Id);
             await this.TestDeleteModule(courseId, module.Id);
         }
 
@@ -112,7 +115,7 @@ namespace CanvasApi.Client.Test.ModuleTests
             return module;
         }
 
-        public async Task<IModule> TestCreateModuleItem(long courseId, string name)
+        public async Task<IModuleItem> TestCreateModuleItem(long courseId, long moduleId, string title)
         {
             var services = this.ServiceCollection.BuildServiceProvider();
             Assert.IsNotNull(services);
@@ -120,17 +123,19 @@ namespace CanvasApi.Client.Test.ModuleTests
             var api = services.GetRequiredService<ICanvasApiClient>();
             Assert.IsNotNull(api);
 
-            var module = await api.Modules.CreateModule(courseId, request =>
+            var moduleItem = await api.Modules.CreateModuleItem(courseId, moduleId, request =>
             {
-                request.Name = name;
+                request.Title = title;
+                request.Type = ModuleItemTypes.SubHeader;
             });
 
-            Assert.IsNotNull(module);
-            Assert.AreEqual(name, module.Name);
+            Assert.IsNotNull(moduleItem);
+            Assert.AreEqual(title, moduleItem.Title);
 
-            return module;
+            return moduleItem;
         }
-        public async Task<IModule> TestDeleteModuleItem(long courseId, long id)
+
+        public async Task<IModuleItem> TestDeleteModuleItem(long courseId, long moduleId, long id)
         {
             var services = this.ServiceCollection.BuildServiceProvider();
             Assert.IsNotNull(services);
@@ -138,11 +143,11 @@ namespace CanvasApi.Client.Test.ModuleTests
             var api = services.GetRequiredService<ICanvasApiClient>();
             Assert.IsNotNull(api);
 
-            var module = await api.Modules.DeleteModule(courseId, id);
+            var moduleItem = await api.Modules.DeleteModuleItem(courseId, moduleId, id);
 
-            Assert.IsNotNull(module);
+            Assert.IsNotNull(moduleItem);
 
-            return module;
+            return moduleItem;
         }
     }
 }

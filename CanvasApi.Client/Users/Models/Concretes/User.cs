@@ -11,7 +11,7 @@ namespace CanvasApi.Client.Users.Models.Concrete
         public string SortableName  { get; set; }
         public string ShortName  { get; set; }
         public string SisUserId  { get; set; }
-        public long SisImportId  { get; set; }
+        public long? SisImportId  { get; set; }
         public string IntegrationId  { get; set; }
         public string LoginId  { get; set; }
         public string AvatarUrl  { get; set; }

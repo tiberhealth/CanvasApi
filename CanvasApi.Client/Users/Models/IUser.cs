@@ -38,7 +38,7 @@ namespace CanvasApi.Client.Users.Models
         /// The id of the SIS import.  This field is only included if the user came from
         /// a SIS import and has permissions to manage SIS information.
         /// </summary>
-        long SisImportId { get; }
+        long? SisImportId { get; }
 
         /// <summary>
         /// The integration_id associated with the user.  This field is only included if

@@ -10,8 +10,7 @@ namespace CanvasApi.Client.Admins.Models
     {
         public long Id { get; set; }
 
-        public Role Role { get; set; }
-        IRole IAdmin.Role => Role;
+        public string Role { get; set; }
 
         public User User { get; set; }
         IUser IAdmin.User => User;

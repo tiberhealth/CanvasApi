@@ -48,6 +48,7 @@ namespace CanvasApi.Client.Test.ModuleTests
             });
 
             Assert.IsNotNull(module);
+            Assert.AreEqual(name, module.Name);
 
             return module;
         }

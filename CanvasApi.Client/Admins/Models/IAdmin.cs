@@ -15,7 +15,7 @@ namespace CanvasApi.Client.Admins.Models
         /// The account role assigned. This can be 'AccountAdmin' or a user-defined role
         /// created by the Roles API.
         /// </summary>
-        IRole Role { get; }
+        string Role { get; }
 
         /// <summary>
         /// The user the role is assigned to. See the Users API for details.

@@ -11,7 +11,7 @@ namespace CanvasApi.Client.Modules.Models
         /// 
         /// Allowed values: <see cref="CompletionRequirementTypes"/>
         /// </summary>
-        [Multipart("type")] IEnumerable<CompletionRequirementTypes> Type { get; set; }
+        [Multipart("type")] CompletionRequirementTypes Type { get; set; }
         /// <summary>
         /// Minimum score required to complete. Required for completion_requirement type 'min_score'.
         /// </summary>

@@ -8,6 +8,6 @@ namespace CanvasApi.Client.Modules.Models.Concretes
     internal class CompletionRequirementDetail : ICompletionRequirementDetail
     {
         public int? MinScore { get; set; }
-        public IEnumerable<CompletionRequirementTypes> Type { get; set; }
+        public CompletionRequirementTypes Type { get; set; }
     }
 }

@@ -93,13 +93,13 @@ namespace CanvasApi.Client.Modules
                 $"/api/v1/courses/{courseId}/modules/{moduleId}/items/{id}"
                 );
 
-        public async void MarkModuleItemDone(long courseId, long moduleId, long id) =>
+        public async Task MarkModuleItemDone(long courseId, long moduleId, long id) =>
             await this.ApiClient.ApiOperation<ModuleItem>(
                 HttpMethod.Put,
                 $"/api/v1/courses/{courseId}/modules/{moduleId}/items/{id}/done"
                 );
 
-        public async void MarkModuleItemNotDone(long courseId, long moduleId, long id) =>
+        public async Task MarkModuleItemNotDone(long courseId, long moduleId, long id) =>
             await this.ApiClient.ApiOperation<ModuleItem>(
                 HttpMethod.Delete,
                 $"/api/v1/courses/{courseId}/modules/{moduleId}/items/{id}/done"
@@ -112,7 +112,7 @@ namespace CanvasApi.Client.Modules
                 options.GetOptions<IModuleItemSequenceOptions, ModuleItemSequenceOptions>()
                 );
 
-        public async void MarkModuleItemRead(long courseId, long moduleId, long id) =>
+        public async Task MarkModuleItemRead(long courseId, long moduleId, long id) =>
             await this.ApiClient.ApiOperation<ModuleItem>(
                 HttpMethod.Post,
                 $"/api/v1/courses/{courseId}/modules/{moduleId}/items/{id}/mark_read"

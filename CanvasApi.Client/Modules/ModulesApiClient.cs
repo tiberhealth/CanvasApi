@@ -54,11 +54,10 @@ namespace CanvasApi.Client.Modules
                 );
 
         public async Task<IEnumerable<IModuleItem>> ListModuleItems(long courseId, long moduleId, Action<IModuleItemListOptions> options) =>
-            await this.ApiClient.PagableApiOperation<ModuleItem, ModuleItemsListResult, IModuleItemListOptions>(
+            await this.ApiClient.PagableApiOperation<ModuleItem, IModuleItemListOptions>(
                 HttpMethod.Get,
                 $"/api/v1/courses/{courseId}/modules/{moduleId}/items",
-                options.GetOptions<IModuleItemListOptions, ModuleItemListOptions>(),
-                ModuleItemsListResult.ToArray);
+                options.GetOptions<IModuleItemListOptions, ModuleItemListOptions>());
 
         public async Task<IModuleItem> ShowModuleItem(long courseId, long moduleId, long id, Action<IModuleItemShowOptions> options) =>
             await this.ApiClient.ApiOperation<ModuleItem, IModuleItemShowOptions>(

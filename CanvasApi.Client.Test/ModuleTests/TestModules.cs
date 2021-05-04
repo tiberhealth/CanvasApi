@@ -34,7 +34,7 @@ namespace CanvasApi.Client.Test.ModuleTests
                 var module = await this.TestCreateModule(courseId, name);
 
                 await this.TestListModules(courseId, module);
-                module = await this.TestUpdateModule(courseId, module.Id);
+                module = await this.TestUpdateModule(courseId, module.Id, name);
                 await this.TestShowModule(courseId, module);
                 var moduleItem = await this.TestCreateModuleItem(courseId, module.Id, title);
                 moduleItem = await this.TestUpdateModuleItem(courseId, module.Id, moduleItem.Id);
@@ -98,7 +98,7 @@ namespace CanvasApi.Client.Test.ModuleTests
             return module;
         }
 
-        public async Task<IModule> TestUpdateModule(long courseId, long id)
+        public async Task<IModule> TestUpdateModule(long courseId, long id, string name)
         {
             var services = this.ServiceCollection.BuildServiceProvider();
             Assert.IsNotNull(services);
@@ -108,7 +108,7 @@ namespace CanvasApi.Client.Test.ModuleTests
 
             var module = await api.Modules.UpdateModule(courseId, id, request =>
             {
-                request.Name = "New Module Name";
+                request.Name = $"New {name}";
                 request.Published = true;
             });
 

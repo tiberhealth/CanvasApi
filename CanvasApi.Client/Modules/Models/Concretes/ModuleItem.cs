@@ -9,12 +9,12 @@ namespace CanvasApi.Client.Modules.Models.Concretes
 {
     internal class ModuleItem : IModuleItem
     {
-        [Multipart("id")] public long? Id { get; set; }
+        [Multipart("id")] public long Id { get; set; }
         [Multipart("module_id")] public long? ModuleId { get; set; }
         [Multipart("position")] public int? Position { get; set; }
         [Multipart("title")] public string Title { get; set; }
         [Multipart("indent")] public int? Indent { get; set; }
-        [Multipart("type")] public IEnumerable<ModuleItemTypes> Type { get; set; }
+        [Multipart("type")] public ModuleItemTypes Type { get; set; }
         [Multipart("content_id")] public long? ContentId { get; set; }
         [Multipart("html_url")] public string HtmlUrl { get; set; }
         [Multipart("url")] public string Url { get; set; }

@@ -112,14 +112,14 @@ namespace CanvasApi.Client.Modules
         /// <param name="courseId"></param>
         /// <param name="moduleId"></param>
         /// <param name="id"></param>
-        void MarkModuleItemDone(long courseId, long moduleId, long id);
+        Task MarkModuleItemDone(long courseId, long moduleId, long id);
         /// <summary>
         /// Mark a module item as done/not done. Use HTTP method PUT to mark as done, and DELETE to mark as not done.
         /// </summary>
         /// <param name="courseId"></param>
         /// <param name="moduleId"></param>
         /// <param name="id"></param>
-        void MarkModuleItemNotDone(long courseId, long moduleId, long id);
+        Task MarkModuleItemNotDone(long courseId, long moduleId, long id);
         /// <summary>
         /// Given an asset in a course, find the ModuleItem it belongs to, the previous and next Module Items in the course sequence, and also any applicable mastery path rules
         /// </summary>
@@ -135,6 +135,6 @@ namespace CanvasApi.Client.Modules
         /// <param name="courseId"></param>
         /// <param name="moduleId"></param>
         /// <param name="id"></param>
-        void MarkModuleItemRead(long courseId, long moduleId, long id);
+        Task MarkModuleItemRead(long courseId, long moduleId, long id);
     }
 }

@@ -6,7 +6,7 @@ namespace CanvasApi.Client.Modules.Models
 {
     public interface IModuleItemDetail
     {
-        [Multipart("completion_requirement")] ICompletionRequirementDetail CompletionRequirement { get; }
+        [Multipart("completion_requirement")] ICompletionRequirement CompletionRequirement { get; }
         /// <summary>
         /// The id of the content to link to the module item. Required, except for 'ExternalUrl', 'Page', and 'SubHeader' types.
         /// </summary>
@@ -40,6 +40,14 @@ namespace CanvasApi.Client.Modules.Models
         /// 
         /// Allowed values: <see cref="ModuleItemTypes"/>
         /// </summary>
-        [Multipart("type")] IEnumerable<ModuleItemTypes> Type { get; set; }
+        [Multipart("type")] ModuleItemTypes? Type { get; set; }
+        /// <summary>
+        /// The name of the module item and associated content
+        /// </summary>
+        [Multipart("published")] bool? Published { get; set; }
+        /// <summary>
+        /// The name of the module item and associated content
+        /// </summary>
+        [Multipart("module_id")] long? ModuleId { get; set; }
     }
 }

@@ -8,15 +8,17 @@ namespace CanvasApi.Client.Modules.Models.Concretes
     internal class ModuleItemDetail : IModuleItemDetail
     {
         public string Title { get; set; }
-        public IEnumerable<ModuleItemTypes> Type { get; set; }
+        public long? ModuleId { get; set; }
+        public bool? Published { get; set; }
+        public ModuleItemTypes? Type { get; set; }
         public long? ContentId { get; set; }
         public int? Position { get; set; }
         public int? Indent { get; set; }
         public string PageUrl { get; set; }
         public string ExternalUrl { get; set; }
         public bool? NewTab { get; set; }
-        public CompletionRequirementDetail CompletionRequirement { get; set; }
+        ICompletionRequirement IModuleItemDetail.CompletionRequirement => this.CompletionRequirement;
+        internal CompletionRequirement CompletionRequirement { get; init; }
 
-        ICompletionRequirementDetail IModuleItemDetail.CompletionRequirement => this.CompletionRequirement;
     }
 }

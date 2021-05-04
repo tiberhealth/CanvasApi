@@ -1,11 +1,12 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using CanvasApi.Client.Quizzes.Enums;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CanvasApi.Client.Quizzes.Models.Concretes
 {
-    internal class Quiz
+    internal class Quiz : IQuiz
     {
         public long Id { get; set; }
         public string Title { get; set; }
@@ -17,7 +18,7 @@ namespace CanvasApi.Client.Quizzes.Models.Concretes
         public int? AssignmentGroupId { get; set; }
         public long? TimeLimit { get; set; }
         public bool? ShuffleAnswers { get; set; }
-        public HideResultsList HideResults { get; set; }
+        public HideResultsTypes HideResults { get; set; }
         public bool? ShowCorrectAnswers { get; set; }
         public bool? ShowCorrectAnswersLastAttempt { get; set; }
         public DateTime? ShowCorrectAnswersAt { get; set; }
@@ -41,7 +42,8 @@ namespace CanvasApi.Client.Quizzes.Models.Concretes
         public string LockExplanation { get; set; }
         public string SpeedgraderUrl { get; set; }
         public string QuizExtensionsUrl { get; set; }
-        public JObject Permissions { get; set; }
+        public QuizPermissions Permissions { get; set; }
+        IQuizPermissions IQuiz.Permissions => this.Permissions;
         public IEnumerable<DateTime> AllDates { get; set; }
         public long? VersionNumber { get; set; }
         public IEnumerable<string> QuestionTypes { get; set; }

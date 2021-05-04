@@ -28,7 +28,6 @@
   <ItemGroup>
     <Folder Include="Accounts\" />
     <Folder Include="OAuth2\Enums" />
-    <Folder Include="Quizzes\Enums\" />
     <Folder Include="_Base\" />
     <Folder Include="Accounts\Models\" />
     <Folder Include="Accounts\Enums\" />

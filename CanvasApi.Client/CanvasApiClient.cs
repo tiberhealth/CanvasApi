@@ -26,7 +26,7 @@ using CanvasApi.Client.Modules;
 [assembly: InternalsVisibleTo("CanvasApi.Client.Test")]
 namespace CanvasApi.Client
 {
-    public class CanvasApiClient: ICanvasApiClient, IDisposable
+    public class CanvasApiClient : ICanvasApiClient, IDisposable
     {
         private HttpClient Client { get; }
         private IServiceProvider ServiceProvider { get; }
@@ -38,8 +38,8 @@ namespace CanvasApi.Client
         private readonly Lazy<AssignmentGroupsApiClient> AssignmentGroupsClient;
         private readonly Lazy<CourseApiClient> CoursesClient;
         private readonly Lazy<EnrollmentApiClient> EnrollmentClient;
-        private readonly Lazy<EnrollmentTermsApiClient> EnrollmentTermsClient; 
-        private readonly Lazy<ModulesApiClient> ModulesClient; 
+        private readonly Lazy<EnrollmentTermsApiClient> EnrollmentTermsClient;
+        private readonly Lazy<ModulesApiClient> ModulesClient;
         private readonly Lazy<PageApiClient> PagesClient;
         private readonly Lazy<SubmissionsApiClient> SubmissionsApiClient;
         private readonly Lazy<UsersClient> UsersClient;
@@ -51,7 +51,7 @@ namespace CanvasApi.Client
         /// </summary>
         /// <param name="canvasDomain">The domain address to the Canvas Instance</param>
         /// <param name="apiKey">The API Key defined on the Canvas Instance for this application</param>
-        public CanvasApiClient(string canvasDomain, string apiKey, IServiceProvider serviceProvider):
+        public CanvasApiClient(string canvasDomain, string apiKey, IServiceProvider serviceProvider) :
             this(new HttpClient().ConfigureCanvasApi(canvasDomain, apiKey), serviceProvider)
         {
         }
@@ -79,11 +79,11 @@ namespace CanvasApi.Client
             this.AccountsClient = this.SetLazy<AccountsClient>();
             this.AdminClient = this.SetLazy<AdminApiClient>();
             this.AssignmentGroupsClient = this.SetLazy<AssignmentGroupsApiClient>();
-            this.CoursesClient = this.SetLazy<CourseApiClient>(); 
+            this.CoursesClient = this.SetLazy<CourseApiClient>();
             this.EnrollmentClient = this.SetLazy(() => new EnrollmentApiClient(this));
-            this.EnrollmentTermsClient = this.SetLazy(() => new EnrollmentTermsApiClient(this)); 
-            this.ModulesClient = this.SetLazy(() => new ModulesApiClient(this)); 
-            this.PagesClient = this.SetLazy(() => new PageApiClient(this)); 
+            this.EnrollmentTermsClient = this.SetLazy(() => new EnrollmentTermsApiClient(this));
+            this.ModulesClient = this.SetLazy(() => new ModulesApiClient(this));
+            this.PagesClient = this.SetLazy(() => new PageApiClient(this));
             this.SubmissionsApiClient = this.SetLazy(() => new SubmissionsApiClient(this));
             this.UsersClient = this.SetLazy(() => new Users.UsersClient(this));
         }
@@ -91,7 +91,7 @@ namespace CanvasApi.Client
         private Lazy<TConcrete> SetLazy<TConcrete>() where TConcrete : ApiClientBase =>
             this.SetLazy(() =>
             {
-                var concrete =  (TConcrete)Activator.CreateInstance(typeof(TConcrete), this);
+                var concrete = (TConcrete)Activator.CreateInstance(typeof(TConcrete), this);
                 return concrete;
             });
 
@@ -157,9 +157,9 @@ namespace CanvasApi.Client
             TBody body,
             PagingOptions pagingOptions = null,
             CancellationToken cancellationToken = default)
-                where TBody: class
+                where TBody : class
         {
-            var pageLinks = new PageLinks((pagingOptions ?? this.DefaultPagingOptions)?.AddPagingUrl(url) ?? url); 
+            var pageLinks = new PageLinks((pagingOptions ?? this.DefaultPagingOptions)?.AddPagingUrl(url) ?? url);
             var initialBuffer = await this.ApiOperation<IEnumerable<TResult>, TBody>(verb, pageLinks.OriginalUrl, body, pageLinks, cancellationToken);
             return new PageableResult<TResult>(initialBuffer, this, pageLinks);
         }
@@ -181,7 +181,7 @@ namespace CanvasApi.Client
 
 
         internal Task<TResult> ApiOperation<TResult>(HttpMethod verb, string url) => this.ApiOperation<TResult, object>(verb, url, null);
-        
+
         internal async Task<TResult> ApiOperation<TResult, TBody>(
             HttpMethod verb,
             string url,
@@ -203,7 +203,8 @@ namespace CanvasApi.Client
                 using var streamReader = new StreamReader(contentStream);
                 using var reader = new JsonTextReader(streamReader);
 
-                var serializedCollection = new JsonSerializer() {
+                var serializedCollection = new JsonSerializer()
+                {
                     ContractResolver = new DefaultNemesContractResolver()
                 }.Deserialize<TResult>(reader);
 
@@ -216,24 +217,30 @@ namespace CanvasApi.Client
         private HttpRequestMessage GenerateHttpRequest(HttpMethod method, string url) => this.GenerateHttpRequest<object>(method, url, null);
 
         private HttpRequestMessage GenerateHttpRequest<TBody>(HttpMethod method, string url, TBody body)
-            where TBody: class
+            where TBody : class
         {
             HttpContent messageContent = null;
             var requestUrl = url;
             if (body != null)
             {
-                messageContent = FormDataSerializer.Serialize(body);
+                messageContent = FormDataSerializer.Serialize(body, options =>
+                {
+                    options.DefaultNameResolver = new PascalToSnakeResolver();
+                    options.EnumNameResolver = new PascalToSnakeResolver();
+                    options.DefaultDateFormat = "yyyy-MM-dd HH:mm:sszzz";
+                });
 
                 if (method == HttpMethod.Get && messageContent is MultipartFormDataContent multipartFormDataContent)
                 {
-                    foreach(var content in multipartFormDataContent)
+                    foreach (var content in multipartFormDataContent)
                     {
                         var dataTask = content.ReadAsStringAsync();
                         dataTask.Wait();
 
-                        if (!string.IsNullOrWhiteSpace(dataTask.Result)) {
-                        var paramName = content.Headers.ContentDisposition.Name.Trim('"');
-                        requestUrl += $"{(requestUrl.Contains('?') ? '&' : '?')}{paramName}={HttpUtility.UrlEncode(dataTask.Result)}";
+                        if (!string.IsNullOrWhiteSpace(dataTask.Result))
+                        {
+                            var paramName = content.Headers.ContentDisposition.Name.Trim('"');
+                            requestUrl += $"{(requestUrl.Contains('?') ? '&' : '?')}{paramName}={HttpUtility.UrlEncode(dataTask.Result)}";
                         }
                     }
                 }

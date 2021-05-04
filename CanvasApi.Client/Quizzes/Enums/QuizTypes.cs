@@ -8,9 +8,9 @@ namespace CanvasApi.Client.Quizzes.Enums
     [EnumAsString]
     public enum QuizTypes
     {
-        [EnumSerializedValue("practice_quiz")] PracticeQuiz,
-        [EnumSerializedValue("assignment")] Assignment,
-        [EnumSerializedValue("graded_survey")] GradedSurvey,
-        [EnumSerializedValue("survey")] Survey
+        PracticeQuiz,
+        Assignment,
+        GradedSurvey,
+        Survey
     }
 }

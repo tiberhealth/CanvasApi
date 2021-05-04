@@ -12,7 +12,7 @@ namespace CanvasApi.Client.EnrollmentTerms
         /// Allowed values: <see cref="EnrollmentTermIncludes"/>
         /// overrides
         /// </summary>
-        [Multipart("include")] IEnumerable<EnrollmentTermIncludes> Include { get; set; }
+        IEnumerable<EnrollmentTermIncludes> Include { get; set; }
 
         /// <summary>
         /// If set, only returns terms that are in the given state. Defaults to 'active'.
@@ -20,6 +20,6 @@ namespace CanvasApi.Client.EnrollmentTerms
         /// Allowed values: <see cref="EnrollmentTermListWorkflowState"/>
         /// overrides
         /// </summary>
-        [Multipart("workflow_state")] IEnumerable<EnrollmentTermListWorkflowState> WorkflowState { get; set; }
+        IEnumerable<EnrollmentTermListWorkflowState> WorkflowState { get; set; }
     }
 }

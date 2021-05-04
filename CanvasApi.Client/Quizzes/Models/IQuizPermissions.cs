@@ -7,12 +7,12 @@ namespace CanvasApi.Client.Quizzes.Models
 {
     public interface IQuizPermissions
     {
-        [Multipart("read")] bool? Read { get; }
-        [Multipart("submit")] bool? Submit { get; }
-        [Multipart("create")] bool? Create { get; }
-        [Multipart("manage")] bool? Manage { get; }
-        [Multipart("read_statistics")] bool? ReadStatistics { get; }
-        [Multipart("review_grades")] bool? ReviewGrades { get; }
-        [Multipart("update")] bool? Update { get; }
+        bool? Read { get; }
+        bool? Submit { get; }
+        bool? Create { get; }
+        bool? Manage { get; }
+        bool? ReadStatistics { get; }
+        bool? ReviewGrades { get; }
+        bool? Update { get; }
     }
 }

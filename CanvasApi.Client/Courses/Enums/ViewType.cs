@@ -7,26 +7,26 @@ namespace CanvasApi.Client.Courses.Enums
         /// <summary>
         /// Recent Activity Dashboard
         /// </summary>
-        [EnumSerializedValue("feed")] Feed,
+        Feed,
 
         /// <summary>
         /// Wiki Page
         /// </summary>
-        [EnumSerializedValue("wiki")] Wiki,
+        Wiki,
 
         /// <summary>
         /// Course Modules/Sections Page
         /// </summary>
-        [EnumSerializedValue("modules")] Modules,
+        Modules,
 
         /// <summary>
         /// Course Syllabus Page
         /// </summary>
-        [EnumSerializedValue("syllabus")] Syllabus,
+        Syllabus,
 
         /// <summary>
         /// Course Assignments List
         /// </summary>
-        [EnumSerializedValue("assignments")] Assignments
+        Assignments
     }
 }

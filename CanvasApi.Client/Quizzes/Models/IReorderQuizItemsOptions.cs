@@ -7,6 +7,6 @@ namespace CanvasApi.Client.Quizzes.Models
 {
     public interface IReorderQuizItemsOptions
     {
-        [Multipart("order")] IEnumerable<IQuizItemsOrderDetail> Order { get; }
+        IEnumerable<IQuizItemsOrderDetail> Order { get; }
     }
 }

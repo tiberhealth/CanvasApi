@@ -8,6 +8,6 @@ namespace CanvasApi.Client.Admins.Models
         /// <summary>
         /// Scope the results to those with user IDs equal to any of the IDs specified here.
         /// </summary>
-        [Multipart("user_id")] IEnumerable<long> UserId { get; set; }
+        IEnumerable<long> UserId { get; set; }
     }
 }

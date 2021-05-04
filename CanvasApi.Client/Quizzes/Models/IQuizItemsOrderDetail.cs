@@ -8,7 +8,7 @@ namespace CanvasApi.Client.Quizzes.Models
 {
     public interface IQuizItemsOrderDetail
     {
-        [Multipart("id")] int Id { get; set; }
-        [Multipart("type")] QuizItemTypes Type { get; set; }
+        int Id { get; set; }
+        QuizItemTypes Type { get; set; }
     }
 }

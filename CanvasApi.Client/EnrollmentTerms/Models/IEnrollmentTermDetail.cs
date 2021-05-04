@@ -8,12 +8,12 @@ namespace CanvasApi.Client.EnrollmentTerms.Models
         /// <summary>
         /// The name of the term.
         /// </summary>
-        [Multipart("name")] string Name { get; set; }
+        string Name { get; set; }
 
         /// <summary>
         /// The unique SIS identifier for the term.
         /// </summary>
-        [Multipart("sis_term_id")] string SisTermId { get; set; }
+        string SisTermId { get; set; }
 
         // TODO: Need to figure out how to do the overrides
 

@@ -8,7 +8,7 @@ namespace CanvasApi.Client.Quizzes.Enums
     [EnumAsString]
     public enum ScoringPolicyTypes
     {
-        [EnumSerializedValue("keep_highest")] KeepHighest,
-        [EnumSerializedValue("keep_latest")] KeepLatest
+        KeepHighest,
+        KeepLatest
     }
 }

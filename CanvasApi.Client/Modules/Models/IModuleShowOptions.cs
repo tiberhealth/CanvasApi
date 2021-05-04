@@ -13,10 +13,10 @@ namespace CanvasApi.Client.Modules.Models
         /// 
         /// Allowed values: <see cref="ModuleInclude"/>
         /// </summary>
-        [Multipart("include")] IEnumerable<ModuleInclude> Include { get; set; }
+        IEnumerable<ModuleInclude> Include { get; set; }
         /// <summary>
         /// Returns module completion information for the student with this id.
         /// </summary>
-        [Multipart("student_id")] long? StudentId { get; set; }
+        long? StudentId { get; set; }
     }
 }

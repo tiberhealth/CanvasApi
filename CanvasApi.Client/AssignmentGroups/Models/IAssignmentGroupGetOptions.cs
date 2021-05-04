@@ -12,16 +12,16 @@ namespace CanvasApi.Client.AssignmentGroups.Models
         /// Allowed values:
         /// assignments, discussion_topic, assignment_visibility, submission, score_statistics
         /// </summary>
-        [Multipart("include")] IEnumerable<AssignmentGroupGetIncludes> Include { get; set; }
+        IEnumerable<AssignmentGroupGetIncludes> Include { get; set; }
 
         /// <summary>
         /// Apply assignment overrides for each assignment, defaults to true
         /// </summary>
-        [Multipart("override_assignment_dates")] bool? OverrideAssignmentDates { get; set; }
+        bool? OverrideAssignmentDates { get; set; }
 
         /// <summary>
         /// The id of the grading period in which assignment groups are being requested (Requires grading periods to exist on the account)
         /// </summary>
-        [Multipart ("grading_period_id")] long? GradingPeriodId { get; set; }
+        long? GradingPeriodId { get; set; }
     }
 }

@@ -70,7 +70,12 @@ namespace CanvasApi.Client.Modules
             await this.ApiClient.ApiOperation<ModuleItem, IModuleItemCreateUpdateOptions>(
                 HttpMethod.Post,
                 $"/api/v1/courses/{courseId}/modules/{moduleId}/items",
-                (IModuleItemCreateUpdateOptions)new ModuleItemCreateUpdateOptions { ModuleItem = moduleItem.GetOptions<IModuleItemDetail, ModuleItemDetail>() }
+                (IModuleItemCreateUpdateOptions)new ModuleItemCreateUpdateOptions
+                {
+                    ModuleItem = moduleItem.GetOptions<IModuleItemDetail, ModuleItemDetail>(
+                        concreate => concreate.CompletionRequirement = new CompletionRequirement()
+                    )
+                }
                 );
 
         public async Task<IModuleItem> UpdateModuleItem(long courseId, long moduleId, long id, Action<IModuleItemDetail> moduleItem) =>
@@ -105,6 +110,7 @@ namespace CanvasApi.Client.Modules
                 $"/api/v1/courses/{courseId}/modules/{moduleId}/items/{id}/done"
                 );
 
+        [Obsolete("Unable to test, Canvas throwing error, need to research.")]
         public async Task<IModuleItemSequence> GetModuleItemSequence(long courseId, Action<IModuleItemSequenceOptions> options) =>
             await this.ApiClient.ApiOperation<ModuleItemSequence, IModuleItemSequenceOptions>(
                 HttpMethod.Get,

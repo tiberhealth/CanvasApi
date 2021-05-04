@@ -7,6 +7,6 @@ namespace CanvasApi.Client.Quizzes.Models
 {
     public interface IListQuizzesOptions
     {
-        [Multipart("search_term")] string SearchTerm { get; set; }
+        string SearchTerm { get; set; }
     }
 }

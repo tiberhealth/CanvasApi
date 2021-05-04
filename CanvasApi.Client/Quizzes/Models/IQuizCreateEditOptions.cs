@@ -7,6 +7,6 @@ namespace CanvasApi.Client.Quizzes.Models
 {
     public interface IQuizCreateEditOptions
     {
-        [Multipart("quiz")] IQuizDetail Quiz { get; }
+        IQuizDetail Quiz { get; }
     }
 }

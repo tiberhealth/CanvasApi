@@ -5,8 +5,8 @@ namespace CanvasApi.Client.Submissions.Models
 {
     public interface ISubmissionSubmit
     {
-        [Multipart("comment")] ISubmissionSubmitComment Comment { get; set; }
-        [Multipart("submission")] ISubmissionSubmitDetail Submission { get; set; }
+        ISubmissionSubmitComment Comment { get; set; }
+        ISubmissionSubmitDetail Submission { get; set; }
     }
 
     public static class ISubmissionSubmitHelpers

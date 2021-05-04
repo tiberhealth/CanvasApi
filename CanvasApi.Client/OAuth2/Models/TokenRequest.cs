@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.OAuth2.Models
@@ -60,10 +60,10 @@ namespace CanvasApi.Client.OAuth2.Models
         
     internal abstract class TokenRequest: IOAuthTokenRequest
     {
-        [Multipart("grant_type")] public abstract string GrantType { get; }
-        [Multipart("client_id")] public string ClientId { get; set; }
-        [Multipart("client_secret")] public string ClientSecret  { get; set; }
-        [Multipart("redirect_uri")] public string RedirectUri { get; set; }
+        public abstract string GrantType { get; }
+        public string ClientId { get; set; }
+        public string ClientSecret  { get; set; }
+        public string RedirectUri { get; set; }
 
         public virtual bool Validate()
         {
@@ -93,7 +93,7 @@ namespace CanvasApi.Client.OAuth2.Models
             return base.Validate();
         }
 
-        [Multipart("code")] public string Code { get; set; }
+        public string Code { get; set; }
     }
 
 
@@ -106,7 +106,7 @@ namespace CanvasApi.Client.OAuth2.Models
             return base.Validate();
         }
 
-        [Multipart("refresh_token")] public string RefreshToken { get; set; }
+        public string RefreshToken { get; set; }
     }
 
     internal class ClientCredentialsRequest : TokenRequest, IAuthClientCredentials
@@ -120,8 +120,8 @@ namespace CanvasApi.Client.OAuth2.Models
             return base.Validate();
         }
 
-        [Multipart("client_assertion_type")] public string ClientAssertionType { get; set; }
-        [Multipart("client_assertion")] public string ClientAssertion { get; set; }
-        [Multipart("scope")] public string Scope { get; set; }
+        public string ClientAssertionType { get; set; }
+        public string ClientAssertion { get; set; }
+        public string Scope { get; set; }
     }
 }

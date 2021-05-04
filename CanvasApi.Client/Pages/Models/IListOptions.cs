@@ -5,9 +5,9 @@ namespace CanvasApi.Client.Pages.Models
 {
     public interface IListOptions
     {
-        [Multipart("sort")] PageSort Sort { get; set;}
-        [Multipart("order")] SortOrder Order { get; set; }
-        [Multipart("search_term")] string SearchTerm { get; set; }
-        [Multipart("published")] bool Published { get; set; }
+        PageSort Sort { get; set;}
+        SortOrder Order { get; set; }
+        string SearchTerm { get; set; }
+        bool Published { get; set; }
     }
 }

@@ -9,22 +9,25 @@ namespace CanvasApi.Client.Modules.Models.Concretes
 {
     internal class ModuleItem : IModuleItem
     {
-        [Multipart("id")] public long Id { get; set; }
-        [Multipart("module_id")] public long? ModuleId { get; set; }
-        [Multipart("position")] public int? Position { get; set; }
-        [Multipart("title")] public string Title { get; set; }
-        [Multipart("indent")] public int? Indent { get; set; }
-        [Multipart("type")] public ModuleItemTypes Type { get; set; }
-        [Multipart("content_id")] public long? ContentId { get; set; }
-        [Multipart("html_url")] public string HtmlUrl { get; set; }
-        [Multipart("url")] public string Url { get; set; }
-        [Multipart("page_url")] public string PageUrl { get; set; }
-        [Multipart("external_url")] public string ExternalUrl { get; set; }
-        [Multipart("new_tab")] public bool? NewTab { get; set; }
-        [Multipart("completion_requirement")] public CompletionRequirement CompletionRequirement { get; set; }
+        public long Id { get; set; }
+        public long? ModuleId { get; set; }
+        public int? Position { get; set; }
+        public string Title { get; set; }
+        public int? Indent { get; set; }
+        public ModuleItemTypes Type { get; set; }
+        public long? ContentId { get; set; }
+        public string HtmlUrl { get; set; }
+        public string Url { get; set; }
+        public string PageUrl { get; set; }
+        public string ExternalUrl { get; set; }
+        public bool? NewTab { get; set; }
+
+        public CompletionRequirement CompletionRequirement { get; set; }
         ICompletionRequirement IModuleItem.CompletionRequirement => this.CompletionRequirement;
-        [Multipart("content_details")] public ContentDetails ContentDetails { get; set; }
+
+        public ContentDetails ContentDetails { get; set; }
         IContentDetails IModuleItem.ContentDetails => this.ContentDetails;
-        [Multipart("published")] public bool? Published { get; set; }
+
+        public bool? Published { get; set; }
     }
 }

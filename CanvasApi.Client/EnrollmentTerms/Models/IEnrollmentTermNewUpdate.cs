@@ -7,6 +7,6 @@ namespace CanvasApi.Client.EnrollmentTerms.Models
         /// <summary>
         /// Enrollment Term Details
         /// </summary>
-        [Multipart("enrollment_term")] IEnrollmentTermDetail EnrollmentTerm { get; }
+        IEnrollmentTermDetail EnrollmentTerm { get; }
     }
 }

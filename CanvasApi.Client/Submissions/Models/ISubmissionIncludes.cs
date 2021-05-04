@@ -6,7 +6,7 @@ namespace CanvasApi.Client.Submissions.Models
 {
     public interface ISubmissionIncludes
     {
-        [Multipart("include")] IEnumerable<SubmissionListInclude> Includes { get; set; }
-        [Multipart("grouped")] bool? Grouped { get; }
+        IEnumerable<SubmissionListInclude> Includes { get; set; }
+        bool? Grouped { get; }
     }
 }

@@ -12,6 +12,6 @@ namespace CanvasApi.Client.EnrollmentTerms
         /// Allowed values: <see cref="EnrollmentTermIncludes"/>
         /// overrides
         /// </summary>
-        [Multipart("include")] IEnumerable<EnrollmentTermIncludes> Include { get; set; }
+        IEnumerable<EnrollmentTermIncludes> Include { get; set; }
     }
 }

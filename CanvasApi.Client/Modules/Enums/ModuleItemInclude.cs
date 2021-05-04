@@ -8,6 +8,6 @@ namespace CanvasApi.Client.Modules.Models.Enums
     [EnumAsString]
     public enum ModuleItemInclude
     {
-        [EnumSerializedValue("content_details")] ContentDetails
+        ContentDetails
     }
 }

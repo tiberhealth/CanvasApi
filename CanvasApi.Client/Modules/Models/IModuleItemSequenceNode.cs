@@ -8,18 +8,18 @@ namespace CanvasApi.Client.Modules.Models
         /// <summary>
         /// The previous ModuleItem in the sequence
         /// </summary>
-        [Multipart("prev")] IModuleItem Prev { get; }
+        IModuleItem Prev { get; }
         /// <summary>
         /// The ModuleItem being queried
         /// </summary>
-        [Multipart("current")] IModuleItem Current { get; }
+        IModuleItem Current { get; }
         /// <summary>
         /// The next ModuleItem in the sequence
         /// </summary>
-        [Multipart("next")] IModuleItem Next { get; }
+        IModuleItem Next { get; }
         /// <summary>
         /// The conditional release rule for the module item, if applicable
         /// </summary>
-        [Multipart("mastery_path")] IMasteryPath MasteryPath { get; }
+        IMasteryPath MasteryPath { get; }
     }
 }

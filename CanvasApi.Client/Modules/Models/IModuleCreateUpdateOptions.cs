@@ -8,6 +8,6 @@ namespace CanvasApi.Client.Modules.Models
 {
     public interface IModuleCreateUpdateOptions
     {
-        [Multipart("module")] IModuleDetail Module { get; }
+        IModuleDetail Module { get; }
     }
 }

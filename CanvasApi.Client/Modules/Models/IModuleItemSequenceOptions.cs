@@ -11,10 +11,10 @@ namespace CanvasApi.Client.Modules.Models
         /// 
         /// Allowed values: <see cref="ModuleItemSequenceAssetTypes"/>
         /// </summary>
-        [Multipart("asset_type")] ModuleItemSequenceAssetTypes AssetType { get; set; }
+        ModuleItemSequenceAssetTypes AssetType { get; set; }
         /// <summary>
         /// The id of the asset (or the url in the case of a Page)
         /// </summary>
-        [Multipart("asset_id")] long? AssetId { get; set; }
+        long? AssetId { get; set; }
     }
 }

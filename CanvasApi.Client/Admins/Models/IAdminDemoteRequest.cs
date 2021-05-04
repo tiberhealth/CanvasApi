@@ -11,7 +11,7 @@ namespace CanvasApi.Client.Admins.Models
         ///
         /// 'AccountAdmin'. Any other account role must be specified explicitly.
         /// </summary>
-        [Multipart("role"), Obsolete("DEPRECATED - see https://canvas.instructure.com/doc/api/admins.html")]
+        [Obsolete("DEPRECATED - see https://canvas.instructure.com/doc/api/admins.html")]
         public string Role { get; set; }
 
         /// <summary>
@@ -19,6 +19,6 @@ namespace CanvasApi.Client.Admins.Models
         /// 
         /// Defaults to the built-in role for 'AccountAdmin'.
         /// </summary>
-        [Multipart("role_id")] int? RoleId { get; set; }
+        int? RoleId { get; set; }
     }
 }

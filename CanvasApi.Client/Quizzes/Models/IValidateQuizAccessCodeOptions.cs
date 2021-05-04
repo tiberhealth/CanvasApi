@@ -7,6 +7,6 @@ namespace CanvasApi.Client.Quizzes.Models
 {
     public interface IValidateQuizAccessCodeOptions
     {
-        [Multipart("access_code")] string AccessCode { get; set; }
+        string AccessCode { get; set; }
     }
 }

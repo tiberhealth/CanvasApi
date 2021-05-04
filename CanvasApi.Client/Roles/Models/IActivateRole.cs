@@ -7,6 +7,6 @@ namespace CanvasApi.Client.Roles.Models
         /// <summary>
         /// The unique identifier for the role
         /// </summary>
-        [Multipart("role_id")] int RoleId { get; set; }
+        int RoleId { get; set; }
     }
 }

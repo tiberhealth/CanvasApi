@@ -8,7 +8,7 @@ namespace CanvasApi.Client.Quizzes.Enums
     [EnumAsString]
     public enum QuizItemTypes
     {
-        [EnumSerializedValue("question")] Question,
-        [EnumSerializedValue("group")] Group
+        Question,
+        Group
     }
 }

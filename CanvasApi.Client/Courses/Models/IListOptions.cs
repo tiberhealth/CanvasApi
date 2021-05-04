@@ -8,7 +8,7 @@ namespace CanvasApi.Client.Courses.Models
     {
         [Multipart("enrollment_type"), EnumAsString] EnrollmentTypes? EnrollmentType { get; set; }
         [Obsolete("Deprecated"), Multipart("enrollment_role")] string EnrollmentRole { get; set; }
-        [Multipart("enrollment_role_id")] long? EnrollmentRoleId { get; set; }
-        [Multipart("exclude_blueprint_courses")] bool? ExcludeBlueprintCourses { get; set; }
+        long? EnrollmentRoleId { get; set; }
+        bool? ExcludeBlueprintCourses { get; set; }
     }
 }

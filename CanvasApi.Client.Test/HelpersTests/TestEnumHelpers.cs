@@ -12,7 +12,7 @@ namespace CanvasApi.Client.Test.HelpersTests
         public enum TestEnum
         {
             TestValueOne,
-            [EnumSerializedValue("test_value_2")] TestValueTwo
+            TestValueTwo
         }
 
         [Test]

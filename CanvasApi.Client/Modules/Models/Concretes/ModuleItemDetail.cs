@@ -17,8 +17,9 @@ namespace CanvasApi.Client.Modules.Models.Concretes
         public string PageUrl { get; set; }
         public string ExternalUrl { get; set; }
         public bool? NewTab { get; set; }
+
         ICompletionRequirement IModuleItemDetail.CompletionRequirement => this.CompletionRequirement;
-        internal CompletionRequirement CompletionRequirement { get; init; }
+        internal CompletionRequirement CompletionRequirement { get; set; }
 
     }
 }

@@ -2,9 +2,9 @@
 
 namespace CanvasApi.Client.EnrollmentTerms.Enums
 {
-    [Multipart(EnumAsString = true)]
+    [EnumAsString]
     public enum EnrollmentTermIncludes
     {
-        [EnumSerializedValue("overrides")] Overrides
+        Overrides
     }
 }

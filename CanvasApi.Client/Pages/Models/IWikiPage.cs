@@ -8,12 +8,12 @@ namespace CanvasApi.Client.Pages.Models
         /// <summary>
         /// The title for the new page. NOTE: changing a page's title will change its url. The updated url will be returned in the result.
         /// </summary>
-        [Multipart("title")] string Title { get; set; }
+        string Title { get; set; }
 
         /// <summary>
         /// The content for the new page.
         /// </summary>
-        [Multipart("body")] string Body { get; set; }
+        string Body { get; set; }
 
         /// <summary>
         /// Which user roles are allowed to edit this page. Any combination of these roles is allowed (separated by commas).
@@ -32,22 +32,21 @@ namespace CanvasApi.Client.Pages.Models
         /// Allowed values:
         /// teachers, students, members, public
         /// </summary>
-        [Multipart("editing_roles", EnumAsString = true, EnumerationAsXsv = true, EnumerationDelimiter = ",")]
-        EditingRoles[] EditingRoles { get; set; }
+                EditingRoles[] EditingRoles { get; set; }
 
         /// <summary>
         /// Whether participants should be notified when this page changes
         /// </summary>
-        [Multipart("notify_of_update")] bool NotifyOfUpdate { get; set; }
+        bool NotifyOfUpdate { get; set; }
 
         /// <summary>
         /// Whether the page is published (true) or draft state (false).
         /// </summary>
-        [Multipart("published")] bool Publish { get; set; }
+        bool Publish { get; set; }
 
         /// <summary>
         /// Set an unhidden page as the front page (if true)
         /// </summary>
-        [Multipart("front_page")] bool FrontPage { get; set; }
+        bool FrontPage { get; set; }
     }
 }

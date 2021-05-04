@@ -8,16 +8,16 @@ namespace CanvasApi.Client.Accounts.Enums
         /// <summary>
         /// the 'tool_consumer_instance_guid' that will be sent for this account on LTI launches
         /// </summary>
-        [EnumSerializedValue("lti_guid")] LtiGuid,
+        LtiGuid,
 
         /// <summary>
         /// returns info about the privacy policy and terms of use
         /// </summary>
-        [EnumSerializedValue("registration_settings")] RegistrationSettings,
+        RegistrationSettings,
 
         /// <summary>
         /// returns services and whether they are enabled (requires account management permissions)
         /// </summary>
-        [EnumSerializedValue("services")] Services
+        Services
     }
 }

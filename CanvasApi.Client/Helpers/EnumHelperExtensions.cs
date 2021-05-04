@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using TiberHealth.Serializer;
 using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Helpers
@@ -23,6 +24,18 @@ namespace CanvasApi.Client.Helpers
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Converts an enum to snake_casing
+        /// </summary>
+        /// <typeparam name="TEnum"></typeparam>
+        /// <param name="enumValue"></param>
+        /// <returns></returns>
+        public static string ToSnake<TEnum> (this TEnum enumValue)
+        {
+            if (enumValue == null) return null;
+            return new PascalToSnakeResolver().ConvertName(enumValue?.ToString());
         }
     }
 }

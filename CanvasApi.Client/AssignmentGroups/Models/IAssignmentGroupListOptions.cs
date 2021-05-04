@@ -12,12 +12,12 @@ namespace CanvasApi.Client.AssignmentGroups.Models
         /// Allowed values: <see cref="AssignmentListIncludes"/>
         /// assignments, discussion_topic, all_dates, assignment_visibility, overrides, submission, observed_users, can_edit, score_statistics
         /// </summary>
-        [Multipart("include")] IEnumerable<AssignmentListIncludes> Include { get; set; }
+        IEnumerable<AssignmentListIncludes> Include { get; set; }
 
         /// <summary>
         /// If “assignments” are included, optionally return only assignments having their ID in this array. This argument may also be passed as a comma separated string.
         /// </summary>
-        [Multipart("assignment_ids")] IEnumerable<long> AssignmentIds { get; set; }
+        IEnumerable<long> AssignmentIds { get; set; }
 
         /// <summary>
         /// f “assignments” are included, those with the specified submission types will be excluded from the assignment groups.
@@ -25,21 +25,21 @@ namespace CanvasApi.Client.AssignmentGroups.Models
         /// Allowed values: <see cref="SubmissionTypes"/>
         /// online_quiz, discussion_topic, wiki_page, external_tool
         /// /// </summary>
-        [Multipart("exclude_assignment_submission_types")] IEnumerable<SubmissionTypes> ExcludedAssignmentSubmissionTypes { get; set; }
+        IEnumerable<SubmissionTypes> ExcludedAssignmentSubmissionTypes { get; set; }
 
         /// <summary>
         /// Apply assignment overrides for each assignment, defaults to true.
         /// </summary>
-        [Multipart("override_assignment_dates")] bool? OverrideAssignmentDates { get; set; }
+        bool? OverrideAssignmentDates { get; set; }
 
         /// <summary>
         /// The id of the grading period in which assignment groups are being requested (Requires grading periods to exist.)
         /// </summary>
-        [Multipart("grading_period_id")] long? GradingPeriodId { get; set; }
+        long? GradingPeriodId { get; set; }
 
         /// <summary>
         /// If true, all assignments returned will apply to the current user in the specified grading period. If assignments apply to other students in the specified grading period, but not the current user, they will not be returned. (Requires the grading_period_id argument and grading periods to exist. In addition, the current user must be a student.)
         /// </summary>
-        [Multipart("scope_assignments_to_student")] bool? ScopeAssignmentsToStudent { get; set; }
+        bool? ScopeAssignmentsToStudent { get; set; }
     }
 }

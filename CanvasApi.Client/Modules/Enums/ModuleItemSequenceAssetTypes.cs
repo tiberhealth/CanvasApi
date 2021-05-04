@@ -8,12 +8,12 @@ namespace CanvasApi.Client.Modules.Enums
     [EnumAsString]
     public enum ModuleItemSequenceAssetTypes
     {
-        [EnumSerializedValue("ModuleItem")] ModuleItem,
-        [EnumSerializedValue("File")] File,
-        [EnumSerializedValue("Page")] Page,
-        [EnumSerializedValue("Discussion")] Discussion,
-        [EnumSerializedValue("Assignment")] Assignment,
-        [EnumSerializedValue("Quiz")] Quiz,
-        [EnumSerializedValue("ExternalTool")] ExternalTool
+        ModuleItem,
+        File,
+        Page,
+        Discussion,
+        Assignment,
+        Quiz,
+        ExternalTool
     }
 }

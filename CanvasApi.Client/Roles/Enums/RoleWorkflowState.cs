@@ -8,8 +8,8 @@ namespace CanvasApi.Client.Roles.Enums
     [EnumAsString]
     public enum RoleWorkflowState
     {
-        [EnumSerializedValue("active")] Active,
-        [EnumSerializedValue("inactive")] Inactive,
-        [EnumSerializedValue("built_in")] BuiltIn
+        Active,
+        Inactive,
+        BuiltIn
     }
 }

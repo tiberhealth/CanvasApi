@@ -8,7 +8,7 @@ namespace CanvasApi.Client.OAuth2
 {
     internal class OAuth2Client : ApiClientBase, IOAuth2Api
     {
-        internal OAuth2Client(CanvasApiClient parent) : base(parent){ }
+        public OAuth2Client(CanvasApiClient parent) : base(parent){ }
 
         
         internal async Task<IAuthToken> Token<TRequest>(Action<TRequest> optionsFactory) where TRequest: class, IOAuthTokenRequest, new()

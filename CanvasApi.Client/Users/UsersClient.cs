@@ -8,7 +8,7 @@ namespace CanvasApi.Client.Users
 {
     internal class UsersClient: ApiClientBase, IUsersApi
     {
-        internal UsersClient(CanvasApiClient parent) : base(parent)
+        public UsersClient(CanvasApiClient parent) : base(parent)
         {
         }
 

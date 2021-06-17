@@ -9,7 +9,7 @@ using CanvasApi.Client.Submissions.Models.Concretes;
 
 namespace CanvasApi.Client.Submissions
 {
-    public class SubmissionsApiClient : ApiClientBase, ISubmissionsApiClient
+    internal class SubmissionsApiClient : ApiClientBase, ISubmissionsApiClient
     {
         public SubmissionsApiClient(CanvasApiClient parent) : base(parent) { }
 

@@ -8,7 +8,7 @@ using CanvasApi.Client.Courses.Models.Concrete;
 
 namespace CanvasApi.Client.Courses
 {
-    public class CourseApiClient : ApiClientBase, ICourseApiClient
+    internal class CourseApiClient : ApiClientBase, ICourseApiClient
     {
         public CourseApiClient(CanvasApiClient parent) : base(parent) { }
 

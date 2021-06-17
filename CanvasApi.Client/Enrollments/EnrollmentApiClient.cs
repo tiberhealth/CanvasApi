@@ -10,7 +10,7 @@ using CanvasApi.Client.Extentions;
 
 namespace CanvasApi.Client.Enrollments
 {
-    public class EnrollmentApiClient : ApiClientBase, IEnrollmentApiClient
+    internal class EnrollmentApiClient : ApiClientBase, IEnrollmentApiClient
     {
         internal EnrollmentApiClient(CanvasApiClient parent) : base(parent) { }
 

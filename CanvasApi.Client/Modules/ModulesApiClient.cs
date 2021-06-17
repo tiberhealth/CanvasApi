@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CanvasApi.Client.Modules
 {
-    public class ModulesApiClient : ApiClientBase, IModulesApiClient
+    internal class ModulesApiClient : ApiClientBase, IModulesApiClient
     {
         public ModulesApiClient(CanvasApiClient parent) : base(parent) { }
 

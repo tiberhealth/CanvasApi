@@ -9,7 +9,7 @@ using CanvasApi.Client.Pages.Models.Concrete;
 
 namespace CanvasApi.Client.Pages
 {
-    public class PageApiClient : ApiClientBase, IPageApiClient
+    internal class PageApiClient : ApiClientBase, IPageApiClient
     {
         public PageApiClient(CanvasApiClient parent) : base(parent) { }
 

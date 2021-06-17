@@ -10,7 +10,7 @@ namespace CanvasApi.Client.Accounts
 {
     internal class AccountsClient: ApiClientBase, IAccountsApi
     {        
-        internal AccountsClient(CanvasApiClient parent): base(parent) { }
+        public AccountsClient(CanvasApiClient parent): base(parent) { }
 
         public void CreateSubAccount(long accountId)
         {

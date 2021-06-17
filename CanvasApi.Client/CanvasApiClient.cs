@@ -80,12 +80,13 @@ namespace CanvasApi.Client
             this.AdminClient = this.SetLazy<AdminApiClient>();
             this.AssignmentGroupsClient = this.SetLazy<AssignmentGroupsApiClient>();
             this.CoursesClient = this.SetLazy<CourseApiClient>();
-            this.EnrollmentClient = this.SetLazy(() => new EnrollmentApiClient(this));
-            this.EnrollmentTermsClient = this.SetLazy(() => new EnrollmentTermsApiClient(this));
-            this.ModulesClient = this.SetLazy(() => new ModulesApiClient(this));
-            this.PagesClient = this.SetLazy(() => new PageApiClient(this));
-            this.SubmissionsApiClient = this.SetLazy(() => new SubmissionsApiClient(this));
-            this.UsersClient = this.SetLazy(() => new Users.UsersClient(this));
+
+            this.EnrollmentClient = this.SetLazy<EnrollmentApiClient>();
+            this.EnrollmentTermsClient = this.SetLazy<EnrollmentTermsApiClient>();
+            this.ModulesClient = this.SetLazy<ModulesApiClient>();
+            this.PagesClient = this.SetLazy<PageApiClient>();
+            this.SubmissionsApiClient = this.SetLazy<SubmissionsApiClient>();
+            this.UsersClient = this.SetLazy<Users.UsersClient>();
         }
 
         private Lazy<TConcrete> SetLazy<TConcrete>() where TConcrete : ApiClientBase =>
@@ -197,6 +198,8 @@ namespace CanvasApi.Client
 
             if (result.IsSuccessStatusCode)
             {
+                var content = await result.Content.ReadAsStringAsync();
+
                 if (pageLinks != null) pageLinks.SetHeaders(result.Headers);
 
                 await using var contentStream = await result.Content.ReadAsStreamAsync();

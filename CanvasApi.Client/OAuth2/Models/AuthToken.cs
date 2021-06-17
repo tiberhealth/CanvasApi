@@ -24,10 +24,10 @@ namespace CanvasApi.Client.OAuth2.Models
     {
         public string AccessToken { get; set; }
         public string TokenType { get; set; }
-        public AuthUser TokenUser { get; set; }
+        public AuthUser User { get; set; }
         public string RefreshToken { get; set; }
         public long ExpiresIn { get; set; }
 
-        public IAuthUser User => this.TokenUser;
+        IAuthUser IAuthToken.User => this.User;
     }
 }

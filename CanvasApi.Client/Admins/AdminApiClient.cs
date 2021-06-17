@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CanvasApi.Client.Admins
 {
-    public class AdminApiClient : ApiClientBase, IAdminApiClient
+    internal class AdminApiClient : ApiClientBase, IAdminApiClient
     {
         public AdminApiClient(CanvasApiClient parent) : base(parent) { }
 

@@ -27,7 +27,7 @@ namespace CanvasApi.Client
         {
             this.Links =
                 headers
-                .Where(item => item.Key.Equals("Link", StringComparison.OrdinalIgnoreCase))
+                .Where(item => item.Key == "Link")
                 .SelectMany(item => item.Value as string[])
                 .Where(item => item != null)
                 .SelectMany(item => item.Split(','))

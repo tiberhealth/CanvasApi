@@ -9,7 +9,7 @@ using CanvasApi.Client.Extentions;
 
 namespace CanvasApi.Client.AssignmentGroups
 {
-    public class AssignmentGroupsApiClient : ApiClientBase, IAssignmentGroupsApiClient
+    internal class AssignmentGroupsApiClient : ApiClientBase, IAssignmentGroupsApiClient
     {
         public AssignmentGroupsApiClient(CanvasApiClient parent) : base(parent) { }
 

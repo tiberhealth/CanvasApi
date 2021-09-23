@@ -12,7 +12,7 @@ namespace CanvasApi.Client.Enrollments
 {
     internal class EnrollmentApiClient : ApiClientBase, IEnrollmentApiClient
     {
-        internal EnrollmentApiClient(CanvasApiClient parent) : base(parent) { }
+        public EnrollmentApiClient(CanvasApiClient parent) : base(parent) { }
 
         public Task<IApiSuccess> AcceptEnrollment(long courseId, long enrollmentId)
         {

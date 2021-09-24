@@ -32,8 +32,8 @@ namespace CanvasApi.Client.Enrollments.Models.Concretes
         public DateTime? LastAttendedAt { get; set; }
         public long? TotalActivityTime { get; set; }
         public string HtmlUrl { get; set; }
-        internal Grade Grades { get; set; }
-        internal UserDisplay User { get; set; }
+        public Grade Grades { get; set; }
+        public UserDisplay User { get; set; }
         public string OverrideGrade { get; set; }
         public decimal? OverrideScore { get; set; }
         public string UnpostedCurrentGrade { get; set; }

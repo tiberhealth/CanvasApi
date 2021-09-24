@@ -196,6 +196,7 @@ namespace CanvasApi.Client
             var result = await this.Client
                 .SendAsync(httpMessage, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
 
+            
             if (result.IsSuccessStatusCode)
             {
                 var content = await result.Content.ReadAsStringAsync();

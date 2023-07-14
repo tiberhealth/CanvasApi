@@ -1,6 +1,4 @@
-﻿using CanvasApi.Client.Modules.Models.Concretes;
-using System.Collections.Generic;
-using TiberHealth.Serializer.Attributes;
+﻿using System.Collections.Generic;
 
 namespace CanvasApi.Client.Modules.Models
 {

@@ -8,6 +8,6 @@ namespace CanvasApi.Client._Base
 
         protected ApiClientBase(CanvasApiClient parent) => this.ApiClient = parent;
 
-        protected string UrlEncode(string source) => Uri.EscapeUriString(source);
+        protected string UrlEncode(string source) => Uri.EscapeDataString(source);
     }
 }

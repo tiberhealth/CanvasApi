@@ -1,7 +1,4 @@
-﻿using CanvasApi.Client.Submissions.Models.Concretes;
-using TiberHealth.Serializer.Attributes;
-
-namespace CanvasApi.Client.Submissions.Models
+﻿namespace CanvasApi.Client.Submissions.Models
 {
     public interface ISubmissionSubmit
     {

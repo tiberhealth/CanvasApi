@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using CanvasApi.Client._Base;
 using CanvasApi.Client.Users.Models;
-using CanvasApi.Client.Users.Models.Concretes;
 
 namespace CanvasApi.Client.Users
 {
@@ -11,6 +10,14 @@ namespace CanvasApi.Client.Users
         public UsersClient(CanvasApiClient parent) : base(parent)
         {
         }
+
+        /// <summary>
+        /// Returns user detail data. 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns><see cref="IUser" for the requested user></returns>
+        public async Task<IUser> Get(long userId) =>
+            await this.ApiClient.ApiOperation<User>(HttpMethod.Get, $"/api/v1/users/{userId}?include[]=uuid&include[]=last_login");
 
         /// <summary>
         /// Returns user profile data, including user id, name, and profile pic.

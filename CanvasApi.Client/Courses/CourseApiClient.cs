@@ -4,7 +4,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using CanvasApi.Client._Base;
 using CanvasApi.Client.Courses.Models;
-using CanvasApi.Client.Courses.Models.Concrete;
 
 namespace CanvasApi.Client.Courses
 {
@@ -32,5 +31,10 @@ namespace CanvasApi.Client.Courses
         {
             throw new NotImplementedException();
         }
+
+
+        public async Task<ICourse> Get(long courseId) =>
+            await this.ApiClient.ApiOperation<Course>(HttpMethod.Get, $"/api/v1/courses/{courseId}?include[]=sections"); 
+
     }
 }

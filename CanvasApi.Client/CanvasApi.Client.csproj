@@ -1,68 +1,64 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <Authors>Bryan M Lenihan</Authors>
-    <Copyright>2021</Copyright>
-    <PackageIconUrl>https://cdn.tiberhealth.com/assets/TiberLogoImage_1E384B_128Icon.png</PackageIconUrl>
-    <Owners>Tiber Health innovations, Inc.</Owners>
-    <PackageProjectUrl>https://github.com/tiberhealth/CanvasApi</PackageProjectUrl>
-    <Summary>.Net 5.0 wrapper for the Canvas LMS API</Summary>
-    <PackageTags>Canvas LMS Instructure Tiber Health tiberhealth</PackageTags>
-    <Title>Canvas LMS API Wrapper</Title>
-    <Description>.Net Wrapper for Canvas LMS API.</Description>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+	</PropertyGroup>
+	<PropertyGroup>
+		<Authors>Bryan M Lenihan</Authors>
+		<Copyright>2023</Copyright>
+		<PackageIconUrl>https://cdn.tiberhealth.com/assets/TiberLogoImage_1E384B_128Icon.png</PackageIconUrl>
+		<Owners>Tiber Health innovations, Inc.</Owners>
+		<PackageProjectUrl>https://github.com/tiberhealth/CanvasApi</PackageProjectUrl>
+		<Summary>.Net 7.0 wrapper for the Canvas LMS API</Summary>
+		<PackageTags>Canvas LMS Instructure Tiber Health tiberhealth tni </PackageTags>
+		<Title>Canvas LMS API Wrapper</Title>
+		<Description>.Net Wrapper for Canvas LMS API.</Description>
+	</PropertyGroup>
 
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <LangVersion>9.0</LangVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <LangVersion>9.0</LangVersion>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
-    <PackageReference Include="TiberHealth.Serializer" Version="1.0.48" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Accounts\" />
-    <Folder Include="OAuth2\Enums" />
-    <Folder Include="_Base\" />
-    <Folder Include="Accounts\Models\" />
-    <Folder Include="Accounts\Enums\" />
-    <Folder Include="Extentions\" />
-    <Folder Include="Exceptions\" />
-    <Folder Include="Enrollments\" />
-    <Folder Include="Enrollments\Models\" />
-    <Folder Include="Atrributes\" />
-    <Folder Include="Enrollments\Enums\" />
-    <Folder Include="AssignmentGroups\" />
-    <Folder Include="AssignmentGroups\Models\" />
-    <Folder Include="Assignments\" />
-    <Folder Include="Assignments\Models\" />
-    <Folder Include="Assignments\Enums\" />
-    <Folder Include="AssignmentGroups\Enums\" />
-    <Folder Include="Submissions\" />
-    <Folder Include="Submissions\Models\" />
-    <Folder Include="Courses\" />
-    <Folder Include="Courses\Models\" />
-    <Folder Include="Submissions\Enums\" />
-    <Folder Include="Pages\" />
-    <Folder Include="Pages\Models\" />
-    <Folder Include="Pages\Enums\" />
-    <Folder Include="EnrollmentTerms\" />
-    <Folder Include="Courses\Enums\" />
-    <Folder Include="EnrollmentTerms\Models\" />
-    <Folder Include="EnrollmentTerms\Models\Concretes\" />
-    <Folder Include="Enrollments\Models\Concretes\" />
-    <Folder Include="AssignmentGroups\Models\Concretes\" />
-    <Folder Include="Assignments\Models\Concretes\" />
-    <Folder Include="Pages\Models\Concretes\" />
-    <Folder Include="Submissions\Models\Concretes\" />
-    <Folder Include="Users\Models\Concretes\" />
-    <Folder Include="Admins\Models\Concretes\" />
-    <Folder Include="Courses\Models\Concrete\" />
-    <Folder Include="Helpers\" />
-  </ItemGroup>
+
+
+
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<LangVersion>11.0</LangVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<LangVersion>11.0</LangVersion>
+	</PropertyGroup>
+	<ItemGroup>
+	  <Compile Remove="Atrributes\**" />
+	  <Compile Remove="OAuth2\Enums\**" />
+	  <EmbeddedResource Remove="Atrributes\**" />
+	  <EmbeddedResource Remove="OAuth2\Enums\**" />
+	  <None Remove="Atrributes\**" />
+	  <None Remove="OAuth2\Enums\**" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+		<PackageReference Include="TiberHealth.Serializer" Version="1.0.48" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Section\" />
+		<Folder Include="_Base\" />
+		<Folder Include="Accounts\Enums\" />
+		<Folder Include="Extentions\" />
+		<Folder Include="Exceptions\" />
+		<Folder Include="Enrollments\Enums\" />
+		<Folder Include="Assignments\Enums\" />
+		<Folder Include="AssignmentGroups\Enums\" />
+		<Folder Include="Courses\" />
+		<Folder Include="Courses\Models\" />
+		<Folder Include="Submissions\Enums\" />
+		<Folder Include="Pages\Enums\" />
+		<Folder Include="Courses\Enums\" />
+		<Folder Include="Helpers\" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Update="**\*.cs">
+			<DependentUpon>$([System.String]::Copy(I%(Filename).cs))</DependentUpon>
+		</Compile>
+	</ItemGroup>
 </Project>

@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using CanvasApi.Client._Base;
 using CanvasApi.Client.Enrollments.Enums;
 using CanvasApi.Client.Enrollments.Models;
-using CanvasApi.Client.Enrollments.Models.Concretes;
 using CanvasApi.Client.Extentions;
 
 namespace CanvasApi.Client.Enrollments
@@ -38,10 +37,9 @@ namespace CanvasApi.Client.Enrollments
             throw new NotImplementedException();
         }
 
-        public Task<IEnrollment> GetById(long enrollmentId)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<IEnrollment> GetById(long accountId, long enrollmentId) =>
+            await this.ApiClient
+                .ApiOperation<Enrollment>(HttpMethod.Get, $"/api/v1/accounts/{accountId}/enrollments/{enrollmentId}");
 
         public Task<IEnrollment> Reactivate(long courseId, long enrollmentId)
         {

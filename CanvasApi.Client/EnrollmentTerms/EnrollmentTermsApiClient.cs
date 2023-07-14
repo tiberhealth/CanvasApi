@@ -4,7 +4,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using CanvasApi.Client._Base;
 using CanvasApi.Client.EnrollmentTerms.Models;
-using CanvasApi.Client.EnrollmentTerms.Models.Concretes;
 using CanvasApi.Client.Extentions;
 
 namespace CanvasApi.Client.EnrollmentTerms

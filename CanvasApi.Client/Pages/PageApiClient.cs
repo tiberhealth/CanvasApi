@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using CanvasApi.Client._Base;
 using CanvasApi.Client.Pages.Enums;
 using CanvasApi.Client.Pages.Models;
-using CanvasApi.Client.Pages.Models.Concrete;
 
 namespace CanvasApi.Client.Pages
 {

@@ -32,6 +32,6 @@ namespace CanvasApi.Client.Courses
         /// <returns></returns>
         Task<ICourseProgress> Progress(long courseId, long userId);
 
-        
+        Task<ICourse> Get(long id);
     }
 }

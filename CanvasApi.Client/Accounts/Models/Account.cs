@@ -2,7 +2,7 @@
 
 namespace CanvasApi.Client.Accounts.Models
 {
-    public class Account
+    public class Account: IAccount
     {
         /// <summary>
         /// the ID of the Account object

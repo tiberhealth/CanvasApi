@@ -1,5 +1,4 @@
 ﻿using CanvasApi.Client.Modules.Models;
-using CanvasApi.Client.Modules.Models.Concretes;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;

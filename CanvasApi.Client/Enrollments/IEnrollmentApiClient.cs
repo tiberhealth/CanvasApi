@@ -55,7 +55,7 @@ namespace CanvasApi.Client.Enrollments
         /// </summary>
         /// <param name="enrollmentId"></param>
         /// <returns></returns>
-        Task<IEnrollment> GetById(long enrollmentId);
+        Task<IEnrollment> GetById(long accountId, long enrollmentId);
 
         /// <summary>
         /// Create a new user enrollment for a course or section.

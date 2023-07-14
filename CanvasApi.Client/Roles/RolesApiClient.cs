@@ -1,7 +1,6 @@
 ﻿using CanvasApi.Client._Base;
 using CanvasApi.Client.Extentions;
 using CanvasApi.Client.Roles.Models;
-using CanvasApi.Client.Roles.Models.Concrete;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;

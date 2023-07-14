@@ -27,10 +27,9 @@ namespace CanvasApi.Client.Accounts
             throw new NotImplementedException();
         }
 
-        public void GetAccount(long accountId)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<IAccount> GetAccount(long accountId) =>
+            await this.ApiClient.ApiOperation<Account>(HttpMethod.Get, $"/api/v1/accounts/{accountId}");
+               
 
         public void GetHelpLinks(long accountId)
         {

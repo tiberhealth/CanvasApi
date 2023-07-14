@@ -19,7 +19,7 @@ namespace CanvasApi.Client.Roles.Models
         /// <summary>
         /// JSON representation of the account the role is in.
         /// </summary>
-        IAccount Account { get; }
+        IRoleAccount Account { get; }
         /// <summary>
         /// The state of the role: 'active', 'inactive', or 'built_in'
         /// </summary>

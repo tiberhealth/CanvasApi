@@ -1,6 +1,6 @@
 ﻿using CanvasApi.Client.Roles.Enums;
-using System.Collections.Generic;
-using TiberHealth.Serializer.Attributes;
+using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace CanvasApi.Client.Roles.Models
 {
@@ -11,7 +11,7 @@ namespace CanvasApi.Client.Roles.Models
         /// roles, this is 'AccountMembership'. For course-level roles, it is an
         /// enrollment type.
         /// </summary>
-        IEnumerable<RoleBaseTypes> BaseRoleType { get; }
+        RoleBaseTypes BaseRoleType { get; }
         /// <summary>
         /// The label of the role.
         /// </summary>
@@ -23,12 +23,14 @@ namespace CanvasApi.Client.Roles.Models
         /// <summary>
         /// The state of the role: 'active', 'inactive', or 'built_in'
         /// </summary>
-        public IEnumerable<RoleWorkflowState> WorkflowState { get; }
+        RoleWorkflowState WorkflowState { get; }
         /// <summary>
         /// A dictionary of permissions keyed by name (see permissions input parameter in
         /// the 'Create a role' API).
         /// </summary>
-        public object Permissions { get; }
+        object Permissions { get; }
         // TODO: Create Permission Serialization process - can be next release/version
+
+
     }
 }

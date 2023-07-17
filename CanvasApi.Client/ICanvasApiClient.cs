@@ -6,6 +6,8 @@ using CanvasApi.Client.EnrollmentTerms;
 using CanvasApi.Client.Modules;
 using CanvasApi.Client.OAuth2;
 using CanvasApi.Client.Pages;
+using CanvasApi.Client.Roles;
+using CanvasApi.Client.Section;
 using CanvasApi.Client.Submissions;
 using CanvasApi.Client.Users;
 
@@ -46,6 +48,11 @@ namespace CanvasApi.Client
         IModulesApiClient Modules { get; }
 
         /// <summary>
+        /// A{I Calls for Course Sections in Canvas
+        /// </summary>
+        ISectionApi Sections { get; }
+
+        /// <summary>
         /// API Calls for the Submissions subsystem in Canvas
         /// </summary>
         ISubmissionsApiClient Submissions { get; }
@@ -54,6 +61,11 @@ namespace CanvasApi.Client
         /// API Calls for the Pages subsystem in Canvas
         /// </summary>
         IPageApiClient Pages { get; }
+
+        /// <summary>
+        /// API Calls for the Roles subsystem in Canvas
+        /// </summary>
+        IRolesApiClient Roles { get; }
 
         /// <summary>
         /// API Calls for the Users Sub System

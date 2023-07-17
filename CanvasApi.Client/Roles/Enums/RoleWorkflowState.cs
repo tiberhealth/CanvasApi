@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Runtime.Serialization;
 using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Roles.Enums
@@ -10,6 +8,8 @@ namespace CanvasApi.Client.Roles.Enums
     {
         Active,
         Inactive,
-        BuiltIn
+
+        [EnumMember(Value = "built_in")]
+        Built_In
     }
 }

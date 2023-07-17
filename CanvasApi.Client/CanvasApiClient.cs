@@ -22,6 +22,8 @@ using CanvasApi.Client._Base;
 using CanvasApi.Client.EnrollmentTerms;
 using CanvasApi.Client.Admins;
 using CanvasApi.Client.Modules;
+using CanvasApi.Client.Section;
+using CanvasApi.Client.Roles;
 
 [assembly: InternalsVisibleTo("CanvasApi.Client.Test")]
 namespace CanvasApi.Client
@@ -41,6 +43,8 @@ namespace CanvasApi.Client
         private readonly Lazy<EnrollmentTermsApiClient> EnrollmentTermsClient;
         private readonly Lazy<ModulesApiClient> ModulesClient;
         private readonly Lazy<PageApiClient> PagesClient;
+        private readonly Lazy<RolesApiClient> RolesClient;
+        private readonly Lazy<SectionApi> SectionClient;
         private readonly Lazy<SubmissionsApiClient> SubmissionsApiClient;
         private readonly Lazy<UsersClient> UsersClient;
 
@@ -85,6 +89,8 @@ namespace CanvasApi.Client
             this.EnrollmentTermsClient = this.SetLazy<EnrollmentTermsApiClient>();
             this.ModulesClient = this.SetLazy<ModulesApiClient>();
             this.PagesClient = this.SetLazy<PageApiClient>();
+            this.RolesClient = this.SetLazy<RolesApiClient>();
+            this.SectionClient = this.SetLazy<SectionApi>();
             this.SubmissionsApiClient = this.SetLazy<SubmissionsApiClient>();
             this.UsersClient = this.SetLazy<Users.UsersClient>();
         }
@@ -109,6 +115,8 @@ namespace CanvasApi.Client
         public IEnrollmentTermsApiClient EnrollmentTerms => this.EnrollmentTermsClient.Value;
         public IModulesApiClient Modules => this.ModulesClient.Value;
         public IPageApiClient Pages => this.PagesClient.Value;
+        public IRolesApiClient Roles => this.RolesClient.Value;
+        public ISectionApi Sections => this.SectionClient.Value;
         public ISubmissionsApiClient Submissions => this.SubmissionsApiClient.Value;
         public IUsersApi Users => this.UsersClient.Value;
 

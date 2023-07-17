@@ -19,7 +19,7 @@ namespace CanvasApi.Client
         }
 
         protected override string ResolvePropertyName(string propertyName) {
-            var jsonPropertyName = this.JsonProperty == null ? propertyName.ToUnderscore() : base.ResolvePropertyName(propertyName);
+            var jsonPropertyName = this.JsonProperty is null ? propertyName.ToUnderscore() : base.ResolvePropertyName(propertyName);
             return jsonPropertyName;
         }
     }

@@ -24,6 +24,7 @@ using CanvasApi.Client.Admins;
 using CanvasApi.Client.Modules;
 using CanvasApi.Client.Section;
 using CanvasApi.Client.Roles;
+using CanvasApi.Client.Assignments;
 
 [assembly: InternalsVisibleTo("CanvasApi.Client.Test")]
 namespace CanvasApi.Client
@@ -38,6 +39,7 @@ namespace CanvasApi.Client
         private readonly Lazy<AccountsClient> AccountsClient;
         private readonly Lazy<AdminApiClient> AdminClient;
         private readonly Lazy<AssignmentGroupsApiClient> AssignmentGroupsClient;
+        private readonly Lazy<AssignmentApiClient> AssignmentClient;
         private readonly Lazy<CourseApiClient> CoursesClient;
         private readonly Lazy<EnrollmentApiClient> EnrollmentClient;
         private readonly Lazy<EnrollmentTermsApiClient> EnrollmentTermsClient;
@@ -83,6 +85,7 @@ namespace CanvasApi.Client
             this.AccountsClient = this.SetLazy<AccountsClient>();
             this.AdminClient = this.SetLazy<AdminApiClient>();
             this.AssignmentGroupsClient = this.SetLazy<AssignmentGroupsApiClient>();
+            this.AssignmentClient = this.SetLazy<AssignmentApiClient>();
             this.CoursesClient = this.SetLazy<CourseApiClient>();
 
             this.EnrollmentClient = this.SetLazy<EnrollmentApiClient>();
@@ -110,6 +113,7 @@ namespace CanvasApi.Client
         public IAccountsApi Accounts => this.AccountsClient.Value;
         public IAdminApiClient Admin => this.AdminClient.Value;
         public IAssignmentGroupsApiClient AssignmentGroups => this.AssignmentGroupsClient.Value;
+        public IAssignmentApiClient Assignments => this.AssignmentClient.Value;
         public ICourseApiClient Courses => this.CoursesClient.Value;
         public IEnrollmentApiClient Enrollments => this.EnrollmentClient.Value;
         public IEnrollmentTermsApiClient EnrollmentTerms => this.EnrollmentTermsClient.Value;

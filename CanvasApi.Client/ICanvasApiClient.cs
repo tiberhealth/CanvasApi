@@ -1,6 +1,7 @@
 ﻿using CanvasApi.Client.Accounts;
 using CanvasApi.Client.Admins;
 using CanvasApi.Client.AssignmentGroups;
+using CanvasApi.Client.Assignments;
 using CanvasApi.Client.Enrollments;
 using CanvasApi.Client.EnrollmentTerms;
 using CanvasApi.Client.Modules;
@@ -31,6 +32,11 @@ namespace CanvasApi.Client
         /// API Calls for the Assignment Groups Sub System
         /// </summary>
         IAssignmentGroupsApiClient AssignmentGroups { get; }
+
+        /// <summary>
+        /// API Calls for the Assignments Sub System
+        /// </summary>
+        IAssignmentApiClient Assignments { get; }
 
         /// <summary>
         /// API Calls for the Enrollments subsystem in Canvas

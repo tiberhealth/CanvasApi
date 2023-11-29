@@ -1,5 +1,6 @@
 ﻿using CanvasApi.Client._Base;
 using CanvasApi.Client.Assignments.Models;
+using CanvasApi.Client.Extentions;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -12,15 +13,10 @@ internal class AssignmentApiClient : ApiClientBase, IAssignmentApiClient
     {
     }
 
-    public async Task<IAssignment> Get(long courseId, long assignmentId, Action<IAssignmentGetOptions> optionsFactory = null)
-    {
-        var options = new AssignmentGetOptions();
-        optionsFactory?.Invoke(options);
-
-        return await this.ApiClient.ApiOperation<Assignment, IAssignmentGetOptions>(
+    public async Task<IAssignment> Get(long courseId, long assignmentId, Action<IAssignmentGetOptions> options = null) =>
+        await this.ApiClient.ApiOperation<Assignment, IAssignmentGetOptions>(
             HttpMethod.Get,
             $"/api/v1/courses/{courseId}/assignments/{assignmentId}",
-            options
+            options?.GetOptions<IAssignmentGetOptions, AssignmentGetOptions>() ?? null
         );
-    }
 }

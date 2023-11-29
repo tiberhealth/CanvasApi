@@ -1,6 +1,7 @@
 ﻿using CanvasApi.Client.Accounts;
 using CanvasApi.Client.Admins;
 using CanvasApi.Client.AssignmentGroups;
+using CanvasApi.Client.Assignments;
 using CanvasApi.Client.Enrollments;
 using CanvasApi.Client.EnrollmentTerms;
 using CanvasApi.Client.Modules;
@@ -10,6 +11,7 @@ using CanvasApi.Client.Roles;
 using CanvasApi.Client.Section;
 using CanvasApi.Client.Submissions;
 using CanvasApi.Client.Users;
+using CanvasApi.Client.Wikis;
 
 namespace CanvasApi.Client
 {
@@ -31,6 +33,11 @@ namespace CanvasApi.Client
         /// API Calls for the Assignment Groups Sub System
         /// </summary>
         IAssignmentGroupsApiClient AssignmentGroups { get; }
+
+        /// <summary>
+        /// API Calls for the Assignments Sub System
+        /// </summary>
+        IAssignmentApiClient Assignments { get; }
 
         /// <summary>
         /// API Calls for the Enrollments subsystem in Canvas
@@ -76,6 +83,11 @@ namespace CanvasApi.Client
         /// API Calls for OAuth Authentication in Canvas
         /// </summary>
         IOAuth2Api OAuth2 { get; }
+
+        /// <summary>
+        /// API call for wiki pages
+        /// </summary>
+        IWikisApiClient Wikis { get; }
 
         /// <summary>
         /// Validates the CanvasApi Client configuration

@@ -11,6 +11,7 @@ using CanvasApi.Client.Roles;
 using CanvasApi.Client.Section;
 using CanvasApi.Client.Submissions;
 using CanvasApi.Client.Users;
+using CanvasApi.Client.Wikis;
 
 namespace CanvasApi.Client
 {
@@ -82,6 +83,11 @@ namespace CanvasApi.Client
         /// API Calls for OAuth Authentication in Canvas
         /// </summary>
         IOAuth2Api OAuth2 { get; }
+
+        /// <summary>
+        /// API call for wiki pages
+        /// </summary>
+        IWikisApiClient Wikis { get; }
 
         /// <summary>
         /// Validates the CanvasApi Client configuration

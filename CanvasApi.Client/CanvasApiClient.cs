@@ -25,6 +25,7 @@ using CanvasApi.Client.Modules;
 using CanvasApi.Client.Section;
 using CanvasApi.Client.Roles;
 using CanvasApi.Client.Assignments;
+using CanvasApi.Client.Wikis;
 
 [assembly: InternalsVisibleTo("CanvasApi.Client.Test")]
 namespace CanvasApi.Client
@@ -49,6 +50,7 @@ namespace CanvasApi.Client
         private readonly Lazy<SectionApi> SectionClient;
         private readonly Lazy<SubmissionsApiClient> SubmissionsApiClient;
         private readonly Lazy<UsersClient> UsersClient;
+        private readonly Lazy<WikisApiClient> WikisClient;
 
         public PagingOptions DefaultPagingOptions { get; private set; }
 
@@ -96,6 +98,7 @@ namespace CanvasApi.Client
             this.SectionClient = this.SetLazy<SectionApi>();
             this.SubmissionsApiClient = this.SetLazy<SubmissionsApiClient>();
             this.UsersClient = this.SetLazy<Users.UsersClient>();
+            this.WikisClient = this.SetLazy<WikisApiClient>();
         }
 
         private Lazy<TConcrete> SetLazy<TConcrete>() where TConcrete : ApiClientBase =>
@@ -123,6 +126,7 @@ namespace CanvasApi.Client
         public ISectionApi Sections => this.SectionClient.Value;
         public ISubmissionsApiClient Submissions => this.SubmissionsApiClient.Value;
         public IUsersApi Users => this.UsersClient.Value;
+        public IWikisApiClient Wikis => this.WikisClient.Value;
 
         public bool VerifyConfiguration()
         {

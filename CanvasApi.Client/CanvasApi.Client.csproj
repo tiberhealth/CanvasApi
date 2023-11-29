@@ -40,6 +40,7 @@
 		<PackageReference Include="TiberHealth.Serializer" Version="1.0.48" />
 	</ItemGroup>
 	<ItemGroup>
+		<Folder Include="Wikis\Enums\" />
 		<Folder Include="_Base\" />
 		<Folder Include="Accounts\Enums\" />
 		<Folder Include="Extentions\" />

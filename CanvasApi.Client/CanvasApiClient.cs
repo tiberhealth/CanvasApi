@@ -24,6 +24,8 @@ using CanvasApi.Client.Admins;
 using CanvasApi.Client.Modules;
 using CanvasApi.Client.Section;
 using CanvasApi.Client.Roles;
+using CanvasApi.Client.Assignments;
+using CanvasApi.Client.Wikis;
 
 [assembly: InternalsVisibleTo("CanvasApi.Client.Test")]
 namespace CanvasApi.Client
@@ -38,6 +40,7 @@ namespace CanvasApi.Client
         private readonly Lazy<AccountsClient> AccountsClient;
         private readonly Lazy<AdminApiClient> AdminClient;
         private readonly Lazy<AssignmentGroupsApiClient> AssignmentGroupsClient;
+        private readonly Lazy<AssignmentApiClient> AssignmentClient;
         private readonly Lazy<CourseApiClient> CoursesClient;
         private readonly Lazy<EnrollmentApiClient> EnrollmentClient;
         private readonly Lazy<EnrollmentTermsApiClient> EnrollmentTermsClient;
@@ -47,6 +50,7 @@ namespace CanvasApi.Client
         private readonly Lazy<SectionApi> SectionClient;
         private readonly Lazy<SubmissionsApiClient> SubmissionsApiClient;
         private readonly Lazy<UsersClient> UsersClient;
+        private readonly Lazy<WikisApiClient> WikisClient;
 
         public PagingOptions DefaultPagingOptions { get; private set; }
 
@@ -83,6 +87,7 @@ namespace CanvasApi.Client
             this.AccountsClient = this.SetLazy<AccountsClient>();
             this.AdminClient = this.SetLazy<AdminApiClient>();
             this.AssignmentGroupsClient = this.SetLazy<AssignmentGroupsApiClient>();
+            this.AssignmentClient = this.SetLazy<AssignmentApiClient>();
             this.CoursesClient = this.SetLazy<CourseApiClient>();
 
             this.EnrollmentClient = this.SetLazy<EnrollmentApiClient>();
@@ -93,6 +98,7 @@ namespace CanvasApi.Client
             this.SectionClient = this.SetLazy<SectionApi>();
             this.SubmissionsApiClient = this.SetLazy<SubmissionsApiClient>();
             this.UsersClient = this.SetLazy<Users.UsersClient>();
+            this.WikisClient = this.SetLazy<WikisApiClient>();
         }
 
         private Lazy<TConcrete> SetLazy<TConcrete>() where TConcrete : ApiClientBase =>
@@ -110,6 +116,7 @@ namespace CanvasApi.Client
         public IAccountsApi Accounts => this.AccountsClient.Value;
         public IAdminApiClient Admin => this.AdminClient.Value;
         public IAssignmentGroupsApiClient AssignmentGroups => this.AssignmentGroupsClient.Value;
+        public IAssignmentApiClient Assignments => this.AssignmentClient.Value;
         public ICourseApiClient Courses => this.CoursesClient.Value;
         public IEnrollmentApiClient Enrollments => this.EnrollmentClient.Value;
         public IEnrollmentTermsApiClient EnrollmentTerms => this.EnrollmentTermsClient.Value;
@@ -119,6 +126,7 @@ namespace CanvasApi.Client
         public ISectionApi Sections => this.SectionClient.Value;
         public ISubmissionsApiClient Submissions => this.SubmissionsApiClient.Value;
         public IUsersApi Users => this.UsersClient.Value;
+        public IWikisApiClient Wikis => this.WikisClient.Value;
 
         public bool VerifyConfiguration()
         {

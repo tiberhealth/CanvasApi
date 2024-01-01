@@ -40,12 +40,12 @@
 		<PackageReference Include="TiberHealth.Serializer" Version="1.0.48" />
 	</ItemGroup>
 	<ItemGroup>
+		<Folder Include="Wikis\Enums\" />
 		<Folder Include="_Base\" />
 		<Folder Include="Accounts\Enums\" />
 		<Folder Include="Extentions\" />
 		<Folder Include="Exceptions\" />
 		<Folder Include="Enrollments\Enums\" />
-		<Folder Include="Assignments\Enums\" />
 		<Folder Include="AssignmentGroups\Enums\" />
 		<Folder Include="Courses\" />
 		<Folder Include="Courses\Models\" />
@@ -58,5 +58,10 @@
 		<Compile Update="**\*.cs">
 			<DependentUpon>$([System.String]::Copy(I%(Filename).cs))</DependentUpon>
 		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Update="Assignments\Enums\AssignmentGetIncludes.cs">
+	    <DependentUpon>$([System.String]::Copy(I%(Filename).cs))</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 </Project>

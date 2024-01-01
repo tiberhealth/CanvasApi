@@ -1,9 +1,10 @@
-﻿using System;
+﻿
 using System.Linq;
 using System.Threading.Tasks;
 using CanvasApi.Client.Enrollments.Enums;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 
 namespace CanvasApi.Client.Test.Enrollments
 {
@@ -20,11 +21,11 @@ namespace CanvasApi.Client.Test.Enrollments
                 options.Include = new[] { EnrollmentInclude.CurrentPoints };
             });
 
-            Assert.IsNotNull(results);
-            Assert.IsNotEmpty(results);
+            ClassicAssert.IsNotNull(results);
+            ClassicAssert.IsNotEmpty(results);
 
             var resultCount = results.Count();
-            Assert.Greater(resultCount, 0);
+            ClassicAssert.Greater(resultCount, 0);
         }
 
         [Test]
@@ -39,12 +40,12 @@ namespace CanvasApi.Client.Test.Enrollments
 //                options.Type = new [] { EnrollmentTypes.Student };
                 options.Include = new[] { EnrollmentInclude.CurrentPoints };
             });
-            Assert.IsNotNull(results);
+            ClassicAssert.IsNotNull(results);
 
             var finalResults = results.ToArray();
             var result = finalResults.SingleOrDefault(field => field.CourseId == 33);
             
-            Assert.IsNotEmpty(finalResults);
+            ClassicAssert.IsNotEmpty(finalResults);
             
             
 

@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf992dda-f086-4b2c-a67b-50e51bd590a8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.CanvasApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CanvasApi.Client.Test/AdminTests/TestAdmins.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CanvasApi.Client.Test/AdminTests/TestAdmins.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CanvasApi.Client.Test/CanvasApi.Client.Test.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CanvasApi.Client.Test/CanvasApi.Client.Test.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CanvasApi.Client.Test/EnrollmentTerms/TestEnrollmentTerms.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CanvasApi.Client.Test/EnrollmentTerms/TestEnrollmentTerms.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CanvasApi.Client.Test/Enrollments/TestEnrollments.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CanvasApi.Client.Test/Enrollments/TestEnrollments.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CanvasApi.Client/CanvasApiClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CanvasApi.Client/CanvasApiClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CanvasApi.Client/Enrollments/Models/Concretes/Enrollment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CanvasApi.Client/Enrollments/Models/Concretes/Enrollment.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CanvasApi.Client.Test/HelpersTests/TestEnumHelpers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CanvasApi.Client.Test/HelpersTests/TestEnumHelpers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CanvasApi.Client.Test/ModuleTests/TestModules.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CanvasApi.Client.Test/ModuleTests/TestModules.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +86,12 @@
       <option value="$PROJECT_DIR$/CanvasApi.Client/Accounts/Models/Account.cs" />
     </changedPaths>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
   <component name="ProjectId" id="1oS55UAjRQYqJaWhz2bRAXm92zq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -92,22 +100,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34970912" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Dotnet8",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "/Users/bryan/Library/Application Support/JetBrains/Rider2023.2/resharper-host/DecompilerCache",
+      "/Users/bryan/Library/Application Support/JetBrains/Rider2023.2/resharper-host/SourcesCache",
+      "/Users/bryan/.local/share/Symbols/src"
+    ]
+  }
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -123,6 +136,7 @@
       <workItem from="1618940260230" duration="1743000" />
       <workItem from="1619462581931" duration="186000" />
       <workItem from="1632435614906" duration="5324000" />
+      <workItem from="1704118971055" duration="334000" />
     </task>
     <servers />
   </component>
@@ -142,7 +156,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
@@ -152,13 +165,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/CanvasApi.Client.Test/Enrollments/TestEnrollments.cs</url>
-          <line>13</line>
+          <line>14</line>
           <properties documentPath="$PROJECT_DIR$/CanvasApi.Client.Test/Enrollments/TestEnrollments.cs" initialLine="13" containingFunctionPresentation="method 'TestGetEnrollments'">
             <startOffsets>
-              <option value="343" />
+              <option value="360" />
             </startOffsets>
             <endOffsets>
-              <option value="344" />
+              <option value="361" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
@@ -178,39 +191,39 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/CanvasApi.Client.Test/Enrollments/TestEnrollments.cs</url>
-          <line>31</line>
+          <line>32</line>
           <properties documentPath="$PROJECT_DIR$/CanvasApi.Client.Test/Enrollments/TestEnrollments.cs" initialLine="31" containingFunctionPresentation="method 'TestStudentEnrollment'">
             <startOffsets>
-              <option value="989" />
+              <option value="1027" />
             </startOffsets>
             <endOffsets>
-              <option value="990" />
+              <option value="1028" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/CanvasApi.Client.Test/Enrollments/TestEnrollments.cs</url>
-          <line>46</line>
+          <line>47</line>
           <properties documentPath="$PROJECT_DIR$/CanvasApi.Client.Test/Enrollments/TestEnrollments.cs" initialLine="45" containingFunctionPresentation="method 'TestStudentEnrollment'">
             <startOffsets>
-              <option value="1595" />
+              <option value="1640" />
             </startOffsets>
             <endOffsets>
-              <option value="1627" />
+              <option value="1679" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/CanvasApi.Client.Test/Enrollments/TestEnrollments.cs</url>
-          <line>43</line>
+          <line>44</line>
           <properties documentPath="$PROJECT_DIR$/CanvasApi.Client.Test/Enrollments/TestEnrollments.cs" initialLine="43" containingFunctionPresentation="method 'TestStudentEnrollment'">
             <startOffsets>
-              <option value="1446" />
+              <option value="1491" />
             </startOffsets>
             <endOffsets>
-              <option value="1483" />
+              <option value="1528" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="12" />

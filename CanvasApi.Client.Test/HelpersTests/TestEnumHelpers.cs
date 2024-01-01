@@ -1,8 +1,6 @@
-﻿using System;
-using CanvasApi.Client.Assignments.Enums;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using CanvasApi.Client.Helpers;
-using TiberHealth.Serializer.Attributes;
+using NUnit.Framework.Legacy;
 
 namespace CanvasApi.Client.Test.HelpersTests
 {
@@ -19,27 +17,27 @@ namespace CanvasApi.Client.Test.HelpersTests
         public void TestEnumConversion()
         {
             var enumResult1 = "test_value_one".ToEnum<TestEnum>();
-            Assert.IsNotNull(enumResult1);
-            Assert.AreEqual(TestEnum.TestValueOne, enumResult1);
+            ClassicAssert.IsNotNull(enumResult1);
+            ClassicAssert.AreEqual(TestEnum.TestValueOne, enumResult1);
 
             var enumResult1a = "TestValueOne".ToEnum<TestEnum>();
-            Assert.IsNotNull(enumResult1a);
-            Assert.AreEqual(TestEnum.TestValueOne, enumResult1a);
+            ClassicAssert.IsNotNull(enumResult1a);
+            ClassicAssert.AreEqual(TestEnum.TestValueOne, enumResult1a);
 
             var enumResult2 = "test_value_2".ToEnum<TestEnum>();
-            Assert.IsNotNull(enumResult2);
-            Assert.AreEqual(TestEnum.TestValueTwo, enumResult2);
+            ClassicAssert.IsNotNull(enumResult2);
+            ClassicAssert.AreEqual(TestEnum.TestValueTwo, enumResult2);
 
             var enumResult3 = "test_value_two".ToEnum<TestEnum>();
-            Assert.IsNotNull(enumResult3);
-            Assert.AreEqual(TestEnum.TestValueTwo, enumResult3);
+            ClassicAssert.IsNotNull(enumResult3);
+            ClassicAssert.AreEqual(TestEnum.TestValueTwo, enumResult3);
 
             var enumResult4 = "TestValueTwo".ToEnum<TestEnum>();
-            Assert.IsNotNull(enumResult4);
-            Assert.AreEqual(TestEnum.TestValueTwo, enumResult4);
+            ClassicAssert.IsNotNull(enumResult4);
+            ClassicAssert.AreEqual(TestEnum.TestValueTwo, enumResult4);
 
             var enumResult5 = "test_value_xxx".ToEnum<TestEnum>();
-            Assert.IsNull(enumResult5);
+            ClassicAssert.IsNull(enumResult5);
 
         }
     }

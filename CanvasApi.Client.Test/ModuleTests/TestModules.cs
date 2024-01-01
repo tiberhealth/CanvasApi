@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using CanvasApi.Client.Exceptions;
 using CanvasApi.Client.Modules.Enums;
 using CanvasApi.Client.Modules.Models;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 
 namespace CanvasApi.Client.Test.ModuleTests
 {
@@ -40,17 +40,16 @@ namespace CanvasApi.Client.Test.ModuleTests
                 moduleItem = await this.TestUpdateModuleItem(courseId, module.Id, moduleItem.Id);
                 await this.TestListModuleItems(courseId, module.Id, moduleItem);
                 await this.TestShowModuleItem(courseId, module.Id, moduleItem);
-                //await this.TestGetModuleItemSequence(courseId, moduleItem);
                 await this.TestDeleteModuleItem(courseId, module.Id, moduleItem.Id);
                 await this.TestDeleteModule(courseId, module.Id);
             }
             catch (CanvasApiException cae)
             {
-                Assert.Fail(cae.Message, cae);
+                ClassicAssert.Fail(cae.Message);
             }
             catch (Exception ex)
             {
-                Assert.Fail(ex.Message, ex);
+                ClassicAssert.Fail(ex.Message);
             }
 
         }
@@ -58,14 +57,14 @@ namespace CanvasApi.Client.Test.ModuleTests
         private async Task<IEnumerable<IModule>> TestListModules(int courseId, IModule module)
         {
             var services = this.ServiceCollection.BuildServiceProvider();
-            Assert.IsNotNull(services);
+            ClassicAssert.IsNotNull(services);
 
             var api = services.GetRequiredService<ICanvasApiClient>();
-            Assert.IsNotNull(api);
+            ClassicAssert.IsNotNull(api);
 
             var moduleList = await api.Modules.ListModules(courseId, request => { });
 
-            Assert.IsNotNull(moduleList);
+            ClassicAssert.IsNotNull(moduleList);
 
             var enumerator = moduleList.GetEnumerator();
             while (enumerator.MoveNext())
@@ -75,25 +74,25 @@ namespace CanvasApi.Client.Test.ModuleTests
                     break;
                 }
             }
-            Assert.AreEqual(enumerator.Current.Name, module.Name);
+            ClassicAssert.AreEqual(enumerator.Current.Name, module.Name);
             return moduleList;
         }
 
         public async Task<IModule> TestCreateModule(long courseId, string name)
         {
             var services = this.ServiceCollection.BuildServiceProvider();
-            Assert.IsNotNull(services);
+            ClassicAssert.IsNotNull(services);
 
             var api = services.GetRequiredService<ICanvasApiClient>();
-            Assert.IsNotNull(api);
+            ClassicAssert.IsNotNull(api);
 
             var module = await api.Modules.CreateModule(courseId, request =>
             {
                 request.Name = name;
             });
 
-            Assert.IsNotNull(module);
-            Assert.AreEqual(name, module.Name);
+            ClassicAssert.IsNotNull(module);
+            ClassicAssert.AreEqual(name, module.Name);
 
             return module;
         }
@@ -101,10 +100,10 @@ namespace CanvasApi.Client.Test.ModuleTests
         public async Task<IModule> TestUpdateModule(long courseId, long id, string name)
         {
             var services = this.ServiceCollection.BuildServiceProvider();
-            Assert.IsNotNull(services);
+            ClassicAssert.IsNotNull(services);
 
             var api = services.GetRequiredService<ICanvasApiClient>();
-            Assert.IsNotNull(api);
+            ClassicAssert.IsNotNull(api);
 
             var module = await api.Modules.UpdateModule(courseId, id, request =>
             {
@@ -112,8 +111,8 @@ namespace CanvasApi.Client.Test.ModuleTests
                 request.Published = true;
             });
 
-            Assert.IsNotNull(module);
-            Assert.AreEqual("New Module Name", module.Name);
+            ClassicAssert.IsNotNull(module);
+            ClassicAssert.AreEqual("New Module Name", module.Name);
 
             return module;
         }
@@ -121,14 +120,14 @@ namespace CanvasApi.Client.Test.ModuleTests
         public async Task<IModule> TestDeleteModule(long courseId, long id)
         {
             var services = this.ServiceCollection.BuildServiceProvider();
-            Assert.IsNotNull(services);
+            ClassicAssert.IsNotNull(services);
 
             var api = services.GetRequiredService<ICanvasApiClient>();
-            Assert.IsNotNull(api);
+            ClassicAssert.IsNotNull(api);
 
             var module = await api.Modules.DeleteModule(courseId, id);
 
-            Assert.IsNotNull(module);
+            ClassicAssert.IsNotNull(module);
 
             return module;
         }
@@ -136,29 +135,29 @@ namespace CanvasApi.Client.Test.ModuleTests
         public async Task<IModule> TestShowModule(long courseId, IModule module)
         {
             var services = this.ServiceCollection.BuildServiceProvider();
-            Assert.IsNotNull(services);
+            ClassicAssert.IsNotNull(services);
 
             var api = services.GetRequiredService<ICanvasApiClient>();
-            Assert.IsNotNull(api);
+            ClassicAssert.IsNotNull(api);
 
             var newModule = await api.Modules.ShowModule(courseId, module.Id, request => { });
 
-            Assert.IsNotNull(newModule);
-            Assert.AreEqual(newModule.Name, module.Name);
+            ClassicAssert.IsNotNull(newModule);
+            ClassicAssert.AreEqual(newModule.Name, module.Name);
             return newModule;
         }
 
         private async Task<IEnumerable<IModuleItem>> TestListModuleItems(int courseId, long moduleId, IModuleItem moduleItem)
         {
             var services = this.ServiceCollection.BuildServiceProvider();
-            Assert.IsNotNull(services);
+            ClassicAssert.IsNotNull(services);
 
             var api = services.GetRequiredService<ICanvasApiClient>();
-            Assert.IsNotNull(api);
+            ClassicAssert.IsNotNull(api);
 
             var moduleItemList = await api.Modules.ListModuleItems(courseId, moduleId, request => { });
 
-            Assert.IsNotNull(moduleItemList);
+            ClassicAssert.IsNotNull(moduleItemList);
 
             var enumerator = moduleItemList.GetEnumerator();
             while (enumerator.MoveNext())
@@ -169,17 +168,17 @@ namespace CanvasApi.Client.Test.ModuleTests
                 }
             }
 
-            Assert.AreEqual(enumerator.Current.Title, moduleItem.Title);
+            ClassicAssert.AreEqual(enumerator.Current.Title, moduleItem.Title);
             return moduleItemList;
         }
 
         public async Task<IModuleItem> TestCreateModuleItem(long courseId, long moduleId, string title)
         {
             var services = this.ServiceCollection.BuildServiceProvider();
-            Assert.IsNotNull(services);
+            ClassicAssert.IsNotNull(services);
 
             var api = services.GetRequiredService<ICanvasApiClient>();
-            Assert.IsNotNull(api);
+            ClassicAssert.IsNotNull(api);
 
             var moduleItem = await api.Modules.CreateModuleItem(courseId, moduleId, request =>
             {
@@ -190,8 +189,8 @@ namespace CanvasApi.Client.Test.ModuleTests
                 request.CompletionRequirement.CompletionType = CompletionRequirementTypes.MustView;
             });
 
-            Assert.IsNotNull(moduleItem);
-            Assert.AreEqual(title, moduleItem.Title);
+            ClassicAssert.IsNotNull(moduleItem);
+            ClassicAssert.AreEqual(title, moduleItem.Title);
 
             return moduleItem;
         }
@@ -199,10 +198,10 @@ namespace CanvasApi.Client.Test.ModuleTests
         public async Task<IModuleItem> TestUpdateModuleItem(long courseId, long moduleId, long id)
         {
             var services = this.ServiceCollection.BuildServiceProvider();
-            Assert.IsNotNull(services);
+            ClassicAssert.IsNotNull(services);
 
             var api = services.GetRequiredService<ICanvasApiClient>();
-            Assert.IsNotNull(api);
+            ClassicAssert.IsNotNull(api);
 
             var moduleItem = await api.Modules.UpdateModuleItem(courseId, moduleId, id, request =>
             {
@@ -210,8 +209,8 @@ namespace CanvasApi.Client.Test.ModuleTests
                 request.Published = true;
             });
 
-            Assert.IsNotNull(moduleItem);
-            Assert.AreEqual("New Title", moduleItem.Title);
+            ClassicAssert.IsNotNull(moduleItem);
+            ClassicAssert.AreEqual("New Title", moduleItem.Title);
 
             return moduleItem;
         }
@@ -219,14 +218,14 @@ namespace CanvasApi.Client.Test.ModuleTests
         public async Task<IModuleItem> TestDeleteModuleItem(long courseId, long moduleId, long id)
         {
             var services = this.ServiceCollection.BuildServiceProvider();
-            Assert.IsNotNull(services);
+            ClassicAssert.IsNotNull(services);
 
             var api = services.GetRequiredService<ICanvasApiClient>();
-            Assert.IsNotNull(api);
+            ClassicAssert.IsNotNull(api);
 
             var moduleItem = await api.Modules.DeleteModuleItem(courseId, moduleId, id);
 
-            Assert.IsNotNull(moduleItem);
+            ClassicAssert.IsNotNull(moduleItem);
 
             return moduleItem;
         }
@@ -234,15 +233,15 @@ namespace CanvasApi.Client.Test.ModuleTests
         public async Task<IModuleItem> TestShowModuleItem(long courseId, long moduleId, IModuleItem moduleItem)
         {
             var services = this.ServiceCollection.BuildServiceProvider();
-            Assert.IsNotNull(services);
+            ClassicAssert.IsNotNull(services);
 
             var api = services.GetRequiredService<ICanvasApiClient>();
-            Assert.IsNotNull(api);
+            ClassicAssert.IsNotNull(api);
 
             var newModuleItem = await api.Modules.ShowModuleItem(courseId, moduleId, moduleItem.Id, request => { });
 
-            Assert.IsNotNull(newModuleItem);
-            Assert.AreEqual(newModuleItem.Title, moduleItem.Title);
+            ClassicAssert.IsNotNull(newModuleItem);
+            ClassicAssert.AreEqual(newModuleItem.Title, moduleItem.Title);
             return newModuleItem;
         }
 
@@ -250,10 +249,10 @@ namespace CanvasApi.Client.Test.ModuleTests
         public async Task TestMarkModuleItem(long courseId, long moduleId, IModuleItem moduleItem)
         {
             var services = this.ServiceCollection.BuildServiceProvider();
-            Assert.IsNotNull(services);
+            ClassicAssert.IsNotNull(services);
 
             var api = services.GetRequiredService<ICanvasApiClient>();
-            Assert.IsNotNull(api);
+            ClassicAssert.IsNotNull(api);
 
             await api.Modules.MarkModuleItemDone(courseId, moduleId, moduleItem.Id);
 
@@ -266,10 +265,10 @@ namespace CanvasApi.Client.Test.ModuleTests
         //public async Task<IModuleItemSequence> TestGetModuleItemSequence(long courseId, IModuleItem moduleItem)
         //{
         //    var services = this.ServiceCollection.BuildServiceProvider();
-        //    Assert.IsNotNull(services);
+        //    ClassicAssert.IsNotNull(services);
 
         //    var api = services.GetRequiredService<ICanvasApiClient>();
-        //    Assert.IsNotNull(api);
+        //    ClassicAssert.IsNotNull(api);
 
         //    var moduleItemSequence = await api.Modules.GetModuleItemSequence(courseId, request =>
         //    {
@@ -277,8 +276,8 @@ namespace CanvasApi.Client.Test.ModuleTests
         //        request.AssetId = moduleItem.Id;
         //    });
 
-        //    Assert.IsNotNull(moduleItemSequence);
-        //    Assert.AreEqual(moduleItemSequence.Items.ToArray()[0].Current.Id, moduleItem.Id);
+        //    ClassicAssert.IsNotNull(moduleItemSequence);
+        //    ClassicAssert.AreEqual(moduleItemSequence.Items.ToArray()[0].Current.Id, moduleItem.Id);
         //    return moduleItemSequence;
         //}
     }

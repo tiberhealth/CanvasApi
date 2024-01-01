@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using CanvasApi.Client.EnrollmentTerms.Models;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 
 namespace CanvasApi.Client.Test.EnrollmentTerms
 {
@@ -56,10 +57,10 @@ namespace CanvasApi.Client.Test.EnrollmentTerms
             )
         {
             var services = this.ServiceCollection.BuildServiceProvider();
-            Assert.IsNotNull(services);
+            ClassicAssert.IsNotNull(services);
 
             var api = services.GetRequiredService<ICanvasApiClient>();
-            Assert.IsNotNull(api);
+            ClassicAssert.IsNotNull(api);
 
             var enrollmentTerm = await api.EnrollmentTerms.Create(accountId, request =>
             {
@@ -69,9 +70,9 @@ namespace CanvasApi.Client.Test.EnrollmentTerms
                 request.SisTermId = sisTermId;
             });
 
-            Assert.IsNotNull(enrollmentTerm);
-            Assert.AreEqual(termName, enrollmentTerm.Name);
-            Assert.AreEqual(startAt.Date, enrollmentTerm.StartAt?.Date);
+            ClassicAssert.IsNotNull(enrollmentTerm);
+            ClassicAssert.AreEqual(termName, enrollmentTerm.Name);
+            ClassicAssert.AreEqual(startAt.Date, enrollmentTerm.StartAt?.Date);
 
             return enrollmentTerm;
         }
@@ -83,14 +84,14 @@ namespace CanvasApi.Client.Test.EnrollmentTerms
         /// <param name="actual"></param>
         private void CompareTerms(IEnrollmentTerm expected, IEnrollmentTerm actual)
         {
-            Assert.IsNotNull(expected);
-            Assert.IsNotNull(actual);
+            ClassicAssert.IsNotNull(expected);
+            ClassicAssert.IsNotNull(actual);
 
-            Assert.AreEqual(expected.Name, actual.Name);
-            Assert.AreEqual(expected.StartAt, actual.StartAt);
-            Assert.AreEqual(expected.EndAt, actual.EndAt);
-            Assert.AreEqual(expected.SisImportId, actual.SisImportId);
-            Assert.AreEqual(expected.SisTermId, actual.SisTermId);
+            ClassicAssert.AreEqual(expected.Name, actual.Name);
+            ClassicAssert.AreEqual(expected.StartAt, actual.StartAt);
+            ClassicAssert.AreEqual(expected.EndAt, actual.EndAt);
+            ClassicAssert.AreEqual(expected.SisImportId, actual.SisImportId);
+            ClassicAssert.AreEqual(expected.SisTermId, actual.SisTermId);
 
         }
 
@@ -103,7 +104,7 @@ namespace CanvasApi.Client.Test.EnrollmentTerms
         private async Task<IEnrollmentTerm> TestRetrieveEnrollmentTerm(long accountId, IEnrollmentTerm enrollmentTerm)
         {
             var api = this.ServiceCollection.BuildServiceProvider().GetRequiredService<ICanvasApiClient>();
-            Assert.IsNotNull(api);
+            ClassicAssert.IsNotNull(api);
 
             var term = await api.EnrollmentTerms.Retrieve(accountId, enrollmentTerm.Id);
             this.CompareTerms(enrollmentTerm, term);
@@ -120,15 +121,15 @@ namespace CanvasApi.Client.Test.EnrollmentTerms
         private async Task TestListEnrollmentTerm(long accountId, IEnrollmentTerm enrollmentTerm = null)
         {
             var api = this.ServiceCollection.BuildServiceProvider().GetRequiredService<ICanvasApiClient>();
-            Assert.IsNotNull(api);
+            ClassicAssert.IsNotNull(api);
 
             var enrollmentTerms = await api.EnrollmentTerms.List(accountId);
 
-            Assert.IsNotNull(enrollmentTerms);
-            Assert.IsNotEmpty(enrollmentTerms);
+            ClassicAssert.IsNotNull(enrollmentTerms);
+            ClassicAssert.IsNotEmpty(enrollmentTerms);
 
             var enrollmentTermsCount = enrollmentTerms.Count(); 
-            Assert.Greater(enrollmentTermsCount, 0);
+            ClassicAssert.Greater(enrollmentTermsCount, 0);
 
             if (enrollmentTerm != null)
             {
@@ -147,14 +148,14 @@ namespace CanvasApi.Client.Test.EnrollmentTerms
         private async Task TestDeleteEnrollment(long accountId, long termId)
         {
             var services = this.ServiceCollection.BuildServiceProvider();
-            Assert.IsNotNull(services);
+            ClassicAssert.IsNotNull(services);
 
             var api = services.GetRequiredService<ICanvasApiClient>();
-            Assert.IsNotNull(api);
+            ClassicAssert.IsNotNull(api);
 
             var deleteResponse = await api.EnrollmentTerms.Delete(accountId, termId);
 
-            Assert.IsNotNull(deleteResponse);
+            ClassicAssert.IsNotNull(deleteResponse);
         }
     }
 }

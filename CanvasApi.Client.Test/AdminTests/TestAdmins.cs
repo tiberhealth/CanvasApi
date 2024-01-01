@@ -1,13 +1,10 @@
-﻿using CanvasApi.Client.Admins.Enums;
-using CanvasApi.Client.Admins.Models;
-using CanvasApi.Client.Users.Models;
+﻿using CanvasApi.Client.Admins.Models;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework.Legacy;
 
 namespace CanvasApi.Client.Test.AdminTests
 {
@@ -30,16 +27,16 @@ namespace CanvasApi.Client.Test.AdminTests
         public async Task<IEnumerable<IAdmin>> TestListAdmin(long accountId)
         {
             var services = this.ServiceCollection.BuildServiceProvider();
-            Assert.IsNotNull(services);
+            ClassicAssert.IsNotNull(services);
 
             var api = services.GetRequiredService<ICanvasApiClient>();
-            Assert.IsNotNull(api);
+            ClassicAssert.IsNotNull(api);
 
             var adminList = await api.Admin.List(accountId, request =>
             {
             });
 
-            Assert.IsNotNull(adminList);
+            ClassicAssert.IsNotNull(adminList);
 
             return adminList;
         }
@@ -47,10 +44,10 @@ namespace CanvasApi.Client.Test.AdminTests
         public async Task<IAdmin> TestPromoteAdmin(long accountId, int userId, IEnumerable<IAdmin> adminList)
         {
             var services = this.ServiceCollection.BuildServiceProvider();
-            Assert.IsNotNull(services);
+            ClassicAssert.IsNotNull(services);
 
             var api = services.GetRequiredService<ICanvasApiClient>();
-            Assert.IsNotNull(api);
+            ClassicAssert.IsNotNull(api);
 
             var admin = await api.Admin.Promote(accountId, request =>
             {
@@ -62,11 +59,11 @@ namespace CanvasApi.Client.Test.AdminTests
             });
 
 
-            Assert.IsNotNull(admin);
+            ClassicAssert.IsNotNull(admin);
 
-            Assert.AreEqual("Admin Test", admin.User.Name);
+            ClassicAssert.AreEqual("Admin Test", admin.User.Name);
 
-            Assert.Greater(newAdminList.Count(), adminList.Count());
+            ClassicAssert.Greater(newAdminList.Count(), adminList.Count());
 
 
             return admin;
@@ -75,10 +72,10 @@ namespace CanvasApi.Client.Test.AdminTests
         public async Task<IAdmin> TestDemoteAdmin(long accountId, int userId, IEnumerable<IAdmin> adminList)
         {
             var services = this.ServiceCollection.BuildServiceProvider();
-            Assert.IsNotNull(services);
+            ClassicAssert.IsNotNull(services);
 
             var api = services.GetRequiredService<ICanvasApiClient>();
-            Assert.IsNotNull(api);
+            ClassicAssert.IsNotNull(api);
 
             var admin = await api.Admin.Demote(accountId, userId);
 
@@ -87,8 +84,8 @@ namespace CanvasApi.Client.Test.AdminTests
             });
 
 
-            Assert.IsNotNull(admin);
-            Assert.Less(newAdminList.Count(), adminList.Count());
+            ClassicAssert.IsNotNull(admin);
+            ClassicAssert.Less(newAdminList.Count(), adminList.Count());
 
 
             return admin;

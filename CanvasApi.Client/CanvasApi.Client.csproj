@@ -36,7 +36,6 @@
 		<Folder Include="Wikis\Enums\" />
 		<Folder Include="_Base\" />
 		<Folder Include="Accounts\Enums\" />
-		<Folder Include="Extentions\" />
 		<Folder Include="Enrollments\Enums\" />
 		<Folder Include="AssignmentGroups\Enums\" />
 		<Folder Include="Courses\" />

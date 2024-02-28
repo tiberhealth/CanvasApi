@@ -1,4 +1,6 @@
-﻿using System.Net.Http;
+﻿using System.IO;
+using System.Net;
+using System.Net.Http;
 using CanvasApi.Client.Exceptions;
 
 namespace CanvasApi.Client.Extentions
@@ -9,6 +11,7 @@ namespace CanvasApi.Client.Extentions
         {
             return response.StatusCode switch
             {
+                HttpStatusCode.NotFound => new CanvasApiResourceNotFoundException(response),
                 _ => new CanvasApiException(response)
             };
         }

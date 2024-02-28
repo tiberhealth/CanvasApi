@@ -25,6 +25,7 @@ using CanvasApi.Client.Modules;
 using CanvasApi.Client.Section;
 using CanvasApi.Client.Roles;
 using CanvasApi.Client.Assignments;
+using CanvasApi.Client.Exceptions;
 using CanvasApi.Client.Wikis;
 
 [assembly: InternalsVisibleTo("CanvasApi.Client.Test")]
@@ -210,29 +211,31 @@ namespace CanvasApi.Client
         {
             var httpMessage = this.GenerateHttpRequest(verb, url, body);
 
-            var result = await this.Client
-                .SendAsync(httpMessage, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
-
-            
-            if (result.IsSuccessStatusCode)
+            HttpResponseMessage result = null;
+            try
             {
-                var content = await result.Content.ReadAsStringAsync();
-
-                if (pageLinks != null) pageLinks.SetHeaders(result.Headers);
-
-                await using var contentStream = await result.Content.ReadAsStreamAsync();
-                using var streamReader = new StreamReader(contentStream);
-                using var reader = new JsonTextReader(streamReader);
-
-                var serializedCollection = new JsonSerializer()
-                {
-                    ContractResolver = new DefaultNemesContractResolver()
-                }.Deserialize<TResult>(reader);
-
-                return serializedCollection ?? default(TResult);
+                result = await this.Client
+                    .SendAsync(httpMessage, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                throw new CanvasTransmissionException($"Canvas Transmission Exception: {ex.Message}. See Inner exception", ex);
             }
 
-            throw result.ToException();
+            if (result is null) throw new CanvasTransmissionException("Unknown Transmission Exception - no result provided");
+            if (!result.IsSuccessStatusCode) throw result.ToException();
+            pageLinks?.SetHeaders(result.Headers);
+
+            await using var contentStream = await result.Content.ReadAsStreamAsync();
+            using var streamReader = new StreamReader(contentStream);
+            await using var reader = new JsonTextReader(streamReader);
+
+            var serializedCollection = new JsonSerializer()
+            {
+                ContractResolver = new DefaultNemesContractResolver()
+            }.Deserialize<TResult>(reader);
+
+            return serializedCollection ?? default(TResult);
         }
 
         private HttpRequestMessage GenerateHttpRequest(HttpMethod method, string url) => this.GenerateHttpRequest<object>(method, url, null);

@@ -3,7 +3,8 @@
 	<PropertyGroup>
 		<ImplicitUsings>disable</ImplicitUsings>
 		<Nullable>disable</Nullable>
-		<TargetFrameworks>net8.0;net7.0</TargetFrameworks>
+		<TargetFrameworks>net8.0</TargetFrameworks>
+		<LangVersion>12</LangVersion>
 	</PropertyGroup>
 	<PropertyGroup>
 		<Authors>Bryan M Lenihan</Authors>
@@ -18,14 +19,6 @@
 	</PropertyGroup>
 
 
-
-
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-		<LangVersion>12</LangVersion>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-		<LangVersion>11.0</LangVersion>
-	</PropertyGroup>
 	<ItemGroup>
 	  <Compile Remove="Atrributes\**" />
 	  <Compile Remove="OAuth2\Enums\**" />

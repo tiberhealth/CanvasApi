@@ -29,14 +29,14 @@ namespace CanvasApi.Client.EnrollmentTerms
             await this.ApiClient.PagableApiOperation<EnrollmentTerm, EnrollmentTermsListResult, IEnrollmentTermListOptions>(
                HttpMethod.Get,
                $"/api/v1/accounts/{accountId}/terms",
-               options.GetOptions<IEnrollmentTermListOptions, EnrollmentTermListOptions>(),
+               null,
                EnrollmentTermsListResult.ToArray);
 
         public async Task<IEnrollmentTerm> Retrieve(long accountId, long Id, Action<IEnrollmentTermRetrieveOptions> options = null) =>
             await this.ApiClient.ApiOperation<EnrollmentTerm, IEnrollmentTermRetrieveOptions>(
                 HttpMethod.Get,
                 $"/api/v1/accounts/{accountId}/terms/{Id}",
-                options.GetOptions<IEnrollmentTermRetrieveOptions, EnrollmentTermRetrieveOptions>()
+                null
                 );
 
         public async Task<IEnrollmentTerm> Update(long accountId, long Id, Action<IEnrollmentTermDetail> enrollmentTerm) =>

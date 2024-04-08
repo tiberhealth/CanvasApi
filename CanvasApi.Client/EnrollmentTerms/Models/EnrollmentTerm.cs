@@ -8,11 +8,9 @@ namespace CanvasApi.Client.EnrollmentTerms.Models
         public string Name { get; set; }
         public string SisTermId { get; set; }
         public long? SisImportId { get; set; }
-        public EnrollmentOverrides Overrides { get; set; }
+        //public IEnrollmentOverrides Overrides { get; set; }
 
         public DateTime? StartAt { get; set; }
         public DateTime? EndAt { get; set; }
-
-        IEnrollmentOverrides IEnrollmentTerm.Overrides => Overrides;
     }
 }

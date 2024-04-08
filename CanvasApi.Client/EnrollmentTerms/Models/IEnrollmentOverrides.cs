@@ -2,12 +2,11 @@
 
 namespace CanvasApi.Client.EnrollmentTerms.Models
 {
-    //TODO: fix the infinte object. I don't know what these are supposed to be, but it ain't this
     public interface IEnrollmentOverrides
     {
-        IEnrollmentOverrides Teacher { get; }
-        IEnrollmentOverrides Student { get; }
-        IEnrollmentOverrides TeachingAssistant { get; }
-        IEnrollmentOverrides Designer { get; }
+        IEnrollmentDates Teacher { get; }
+        IEnrollmentDates Student { get; }
+        IEnrollmentDates TeachingAssistant { get; }
+        IEnrollmentDates Designer { get; }
     }
 }

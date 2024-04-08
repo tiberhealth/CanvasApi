@@ -24,6 +24,6 @@
         /// </summary>
         string Name { get; }
 
-        //IEnrollmentOverrides Overrides { get; }
+        IEnrollmentOverrides Overrides { get; }
     }
 }

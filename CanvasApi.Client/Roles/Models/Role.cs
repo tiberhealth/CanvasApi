@@ -6,6 +6,7 @@ namespace CanvasApi.Client.Roles.Models
 {
     internal class Role : IRole
     {
+        public long Id { get; set; }
         public string Label { get; set; }
         public RoleBaseTypes BaseRoleType { get; set; }
         public RoleAccount Account { get; set; }

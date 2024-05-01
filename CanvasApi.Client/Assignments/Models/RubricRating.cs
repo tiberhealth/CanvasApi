@@ -2,7 +2,7 @@
 
 namespace CanvasApi.Client.Assignments.Models
 {
-    internal class RubricRating : IRubricRating
+    public class RubricRating : IRubricRating
     {
 
         [JsonProperty("points")] public decimal? Points { get; set; }

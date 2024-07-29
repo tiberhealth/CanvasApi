@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CanvasApi.Client.Quizzes.Models
+﻿namespace CanvasApi.Client.Quizzes.Models
 {
     internal class QuizPermissions : IQuizPermissions
     {

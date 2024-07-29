@@ -1,5 +1,4 @@
 ﻿using CanvasApi.Client.Admins.Enums;
-using CanvasApi.Client.Roles.Models;
 using CanvasApi.Client.Users.Models;
 
 namespace CanvasApi.Client.Admins.Models

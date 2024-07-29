@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using TiberHealth.Serializer.Attributes;
-
-namespace CanvasApi.Client.Roles.Models
+﻿namespace CanvasApi.Client.Roles.Models
 {
     internal class RolePermissions : IRolePermissions
     {

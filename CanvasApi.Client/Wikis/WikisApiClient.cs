@@ -1,8 +1,6 @@
 ﻿using CanvasApi.Client._Base;
-using CanvasApi.Client.Assignments.Models;
 using CanvasApi.Client.Pages.Models;
 using System.Net.Http;
-using System;
 using System.Threading.Tasks;
 
 namespace CanvasApi.Client.Wikis;

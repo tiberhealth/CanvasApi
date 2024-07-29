@@ -1,6 +1,4 @@
-﻿using TiberHealth.Serializer.Attributes;
-
-namespace CanvasApi.Client.AssignmentGroups.Models
+﻿namespace CanvasApi.Client.AssignmentGroups.Models
 {
     public interface IDeleteAssignmentGroup
     {

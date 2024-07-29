@@ -1,7 +1,4 @@
 ﻿using CanvasApi.Client.Quizzes.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CanvasApi.Client.Quizzes.Models
 {

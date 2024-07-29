@@ -1,7 +1,5 @@
 ﻿using CanvasApi.Client.Roles.Enums;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace CanvasApi.Client.Roles.Models
 {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text.Json.Serialization;
-
-namespace CanvasApi.Client.EnrollmentTerms.Models
+﻿namespace CanvasApi.Client.EnrollmentTerms.Models
 {
     internal class EnrollmentTerm : EnrollmentDates, IEnrollmentTerm
     {

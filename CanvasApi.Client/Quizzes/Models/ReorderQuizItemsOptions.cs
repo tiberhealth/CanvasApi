@@ -1,8 +1,4 @@
-﻿using CanvasApi.Client.Quizzes.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TiberHealth.Serializer.Attributes;
+﻿using System.Collections.Generic;
 
 namespace CanvasApi.Client.Quizzes.Models
 {

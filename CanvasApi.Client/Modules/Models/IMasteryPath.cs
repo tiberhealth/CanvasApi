@@ -1,7 +1,5 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
-using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Modules.Models
 {

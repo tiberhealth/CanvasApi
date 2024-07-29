@@ -1,6 +1,4 @@
-﻿using TiberHealth.Serializer.Attributes;
-
-namespace CanvasApi.Client.Submissions.Models
+﻿namespace CanvasApi.Client.Submissions.Models
 {
     public interface ISubmissionSubmitComment
     {

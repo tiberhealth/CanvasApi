@@ -1,5 +1,4 @@
 ﻿using System;
-using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.OAuth2.Models
 {

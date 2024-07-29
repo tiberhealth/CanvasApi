@@ -1,5 +1,4 @@
 ﻿using CanvasApi.Client.Roles.Enums;
-using Newtonsoft.Json;
 using System;
 
 namespace CanvasApi.Client.Roles.Models

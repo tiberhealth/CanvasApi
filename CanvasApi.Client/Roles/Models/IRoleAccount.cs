@@ -1,6 +1,4 @@
-﻿using TiberHealth.Serializer.Attributes;
-
-namespace CanvasApi.Client.Roles.Models
+﻿namespace CanvasApi.Client.Roles.Models
 {
     public interface IRoleAccount
     {

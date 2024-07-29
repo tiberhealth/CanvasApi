@@ -1,6 +1,4 @@
-﻿using TiberHealth.Serializer.Attributes;
-
-namespace CanvasApi.Client.EnrollmentTerms.Models
+﻿namespace CanvasApi.Client.EnrollmentTerms.Models
 {
     public interface IEnrollmentTermNewUpdate
     {

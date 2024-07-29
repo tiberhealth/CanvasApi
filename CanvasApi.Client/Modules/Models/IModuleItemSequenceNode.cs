@@ -1,7 +1,4 @@
-﻿using Newtonsoft.Json;
-using TiberHealth.Serializer.Attributes;
-
-namespace CanvasApi.Client.Modules.Models
+﻿namespace CanvasApi.Client.Modules.Models
 {
     public interface IModuleItemSequenceNode
     {

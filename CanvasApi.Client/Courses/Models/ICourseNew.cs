@@ -1,6 +1,5 @@
 ﻿using System;
 using CanvasApi.Client.Courses.Enums;
-using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Courses.Models
 {

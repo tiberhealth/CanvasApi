@@ -1,7 +1,4 @@
 ﻿using CanvasApi.Client.Modules.Enums;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Modules.Models
 {

@@ -1,5 +1,4 @@
 ﻿using CanvasApi.Client.Pages.Enums;
-using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Pages.Models
 {

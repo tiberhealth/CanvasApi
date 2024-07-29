@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using TiberHealth.Serializer.Attributes;
+﻿using System;
 
 namespace CanvasApi.Client.Modules.Models
 {

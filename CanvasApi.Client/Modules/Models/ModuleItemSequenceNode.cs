@@ -1,11 +1,4 @@
-﻿using CanvasApi.Client.Modules.Enums;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TiberHealth.Serializer.Attributes;
-
-namespace CanvasApi.Client.Modules.Models
+﻿namespace CanvasApi.Client.Modules.Models
 {
     internal class ModuleItemSequenceNode : IModuleItemSequenceNode
     {

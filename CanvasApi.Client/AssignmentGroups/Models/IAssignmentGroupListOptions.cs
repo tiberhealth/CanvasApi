@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using CanvasApi.Client.AssignmentGroups.Enums;
-using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.AssignmentGroups.Models
 {

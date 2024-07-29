@@ -1,6 +1,5 @@
 ﻿using CanvasApi.Client.Roles.Enums;
 using System.Collections.Generic;
-using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Roles.Models
 {

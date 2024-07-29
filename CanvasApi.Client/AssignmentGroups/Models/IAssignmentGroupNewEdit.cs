@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json.Linq;
-using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.AssignmentGroups.Models
 {

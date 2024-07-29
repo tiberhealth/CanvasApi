@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CanvasApi.Client.Roles.Models
+﻿namespace CanvasApi.Client.Roles.Models
 {
     internal class DeactivateRole : IDeactivateRole
     {

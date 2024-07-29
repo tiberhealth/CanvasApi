@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Admins.Models
 {

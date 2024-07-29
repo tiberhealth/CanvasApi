@@ -1,6 +1,4 @@
-﻿using TiberHealth.Serializer.Attributes;
-
-namespace CanvasApi.Client.Courses.Enums
+﻿namespace CanvasApi.Client.Courses.Enums
 {
     public enum CourseLicenseType
     {

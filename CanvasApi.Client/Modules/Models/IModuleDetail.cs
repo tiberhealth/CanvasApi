@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.Modules.Models
 {

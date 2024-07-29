@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using CanvasApi.Client.EnrollmentTerms.Enums;
-using TiberHealth.Serializer.Attributes;
 
 namespace CanvasApi.Client.EnrollmentTerms
 {

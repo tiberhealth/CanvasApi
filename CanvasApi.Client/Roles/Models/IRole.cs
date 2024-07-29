@@ -4,6 +4,7 @@ namespace CanvasApi.Client.Roles.Models
 {
     public interface IRole
     {
+        long Id { get; }
         /// <summary>
         /// The role type that is being used as a base for this role. For account-level
         /// roles, this is 'AccountMembership'. For course-level roles, it is an

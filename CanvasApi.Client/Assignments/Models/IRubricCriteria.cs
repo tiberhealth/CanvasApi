@@ -1,4 +1,6 @@
-﻿namespace CanvasApi.Client.Assignments.Models
+﻿using System.Collections.Generic;
+
+namespace CanvasApi.Client.Assignments.Models
 {
     public interface IRubricCriteria
     {
@@ -19,7 +21,7 @@
         string Description { get; }
         string LongDescription { get; }
         bool? CriterionUseRange { get; }
-        string Ratings { get; }
+        IEnumerable<IRubricRating> Ratings { get; }
         bool? IgnoreForScoring { get; }
     }
 }

@@ -296,7 +296,7 @@ namespace CanvasApi.Client.Assignments.Models
         /// <summary>
         /// (Optional) the DiscussionTopic associated with the assignment, if applicable
         /// </summary>
-        string DiscussionTopic { get; }
+        JObject DiscussionTopic { get; }
 
         /// <summary>
         /// (Optional) Boolean indicating if assignment will be frozen when it is copied.
@@ -348,7 +348,7 @@ namespace CanvasApi.Client.Assignments.Models
         /// (Optional) A list of scoring criteria and ratings for each rubric criterion.
         /// Included if there is an associated rubric.
         /// </summary>
-        IRubricCriteria Rubric { get; }
+        IEnumerable<IRubricCriteria> Rubric { get; }
 
         /// <summary>
         /// (Optional) If 'assignment_visibility' is included in the 'include' parameter,

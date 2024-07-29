@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace CanvasApi.Client.Assignments.Models
 {
@@ -11,7 +12,10 @@ namespace CanvasApi.Client.Assignments.Models
         [JsonProperty("description")] public string Description { get; set; }
         [JsonProperty("long_description")] public string LongDescription { get; set; }
         [JsonProperty("criterion_use_range")] public bool? CriterionUseRange { get; set; }
-        [JsonProperty("ratings")] public string Ratings { get; set; }
+
+        IEnumerable<IRubricRating> IRubricCriteria.Ratings => this.Ratings;
+        [JsonProperty("ratings")] public RubricRating[] Ratings { get; set; }
+        
         [JsonProperty("ignore_for_scoring")] public bool? IgnoreForScoring { get; set; }
     }
 }

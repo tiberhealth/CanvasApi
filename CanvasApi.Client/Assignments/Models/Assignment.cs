@@ -85,7 +85,7 @@ namespace CanvasApi.Client.Assignments.Models
         [JsonProperty("lock_explanation")] public string LockExplanation { get; set; }
         [JsonProperty("quiz_id")] public long? QuizId { get; set; }
         [JsonProperty("anonymous_submissions")] public bool? AnonymousSubmissions { get; set; }
-        [JsonProperty("discussion_topic")] public string DiscussionTopic { get; set; }
+        [JsonProperty("discussion_topic")] public JObject DiscussionTopic { get; set; }
         [JsonProperty("freeze_on_copy")] public bool? FreezeOnCopy { get; set; }
         [JsonProperty("frozen")] public bool? Frozen { get; set; }
 
@@ -102,8 +102,8 @@ namespace CanvasApi.Client.Assignments.Models
         [JsonProperty("use_rubric_for_grading")] public bool? UseRubricForGrading { get; set; }
         [JsonProperty("rubric_settings")] public JObject RubricSettings { get; set; }
 
-        [JsonProperty("rubric")] public RubricCriteria Rubric { get; set; }
-        IRubricCriteria IAssignment.Rubric => Rubric;
+        [JsonProperty("rubric")] public RubricCriteria[] Rubric { get; set; }
+        IEnumerable<IRubricCriteria> IAssignment.Rubric => Rubric;
 
         [JsonProperty("assignment_visibility")] public IEnumerable<long> AssignmentVisibility { get; set; }
         [JsonProperty("overrides")] public JObject Overrides { get; set; }

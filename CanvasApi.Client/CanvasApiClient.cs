@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using CanvasApi.Client.Accounts;
@@ -29,6 +31,7 @@ using CanvasApi.Client.Exceptions;
 using CanvasApi.Client.Wikis;
 
 [assembly: InternalsVisibleTo("CanvasApi.Client.Test")]
+
 namespace CanvasApi.Client
 {
     public class CanvasApiClient : ICanvasApiClient, IDisposable
@@ -112,6 +115,7 @@ namespace CanvasApi.Client
         private Lazy<TType> SetLazy<TType>(Func<TType> factory) => new Lazy<TType>(factory);
 
         #region ICanvasApi
+
         public IOAuth2Api OAuth2 => this.OAuth2Client.Value;
 
         public IAccountsApi Accounts => this.AccountsClient.Value;
@@ -132,13 +136,16 @@ namespace CanvasApi.Client
         public bool VerifyConfiguration()
         {
             return this.Client != null &&
-                !string.IsNullOrWhiteSpace(this.Client.BaseAddress?.AbsolutePath) &&
-                this.Client.DefaultRequestHeaders.Any(item => item.Key == "Authorization" && item.Value is string[] vals && vals[0].StartsWith("Bearer"));
+                   !string.IsNullOrWhiteSpace(this.Client.BaseAddress?.AbsolutePath) &&
+                   this.Client.DefaultRequestHeaders.Any(item => item.Key == "Authorization" && item.Value is string[] vals && vals[0].StartsWith("Bearer"));
         }
+
         #endregion
 
         #region IDisposable
+
         private bool disposedValue;
+
         protected virtual void Dispose(bool disposing)
         {
             if (!disposedValue)
@@ -157,10 +164,11 @@ namespace CanvasApi.Client
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }
+
         #endregion
 
         internal Task<IEnumerable<TResult>> PagableApiOperation<TResult>(HttpMethod verb, string url, PagingOptions pagingOptions = null) =>
-                this.PagableApiOperation<TResult, object>(verb, url, null, pagingOptions);
+            this.PagableApiOperation<TResult, object>(verb, url, null, pagingOptions);
 
         internal Task<IEnumerable<TResult>> PagableApiOperation<TResult, TApiResult>(
             HttpMethod verb,
@@ -176,10 +184,11 @@ namespace CanvasApi.Client
             TBody body,
             PagingOptions pagingOptions = null,
             CancellationToken cancellationToken = default)
-                where TBody : class
+            where TBody : class
         {
             var pageLinks = new PageLinks((pagingOptions ?? this.DefaultPagingOptions)?.AddPagingUrl(url) ?? url);
             var initialBuffer = await this.ApiOperation<IEnumerable<TResult>, TBody>(verb, pageLinks.OriginalUrl, body, pageLinks, cancellationToken);
+            
             return new PageableResult<TResult>(initialBuffer, this, pageLinks);
         }
 
@@ -190,7 +199,7 @@ namespace CanvasApi.Client
             Func<TApiResult, IEnumerable<TResult>> factory,
             PagingOptions pagingOptions = null,
             CancellationToken cancellationToken = default)
-                where TBody : class
+            where TBody : class
         {
             var pageLinks = new PageLinks((pagingOptions ?? this.DefaultPagingOptions)?.AddPagingUrl(url) ?? url);
             var apiResults = await this.ApiOperation<TApiResult, TBody>(verb, pageLinks.OriginalUrl, body, pageLinks, cancellationToken);
@@ -207,7 +216,7 @@ namespace CanvasApi.Client
             TBody body,
             PageLinks pageLinks = null,
             CancellationToken cancellationToken = default)
-                where TBody : class
+            where TBody : class
         {
             var httpMessage = this.GenerateHttpRequest(verb, url, body);
 
@@ -226,9 +235,10 @@ namespace CanvasApi.Client
             if (!result.IsSuccessStatusCode) throw result.ToException();
             pageLinks?.SetHeaders(result.Headers);
 
-            await using var contentStream = await result.Content.ReadAsStreamAsync();
-            using var streamReader = new StreamReader(contentStream);
-            await using var reader = new JsonTextReader(streamReader);
+            var content = this.Decompress(await result.Content.ReadAsStringAsync(new CancellationToken()));
+            
+            using var contentStream = new System.IO.StringReader(content);
+            await using var reader = new JsonTextReader(contentStream);
 
             var serializedCollection = new JsonSerializer()
             {
@@ -271,10 +281,39 @@ namespace CanvasApi.Client
             }
 
             var httpMessage = new HttpRequestMessage(method, requestUrl);
-            httpMessage.Content = messageContent;
+            if (!new [] {HttpMethod.Get, HttpMethod.Delete,}.Contains(method))  httpMessage.Content = messageContent;
 
             return httpMessage;
         }
 
+        private string Decompress(string inbound)
+        {
+            if (string.IsNullOrEmpty(inbound) || inbound.Length < 2) return inbound;
+
+            byte[] bytes = Encoding.Default.GetBytes(inbound);
+
+            if (
+                !(bytes[0] == 0x1F && bytes[1] == 0x8B) && // Check for gzip magic number
+                !(bytes[0] == 0x78 && bytes[1] == 0x9C) && // Check for deflate magic number (default compression)
+                !(bytes[0] == 0x78 && bytes[1] == 0xDA) // Check for deflate magic number (maximum compression)
+            )
+            {
+                return inbound;
+            }
+
+            using var inputStream = new MemoryStream(bytes);
+            using var outputStream = new MemoryStream();
+            
+            // Create decompression stream based on the compression format
+            Stream decompressionStream = bytes[0] == 0x1F && bytes[1]  == 0x8B
+                ? new GZipStream(inputStream, CompressionMode.Decompress)
+                : new DeflateStream(inputStream, CompressionMode.Decompress);
+
+            decompressionStream.CopyTo(outputStream);
+
+            var decompressedBytes = outputStream.ToArray();
+            return Encoding.Default.GetString(decompressedBytes);
+        }
+        
     }
 }

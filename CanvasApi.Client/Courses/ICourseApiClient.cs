@@ -12,7 +12,7 @@ namespace CanvasApi.Client.Courses
         /// </summary>
         /// <param name="optionsFactory"></param>
         /// <returns></returns>
-        Task<IEnumerable<ICourse>> List(Action<IListOptions> optionsFactory);
+        Task<IEnumerable<ICourse>> List(Action<IListOptions> optionsFactory = null);
 
         /// <summary>
         /// Returns a paginated list of active courses for this user. To view the course list for a user other than yourself, you must be either an observer of that user or an administrator
@@ -20,7 +20,7 @@ namespace CanvasApi.Client.Courses
         /// <param name="userId"></param>
         /// <param name="optionsFactory"></param>
         /// <returns></returns>
-        Task<IEnumerable<ICourse>> List(long userId, Action<IListOptionsBasic> optionsFactory);
+        Task<IEnumerable<ICourse>> List(long userId, Action<IListOptionsBasic> optionsFactory = null);
 
         /// <summary>
         /// Return progress information for the user and course

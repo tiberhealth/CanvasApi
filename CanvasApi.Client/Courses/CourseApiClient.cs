@@ -11,7 +11,7 @@ namespace CanvasApi.Client.Courses
     {
         public CourseApiClient(CanvasApiClient parent) : base(parent) { }
 
-        public async Task<IEnumerable<ICourse>> List(Action<IListOptions> optionsFactory)
+        public async Task<IEnumerable<ICourse>> List(Action<IListOptions> optionsFactory = null)
         {
             var options = new ListOptions();
             optionsFactory?.Invoke(options);
@@ -19,7 +19,7 @@ namespace CanvasApi.Client.Courses
             return await this.ApiClient.PagableApiOperation<Course, IListOptions>(HttpMethod.Get, "/api/v1/courses", options);
         }
 
-        public async Task<IEnumerable<ICourse>> List(long userId, Action<IListOptionsBasic> optionsFactory)
+        public async Task<IEnumerable<ICourse>> List(long userId, Action<IListOptionsBasic> optionsFactory = null)
         {
             var options = new ListOptionsBasic();
             optionsFactory?.Invoke(options);

@@ -12,6 +12,10 @@ namespace CanvasApi.Client.Roles.Models
         IRoleAccount IRole.Account => Account;
         public RoleWorkflowState WorkflowState { get; set; }
         public object Permissions { get => null; set => new NotImplementedException("Permissions API not completed as of yet."); }
+
+        public DateTime? CreatedAt { get; set; }
+
+        public DateTime? LastUpdatedAt { get; set; }
         // TODO: Create Permission Serialization process - can be next release/version
     }
 }

@@ -1,4 +1,5 @@
-﻿using CanvasApi.Client.Roles.Enums;
+﻿using System;
+using CanvasApi.Client.Roles.Enums;
 
 namespace CanvasApi.Client.Roles.Models
 {
@@ -29,6 +30,9 @@ namespace CanvasApi.Client.Roles.Models
         /// </summary>
         object Permissions { get; }
         // TODO: Create Permission Serialization process - can be next release/version
+        
+        DateTime? CreatedAt { get; set; }
+        DateTime? LastUpdatedAt { get; set; }
 
 
     }

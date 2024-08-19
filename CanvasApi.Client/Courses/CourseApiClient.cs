@@ -7,10 +7,8 @@ using CanvasApi.Client.Courses.Models;
 
 namespace CanvasApi.Client.Courses
 {
-    internal class CourseApiClient : ApiClientBase, ICourseApiClient
+    internal class CourseApiClient(CanvasApiClient parent) : ApiClientBase(parent), ICourseApiClient
     {
-        public CourseApiClient(CanvasApiClient parent) : base(parent) { }
-
         public async Task<IEnumerable<ICourse>> List(Action<IListOptions> optionsFactory = null)
         {
             var options = new ListOptions();

@@ -22,6 +22,9 @@ namespace CanvasApi.Client.Users.Models
         /// </summary>
         string SortableName { get; }
 
+        string LastName { get; }
+        string FirstName { get; }
+        
         /// <summary>
         /// A short name the user has selected, for use in conversations or other less
         /// formal places through the site.
@@ -45,7 +48,11 @@ namespace CanvasApi.Client.Users.Models
         /// the user came from a SIS import and has permissions to view SIS information.
         /// </summary>
         string IntegrationId { get; }
-
+        
+        // Optional: If avatars are enabled and caller is admin, this field can be
+        // requested and will contain the current state of the user's avatar.string
+        string AvatarState { get; }
+        
         /// <summary>
         /// The unique login id for the user.  This is what the user uses to log in to
         /// Canvas.

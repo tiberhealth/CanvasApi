@@ -32,7 +32,8 @@ namespace CanvasApi.Client.Roles
         /// <param name="id"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        Task<IRole> GetSingleRole(long accountId, long id, Action<IGetSingleRoleOptions> options);
+        Task<IRole> GetSingleRole(long accountId, long id, Action<IGetSingleRoleOptions> options = null);
+        
         /// <summary>
         /// A paginated list of the roles available to an account.
         /// </summary>

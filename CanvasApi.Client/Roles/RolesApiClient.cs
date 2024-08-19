@@ -17,14 +17,14 @@ namespace CanvasApi.Client.Roles
             await this.ApiClient.PagableApiOperation<Role, RoleListResult, IListRolesOptions>(
                 HttpMethod.Get,
                 $"/api/v1/accounts/{accountId}/roles",
-                options.GetOptions<IListRolesOptions, ListRolesOptions>(),
+                options?.GetOptions<IListRolesOptions, ListRolesOptions>(),
                 RoleListResult.ToArray);
 
         public async Task<IRole> GetSingleRole(long accountId, long id, Action<IGetSingleRoleOptions> options) =>
             await this.ApiClient.ApiOperation<Role, IGetSingleRoleOptions>(
                 HttpMethod.Get,
                 $"/api/v1/accounts/{accountId}/roles/{id}",
-                options.GetOptions<IGetSingleRoleOptions, GetSingleRoleOptions>()
+                options?.GetOptions<IGetSingleRoleOptions, GetSingleRoleOptions>()
                 );
 
         public Task<JObject> CreateRole() =>

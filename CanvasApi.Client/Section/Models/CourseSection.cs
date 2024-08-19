@@ -31,6 +31,9 @@ internal class CourseSection : ICourseSection
     /// The unique Canvas identifier for the course in which the section belongs
     /// </summary>
     public long? CourseId { get; set; }
+
+    public string SisCourseId { get; set; }
+
     /// <summary>
     /// The unique SIS identifier for the course in which the section belongs. This
     /// field is only included if the user has permission to view SIS information.

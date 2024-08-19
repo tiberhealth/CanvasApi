@@ -35,7 +35,7 @@ public interface ICourseSection
     /// The unique SIS identifier for the course in which the section belongs. This
     /// field is only included if the user has permission to view SIS information.
     /// </summary>
-    string SessionCourseId { get; }
+    string SisCourseId { get; }
     /// <summary>
     /// the start date for the section, if applicable
     /// </summary>
@@ -56,4 +56,6 @@ public interface ICourseSection
     /// optional: the total number of active and invited students in the section
     /// </summary>
     long? TotalStudents { get; }
+    
+    
 }

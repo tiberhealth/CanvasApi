@@ -32,7 +32,6 @@
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
 		<PackageReference Include="System.Text.Json" Version="9.0.0" />
-		<PackageReference Include="TiberHealth.Serializer" Version="1.0.48" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Wikis\Enums\" />
@@ -56,5 +55,8 @@
 	  <Compile Update="Assignments\Enums\AssignmentGetIncludes.cs">
 	    <DependentUpon>$([System.String]::Copy(I%(Filename).cs))</DependentUpon>
 	  </Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\MultipartSerializer\Serializer\Serializer.csproj" />
 	</ItemGroup>
 </Project>

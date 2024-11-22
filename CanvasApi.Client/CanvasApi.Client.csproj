@@ -1,62 +1,63 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<ImplicitUsings>disable</ImplicitUsings>
-		<Nullable>disable</Nullable>
-		<LangVersion>13</LangVersion>
-		<TargetFramework>net8.0</TargetFramework>
-	</PropertyGroup>
-	<PropertyGroup>
-		<Authors>Bryan M Lenihan</Authors>
-		<Copyright>2023</Copyright>
-		<PackageIconUrl>https://cdn.tiberhealth.com/assets/TiberLogoImage_1E384B_128Icon.png</PackageIconUrl>
-		<Owners>Tiber Health innovations, Inc.</Owners>
-		<PackageProjectUrl>https://github.com/tiberhealth/CanvasApi</PackageProjectUrl>
-		<Summary>.Net 7.0 wrapper for the Canvas LMS API</Summary>
-		<PackageTags>Canvas LMS Instructure Tiber Health tiberhealth tni </PackageTags>
-		<Title>Canvas LMS API Wrapper</Title>
-		<Description>.Net Wrapper for Canvas LMS API.</Description>
-	</PropertyGroup>
+    <PropertyGroup>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <LangVersion>13</LangVersion>
+        <RuntimeIdentifiers>linux-x64;linux-arm64</RuntimeIdentifiers>
+        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    </PropertyGroup>
+    <PropertyGroup>
+        <Authors>Bryan M Lenihan</Authors>
+        <Copyright>2023</Copyright>
+        <PackageIconUrl>https://cdn.tiberhealth.com/assets/TiberLogoImage_1E384B_128Icon.png</PackageIconUrl>
+        <Owners>Tiber Health innovations, Inc.</Owners>
+        <PackageProjectUrl>https://github.com/tiberhealth/CanvasApi</PackageProjectUrl>
+        <Summary>.Net 7.0 wrapper for the Canvas LMS API</Summary>
+        <PackageTags>Canvas LMS Instructure Tiber Health tiberhealth tni</PackageTags>
+        <Title>Canvas LMS API Wrapper</Title>
+        <Description>.Net Wrapper for Canvas LMS API.</Description>
+    </PropertyGroup>
 
 
-	<ItemGroup>
-	  <Compile Remove="Atrributes\**" />
-	  <Compile Remove="OAuth2\Enums\**" />
-	  <EmbeddedResource Remove="Atrributes\**" />
-	  <EmbeddedResource Remove="OAuth2\Enums\**" />
-	  <None Remove="Atrributes\**" />
-	  <None Remove="OAuth2\Enums\**" />
-	</ItemGroup>
-	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
-		<PackageReference Include="System.Text.Json" Version="8.0.5" />
-	</ItemGroup>
-	<ItemGroup>
-		<Folder Include="Wikis\Enums\" />
-		<Folder Include="_Base\" />
-		<Folder Include="Accounts\Enums\" />
-		<Folder Include="Enrollments\Enums\" />
-		<Folder Include="AssignmentGroups\Enums\" />
-		<Folder Include="Courses\" />
-		<Folder Include="Courses\Models\" />
-		<Folder Include="Submissions\Enums\" />
-		<Folder Include="Pages\Enums\" />
-		<Folder Include="Courses\Enums\" />
-		<Folder Include="Helpers\" />
-	</ItemGroup>
-	<ItemGroup>
-		<Compile Update="**\*.cs">
-			<DependentUpon>$([System.String]::Copy(I%(Filename).cs))</DependentUpon>
-		</Compile>
-	</ItemGroup>
-	<ItemGroup>
-	  <Compile Update="Assignments\Enums\AssignmentGetIncludes.cs">
-	    <DependentUpon>$([System.String]::Copy(I%(Filename).cs))</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-	<ItemGroup>
-	  <ProjectReference Include="..\..\MultipartSerializer\Serializer\Serializer.csproj" />
-	</ItemGroup>
+    <ItemGroup>
+        <Compile Remove="Atrributes\**"/>
+        <Compile Remove="OAuth2\Enums\**"/>
+        <EmbeddedResource Remove="Atrributes\**"/>
+        <EmbeddedResource Remove="OAuth2\Enums\**"/>
+        <None Remove="Atrributes\**"/>
+        <None Remove="OAuth2\Enums\**"/>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1"/>
+        <PackageReference Include="System.Text.Json" Version="8.0.5"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Wikis\Enums\"/>
+        <Folder Include="_Base\"/>
+        <Folder Include="Accounts\Enums\"/>
+        <Folder Include="Enrollments\Enums\"/>
+        <Folder Include="AssignmentGroups\Enums\"/>
+        <Folder Include="Courses\"/>
+        <Folder Include="Courses\Models\"/>
+        <Folder Include="Submissions\Enums\"/>
+        <Folder Include="Pages\Enums\"/>
+        <Folder Include="Courses\Enums\"/>
+        <Folder Include="Helpers\"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Update="**\*.cs">
+            <DependentUpon>$([System.String]::Copy(I%(Filename).cs))</DependentUpon>
+        </Compile>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Update="Assignments\Enums\AssignmentGetIncludes.cs">
+            <DependentUpon>$([System.String]::Copy(I%(Filename).cs))</DependentUpon>
+        </Compile>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\MultipartSerializer\Serializer\Serializer.csproj"/>
+    </ItemGroup>
 </Project>

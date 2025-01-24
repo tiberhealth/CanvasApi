@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Reflection;

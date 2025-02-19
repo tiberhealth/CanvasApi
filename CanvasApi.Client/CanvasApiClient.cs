@@ -232,7 +232,8 @@ namespace CanvasApi.Client
             }
 
             if (result is null) throw new CanvasTransmissionException("Unknown Transmission Exception - no result provided");
-            if (!result.IsSuccessStatusCode) throw result.ToException();
+            if (!result.IsSuccessStatusCode) throw result.ToException(url);
+            
             pageLinks?.SetHeaders(result.Headers);
 
             var content = this.Decompress(await result.Content.ReadAsStringAsync(new CancellationToken()));

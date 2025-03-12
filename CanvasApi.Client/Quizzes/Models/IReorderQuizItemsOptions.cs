@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
+﻿namespace CanvasApi.Client.Quizzes.Models;
 
-namespace CanvasApi.Client.Quizzes.Models
+public interface IReorderQuizItemsOptions
 {
-    public interface IReorderQuizItemsOptions
-    {
-        IEnumerable<IQuizItemsOrderDetail> Order { get; }
-    }
+    IEnumerable<IQuizItemsOrderDetail> Order { get; }
 }

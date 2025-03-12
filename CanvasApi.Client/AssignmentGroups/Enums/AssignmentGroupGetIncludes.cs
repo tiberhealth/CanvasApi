@@ -1,14 +1,11 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.AssignmentGroups.Enums;
 
-namespace CanvasApi.Client.AssignmentGroups.Enums
+[EnumAsString]
+public enum AssignmentGroupGetIncludes
 {
-    [EnumAsString]
-    public enum AssignmentGroupGetIncludes
-    {
-        Assignments,
-        DiscussionTopic,
-        AssignmentVisibility,
-        Submission,
-        ScoreStatistics
-    }
+    Assignments,
+    DiscussionTopic,
+    AssignmentVisibility,
+    Submission,
+    ScoreStatistics
 }

@@ -1,10 +1,9 @@
-﻿namespace CanvasApi.Client.Assignments.Models
+﻿namespace CanvasApi.Client.Assignments.Models;
+
+public interface IRubricRating
 {
-    public interface IRubricRating
-    {
-        decimal? Points { get; }
-        string Id { get; }
-        string Description { get; }
-        string LongDescription { get; }
-    }
+    decimal? Points { get; }
+    string Id { get; }
+    string Description { get; }
+    string LongDescription { get; }
 }

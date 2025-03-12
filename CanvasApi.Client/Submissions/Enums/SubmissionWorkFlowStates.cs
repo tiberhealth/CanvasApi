@@ -1,13 +1,10 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Submissions.Enums;
 
-namespace CanvasApi.Client.Submissions.Enums
+[EnumAsString]
+public enum SubmissionWorkFlowStates
 {
-    [EnumAsString]
-    public enum SubmissionWorkFlowStates
-    {
-        Submitted,
-         Unsubmitted,
-        Graded,
-        PendingReview
-    }
+    Submitted,
+    Unsubmitted,
+    Graded,
+    PendingReview
 }

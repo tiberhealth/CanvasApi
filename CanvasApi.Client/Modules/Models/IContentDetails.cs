@@ -1,15 +1,12 @@
-﻿using System;
+﻿namespace CanvasApi.Client.Modules.Models;
 
-namespace CanvasApi.Client.Modules.Models
+public interface IContentDetails
 {
-    public interface IContentDetails
-    {
-        DateTime? DueAt { get; }
-        DateTime? LockAt { get; }
-        bool? LockedForUser { get; }
-        string LockExplanation { get; }
-        ILockInfo LockInfo { get; }
-        int? PointsPossible { get; }
-        DateTime? UnlockAt { get; }
-    }
+    DateTime? DueAt { get; }
+    DateTime? LockAt { get; }
+    bool? LockedForUser { get; }
+    string LockExplanation { get; }
+    ILockInfo LockInfo { get; }
+    int? PointsPossible { get; }
+    DateTime? UnlockAt { get; }
 }

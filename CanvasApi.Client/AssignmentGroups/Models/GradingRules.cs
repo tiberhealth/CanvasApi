@@ -1,11 +1,8 @@
-﻿using System.Collections.Generic;
+﻿namespace CanvasApi.Client.AssignmentGroups.Models;
 
-namespace CanvasApi.Client.AssignmentGroups.Models
+internal class GradingRules : IGradingRules
 {
-    internal class GradingRules : IGradingRules
-    {
-        public int DropLowest { get; set; }
-        public int DropHighest { get; set; }
-        public IEnumerable<long> NeverDrop { get; set; }
-    }
+    public int DropLowest { get; set; }
+    public int DropHighest { get; set; }
+    public IEnumerable<long> NeverDrop { get; set; }
 }

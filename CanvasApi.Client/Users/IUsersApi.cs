@@ -1,12 +1,8 @@
-﻿using System.Threading.Tasks;
-using CanvasApi.Client.Users.Models;
+﻿namespace CanvasApi.Client.Users;
 
-namespace CanvasApi.Client.Users
+public interface IUsersApi
 {
-    public interface IUsersApi
-    {
-        Task<IUser> Get(long userId);
+    Task<IUser> Get(long userId);
 
-        Task<IUserProfile> GetProfile(long userId);
-    }
+    Task<IUserProfile> GetProfile(long userId);
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using CanvasApi.Client.Assignments.Models;
-
-namespace CanvasApi.Client.Assignments;
+﻿namespace CanvasApi.Client.Assignments;
 
 public interface IAssignmentApiClient
 {

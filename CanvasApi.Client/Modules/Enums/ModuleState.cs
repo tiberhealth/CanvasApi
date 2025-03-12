@@ -1,13 +1,10 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Modules.Enums;
 
-namespace CanvasApi.Client.Modules.Enums
+[EnumAsString]
+public enum ModuleState
 {
-    [EnumAsString]
-    public enum ModuleState
-    {
-        Locked,
-        Unlocked,
-        Started,
-        Completed
-    }
+    Locked,
+    Unlocked,
+    Started,
+    Completed
 }

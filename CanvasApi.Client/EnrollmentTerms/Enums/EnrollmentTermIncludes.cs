@@ -1,10 +1,7 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.EnrollmentTerms.Enums;
 
-namespace CanvasApi.Client.EnrollmentTerms.Enums
+[EnumAsString]
+public enum EnrollmentTermIncludes
 {
-    [EnumAsString]
-    public enum EnrollmentTermIncludes
-    {
-        Overrides
-    }
+    Overrides
 }

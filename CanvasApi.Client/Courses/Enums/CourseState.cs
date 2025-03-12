@@ -1,10 +1,9 @@
-﻿namespace CanvasApi.Client.Courses.Enums
+﻿namespace CanvasApi.Client.Courses.Enums;
+
+public enum CourseState
 {
-    public enum CourseState
-    {
-        Unpublished,
-        Available,
-        Completed,
-        Deleted
-    }
+    Unpublished,
+    Available,
+    Completed,
+    Deleted
 }

@@ -1,7 +1,6 @@
-﻿namespace CanvasApi.Client.Roles.Models
+﻿namespace CanvasApi.Client.Roles.Models;
+
+internal class ActivateRole : IActivateRole
 {
-    internal class ActivateRole : IActivateRole
-    {
-        public int RoleId { get; set; }
-    }
+    public int RoleId { get; set; }
 }

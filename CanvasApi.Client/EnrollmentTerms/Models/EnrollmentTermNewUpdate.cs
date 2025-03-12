@@ -1,9 +1,8 @@
-﻿namespace CanvasApi.Client.EnrollmentTerms.Models
-{
-    internal class EnrollmentTermNewUpdate : IEnrollmentTermNewUpdate
-    {
-        IEnrollmentTermDetail IEnrollmentTermNewUpdate.EnrollmentTerm => EnrollmentTerm;
+﻿namespace CanvasApi.Client.EnrollmentTerms.Models;
 
-        internal IEnrollmentTermDetail EnrollmentTerm { get; init; }
-    }
+internal class EnrollmentTermNewUpdate : IEnrollmentTermNewUpdate
+{
+    IEnrollmentTermDetail IEnrollmentTermNewUpdate.EnrollmentTerm => EnrollmentTerm;
+
+    internal IEnrollmentTermDetail EnrollmentTerm { get; init; }
 }

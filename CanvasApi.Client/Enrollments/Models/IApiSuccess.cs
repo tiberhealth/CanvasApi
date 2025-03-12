@@ -1,7 +1,6 @@
-﻿namespace CanvasApi.Client.Enrollments.Models
+﻿namespace CanvasApi.Client.Enrollments.Models;
+
+public interface IApiSuccess
 {
-    public interface IApiSuccess
-    {
-        bool? Success { get; }
-    }
+    bool? Success { get; }
 }

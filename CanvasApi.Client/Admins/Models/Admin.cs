@@ -1,17 +1,13 @@
-﻿using CanvasApi.Client.Admins.Enums;
-using CanvasApi.Client.Users.Models;
+﻿namespace CanvasApi.Client.Admins.Models;
 
-namespace CanvasApi.Client.Admins.Models
+internal class Admin : IAdmin
 {
-    internal class Admin : IAdmin
-    {
-        public long Id { get; set; }
+    public long Id { get; set; }
 
-        public string Role { get; set; }
+    public string Role { get; set; }
 
-        public User User { get; set; }
-        IUser IAdmin.User => User;
+    public User User { get; set; }
+    IUser IAdmin.User => User;
 
-        public AdminListWorkflowState WorkflowState { get; set; }
-    }
+    public AdminListWorkflowState WorkflowState { get; set; }
 }

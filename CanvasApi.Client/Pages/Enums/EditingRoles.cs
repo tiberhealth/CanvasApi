@@ -1,13 +1,10 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Pages.Enums;
 
-namespace CanvasApi.Client.Pages.Enums
+[EnumAsString]
+public enum EditingRoles
 {
-    [EnumAsString]
-    public enum EditingRoles
-    {
-        Teachers,
-        Students,
-        Members,
-        Public
-    }
+    Teachers,
+    Students,
+    Members,
+    Public
 }

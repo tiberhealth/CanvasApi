@@ -1,9 +1,8 @@
-﻿namespace CanvasApi.Client.Enrollments.Enums
+﻿namespace CanvasApi.Client.Enrollments.Enums;
+
+public enum EnrollmentStatus
 {
-    public enum EnrollmentStatus
-    {
-        Active,
-        InvitedOrPending,
-        Completed
-    }
+    Active,
+    InvitedOrPending,
+    Completed
 }

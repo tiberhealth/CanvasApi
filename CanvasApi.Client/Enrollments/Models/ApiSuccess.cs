@@ -1,7 +1,6 @@
-﻿namespace CanvasApi.Client.Enrollments.Models
+﻿namespace CanvasApi.Client.Enrollments.Models;
+
+internal class ApiSuccess : IApiSuccess
 {
-    internal class ApiSuccess : IApiSuccess
-    {
-        public bool? Success { get; set; }
-    }
+    public bool? Success { get; set; }
 }

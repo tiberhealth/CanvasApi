@@ -1,7 +1,6 @@
-﻿namespace CanvasApi.Client.Quizzes.Models
+﻿namespace CanvasApi.Client.Quizzes.Models;
+
+public interface IListQuizzesOptions
 {
-    public interface IListQuizzesOptions
-    {
-        string SearchTerm { get; set; }
-    }
+    string SearchTerm { get; set; }
 }

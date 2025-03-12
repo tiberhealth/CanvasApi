@@ -1,11 +1,8 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Quizzes.Enums;
 
-namespace CanvasApi.Client.Quizzes.Enums
+[EnumAsString]
+public enum ScoringPolicyTypes
 {
-    [EnumAsString]
-    public enum ScoringPolicyTypes
-    {
-        KeepHighest,
-        KeepLatest
-    }
+    KeepHighest,
+    KeepLatest
 }

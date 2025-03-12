@@ -1,10 +1,9 @@
-﻿namespace CanvasApi.Client.Courses.Models
+﻿namespace CanvasApi.Client.Courses.Models;
+
+public interface ICalendarLink
 {
-    public interface ICalendarLink
-    {
-        /// <summary>
-        /// The URL of the calendar in ICS format
-        /// </summary>
-        string Ics { get; }
-    }
+    /// <summary>
+    /// The URL of the calendar in ICS format
+    /// </summary>
+    string Ics { get; }
 }

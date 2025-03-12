@@ -1,142 +1,135 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
+﻿namespace CanvasApi.Client;
 
-namespace CanvasApi.Client
+internal class PageableResult<TResult> : IEnumerable<TResult>
 {
-    internal class PageableResult<TResult> : IEnumerable<TResult>
+    protected TResult[] InitialBuffer { get; set; }
+    protected readonly CanvasApiClient _ApiClient;
+    protected readonly PageLinks _initalPageLinks;
+
+    internal PageableResult(
+        IEnumerable<TResult> initialBuffer,
+        CanvasApiClient apiClient,
+        PageLinks pageLinks
+    ) : this(apiClient, pageLinks)
     {
-        protected TResult[] InitialBuffer { get; set; }
-        protected readonly CanvasApiClient _ApiClient;
-        protected readonly PageLinks _initalPageLinks;
-
-        internal PageableResult(
-            IEnumerable<TResult> initialBuffer,
-            CanvasApiClient apiClient,
-            PageLinks pageLinks
-        ) : this(apiClient, pageLinks)
-        {
-            this.InitialBuffer = initialBuffer?.ToArray() ?? Array.Empty<TResult>();
-        }
-
-        internal PageableResult(
-            CanvasApiClient apiClient,
-            PageLinks pageLinks
-        )
-        {
-            this._initalPageLinks = pageLinks ?? throw new ArgumentNullException(nameof(pageLinks), "Paging details not supplied.");
-            this._ApiClient = apiClient;
-        }
-
-        public virtual IEnumerator<TResult> GetEnumerator() =>
-            new PageableResultsEnumerator<TResult>(this.InitialBuffer)
-            {
-                Links = this._initalPageLinks,
-                ApiClient = this._ApiClient
-            };
-
-        IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
+        this.InitialBuffer = initialBuffer?.ToArray() ?? Array.Empty<TResult>();
     }
 
-    /// <summary>
-    /// Pagable Results proocess when a conversion has to occur. 
-    /// </summary>
-    /// <typeparam name="TResult">Enumerable Type - expected to return from API</typeparam>
-    /// <typeparam name="TApiResult">Result type provided by the API</typeparam>
-    internal class PageableResult<TResult, TApiResult> : PageableResult<TResult>
+    internal PageableResult(
+        CanvasApiClient apiClient,
+        PageLinks pageLinks
+    )
     {
-        private Func<TApiResult, IEnumerable<TResult>> Factory;
-
-        internal PageableResult(
-            TApiResult apiResult,
-            CanvasApiClient apiClient,
-            PageLinks pageLinks,
-            Func<TApiResult, IEnumerable<TResult>> factory
-        ) : base(apiClient, pageLinks)
-        {
-            this.Factory = factory;
-            this.InitialBuffer = this.Factory(apiResult).ToArray();
-        }
-
-        public override IEnumerator<TResult> GetEnumerator() =>
-            new PageableResultsEnumerator<TResult, TApiResult>(this.InitialBuffer, this.Factory)
-            {
-                Links = this._initalPageLinks,
-                ApiClient = this._ApiClient,
-            };
-
+        this._initalPageLinks = pageLinks ?? throw new ArgumentNullException(nameof(pageLinks), "Paging details not supplied.");
+        this._ApiClient = apiClient;
     }
 
-    /// <summary>
-    /// Enumerator for page results where the TApiType is the IEnumerable<typeparamref name="TResult"/>
-    /// </summary>
-    /// <typeparam name="TResult"></typeparam>
-    internal class PageableResultsEnumerator<TResult> : PageableResultsEnumerator<TResult, IEnumerable<TResult>>
+    public virtual IEnumerator<TResult> GetEnumerator() =>
+        new PageableResultsEnumerator<TResult>(this.InitialBuffer)
+        {
+            Links = this._initalPageLinks,
+            ApiClient = this._ApiClient
+        };
+
+    IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
+}
+
+/// <summary>
+/// Pagable Results proocess when a conversion has to occur. 
+/// </summary>
+/// <typeparam name="TResult">Enumerable Type - expected to return from API</typeparam>
+/// <typeparam name="TApiResult">Result type provided by the API</typeparam>
+internal class PageableResult<TResult, TApiResult> : PageableResult<TResult>
+{
+    private Func<TApiResult, IEnumerable<TResult>> Factory;
+
+    internal PageableResult(
+        TApiResult apiResult,
+        CanvasApiClient apiClient,
+        PageLinks pageLinks,
+        Func<TApiResult, IEnumerable<TResult>> factory
+    ) : base(apiClient, pageLinks)
     {
-        internal PageableResultsEnumerator(TResult[] buffer) : base(buffer, data => data) { }
+        this.Factory = factory;
+        this.InitialBuffer = this.Factory(apiResult).ToArray();
     }
 
-    internal class PageableResultsEnumerator<TResult, TApiResult> : IEnumerator<TResult>
+    public override IEnumerator<TResult> GetEnumerator() =>
+        new PageableResultsEnumerator<TResult, TApiResult>(this.InitialBuffer, this.Factory)
+        {
+            Links = this._initalPageLinks,
+            ApiClient = this._ApiClient,
+        };
+
+}
+
+/// <summary>
+/// Enumerator for page results where the TApiType is the IEnumerable<typeparamref name="TResult"/>
+/// </summary>
+/// <typeparam name="TResult"></typeparam>
+internal class PageableResultsEnumerator<TResult> : PageableResultsEnumerator<TResult, IEnumerable<TResult>>
+{
+    internal PageableResultsEnumerator(TResult[] buffer) : base(buffer, data => data) { }
+}
+
+internal class PageableResultsEnumerator<TResult, TApiResult> : IEnumerator<TResult>
+{
+    internal TResult[] Buffer { get; set; }
+    internal PageLinks Links { get; set; }
+
+    private Func<TApiResult, IEnumerable<TResult>> Factory { get; }
+    internal CanvasApiClient ApiClient { get; init; }
+
+    int bufferIdx = -1;
+
+    internal PageableResultsEnumerator(TApiResult buffer, Func<TApiResult, IEnumerable<TResult>> factory): this(factory)
     {
-        internal TResult[] Buffer { get; set; }
-        internal PageLinks Links { get; set; }
+        this.Buffer = this.Factory(buffer).ToArray();
+        this.bufferIdx = -1;
+    }
 
-        private Func<TApiResult, IEnumerable<TResult>> Factory { get; }
-        internal CanvasApiClient ApiClient { get; init; }
+    internal PageableResultsEnumerator(IEnumerable<TResult> buffer, Func<TApiResult, IEnumerable<TResult>> factory) : this(factory)
+    {
+        this.Buffer = buffer?.ToArray() ?? Array.Empty<TResult>();
+        this.bufferIdx = -1;
+    }
 
-        int bufferIdx = -1;
+    internal PageableResultsEnumerator(Func<TApiResult, IEnumerable<TResult>> factory) => this.Factory = factory;
 
-        internal PageableResultsEnumerator(TApiResult buffer, Func<TApiResult, IEnumerable<TResult>> factory): this(factory)
-        {
-            this.Buffer = this.Factory(buffer).ToArray();
-            this.bufferIdx = -1;
-        }
+    public TResult Current => bufferIdx >= 0 && bufferIdx < this.Buffer.Length ? this.Buffer[this.bufferIdx] : default(TResult);
+    object IEnumerator.Current => this.Current;
 
-        internal PageableResultsEnumerator(IEnumerable<TResult> buffer, Func<TApiResult, IEnumerable<TResult>> factory) : this(factory)
-        {
-            this.Buffer = buffer?.ToArray() ?? Array.Empty<TResult>();
-            this.bufferIdx = -1;
-        }
+    public void Dispose()
+    {
+        // Nothing to dispose
+    }
 
-        internal PageableResultsEnumerator(Func<TApiResult, IEnumerable<TResult>> factory) => this.Factory = factory;
+    public bool MoveNext() => ++bufferIdx < this.Buffer.Length ? true : this.MoveNextPage();
 
-        public TResult Current => bufferIdx >= 0 && bufferIdx < this.Buffer.Length ? this.Buffer[this.bufferIdx] : default(TResult);
-        object IEnumerator.Current => this.Current;
+    public void Reset() => this.GetPage(this.Links.First ?? this.Links.OriginalUrl, true);
+    private bool MoveNextPage() => this.GetPage(this.Links.Next);
 
-        public void Dispose()
-        {
-            // Nothing to dispose
-        }
+    protected virtual IEnumerable<TResult> CallApi(string url, out PageLinks newPageLinks, Func<TApiResult, IEnumerable<TResult>> factory)
+    {
+        newPageLinks = new PageLinks(this.Links.OriginalUrl);
 
-        public bool MoveNext() => ++bufferIdx < this.Buffer.Length ? true : this.MoveNextPage();
+        var apiCall = this.ApiClient.ApiOperation<TApiResult, object>(HttpMethod.Get, this.Links.Next, null, newPageLinks);
+        apiCall.Wait();
 
-        public void Reset() => this.GetPage(this.Links.First ?? this.Links.OriginalUrl, true);
-        private bool MoveNextPage() => this.GetPage(this.Links.Next);
+        return factory(apiCall.Result);
+    }
 
-        protected virtual IEnumerable<TResult> CallApi(string url, out PageLinks newPageLinks, Func<TApiResult, IEnumerable<TResult>> factory)
-        {
-            newPageLinks = new PageLinks(this.Links.OriginalUrl);
+    private bool GetPage(string url, bool isReset = false)
+    {
+        if (string.IsNullOrWhiteSpace(url)) return false;
 
-            var apiCall = this.ApiClient.ApiOperation<TApiResult, object>(HttpMethod.Get, this.Links.Next, null, newPageLinks);
-            apiCall.Wait();
+        var apiCall = this.CallApi(url, out var newPageLinks, this.Factory);
 
-            return factory(apiCall.Result);
-        }
+        this.Buffer = apiCall.ToArray();
 
-        private bool GetPage(string url, bool isReset = false)
-        {
-            if (string.IsNullOrWhiteSpace(url)) return false;
+        this.Links = newPageLinks;
+        bufferIdx = -1;
 
-            var apiCall = this.CallApi(url, out var newPageLinks, this.Factory);
-
-            this.Buffer = apiCall.ToArray();
-
-            this.Links = newPageLinks;
-            bufferIdx = -1;
-
-            return isReset ? true : this.MoveNext();
-        }
+        return isReset ? true : this.MoveNext();
     }
 }

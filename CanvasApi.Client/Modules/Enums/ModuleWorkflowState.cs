@@ -1,13 +1,10 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Modules.Enums;
 
-namespace CanvasApi.Client.Modules.Enums
+[EnumAsString]
+public enum ModuleWorkflowState
 {
-    [EnumAsString]
-    public enum ModuleWorkflowState
-    {
-        MustView,
-        MustSubmit,
-        MustContribute,
-        MustMarkDone
-    }
+    MustView,
+    MustSubmit,
+    MustContribute,
+    MustMarkDone
 }

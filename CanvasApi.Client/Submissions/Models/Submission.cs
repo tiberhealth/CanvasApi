@@ -1,52 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using CanvasApi.Client.Assignments.Models;
-using CanvasApi.Client.Courses.Models;
-using CanvasApi.Client.Users.Models;
+﻿namespace CanvasApi.Client.Submissions.Models;
 
-namespace CanvasApi.Client.Submissions.Models
+internal class Submission : ISubmission
 {
-    internal class Submission : ISubmission
-    {
-        public long AssignmentId { get; set; }
+    public long AssignmentId { get; set; }
 
-        public Assignment Assignment { get; set; }
-        IAssignment ISubmission.Assignment => Assignment;
+    public Assignment Assignment { get; set; }
+    IAssignment ISubmission.Assignment => Assignment;
 
-        public ICourse Course { get; set; }
-        ICourse ISubmission.Course => Course;
+    public ICourse Course { get; set; }
+    ICourse ISubmission.Course => Course;
 
-        public int? Attempt { get; set; }
-        public string Body { get; set; }
-        public string Grade { get; set; }
-        public bool? GradeMatchesCurrentSubmission { get; set; }
-        public string HtmlUrl { get; set; }
-        public string PreviewUrl { get; set; }
-        public decimal? Score { get; set; }
+    public int? Attempt { get; set; }
+    public string Body { get; set; }
+    public string Grade { get; set; }
+    public bool? GradeMatchesCurrentSubmission { get; set; }
+    public string HtmlUrl { get; set; }
+    public string PreviewUrl { get; set; }
+    public decimal? Score { get; set; }
 
-        public IEnumerable<SubmissionComment> SubmissionComments { get; set; }
-        IEnumerable<ISubmissionComment> ISubmission.SubmissionComments => SubmissionComments;
+    public IEnumerable<SubmissionComment> SubmissionComments { get; set; }
+    IEnumerable<ISubmissionComment> ISubmission.SubmissionComments => SubmissionComments;
 
-        public string SubmissionType { get; set; }
-        public DateTime? SubmittedAt { get; set; }
-        public string Url { get; set; }
-        public long? UserId { get; set; }
-        public long? GraderId { get; set; }
-        public DateTime? GradedAt { get; set; }
+    public string SubmissionType { get; set; }
+    public DateTime? SubmittedAt { get; set; }
+    public string Url { get; set; }
+    public long? UserId { get; set; }
+    public long? GraderId { get; set; }
+    public DateTime? GradedAt { get; set; }
 
-        public UserDisplay User { get; set; }
-        IUserDisplay ISubmission.User => User;
+    public UserDisplay User { get; set; }
+    IUserDisplay ISubmission.User => User;
 
-        public bool? Late { get; set; }
-        public bool? AssignmentVisible { get; set; }
-        public bool? Excused { get; set; }
-        public bool? Missing { get; set; }
-        public string LatePolicyStatus { get; set; }
-        public decimal? PointsDeducted { get; set; }
-        public long? SecondsLate { get; set; }
-        public string WorkflowState { get; set; }
-        public int? ExtraAttempts { get; set; }
-        public string AnonymousId { get; set; }
-        public DateTime? PostedAt { get; set; }
-    }
+    public bool? Late { get; set; }
+    public bool? AssignmentVisible { get; set; }
+    public bool? Excused { get; set; }
+    public bool? Missing { get; set; }
+    public string LatePolicyStatus { get; set; }
+    public decimal? PointsDeducted { get; set; }
+    public long? SecondsLate { get; set; }
+    public string WorkflowState { get; set; }
+    public int? ExtraAttempts { get; set; }
+    public string AnonymousId { get; set; }
+    public DateTime? PostedAt { get; set; }
 }

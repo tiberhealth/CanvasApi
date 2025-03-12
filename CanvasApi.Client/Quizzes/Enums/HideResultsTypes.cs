@@ -1,11 +1,8 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Quizzes.Enums;
 
-namespace CanvasApi.Client.Quizzes.Enums
+[EnumAsString]
+public enum HideResultsTypes
 {
-    [EnumAsString]
-    public enum HideResultsTypes
-    {
-        Always,
-        UntilAfterLastAttempt
-    }
+    Always,
+    UntilAfterLastAttempt
 }

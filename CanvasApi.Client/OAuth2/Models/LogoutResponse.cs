@@ -1,12 +1,11 @@
-namespace CanvasApi.Client.OAuth2.Models
+namespace CanvasApi.Client.OAuth2.Models;
+
+public interface ILogoutResponse
 {
-    public interface ILogoutResponse
-    {
-        string ForwardUrl { get; }   
-    }
+    string ForwardUrl { get; }   
+}
     
-    internal class LogoutResponse: ILogoutResponse
-    {
-        public string ForwardUrl { get; set; }
-    }
+internal class LogoutResponse: ILogoutResponse
+{
+    public string ForwardUrl { get; set; }
 }

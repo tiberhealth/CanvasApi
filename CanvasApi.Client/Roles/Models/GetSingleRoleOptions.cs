@@ -1,9 +1,8 @@
-﻿namespace CanvasApi.Client.Roles.Models
+﻿namespace CanvasApi.Client.Roles.Models;
+
+internal class GetSingleRoleOptions : IGetSingleRoleOptions
 {
-    internal class GetSingleRoleOptions : IGetSingleRoleOptions
-    {
-        public int RoleId { get; set; }
-        public string Role { get; set; }
-        public long AccountId { get; set; }
-    }
+    public int RoleId { get; set; }
+    public string Role { get; set; }
+    public long AccountId { get; set; }
 }

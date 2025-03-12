@@ -1,11 +1,10 @@
-﻿namespace CanvasApi.Client.Submissions.Models
+﻿namespace CanvasApi.Client.Submissions.Models;
+
+public interface IMediaComment
 {
-    public interface IMediaComment
-    {
-        string ContentType { get; }
-        string DisplayName { get; }
-        string MediaId { get; }
-        string MediaType { get; }
-        string Url { get; }
-    }
+    string ContentType { get; }
+    string DisplayName { get; }
+    string MediaId { get; }
+    string MediaType { get; }
+    string Url { get; }
 }

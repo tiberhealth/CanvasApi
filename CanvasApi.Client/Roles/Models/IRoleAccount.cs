@@ -1,11 +1,10 @@
-﻿namespace CanvasApi.Client.Roles.Models
+﻿namespace CanvasApi.Client.Roles.Models;
+
+public interface IRoleAccount
 {
-    public interface IRoleAccount
-    {
-        long? Id { get; }
-        string Name { get; }
-        long? ParentAccountId { get; }
-        long? RootAccountId { get; }
-        string SisAccountId { get; }
-    }
+    long? Id { get; }
+    string Name { get; }
+    long? ParentAccountId { get; }
+    long? RootAccountId { get; }
+    string SisAccountId { get; }
 }

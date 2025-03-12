@@ -1,12 +1,9 @@
-﻿using System.Collections.Generic;
+﻿namespace CanvasApi.Client.Admins.Models;
 
-namespace CanvasApi.Client.Admins.Models
+public interface IAdminListRequest
 {
-    public interface IAdminListRequest
-    {
-        /// <summary>
-        /// Scope the results to those with user IDs equal to any of the IDs specified here.
-        /// </summary>
-        IEnumerable<long> UserId { get; set; }
-    }
+    /// <summary>
+    /// Scope the results to those with user IDs equal to any of the IDs specified here.
+    /// </summary>
+    IEnumerable<long> UserId { get; set; }
 }

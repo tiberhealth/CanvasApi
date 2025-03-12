@@ -1,15 +1,13 @@
-﻿using System.Collections.Generic;
-using CanvasApi.Client.AssignmentGroups.Enums;
+﻿using SubmissionTypes = CanvasApi.Client.AssignmentGroups.Enums.SubmissionTypes;
 
-namespace CanvasApi.Client.AssignmentGroups.Models
+namespace CanvasApi.Client.AssignmentGroups.Models;
+
+internal class AssignmentGroupListOptions : IAssignmentGroupListOptions
 {
-    internal class AssignmentGroupListOptions : IAssignmentGroupListOptions
-    {
-        public IEnumerable<AssignmentListIncludes> Include { get; set; }
-        public IEnumerable<long> AssignmentIds { get; set; }
-        public IEnumerable<SubmissionTypes> ExcludedAssignmentSubmissionTypes { get; set; }
-        public bool? OverrideAssignmentDates { get; set; }
-        public long? GradingPeriodId { get; set; }
-        public bool? ScopeAssignmentsToStudent { get; set; }
-    }
+    public IEnumerable<AssignmentListIncludes> Include { get; set; }
+    public IEnumerable<long> AssignmentIds { get; set; }
+    public IEnumerable<SubmissionTypes> ExcludedAssignmentSubmissionTypes { get; set; }
+    public bool? OverrideAssignmentDates { get; set; }
+    public long? GradingPeriodId { get; set; }
+    public bool? ScopeAssignmentsToStudent { get; set; }
 }

@@ -1,10 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿namespace CanvasApi.Client.Assignments.Models;
 
-namespace CanvasApi.Client.Assignments.Models
+internal class NeedsGradingCountObj : INeedsGradingCount
 {
-    internal class NeedsGradingCountObj : INeedsGradingCount
-    {
-        [JsonProperty("section_id")] public string SectionId { get; set; }
-        [JsonProperty("needs_grading_count")] public int? NeedsGradingCount { get; set; }
-    }
+    [JsonProperty("section_id")] public string SectionId { get; set; }
+    [JsonProperty("needs_grading_count")] public int? NeedsGradingCount { get; set; }
 }

@@ -1,11 +1,8 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Pages.Enums;
 
-namespace CanvasApi.Client.Pages.Enums
+[EnumAsString]
+public enum SortOrder
 {
-    [EnumAsString]
-    public enum SortOrder
-    {
-        Ascending,
-        Descending
-    }
+    Ascending,
+    Descending
 }

@@ -1,7 +1,6 @@
-﻿namespace CanvasApi.Client.Accounts.Models
+﻿namespace CanvasApi.Client.Accounts.Models;
+
+public enum SelfRegistrationTypes
 {
-    public enum SelfRegistrationTypes
-    {
-        none, observer, all
-    }
+    none, observer, all
 }

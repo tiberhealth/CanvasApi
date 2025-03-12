@@ -1,15 +1,14 @@
-﻿namespace CanvasApi.Client.Assignments.Models
-{
-    public interface INeedsGradingCount
-    {
-        /// <summary>
-        /// The section ID
-        /// </summary>
-        string SectionId { get; }
+﻿namespace CanvasApi.Client.Assignments.Models;
 
-        /// <summary>
-        /// Number of submissions that need grading
-        /// </summary>
-        int? NeedsGradingCount { get; }
-    }
+public interface INeedsGradingCount
+{
+    /// <summary>
+    /// The section ID
+    /// </summary>
+    string SectionId { get; }
+
+    /// <summary>
+    /// Number of submissions that need grading
+    /// </summary>
+    int? NeedsGradingCount { get; }
 }

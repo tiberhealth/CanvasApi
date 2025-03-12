@@ -1,15 +1,11 @@
-﻿using System.Runtime.Serialization;
-using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Roles.Enums;
 
-namespace CanvasApi.Client.Roles.Enums
+[EnumAsString]
+public enum RoleWorkflowState
 {
-    [EnumAsString]
-    public enum RoleWorkflowState
-    {
-        Active,
-        Inactive,
+    Active,
+    Inactive,
 
-        [EnumMember(Value = "built_in")]
-        Built_In
-    }
+    [EnumMember(Value = "built_in")]
+    Built_In
 }

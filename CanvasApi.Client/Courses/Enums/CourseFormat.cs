@@ -1,9 +1,8 @@
-﻿namespace CanvasApi.Client.Courses.Enums
+﻿namespace CanvasApi.Client.Courses.Enums;
+
+public enum CourseFormat
 {
-    public enum CourseFormat
-    {
-        OnCampus,
-        Online,
-        Blended
-    }
+    OnCampus,
+    Online,
+    Blended
 }

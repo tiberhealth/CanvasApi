@@ -1,11 +1,8 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Submissions.Enums;
 
-namespace CanvasApi.Client.Submissions.Enums
+[EnumAsString]
+public enum MediaCommentTypes
 {
-    [EnumAsString]
-    public enum MediaCommentTypes
-    {
-        Audio,
-        Video
-    }
+    Audio,
+    Video
 }

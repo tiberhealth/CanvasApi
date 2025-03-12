@@ -1,5 +1,3 @@
-using System;
-
 namespace CanvasApi.Client.EnrollmentTerms.Models;
 
 public class EnrollmentDates: IEnrollmentDates

@@ -1,11 +1,4 @@
-﻿using CanvasApi.Client._Base;
-using CanvasApi.Client.Assignments.Models;
-using CanvasApi.Client.Extentions;
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-
-namespace CanvasApi.Client.Assignments;
+﻿namespace CanvasApi.Client.Assignments;
 
 internal class AssignmentApiClient : ApiClientBase, IAssignmentApiClient
 {

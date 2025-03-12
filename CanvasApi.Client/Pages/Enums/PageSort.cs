@@ -1,12 +1,9 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Pages.Enums;
 
-namespace CanvasApi.Client.Pages.Enums
+[EnumAsString]
+public enum PageSort
 {
-    [EnumAsString]
-    public enum PageSort
-    {
-        Title,
-        CreatedAt,
-        UpdatedAt
-    }
+    Title,
+    CreatedAt,
+    UpdatedAt
 }

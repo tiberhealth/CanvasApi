@@ -1,8 +1,7 @@
-﻿namespace CanvasApi.Client.Courses.Enums
+﻿namespace CanvasApi.Client.Courses.Enums;
+
+public enum GradePassbackSetting
 {
-    public enum GradePassbackSetting
-    {
-        NightlySync,
-        Disabled
-    }
+    NightlySync,
+    Disabled
 }

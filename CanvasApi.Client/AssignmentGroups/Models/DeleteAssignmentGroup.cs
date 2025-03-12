@@ -1,7 +1,6 @@
-﻿namespace CanvasApi.Client.AssignmentGroups.Models
+﻿namespace CanvasApi.Client.AssignmentGroups.Models;
+
+internal class DeleteAssignmentGroup : IDeleteAssignmentGroup
 {
-    internal class DeleteAssignmentGroup : IDeleteAssignmentGroup
-    {
-        public long? MoveAssignmentTo { get; set; }
-    }
+    public long? MoveAssignmentTo { get; set; }
 }

@@ -1,12 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿namespace CanvasApi.Client.Modules.Models;
 
-namespace CanvasApi.Client.Modules.Models
+class ModuleItemsListResult
 {
-    class ModuleItemsListResult
-    {
-        public IEnumerable<ModuleItem> ModuleItems { get; set; }
+    public IEnumerable<ModuleItem> ModuleItems { get; set; }
 
-        public static IEnumerable<ModuleItem> ToArray(ModuleItemsListResult apiResult) => apiResult.ModuleItems.ToArray();
-    }
+    public static IEnumerable<ModuleItem> ToArray(ModuleItemsListResult apiResult) => apiResult.ModuleItems.ToArray();
 }

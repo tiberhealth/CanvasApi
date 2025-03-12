@@ -1,16 +1,13 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Modules.Enums;
 
-namespace CanvasApi.Client.Modules.Enums
+[EnumAsString]
+public enum ModuleItemSequenceAssetTypes
 {
-    [EnumAsString]
-    public enum ModuleItemSequenceAssetTypes
-    {
-        ModuleItem,
-        File,
-        Page,
-        Discussion,
-        Assignment,
-        Quiz,
-        ExternalTool
-    }
+    ModuleItem,
+    File,
+    Page,
+    Discussion,
+    Assignment,
+    Quiz,
+    ExternalTool
 }

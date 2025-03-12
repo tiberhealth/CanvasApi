@@ -1,11 +1,7 @@
-﻿using System.Collections.Generic;
-using CanvasApi.Client.EnrollmentTerms.Enums;
+﻿namespace CanvasApi.Client.EnrollmentTerms.Models;
 
-namespace CanvasApi.Client.EnrollmentTerms.Models
+internal class EnrollmentTermListOptions : IEnrollmentTermListOptions
 {
-    internal class EnrollmentTermListOptions : IEnrollmentTermListOptions
-    {
-        public IEnumerable<EnrollmentTermIncludes> Include { get; set; }
-        public IEnumerable<EnrollmentTermListWorkflowState> WorkflowState { get; set; }
-    }
+    public IEnumerable<EnrollmentTermIncludes> Include { get; set; }
+    public IEnumerable<EnrollmentTermListWorkflowState> WorkflowState { get; set; }
 }

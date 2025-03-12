@@ -1,14 +1,13 @@
-namespace CanvasApi.Client.OAuth2.Models
+namespace CanvasApi.Client.OAuth2.Models;
+
+public interface IAuthUser
 {
-    public interface IAuthUser
-    {
-        long Id { get; }
-        string Name { get; }
-    }
+    long Id { get; }
+    string Name { get; }
+}
     
-    internal class AuthUser: IAuthUser
-    {
-        public long Id { get; set; }
-        public string Name { get; set; }
-    }
+internal class AuthUser: IAuthUser
+{
+    public long Id { get; set; }
+    public string Name { get; set; }
 }

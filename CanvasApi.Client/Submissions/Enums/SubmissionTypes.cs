@@ -1,14 +1,11 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Submissions.Enums;
 
-namespace CanvasApi.Client.Submissions.Enums
+[EnumAsString]
+public enum SubmissionTypes
 {
-    [EnumAsString]
-    public enum SubmissionTypes
-    {
-        OnlineTextEntry,
-        OnlineUrl,
-        OnlineUpload,
-        MediaRecording,
-        BasicLtiLaunch
-    }
+    OnlineTextEntry,
+    OnlineUrl,
+    OnlineUpload,
+    MediaRecording,
+    BasicLtiLaunch
 }

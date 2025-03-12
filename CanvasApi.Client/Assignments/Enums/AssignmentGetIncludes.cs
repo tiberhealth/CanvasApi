@@ -1,16 +1,13 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Assignments.Enums;
 
-namespace CanvasApi.Client.Assignments.Enums
+[EnumAsString]
+public enum AssignmentGetIncludes
 {
-    [EnumAsString]
-    public enum AssignmentGetIncludes
-    {
-        Submission, 
-        AssignmentVisibility, 
-        Overrides, 
-        ObservedUsers, 
-        CanEdit, 
-        ScoreStatistics, 
-        AbGuid
-    }
+    Submission, 
+    AssignmentVisibility, 
+    Overrides, 
+    ObservedUsers, 
+    CanEdit, 
+    ScoreStatistics, 
+    AbGuid
 }

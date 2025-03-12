@@ -1,8 +1,7 @@
-﻿namespace CanvasApi.Client.Pages.Enums
+﻿namespace CanvasApi.Client.Pages.Enums;
+
+public enum CourseGroupFlag
 {
-    public enum CourseGroupFlag
-    {
-        Course = 1,
-        Group = 2
-    }
+    Course = 1,
+    Group = 2
 }

@@ -1,12 +1,8 @@
-﻿using CanvasApi.Client.Modules.Models.Enums;
-using System.Collections.Generic;
+﻿namespace CanvasApi.Client.Modules.Models;
 
-namespace CanvasApi.Client.Modules.Models
+internal class ModuleListOptions : IModuleListOptions
 {
-    internal class ModuleListOptions : IModuleListOptions
-    {
-        public IEnumerable<ModuleInclude> Include { get; set; }
-        public string SearchTerm { get; set; }
-        public long? StudentId { get; set; }
-    }
+    public IEnumerable<ModuleInclude> Include { get; set; }
+    public string SearchTerm { get; set; }
+    public long? StudentId { get; set; }
 }

@@ -1,9 +1,8 @@
-﻿namespace CanvasApi.Client.Modules.Models
-{
-    internal class ModuleItemCreateUpdateOptions : IModuleItemCreateUpdateOptions
-    {
-        IModuleItemDetail IModuleItemCreateUpdateOptions.ModuleItem => ModuleItem;
+﻿namespace CanvasApi.Client.Modules.Models;
 
-        internal IModuleItemDetail ModuleItem { get; init; }
-    }
+internal class ModuleItemCreateUpdateOptions : IModuleItemCreateUpdateOptions
+{
+    IModuleItemDetail IModuleItemCreateUpdateOptions.ModuleItem => ModuleItem;
+
+    internal IModuleItemDetail ModuleItem { get; init; }
 }

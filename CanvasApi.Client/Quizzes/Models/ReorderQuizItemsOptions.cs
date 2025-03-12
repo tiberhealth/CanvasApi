@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
+﻿namespace CanvasApi.Client.Quizzes.Models;
 
-namespace CanvasApi.Client.Quizzes.Models
+internal class ReorderQuizItemsOptions : IReorderQuizItemsOptions
 {
-    internal class ReorderQuizItemsOptions : IReorderQuizItemsOptions
-    {
-        IEnumerable<IQuizItemsOrderDetail> IReorderQuizItemsOptions.Order => Order;
-        internal IEnumerable<IQuizItemsOrderDetail> Order { get; init; }
-    }
+    IEnumerable<IQuizItemsOrderDetail> IReorderQuizItemsOptions.Order => Order;
+    internal IEnumerable<IQuizItemsOrderDetail> Order { get; init; }
 }

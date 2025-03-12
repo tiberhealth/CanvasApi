@@ -1,11 +1,8 @@
-﻿using System.Collections.Generic;
+﻿namespace CanvasApi.Client.Submissions.Models;
 
-namespace CanvasApi.Client.Submissions.Models
+internal class GroupedSubmissions : IGroupedSubmissions
 {
-    internal class GroupedSubmissions : IGroupedSubmissions
-    {
-        public long UserId { get; set; }
-        public IEnumerable<Submission> Submissions { get; set; }
-        IEnumerable<ISubmission> IGroupedSubmissions.Submissions => Submissions;
-    }
+    public long UserId { get; set; }
+    public IEnumerable<Submission> Submissions { get; set; }
+    IEnumerable<ISubmission> IGroupedSubmissions.Submissions => Submissions;
 }

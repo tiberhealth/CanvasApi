@@ -1,7 +1,6 @@
-﻿namespace CanvasApi.Client.Quizzes.Models
+﻿namespace CanvasApi.Client.Quizzes.Models;
+
+public interface IQuizCreateEditOptions
 {
-    public interface IQuizCreateEditOptions
-    {
-        IQuizDetail Quiz { get; }
-    }
+    IQuizDetail Quiz { get; }
 }

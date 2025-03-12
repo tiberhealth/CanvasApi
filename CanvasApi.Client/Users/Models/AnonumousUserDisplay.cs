@@ -1,8 +1,7 @@
-﻿namespace CanvasApi.Client.Users.Models
+﻿namespace CanvasApi.Client.Users.Models;
+
+public class AnonumousUserDisplay : IAnonumousUserDisplay
 {
-    public class AnonumousUserDisplay : IAnonumousUserDisplay
-    {
-        public string AnonymouusId { get; set; }
-        public string AvatarImageUrl { get; set; }
-    }
+    public string AnonymouusId { get; set; }
+    public string AvatarImageUrl { get; set; }
 }

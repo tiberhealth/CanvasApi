@@ -1,8 +1,7 @@
-﻿namespace CanvasApi.Client.Modules.Models
+﻿namespace CanvasApi.Client.Modules.Models;
+
+internal class MasteryPathSelectOptions : IMasteryPathSelectOptions
 {
-    internal class MasteryPathSelectOptions : IMasteryPathSelectOptions
-    {
-        public long? AssignmentSetId { get; set; }
-        public long? StudentId { get; set; }
-    }
+    public long? AssignmentSetId { get; set; }
+    public long? StudentId { get; set; }
 }

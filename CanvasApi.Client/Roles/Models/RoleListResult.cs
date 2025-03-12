@@ -1,11 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿namespace CanvasApi.Client.Roles.Models;
 
-namespace CanvasApi.Client.Roles.Models
+class RoleListResult
 {
-    class RoleListResult
-    {
-        public IEnumerable<Role> Roles { get; set; }
-        public static IEnumerable<Role> ToArray(RoleListResult apiResult) => apiResult.Roles.ToArray();
-    }
+    public IEnumerable<Role> Roles { get; set; }
+    public static IEnumerable<Role> ToArray(RoleListResult apiResult) => apiResult.Roles.ToArray();
 }

@@ -1,7 +1,3 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using NUnit.Framework;
-
 namespace CanvasApi.Client.Test
 {
     public abstract class TestSetup

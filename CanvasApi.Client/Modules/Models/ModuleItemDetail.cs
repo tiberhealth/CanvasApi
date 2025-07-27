@@ -13,7 +13,7 @@ internal class ModuleItemDetail : IModuleItemDetail
     public string ExternalUrl { get; set; }
     public bool? NewTab { get; set; }
 
-    ICompletionRequirement IModuleItemDetail.CompletionRequirement => CompletionRequirement;
+    ICompletionRequirement IModuleItemDetail.CompletionRequirement => this.CompletionRequirement;
     internal CompletionRequirement CompletionRequirement { get; set; }
 
 }

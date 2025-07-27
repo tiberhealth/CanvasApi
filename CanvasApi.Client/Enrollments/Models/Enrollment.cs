@@ -47,6 +47,6 @@ internal class Enrollment : IEnrollment
     public string CurrentPeriodUnpostedCurrentGrade { get; set; }
     public string CurrentPeriodUnpostedFinalGrade { get; set; }
 
-    IGrade IEnrollment.Grades => Grades;
-    IUserDisplay IEnrollment.User => User;
+    IGrade IEnrollment.Grades => this.Grades;
+    IUserDisplay IEnrollment.User => this.User;
 }

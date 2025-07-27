@@ -8,8 +8,8 @@ internal class SubmissionListParams : ISubmissionListParams
     public bool? Grouped { get; set; }
     bool? ISubmissionListParams.Grouped
     {
-        get => Grouped;
-        set => Grouped = value;
+        get => this.Grouped;
+        set => this.Grouped = value;
     }
 
     public bool? PostToSis { get; set; }

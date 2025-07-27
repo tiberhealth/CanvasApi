@@ -15,7 +15,7 @@ internal class Assignment : IAssignment
     [JsonProperty("has_overrides")] public bool? HasOverrides { get; set; }
 
     [JsonProperty("all_dates")] public AssignmentDate[] AllDates { get; set; }
-    IEnumerable<IAssignmentDate> IAssignment.AllDates => AllDates;
+    IEnumerable<IAssignmentDate> IAssignment.AllDates => this.AllDates;
 
 
     [JsonProperty("course_id")] public long? CourseId { get; set; }
@@ -29,12 +29,12 @@ internal class Assignment : IAssignment
     [JsonProperty("vericite_enabled")] public bool? VericiteEnabled { get; set; }
 
     [JsonProperty("turnitin_settings")] public TurnItInSettings TurnitinSettings { get; set; }
-    ITurnItInSettings IAssignment.TurnitinSettings => TurnitinSettings;
+    ITurnItInSettings IAssignment.TurnitinSettings => this.TurnitinSettings;
 
     [JsonProperty("grade_group_students_individually")] public bool? GradeGroupStudentsIndividually { get; set; }
 
     [JsonProperty("external_tool_tag_attributes")] public ExternalToolTagAttribute ExternalToolTagAttributes { get; set; }
-    IExternalToolTagAttribute IAssignment.ExternalToolTagAttributes => ExternalToolTagAttributes;
+    IExternalToolTagAttribute IAssignment.ExternalToolTagAttributes => this.ExternalToolTagAttributes;
 
     [JsonProperty("peer_reviews")] public bool? PeerReviews { get; set; }
     [JsonProperty("automatic_peer_reviews")] public bool? AutomaticPeerReviews { get; set; }
@@ -45,7 +45,7 @@ internal class Assignment : IAssignment
     [JsonProperty("needs_grading_count")] public int? NeedsGradingCount { get; set; }
 
     [JsonProperty("needs_grading_count_by_section")] public NeedsGradingCountObj[] NeedsGradingCountBySection { get; set; }
-    IEnumerable<INeedsGradingCount> IAssignment.NeedsGradingCountBySection => NeedsGradingCountBySection;
+    IEnumerable<INeedsGradingCount> IAssignment.NeedsGradingCountBySection => this.NeedsGradingCountBySection;
 
     [JsonProperty("position")] public int? Position { get; set; }
     [JsonProperty("post_to_sis")] public bool? PostToSis { get; set; }
@@ -55,7 +55,7 @@ internal class Assignment : IAssignment
 
     [JsonProperty("submission_types")] public string[] SubmissionTypes { get; set; }
     IEnumerable<SubmissionTypes> IAssignment.SubmissionTypes =>
-        SubmissionTypes?
+        this.SubmissionTypes?
             .Select(item => item.ToEnum<SubmissionTypes>())
             .Where(item => item != null)
             .Select(item => item.Value)
@@ -65,7 +65,7 @@ internal class Assignment : IAssignment
     [JsonProperty("has_submitted_submissions")] public bool? HasSubmittedSubmissions { get; set; }
 
     [JsonProperty("grading_type")] public string GradingType { get; set; }
-    GradingTypes? IAssignment.GradingType => GradingType?.ToEnum<GradingTypes>();
+    GradingTypes? IAssignment.GradingType => this.GradingType?.ToEnum<GradingTypes>();
 
     [JsonProperty("grading_standard_id")] public long? GradingStandardId { get; set; }
     [JsonProperty("published")] public bool? Published { get; set; }
@@ -74,7 +74,7 @@ internal class Assignment : IAssignment
     [JsonProperty("locked_for_user")] public bool? LockedForUser { get; set; }
 
     [JsonProperty("lock_info")] public LockInfo LockInfo { get; set; }
-    ILockInfo IAssignment.LockInfo => LockInfo;
+    ILockInfo IAssignment.LockInfo => this.LockInfo;
 
     [JsonProperty("lock_explanation")] public string LockExplanation { get; set; }
     [JsonProperty("quiz_id")] public long? QuizId { get; set; }
@@ -85,7 +85,7 @@ internal class Assignment : IAssignment
 
     [JsonProperty("frozen_attributes")] public string[] FrozenAttributes { get; set; }
     IEnumerable<FreezableAttributes> IAssignment.FrozenAttributes =>
-        FrozenAttributes?
+        this.FrozenAttributes?
             .Select(item => item.ToEnum<FreezableAttributes>())
             .Where(item => item != null)
             .Select(item => item.Value)
@@ -97,7 +97,7 @@ internal class Assignment : IAssignment
     [JsonProperty("rubric_settings")] public JObject RubricSettings { get; set; }
 
     [JsonProperty("rubric")] public RubricCriteria[] Rubric { get; set; }
-    IEnumerable<IRubricCriteria> IAssignment.Rubric => Rubric;
+    IEnumerable<IRubricCriteria> IAssignment.Rubric => this.Rubric;
 
     [JsonProperty("assignment_visibility")] public IEnumerable<long> AssignmentVisibility { get; set; }
     [JsonProperty("overrides")] public JObject Overrides { get; set; }
@@ -113,7 +113,7 @@ internal class Assignment : IAssignment
     [JsonProperty("post_manually")] public bool? PostManually { get; set; }
 
     [JsonProperty("score_statistics")] public ScoreStatistic ScoreStatistics { get; set; }
-    IScoreStatistic IAssignment.ScoreStatistics => ScoreStatistics;
+    IScoreStatistic IAssignment.ScoreStatistics => this.ScoreStatistics;
 
     [JsonProperty("can_submit")] public bool? CanSubmit { get; set; }
 

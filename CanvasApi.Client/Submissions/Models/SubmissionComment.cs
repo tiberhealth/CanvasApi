@@ -7,7 +7,7 @@ internal class SubmissionComment : ISubmissionComment
     public string AuthorName { get; set; }
 
     public UserDisplay Author { get; set; }
-    IUserDisplay ISubmissionComment.Author => Author;
+    IUserDisplay ISubmissionComment.Author => this.Author;
 
     public string Comment { get; set; }
     public DateTime? CreatedAt { get; set; }

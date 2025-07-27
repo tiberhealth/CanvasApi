@@ -2,7 +2,7 @@
 
 internal class EnrollmentTermNewUpdate : IEnrollmentTermNewUpdate
 {
-    IEnrollmentTermDetail IEnrollmentTermNewUpdate.EnrollmentTerm => EnrollmentTerm;
+    IEnrollmentTermDetail IEnrollmentTermNewUpdate.EnrollmentTerm => this.EnrollmentTerm;
 
     internal IEnrollmentTermDetail EnrollmentTerm { get; init; }
 }

@@ -5,8 +5,8 @@ internal class CompletionRequirement : ICompletionRequirement
     [JsonProperty("type")]
     internal string TypeJson
     {
-        get => CompletionType.ToSnake();
-        set => CompletionType = value.ToEnum<CompletionRequirementTypes>();
+        get => this.CompletionType.ToSnake();
+        set => this.CompletionType = value.ToEnum<CompletionRequirementTypes>();
     }
 
     public int? MinScore { get; set; }

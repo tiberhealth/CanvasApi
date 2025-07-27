@@ -2,6 +2,6 @@
 
 internal class QuizCreateEditOptions : IQuizCreateEditOptions
 {
-    IQuizDetail IQuizCreateEditOptions.Quiz => Quiz;
+    IQuizDetail IQuizCreateEditOptions.Quiz => this.Quiz;
     internal IQuizDetail Quiz { get; init; }
 }

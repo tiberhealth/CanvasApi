@@ -6,5 +6,5 @@ internal class LockInfo : ILockInfo
     public DateTime? UnlockAt { get; set; }
     public DateTime? LockAt { get; set; }
     public Module ContextModule { get; set; }
-    IModule ILockInfo.ContextModule => ContextModule;
+    IModule ILockInfo.ContextModule => this.ContextModule;
 }

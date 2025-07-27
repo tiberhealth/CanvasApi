@@ -7,7 +7,7 @@ internal class Admin : IAdmin
     public string Role { get; set; }
 
     public User User { get; set; }
-    IUser IAdmin.User => User;
+    IUser IAdmin.User => this.User;
 
     public AdminListWorkflowState WorkflowState { get; set; }
 }

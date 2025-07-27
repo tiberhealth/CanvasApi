@@ -12,7 +12,7 @@ internal class Module : IModule
     public int? ItemsCount { get; set; }
     public string ItemsUrl { get; set; }
     public IEnumerable<ModuleItem> Items { get; set; }
-    IEnumerable<IModuleItem> IModule.Items => Items;
+    IEnumerable<IModuleItem> IModule.Items => this.Items;
     public IEnumerable<ModuleState> State { get; set; }
     public DateTime? CompletedAt { get; set; }
     public bool? PublishFinalGrade { get; set; }

@@ -10,5 +10,5 @@ internal class ContentDetails : IContentDetails
     public string LockExplanation { get; set; }
 
     public LockInfo LockInfo { get; set; }
-    ILockInfo IContentDetails.LockInfo => LockInfo;
+    ILockInfo IContentDetails.LockInfo => this.LockInfo;
 }

@@ -1,4 +1,5 @@
-﻿namespace CanvasApi.Client.Roles.Enums;
+﻿// ReSharper disable InconsistentNaming
+namespace CanvasApi.Client.Roles.Enums;
 
 [EnumAsString]
 public enum RoleWorkflowState

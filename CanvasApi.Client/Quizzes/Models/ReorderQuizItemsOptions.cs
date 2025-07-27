@@ -2,6 +2,6 @@
 
 internal class ReorderQuizItemsOptions : IReorderQuizItemsOptions
 {
-    IEnumerable<IQuizItemsOrderDetail> IReorderQuizItemsOptions.Order => Order;
+    IEnumerable<IQuizItemsOrderDetail> IReorderQuizItemsOptions.Order => this.Order;
     internal IEnumerable<IQuizItemsOrderDetail> Order { get; init; }
 }

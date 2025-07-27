@@ -1,4 +1,5 @@
-﻿[assembly: InternalsVisibleTo("CanvasApi.Client.Test")]
+﻿// ReSharper disable InconsistentNaming
+[assembly: InternalsVisibleTo("CanvasApi.Client.Test")]
 
 namespace CanvasApi.Client;
 
@@ -43,7 +44,7 @@ public class CanvasApiClient : ICanvasApiClient, IDisposable
     ///             this.Services.AddHttpClient<ICanvasApiClient, CanvasApiClient>(client =>
     ///                 client.ConfigureCanvasApi(CanvasDomain, ApiKey)
     ///             );
-    /// 
+    ///
     /// </summary>
     /// <param name="client">Http Client object already initialized to the Canvas API domain/root and headers preparred.</param>
     public CanvasApiClient(HttpClient client, IServiceProvider serviceProvider)
@@ -53,7 +54,7 @@ public class CanvasApiClient : ICanvasApiClient, IDisposable
 
         this.DefaultPagingOptions = new PagingOptions();
 
-        // Build the Apis            
+        // Build the Apis
         this.OAuth2Client = this.SetLazy<OAuth2Client>();
 
         this.AccountsClient = this.SetLazy<AccountsClient>();
@@ -116,20 +117,20 @@ public class CanvasApiClient : ICanvasApiClient, IDisposable
 
     protected virtual void Dispose(bool disposing)
     {
-        if (!disposedValue)
+        if (!this.disposedValue)
         {
             if (disposing)
             {
                 this.Client.Dispose();
             }
 
-            disposedValue = true;
+            this.disposedValue = true;
         }
     }
 
     public void Dispose()
     {
-        Dispose(disposing: true);
+        this.Dispose(disposing: true);
         GC.SuppressFinalize(this);
     }
 
@@ -156,7 +157,7 @@ public class CanvasApiClient : ICanvasApiClient, IDisposable
     {
         var pageLinks = new PageLinks((pagingOptions ?? this.DefaultPagingOptions)?.AddPagingUrl(url) ?? url);
         var initialBuffer = await this.ApiOperation<IEnumerable<TResult>, TBody>(verb, pageLinks.OriginalUrl, body, pageLinks, cancellationToken);
-            
+
         return new PageableResult<TResult>(initialBuffer, this, pageLinks);
     }
 
@@ -201,11 +202,11 @@ public class CanvasApiClient : ICanvasApiClient, IDisposable
 
         if (result is null) throw new CanvasTransmissionException("Unknown Transmission Exception - no result provided");
         if (!result.IsSuccessStatusCode) throw result.ToException(url);
-            
+
         pageLinks?.SetHeaders(result.Headers);
 
         var content = this.Decompress(await result.Content.ReadAsStringAsync(new CancellationToken()));
-            
+
         using var contentStream = new System.IO.StringReader(content);
         await using var reader = new JsonTextReader(contentStream);
 
@@ -272,7 +273,7 @@ public class CanvasApiClient : ICanvasApiClient, IDisposable
 
         using var inputStream = new MemoryStream(bytes);
         using var outputStream = new MemoryStream();
-            
+
         // Create decompression stream based on the compression format
         Stream decompressionStream = bytes[0] == 0x1F && bytes[1]  == 0x8B
             ? new GZipStream(inputStream, CompressionMode.Decompress)
@@ -283,5 +284,5 @@ public class CanvasApiClient : ICanvasApiClient, IDisposable
         var decompressedBytes = outputStream.ToArray();
         return Encoding.Default.GetString(decompressedBytes);
     }
-        
+
 }

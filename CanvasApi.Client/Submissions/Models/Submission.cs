@@ -5,10 +5,10 @@ internal class Submission : ISubmission
     public long AssignmentId { get; set; }
 
     public Assignment Assignment { get; set; }
-    IAssignment ISubmission.Assignment => Assignment;
+    IAssignment ISubmission.Assignment => this.Assignment;
 
     public ICourse Course { get; set; }
-    ICourse ISubmission.Course => Course;
+    ICourse ISubmission.Course => this.Course;
 
     public int? Attempt { get; set; }
     public string Body { get; set; }
@@ -19,7 +19,7 @@ internal class Submission : ISubmission
     public decimal? Score { get; set; }
 
     public IEnumerable<SubmissionComment> SubmissionComments { get; set; }
-    IEnumerable<ISubmissionComment> ISubmission.SubmissionComments => SubmissionComments;
+    IEnumerable<ISubmissionComment> ISubmission.SubmissionComments => this.SubmissionComments;
 
     public string SubmissionType { get; set; }
     public DateTime? SubmittedAt { get; set; }
@@ -29,7 +29,7 @@ internal class Submission : ISubmission
     public DateTime? GradedAt { get; set; }
 
     public UserDisplay User { get; set; }
-    IUserDisplay ISubmission.User => User;
+    IUserDisplay ISubmission.User => this.User;
 
     public bool? Late { get; set; }
     public bool? AssignmentVisible { get; set; }

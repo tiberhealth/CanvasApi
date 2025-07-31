@@ -16,10 +16,10 @@ internal class ModuleItem : IModuleItem
     public bool? NewTab { get; set; }
 
     public CompletionRequirement CompletionRequirement { get; set; }
-    ICompletionRequirement IModuleItem.CompletionRequirement => CompletionRequirement;
+    ICompletionRequirement IModuleItem.CompletionRequirement => this.CompletionRequirement;
 
     public ContentDetails ContentDetails { get; set; }
-    IContentDetails IModuleItem.ContentDetails => ContentDetails;
+    IContentDetails IModuleItem.ContentDetails => this.ContentDetails;
 
     public bool? Published { get; set; }
 }

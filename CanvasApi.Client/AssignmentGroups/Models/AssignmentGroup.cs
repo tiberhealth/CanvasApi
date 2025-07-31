@@ -10,8 +10,8 @@ internal class AssignmentGroup : IAssignmentGroup
     public JObject IntegrationData { get; set; }
 
     public IEnumerable<Assignment> Assignments { get; set; }
-    IEnumerable<IAssignment> IAssignmentGroup.Assignments => Assignments;
+    IEnumerable<IAssignment> IAssignmentGroup.Assignments => this.Assignments;
 
     public GradingRules Rules { get; set; }
-    IGradingRules IAssignmentGroup.Rules => Rules;
+    IGradingRules IAssignmentGroup.Rules => this.Rules;
 }

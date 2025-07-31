@@ -1,7 +1,3 @@
-﻿using NUnit.Framework;
-using CanvasApi.Client.Helpers;
-using NUnit.Framework.Legacy;
-
 namespace CanvasApi.Client.Test.HelpersTests
 {
     public class TestEnumHelpers
@@ -20,9 +16,9 @@ namespace CanvasApi.Client.Test.HelpersTests
             ClassicAssert.IsNotNull(enumResult1);
             ClassicAssert.AreEqual(TestEnum.TestValueOne, enumResult1);
 
-            var enumResult1a = "TestValueOne".ToEnum<TestEnum>();
-            ClassicAssert.IsNotNull(enumResult1a);
-            ClassicAssert.AreEqual(TestEnum.TestValueOne, enumResult1a);
+            var enumResult1A = "TestValueOne".ToEnum<TestEnum>();
+            ClassicAssert.IsNotNull(enumResult1A);
+            ClassicAssert.AreEqual(TestEnum.TestValueOne, enumResult1A);
 
             var enumResult2 = "test_value_2".ToEnum<TestEnum>();
             ClassicAssert.IsNotNull(enumResult2);

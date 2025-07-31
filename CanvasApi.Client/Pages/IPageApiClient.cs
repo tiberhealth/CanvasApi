@@ -5,7 +5,7 @@ namespace CanvasApi.Client.Pages;
 public interface IPageApiClient
 {
     /// <summary>
-    /// Retrieve the content of the front page 
+    /// Retrieve the content of the front page
     /// </summary>
     /// <param name="id">Id of the course or group</param>
     /// <param name="type">Flag to indicate if the id is for a group or a course. (Default Course)</param>
@@ -41,7 +41,7 @@ public interface IPageApiClient
 
 
     /// <summary>
-    /// Create a new wiki page 
+    /// Create a new wiki page
     /// </summary>
     /// <param name="id">Id of the course or group</param>
     /// <param name="pageFactory">Factory to build the WIKI parameters to create/update the WIKI</param>
@@ -51,9 +51,9 @@ public interface IPageApiClient
 
 
     /// <summary>
-    /// Retrieve the content of a wiki page 
+    /// Retrieve the content of a wiki page
     /// </summary>
-    /// <param name="id">Id of the course or group</param> 
+    /// <param name="id">Id of the course or group</param>
     /// <param name="url">Url of the page for the course or group</param>
     /// <param name="type">Flag to indicate if the id is for a group or a course. (Default Course)</param>
     /// <returns></returns>
@@ -62,17 +62,17 @@ public interface IPageApiClient
     /// <summary>
     /// Update the title or contents of a wiki page
     /// </summary>
-    /// <param name="id">Id of the course or group</param> 
+    /// <param name="id">Id of the course or group</param>
     /// <param name="url">Url of the page for the course or group</param>
     /// <param name="pageFactory">Factory to build the WIKI parameters to create/update the WIKI</param>
     /// <param name="type">Flag to indicate if the id is for a group or a course. (Default Course)</param>
     /// <returns></returns>
-    Task<IPage> UpdatePage(long Id, string url, Action<IWikiPage> pageFactory, CourseGroupFlag type = CourseGroupFlag.Course);
+    Task<IPage> UpdatePage(long id, string url, Action<IWikiPage> pageFactory, CourseGroupFlag type = CourseGroupFlag.Course);
 
     /// <summary>
     /// Delete a wiki page
     /// </summary>
-    /// <param name="id">Id of the course or group</param> 
+    /// <param name="id">Id of the course or group</param>
     /// <param name="url">Url of the page for the course or group</param>
     /// <param name="type">Flag to indicate if the id is for a group or a course. (Default Course)</param>
     /// <returns></returns>
@@ -81,7 +81,7 @@ public interface IPageApiClient
     /// <summary>
     /// A paginated list of the revisions of a page. Callers must have update rights on the page in ourder to see page history
     /// </summary>
-    /// <param name="id">Id of the course or group</param> 
+    /// <param name="id">Id of the course or group</param>
     /// <param name="url">Url of the page for the course or group</param>
     /// <param name="type">Flag to indicate if the id is for a group or a course. (Default Course)</param>
     /// <returns></returns>
@@ -90,7 +90,7 @@ public interface IPageApiClient
     /// <summary>
     /// Retrieve the metadata and optionally content of a revision of the page. Note that retrieving historic versions of pages requires edit rights.
     /// </summary>
-    /// <param name="id">Id of the course or group</param> 
+    /// <param name="id">Id of the course or group</param>
     /// <param name="url">Url of the page for the course or group</param>
     /// <param name="revisionId">The revision id to pull, if null pull latest revision</param>
     /// <param name="summary">If set, exclude page content from results</param>

@@ -21,22 +21,22 @@ internal class Course : ICourse
     public string Locale { get; set; }
 
     public IEnumerable<Enrollment> Enrollments { get; set; }
-    IEnumerable<IEnrollment> ICourse.Enrollments => Enrollments;
+    IEnumerable<IEnrollment> ICourse.Enrollments => this.Enrollments;
 
     public int? TotalStudents { get; set; }
 
     public CalendarLink Calendar { get; set; }
-    ICalendarLink ICourse.Calendar => Calendar;
+    ICalendarLink ICourse.Calendar => this.Calendar;
 
     public string DefaultView { get; set; }
     public string SyllabusBody { get; set; }
     public int? NeedsGradingCount { get; set; }
 
     public EnrollmentTerm Term { get; set; }
-    IEnrollmentTerm ICourse.EnrollmentTerm => Term;
+    IEnrollmentTerm ICourse.EnrollmentTerm => this.Term;
 
     public ICourseProgress CourseProgress { get; set; }
-    ICourseProgress ICourse.CourseProgress => CourseProgress;
+    ICourseProgress ICourse.CourseProgress => this.CourseProgress;
 
     public bool? ApplyAssignmentGroupWeights { get; set; }
     public JObject Permissions { get; set; }

@@ -1,10 +1,11 @@
-﻿namespace CanvasApi.Client;
+﻿// ReSharper disable InconsistentNaming
+namespace CanvasApi.Client;
 
 internal class PageableResult<TResult> : IEnumerable<TResult>
 {
     protected TResult[] InitialBuffer { get; set; }
     protected readonly CanvasApiClient _ApiClient;
-    protected readonly PageLinks _initalPageLinks;
+    protected readonly PageLinks _initialPageLinks;
 
     internal PageableResult(
         IEnumerable<TResult> initialBuffer,
@@ -20,14 +21,14 @@ internal class PageableResult<TResult> : IEnumerable<TResult>
         PageLinks pageLinks
     )
     {
-        this._initalPageLinks = pageLinks ?? throw new ArgumentNullException(nameof(pageLinks), "Paging details not supplied.");
+        this._initialPageLinks = pageLinks ?? throw new ArgumentNullException(nameof(pageLinks), "Paging details not supplied.");
         this._ApiClient = apiClient;
     }
 
     public virtual IEnumerator<TResult> GetEnumerator() =>
         new PageableResultsEnumerator<TResult>(this.InitialBuffer)
         {
-            Links = this._initalPageLinks,
+            Links = this._initialPageLinks,
             ApiClient = this._ApiClient
         };
 
@@ -35,7 +36,7 @@ internal class PageableResult<TResult> : IEnumerable<TResult>
 }
 
 /// <summary>
-/// Pagable Results proocess when a conversion has to occur. 
+/// Pagable Results proocess when a conversion has to occur.
 /// </summary>
 /// <typeparam name="TResult">Enumerable Type - expected to return from API</typeparam>
 /// <typeparam name="TApiResult">Result type provided by the API</typeparam>
@@ -57,7 +58,7 @@ internal class PageableResult<TResult, TApiResult> : PageableResult<TResult>
     public override IEnumerator<TResult> GetEnumerator() =>
         new PageableResultsEnumerator<TResult, TApiResult>(this.InitialBuffer, this.Factory)
         {
-            Links = this._initalPageLinks,
+            Links = this._initialPageLinks,
             ApiClient = this._ApiClient,
         };
 
@@ -96,7 +97,7 @@ internal class PageableResultsEnumerator<TResult, TApiResult> : IEnumerator<TRes
 
     internal PageableResultsEnumerator(Func<TApiResult, IEnumerable<TResult>> factory) => this.Factory = factory;
 
-    public TResult Current => bufferIdx >= 0 && bufferIdx < this.Buffer.Length ? this.Buffer[this.bufferIdx] : default(TResult);
+    public TResult Current => this.bufferIdx >= 0 && this.bufferIdx < this.Buffer.Length ? this.Buffer[this.bufferIdx] : default(TResult);
     object IEnumerator.Current => this.Current;
 
     public void Dispose()
@@ -104,7 +105,7 @@ internal class PageableResultsEnumerator<TResult, TApiResult> : IEnumerator<TRes
         // Nothing to dispose
     }
 
-    public bool MoveNext() => ++bufferIdx < this.Buffer.Length ? true : this.MoveNextPage();
+    public bool MoveNext() => ++this.bufferIdx < this.Buffer.Length ? true : this.MoveNextPage();
 
     public void Reset() => this.GetPage(this.Links.First ?? this.Links.OriginalUrl, true);
     private bool MoveNextPage() => this.GetPage(this.Links.Next);
@@ -128,7 +129,7 @@ internal class PageableResultsEnumerator<TResult, TApiResult> : IEnumerator<TRes
         this.Buffer = apiCall.ToArray();
 
         this.Links = newPageLinks;
-        bufferIdx = -1;
+        this.bufferIdx = -1;
 
         return isReset ? true : this.MoveNext();
     }

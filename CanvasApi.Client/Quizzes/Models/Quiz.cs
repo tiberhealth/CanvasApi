@@ -37,7 +37,7 @@ internal class Quiz : IQuiz
     public string SpeedgraderUrl { get; set; }
     public string QuizExtensionsUrl { get; set; }
     public QuizPermissions Permissions { get; set; }
-    IQuizPermissions IQuiz.Permissions => Permissions;
+    IQuizPermissions IQuiz.Permissions => this.Permissions;
     public IEnumerable<DateTime> AllDates { get; set; }
     public long? VersionNumber { get; set; }
     public IEnumerable<string> QuestionTypes { get; set; }

@@ -1,13 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using CanvasApi.Client.Exceptions;
-using CanvasApi.Client.Modules.Enums;
-using CanvasApi.Client.Modules.Models;
-using Microsoft.Extensions.DependencyInjection;
-using NUnit.Framework;
-using NUnit.Framework.Legacy;
-
 namespace CanvasApi.Client.Test.ModuleTests
 {
     public class TestModules : TestSetup

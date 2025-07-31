@@ -2,7 +2,7 @@
 
 internal class ModuleItemCreateUpdateOptions : IModuleItemCreateUpdateOptions
 {
-    IModuleItemDetail IModuleItemCreateUpdateOptions.ModuleItem => ModuleItem;
+    IModuleItemDetail IModuleItemCreateUpdateOptions.ModuleItem => this.ModuleItem;
 
     internal IModuleItemDetail ModuleItem { get; init; }
 }

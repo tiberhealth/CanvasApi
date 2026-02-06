@@ -1,13 +1,10 @@
 ﻿namespace CanvasApi.Client.Enrollments;
 
-internal class EnrollmentApiClient : ApiClientBase, IEnrollmentApiClient
+internal class EnrollmentApiClient(CanvasApiClient parent) : ApiClientBase(parent), IEnrollmentApiClient
 {
-    public EnrollmentApiClient(CanvasApiClient parent) : base(parent) { }
-
-    public Task<IApiSuccess> AcceptEnrollment(long courseId, long enrollmentId)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<IApiSuccess> AcceptEnrollment(long courseId, long enrollmentId) =>
+        await this.ApiClient
+                  .ApiOperation<ApiSuccess>(HttpMethod.Post, $"/api/v1/courses/{courseId}/enrollments/{enrollmentId}/accept");
 
     public async Task<IEnumerable<IEnrollment>> CourseEnrollments(long courseId, Action<IEnrollmentRequest> options = null) =>
         await this.ApiClient
@@ -18,10 +15,13 @@ internal class EnrollmentApiClient : ApiClientBase, IEnrollmentApiClient
         throw new NotImplementedException();
     }
 
-    public Task<IEnrollment> EnrollCourseUser(long courseId, IEnrollment enrollment)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<IEnrollment> EnrollCourseUser(long courseId, Action<IEnrollment> enrollmentOptions) =>
+        await this.ApiClient
+                  .ApiOperation<Enrollment, object>(
+                                                         HttpMethod.Post,
+                                                         $"/api/v1/courses/{courseId}/enrollments",
+                                                         new { Enrollment = enrollmentOptions?.GetOptions<IEnrollment, Enrollment>()  });
+
 
     public Task<IEnrollment> EnrollSection(long sectionId, IEnrollment enrollment)
     {

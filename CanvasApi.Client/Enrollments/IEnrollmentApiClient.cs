@@ -55,9 +55,9 @@ public interface IEnrollmentApiClient
     /// Create a new user enrollment for a course or section.
     /// </summary>
     /// <param name="courseId"></param>
-    /// <param name="enrollment"></param>
+    /// <param name="enrollmentOptions"></param>
     /// <returns></returns>
-    Task<IEnrollment> EnrollCourseUser(long courseId, IEnrollment enrollment);
+    Task<IEnrollment> EnrollCourseUser(long courseId, Action<IEnrollment> enrollmentOptions);
 
     /// <summary>
     /// Create a new user enrollment for a course or section.

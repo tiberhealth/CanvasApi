@@ -4,22 +4,22 @@ public interface IEnrollment
 {
     /// <summary>
     /// The ID of the enrollment.
-    long Id { get; }
+    long? Id { get; set; }
     /// <summary>
     /// The unique id of the course.
     /// </summary>
-    long CourseId { get; }
+    long CourseId { get; set;}
     /// <summary>
     /// The SIS Course ID in which the enrollment is associated. Only displayed if
     /// present. This field is only included if the user has permission to view SIS
     /// information.
     /// </summary>
-    string SisCourseId { get; }
+    string SisCourseId { get; set;}
     /// <summary>
     /// The Course Integration ID in which the enrollment is associated. This field
     /// is only included if the user has permission to view SIS information.
     /// </summary>
-    string CourseIntegrationId { get; }
+    string CourseIntegrationId { get; set;}
     /// <summary>
     /// The unique id of the user's section.
     /// </summary>
@@ -28,7 +28,7 @@ public interface IEnrollment
     /// The Section Integration ID in which the enrollment is associated. This field
     /// is only included if the user has permission to view SIS information.
     /// </summary>
-    string SectionIntegrationId { get; }
+    string SectionIntegrationId { get; set;}
     /// <summary>
     /// The SIS Account ID in which the enrollment is associated. Only displayed if
     /// present. This field is only included if the user has permission to view SIS
@@ -40,53 +40,53 @@ public interface IEnrollment
     /// present. This field is only included if the user has permission to view SIS
     /// information.
     /// </summary>
-    string SisSectionId { get; }
+    string SisSectionId { get; set;}
     /// <summary>
     /// The SIS User ID in which the enrollment is associated. Only displayed if
     /// present. This field is only included if the user has permission to view SIS
     /// information.
     /// </summary>
-    string SisUserId { get; }
+    string SisUserId { get; set;}
     /// <summary>
     /// The state of the user's enrollment in the course.
     /// </summary>
-    string EnrollmentState { get; }
+    string EnrollmentState { get; set;}
     /// <summary>
     /// User can only access his or her own course section.
     /// </summary>
-    bool? LimitPrivilegesToCourseSection { get; }
+    bool? LimitPrivilegesToCourseSection { get; set;}
     /// <summary>
     /// The unique identifier for the SIS import. This field is only included if the
     /// user has permission to manage SIS information.
     /// </summary>
-    long? SisImportId { get; }
+    long? SisImportId { get; set;}
     /// <summary>
     /// The unique id of the user's account.
     /// </summary>
-    long? RootAccountId { get; }
+    long? RootAccountId { get; set;}
     /// <summary>
     /// The enrollment type. One of 'StudentEnrollment', 'TeacherEnrollment',
     /// 'TaEnrollment', 'DesignerEnrollment', 'ObserverEnrollment'.
     /// </summary>
-    string Type { get; }
+    string Type { get; set;}
     /// <summary>
     /// The unique id of the user.
     /// </summary>
-    long? UserId { get; }
+    long? UserId { get; set;}
     /// <summary>
     /// The unique id of the associated user. Will be null unless type is
     /// ObserverEnrollment.
     /// </summary>
-    string AssociatedUserId { get; }
+    string AssociatedUserId { get; set;}
     /// <summary>
     /// The enrollment role, for course-level permissions. This field will match
     /// `type` if the enrollment role has not been customized.
     /// </summary>
-    string Role { get; }
+    string Role { get; set;}
     /// <summary>
     /// The id of the enrollment role.
     /// </summary>
-    long? RoleId { get; }
+    long? RoleId { get; set;}
     /// <summary>
     /// The created time of the enrollment, in ISO8601 format.
     /// </summary>
@@ -98,11 +98,11 @@ public interface IEnrollment
     /// <summary>
     /// The start time of the enrollment, in ISO8601 format.
     /// </summary>
-    DateTime? StartAt { get; }
+    DateTime? StartAt { get; set;}
     /// <summary>
     /// The end time of the enrollment, in ISO8601 format.
     /// </summary>
-    DateTime? EndAt { get; }
+    DateTime? EndAt { get; set;}
     /// <summary>
     /// The last activity time of the user for the enrollment, in ISO8601 format.
     /// </summary>

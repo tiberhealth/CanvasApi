@@ -2,7 +2,7 @@
 
 internal class Enrollment : IEnrollment
 {
-    public long Id { get; set; }
+    public long? Id { get; set; }
     public long CourseId { get; set; }
     public string SisCourseId { get; set; }
     public string CourseIntegrationId { get; set; }

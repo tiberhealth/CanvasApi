@@ -1,11 +1,7 @@
 ﻿namespace CanvasApi.Client.Assignments;
 
-internal class AssignmentApiClient : ApiClientBase, IAssignmentApiClient
+internal class AssignmentApiClient(CanvasApiClient parent) : ApiClientBase(parent), IAssignmentApiClient
 {
-    public AssignmentApiClient(CanvasApiClient parent) : base(parent)
-    {
-    }
-
     public async Task<IAssignment> Get(long courseId, long assignmentId, Action<IAssignmentGetOptions> options = null) =>
         await this.ApiClient.ApiOperation<Assignment, IAssignmentGetOptions>(
             HttpMethod.Get,

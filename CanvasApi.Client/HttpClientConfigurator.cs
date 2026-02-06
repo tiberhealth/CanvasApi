@@ -13,8 +13,10 @@ public static class HttpClientConfigurator
         httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
         httpClient.DefaultRequestHeaders.Host = new Uri(canvasDomain).Host;
             
-        httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(assemblyName.Name, version));
         httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("*/*"));
+
+        httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("CanvasAPI", "1.0"));
+        httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("(+https://tiberhealth.com)"));
 
         httpClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("identity", 1.0));
             

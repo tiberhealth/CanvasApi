@@ -16,7 +16,7 @@ public class PagingOptions
 
     public int PageSize { get; set; }
 
-    public PagingOptions(): this(defaultPageSize)
+    public PagingOptions(): this(PagingOptions.defaultPageSize)
     { }
 
     public PagingOptions(int pageSize)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using CanvasApi.Client._Base;
 using CanvasApi.Client.Extentions;
@@ -97,6 +98,58 @@ namespace CanvasApi.Client.Submissions
                 $"/api/v1/sections/{sectionId}/assignments/{assignmentId}/submissions",
                 submission.GetOptions<ISubmissionSubmit, SubmissionSubmit>()
             );
+
+        public async Task<ISubmission> Grade(
+            long courseId,
+            long assignmentId,
+            long userId,
+            Action<ISubmissionGradeDetail> grade,
+            Action<ISubmissionSubmitComment> comment = null,
+            CancellationToken cancellationToken = default) =>
+            await this.ApiClient.ApiOperation<Submission, ISubmissionGrade>(
+                HttpMethod.Put,
+                $"/api/v1/courses/{courseId}/assignments/{assignmentId}/submissions/{userId}",
+                BuildGradeBody(grade, comment),
+                cancellationToken: cancellationToken
+            );
+
+        public async Task<ISubmission> GradeSection(
+            long sectionId,
+            long assignmentId,
+            long userId,
+            Action<ISubmissionGradeDetail> grade,
+            Action<ISubmissionSubmitComment> comment = null,
+            CancellationToken cancellationToken = default) =>
+            await this.ApiClient.ApiOperation<Submission, ISubmissionGrade>(
+                HttpMethod.Put,
+                $"/api/v1/sections/{sectionId}/assignments/{assignmentId}/submissions/{userId}",
+                BuildGradeBody(grade, comment),
+                cancellationToken: cancellationToken
+            );
+
+        /// <summary>
+        /// Wraps the inner-field builder in an <see cref="ISubmissionGrade"/> so the
+        /// multipart serializer produces <c>submission[posted_grade]</c> /
+        /// <c>comment[text_comment]</c> on the wire.
+        /// </summary>
+        private static ISubmissionGrade BuildGradeBody(
+            Action<ISubmissionGradeDetail> grade,
+            Action<ISubmissionSubmitComment> comment)
+        {
+            var wrapper = new SubmissionGrade
+            {
+                Submission = new SubmissionGradeDetail()
+            };
+            grade?.Invoke(wrapper.Submission);
+
+            if (comment != null)
+            {
+                wrapper.Comment = new SubmissionSubmitComment();
+                comment.Invoke(wrapper.Comment);
+            }
+
+            return wrapper;
+        }
 
         }
     }

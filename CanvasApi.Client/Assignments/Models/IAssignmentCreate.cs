@@ -13,16 +13,3 @@ public interface IAssignmentCreate
     /// </summary>
     IAssignmentNewEdit Assignment { get; set; }
 }
-
-public static class IAssignmentCreateHelpers
-{
-    /// <summary>
-    /// Gets the inner assignment record or attaches a new one.
-    /// </summary>
-    public static IAssignmentNewEdit GetAssignment(this IAssignmentCreate body, bool attachNew = true)
-    {
-        var assignment = body.Assignment ?? new AssignmentNewEdit();
-        if (attachNew && body.Assignment == null) body.Assignment = assignment;
-        return assignment;
-    }
-}

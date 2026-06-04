@@ -17,20 +17,3 @@ public interface ISubmissionGrade
     /// </summary>
     ISubmissionSubmitComment Comment { get; set; }
 }
-
-public static class ISubmissionGradeHelpers
-{
-    public static ISubmissionGradeDetail GetSubmission(this ISubmissionGrade body, bool attachNew = true)
-    {
-        var detail = body.Submission ?? new SubmissionGradeDetail();
-        if (attachNew && body.Submission == null) body.Submission = detail;
-        return detail;
-    }
-
-    public static ISubmissionSubmitComment GetComment(this ISubmissionGrade body, bool attachNew = true)
-    {
-        var comment = body.Comment ?? new SubmissionSubmitComment();
-        if (attachNew && body.Comment == null) body.Comment = comment;
-        return comment;
-    }
-}

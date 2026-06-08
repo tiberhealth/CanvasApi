@@ -1,11 +1,3 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using CanvasApi.Client.EnrollmentTerms.Models;
-using Microsoft.Extensions.DependencyInjection;
-using NUnit.Framework;
-using NUnit.Framework.Legacy;
-
 namespace CanvasApi.Client.Test.EnrollmentTerms
 {
     public class TestEnrollmentTerms: TestSetup

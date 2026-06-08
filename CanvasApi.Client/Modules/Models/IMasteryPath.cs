@@ -1,17 +1,13 @@
-﻿using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
+﻿namespace CanvasApi.Client.Modules.Models;
 
-namespace CanvasApi.Client.Modules.Models
+public interface IMasteryPath
 {
-    public interface IMasteryPath
-    {
-        IEnumerable<JObject> AssignmentSets { get; }
-        bool? AwaitingChoice { get; }
-        string ChooseUrl { get; }
-        bool? Locked { get; }
-        bool? ModulesTabDisabled { get; }
-        string ModulesUrl { get; }
-        long? SelectedSetId { get; }
-        bool? StillProcessing { get; }
-    }
+    IEnumerable<JObject> AssignmentSets { get; }
+    bool? AwaitingChoice { get; }
+    string ChooseUrl { get; }
+    bool? Locked { get; }
+    bool? ModulesTabDisabled { get; }
+    string ModulesUrl { get; }
+    long? SelectedSetId { get; }
+    bool? StillProcessing { get; }
 }

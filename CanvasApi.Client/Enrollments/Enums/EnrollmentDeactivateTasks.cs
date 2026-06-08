@@ -1,13 +1,10 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Enrollments.Enums;
 
-namespace CanvasApi.Client.Enrollments.Enums
+[EnumAsString]
+public enum EnrollmentDeactivateTasks
 {
-    [EnumAsString]
-    public enum EnrollmentDeactivateTasks
-    {
-        Conclude,
-        Delete,
-        Inactivate,
-        Deactivate
-    }
+    Conclude,
+    Delete,
+    Inactivate,
+    Deactivate
 }

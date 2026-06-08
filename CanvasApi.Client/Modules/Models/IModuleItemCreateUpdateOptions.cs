@@ -1,7 +1,6 @@
-﻿namespace CanvasApi.Client.Modules.Models
+﻿namespace CanvasApi.Client.Modules.Models;
+
+public interface IModuleItemCreateUpdateOptions
 {
-    public interface IModuleItemCreateUpdateOptions
-    {
-        IModuleItemDetail ModuleItem { get; }
-    }
+    IModuleItemDetail ModuleItem { get; }
 }

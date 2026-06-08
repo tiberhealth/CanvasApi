@@ -1,12 +1,9 @@
-﻿using CanvasApi.Client.Pages.Enums;
+﻿namespace CanvasApi.Client.Pages.Models;
 
-namespace CanvasApi.Client.Pages.Models
+public class ListOptions : IListOptions
 {
-    public class ListOptions : IListOptions
-    {
-        public PageSort Sort { get; set; }
-        public SortOrder Order { get; set; }
-        public string SearchTerm { get; set; }
-        public bool Published { get; set; }
-    }
+    public PageSort Sort { get; set; }
+    public SortOrder Order { get; set; }
+    public string SearchTerm { get; set; }
+    public bool Published { get; set; }
 }

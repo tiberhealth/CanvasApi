@@ -1,10 +1,4 @@
-﻿using CanvasApi.Client._Base;
-using CanvasApi.Client.Section.Models;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
-
-namespace CanvasApi.Client.Section;
+﻿namespace CanvasApi.Client.Section;
 
 internal class SectionApi : ApiClientBase, ISectionApi
 {

@@ -1,8 +1,4 @@
-﻿using CanvasApi.Client.Section.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace CanvasApi.Client.Section;
+﻿namespace CanvasApi.Client.Section;
 
 public interface ISectionApi
 {

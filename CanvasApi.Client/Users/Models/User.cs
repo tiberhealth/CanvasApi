@@ -1,8 +1,4 @@
-﻿using CanvasApi.Client.Enrollments.Models;
-using System;
-using System.Collections.Generic;
-
-namespace CanvasApi.Client.Users.Models;
+﻿namespace CanvasApi.Client.Users.Models;
 
 internal class User : IUser
 {

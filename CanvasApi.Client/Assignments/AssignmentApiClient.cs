@@ -9,11 +9,10 @@ using System.Threading.Tasks;
 
 namespace CanvasApi.Client.Assignments;
 
-internal class AssignmentApiClient : ApiClientBase, IAssignmentApiClient
+internal class AssignmentApiClient(CanvasApiClient parent) : ApiClientBase(parent), IAssignmentApiClient
 {
-    public AssignmentApiClient(CanvasApiClient parent) : base(parent)
-    {
-    }
+    public async Task<IEnumerable<IAssignment>> List(long courseId) =>
+        await this.ApiClient.PagableApiOperation<Assignment>(HttpMethod.Get, $"/api/v1/courses/{courseId}/assignments");
 
     public async Task<IEnumerable<IAssignment>> List(long courseId) =>
         await this.ApiClient.PagableApiOperation<Assignment>(HttpMethod.Get, $"/api/v1/courses/{courseId}/assignments");

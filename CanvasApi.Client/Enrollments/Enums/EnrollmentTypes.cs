@@ -1,15 +1,11 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Enrollments.Enums;
 
-namespace CanvasApi.Client.Enrollments.Enums
+[EnumAsString]
+public enum EnrollmentTypes
 {
-    [EnumAsString]
-    public enum EnrollmentTypes
-    {
-        Teacher,
-        Student,
-        TeacherAssistant,
-        Observer,
-        Designer
-    }
+    Teacher,
+    Student,
+    TeacherAssistant,
+    Observer,
+    Designer
 }
-

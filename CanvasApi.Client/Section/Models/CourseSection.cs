@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CanvasApi.Client.Section.Models;
+﻿namespace CanvasApi.Client.Section.Models;
 
 internal class CourseSection : ICourseSection
 {

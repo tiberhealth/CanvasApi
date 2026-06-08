@@ -1,18 +1,15 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Submissions.Enums;
 
-namespace CanvasApi.Client.Submissions.Enums
+[EnumAsString]
+public enum SubmissionListInclude
 {
-    [EnumAsString]
-    public enum SubmissionListInclude
-    {
-        SubmissionHistory,
-        SubmissionComments,
-        RubricAssignment,
-        Assignment,
-        Visibility,
-        Course,
-        User,
-        Group,
-        TotalScores
-    }
+    SubmissionHistory,
+    SubmissionComments,
+    RubricAssignment,
+    Assignment,
+    Visibility,
+    Course,
+    User,
+    Group,
+    TotalScores
 }

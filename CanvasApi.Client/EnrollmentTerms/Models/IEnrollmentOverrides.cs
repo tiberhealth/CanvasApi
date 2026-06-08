@@ -1,10 +1,9 @@
-﻿namespace CanvasApi.Client.EnrollmentTerms.Models
+﻿namespace CanvasApi.Client.EnrollmentTerms.Models;
+
+public interface IEnrollmentOverrides
 {
-    public interface IEnrollmentOverrides
-    {
-        IEnrollmentDates Teacher { get; }
-        IEnrollmentDates Student { get; }
-        IEnrollmentDates TeachingAssistant { get; }
-        IEnrollmentDates Designer { get; }
-    }
+    IEnrollmentDates Teacher { get; }
+    IEnrollmentDates Student { get; }
+    IEnrollmentDates TeachingAssistant { get; }
+    IEnrollmentDates Designer { get; }
 }

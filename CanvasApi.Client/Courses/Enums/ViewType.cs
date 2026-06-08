@@ -1,30 +1,29 @@
-﻿namespace CanvasApi.Client.Courses.Enums
+﻿namespace CanvasApi.Client.Courses.Enums;
+
+public enum ViewType
 {
-    public enum ViewType
-    {
-        /// <summary>
-        /// Recent Activity Dashboard
-        /// </summary>
-        Feed,
+    /// <summary>
+    /// Recent Activity Dashboard
+    /// </summary>
+    Feed,
 
-        /// <summary>
-        /// Wiki Page
-        /// </summary>
-        Wiki,
+    /// <summary>
+    /// Wiki Page
+    /// </summary>
+    Wiki,
 
-        /// <summary>
-        /// Course Modules/Sections Page
-        /// </summary>
-        Modules,
+    /// <summary>
+    /// Course Modules/Sections Page
+    /// </summary>
+    Modules,
 
-        /// <summary>
-        /// Course Syllabus Page
-        /// </summary>
-        Syllabus,
+    /// <summary>
+    /// Course Syllabus Page
+    /// </summary>
+    Syllabus,
 
-        /// <summary>
-        /// Course Assignments List
-        /// </summary>
-        Assignments
-    }
+    /// <summary>
+    /// Course Assignments List
+    /// </summary>
+    Assignments
 }

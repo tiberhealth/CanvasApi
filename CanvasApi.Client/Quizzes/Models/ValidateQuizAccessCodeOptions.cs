@@ -1,7 +1,6 @@
-﻿namespace CanvasApi.Client.Quizzes.Models
+﻿namespace CanvasApi.Client.Quizzes.Models;
+
+internal class ValidateQuizAccessCodeOptions : IValidateQuizAccessCodeOptions
 {
-    internal class ValidateQuizAccessCodeOptions : IValidateQuizAccessCodeOptions
-    {
-        public string AccessCode { get; set; }
-    }
+    public string AccessCode { get; set; }
 }

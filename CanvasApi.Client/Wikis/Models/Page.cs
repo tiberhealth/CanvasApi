@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CanvasApi.Client.Wikis.Models;
+﻿namespace CanvasApi.Client.Wikis.Models;
 
 internal class Page : IPage
 {

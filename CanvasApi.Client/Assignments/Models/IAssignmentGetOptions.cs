@@ -1,7 +1,4 @@
-﻿using CanvasApi.Client.Assignments.Enums;
-using System.Collections.Generic;
-
-namespace CanvasApi.Client.Assignments.Models;
+﻿namespace CanvasApi.Client.Assignments.Models;
 
 public interface IAssignmentGetOptions
 {

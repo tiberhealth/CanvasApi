@@ -1,10 +1,7 @@
-﻿using System;
+﻿namespace CanvasApi.Client.EnrollmentTerms.Models;
 
-namespace CanvasApi.Client.EnrollmentTerms.Models
+public interface IEnrollmentDates
 {
-    public interface IEnrollmentDates
-    {
-        DateTime? StartAt { get; set; }
-        DateTime? EndAt { get; set; }
-    }
+    DateTime? StartAt { get; set; }
+    DateTime? EndAt { get; set; }
 }

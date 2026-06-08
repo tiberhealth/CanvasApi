@@ -1,7 +1,4 @@
-﻿using System.Threading.Tasks;
-using CanvasApi.Client.Pages.Models;
-
-namespace CanvasApi.Client.Wikis;
+﻿namespace CanvasApi.Client.Wikis;
 
 public interface IWikisApiClient
 {

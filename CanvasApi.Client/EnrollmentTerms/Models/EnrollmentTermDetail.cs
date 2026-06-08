@@ -1,12 +1,9 @@
-﻿using System;
+﻿namespace CanvasApi.Client.EnrollmentTerms.Models;
 
-namespace CanvasApi.Client.EnrollmentTerms.Models
+internal class EnrollmentTermDetail : IEnrollmentTermDetail
 {
-    internal class EnrollmentTermDetail : IEnrollmentTermDetail
-    {
-        public string Name { get; set; }
-        public DateTime? StartAt { get; set; }
-        public DateTime? EndAt { get; set; }
-        public string SisTermId { get; set; }
-    }
+    public string Name { get; set; }
+    public DateTime? StartAt { get; set; }
+    public DateTime? EndAt { get; set; }
+    public string SisTermId { get; set; }
 }

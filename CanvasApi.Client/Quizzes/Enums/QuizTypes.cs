@@ -1,13 +1,10 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Quizzes.Enums;
 
-namespace CanvasApi.Client.Quizzes.Enums
+[EnumAsString]
+public enum QuizTypes
 {
-    [EnumAsString]
-    public enum QuizTypes
-    {
-        PracticeQuiz,
-        Assignment,
-        GradedSurvey,
-        Survey
-    }
+    PracticeQuiz,
+    Assignment,
+    GradedSurvey,
+    Survey
 }

@@ -1,9 +1,4 @@
-﻿using CanvasApi.Client._Base;
-using CanvasApi.Client.Pages.Models;
-using System.Net.Http;
-using System.Threading.Tasks;
-
-namespace CanvasApi.Client.Wikis;
+﻿namespace CanvasApi.Client.Wikis;
 
 internal class WikisApiClient : ApiClientBase, IWikisApiClient
 {

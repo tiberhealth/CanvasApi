@@ -1,12 +1,9 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.EnrollmentTerms.Enums;
 
-namespace CanvasApi.Client.EnrollmentTerms.Enums
+[EnumAsString]
+public enum EnrollmentTermListWorkflowState
 {
-    [EnumAsString]
-    public enum EnrollmentTermListWorkflowState
-    {
-        Active,
-        Deleted,
-        All
-    }
+    Active,
+    Deleted,
+    All
 }

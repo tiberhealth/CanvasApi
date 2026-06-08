@@ -1,14 +1,11 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Modules.Enums;
 
-namespace CanvasApi.Client.Modules.Enums
+[EnumAsString]
+public enum  CompletionRequirementTypes
 {
-    [EnumAsString]
-    public enum  CompletionRequirementTypes
-    {
-        MustView,
-        MustSubmit,
-        MustContribute,
-        MinScore,
-        MustMarkDone
-    }
+    MustView,
+    MustSubmit,
+    MustContribute,
+    MinScore,
+    MustMarkDone
 }

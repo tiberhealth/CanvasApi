@@ -1,15 +1,12 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Roles.Enums;
 
-namespace CanvasApi.Client.Roles.Enums
+[EnumAsString]
+public enum RoleBaseTypes
 {
-    [EnumAsString]
-    public enum RoleBaseTypes
-    {
-        AccountMembership,
-        StudentEnrollment,
-        TeacherEnrollment,
-        TaEnrollment,
-        ObserverEnrollment,
-        DesignerEnrollment
-    }
+    AccountMembership,
+    StudentEnrollment,
+    TeacherEnrollment,
+    TaEnrollment,
+    ObserverEnrollment,
+    DesignerEnrollment
 }

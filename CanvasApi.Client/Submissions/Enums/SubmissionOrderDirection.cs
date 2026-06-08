@@ -1,11 +1,8 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Submissions.Enums;
 
-namespace CanvasApi.Client.Submissions.Enums
+[EnumAsString]
+public enum SubmissionOrderDirection
 {
-    [EnumAsString]
-    public enum SubmissionOrderDirection
-    {
-        Ascending,
-        Descending
-    }
+    Ascending,
+    Descending
 }

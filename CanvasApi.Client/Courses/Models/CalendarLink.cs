@@ -1,7 +1,6 @@
-﻿namespace CanvasApi.Client.Courses.Models
+﻿namespace CanvasApi.Client.Courses.Models;
+
+internal class CalendarLink : ICalendarLink
 {
-    internal class CalendarLink : ICalendarLink
-    {
-        public string Ics { get; set; }
-    }
+    public string Ics { get; set; }
 }

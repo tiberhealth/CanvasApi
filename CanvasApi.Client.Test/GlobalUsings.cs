@@ -1,0 +1,15 @@
+global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Threading.Tasks;
+global using CanvasApi.Client.Admins.Models;
+global using CanvasApi.Client.Enrollments.Enums;
+global using CanvasApi.Client.EnrollmentTerms.Models;
+global using CanvasApi.Client.Exceptions;
+global using CanvasApi.Client.Helpers;
+global using CanvasApi.Client.Modules.Enums;
+global using CanvasApi.Client.Modules.Models;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using NUnit.Framework;
+global using NUnit.Framework.Legacy;

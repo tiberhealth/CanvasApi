@@ -1,14 +1,11 @@
-﻿using TiberHealth.Serializer.Attributes;
+﻿namespace CanvasApi.Client.Assignments.Enums;
 
-namespace CanvasApi.Client.Assignments.Enums
+[EnumAsString]
+public enum GradingTypes
 {
-    [EnumAsString]
-    public enum GradingTypes
-    {
-        PassFail,
-        Percent,
-        LetterGrade,
-        GpaScale,
-        Points
-    }
+    PassFail,
+    Percent,
+    LetterGrade,
+    GpaScale,
+    Points
 }

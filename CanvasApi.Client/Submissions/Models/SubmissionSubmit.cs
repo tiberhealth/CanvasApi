@@ -1,8 +1,7 @@
-﻿namespace CanvasApi.Client.Submissions.Models
+﻿namespace CanvasApi.Client.Submissions.Models;
+
+internal class SubmissionSubmit : ISubmissionSubmit
 {
-    internal class SubmissionSubmit : ISubmissionSubmit
-    {
-        public ISubmissionSubmitComment Comment { get; set; }
-        public ISubmissionSubmitDetail Submission { get; set; }
-    }
+    public ISubmissionSubmitComment Comment { get; set; }
+    public ISubmissionSubmitDetail Submission { get; set; }
 }

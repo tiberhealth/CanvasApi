@@ -1,10 +1,7 @@
-﻿using CanvasApi.Client.Quizzes.Enums;
+﻿namespace CanvasApi.Client.Quizzes.Models;
 
-namespace CanvasApi.Client.Quizzes.Models
+public interface IQuizItemsOrderDetail
 {
-    public interface IQuizItemsOrderDetail
-    {
-        int Id { get; set; }
-        QuizItemTypes Type { get; set; }
-    }
+    int Id { get; set; }
+    QuizItemTypes Type { get; set; }
 }

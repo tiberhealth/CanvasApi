@@ -15,8 +15,6 @@ public static class HttpClientConfigurator
             
         httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("*/*"));
 
-        httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("CanvasAPI", "1.0"));
-        httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("(+https://tiberhealth.com)"));
 
         httpClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("identity", 1.0));
             
@@ -27,6 +25,12 @@ public static class HttpClientConfigurator
     {
         if (string.IsNullOrWhiteSpace(canvasDomain)) throw new ArgumentNullException(nameof(canvasDomain), "Canvas domain is a required element.");
         httpClient.BaseAddress = new Uri(canvasDomain, UriKind.Absolute);
+
+        // Canvas enforces a non-empty User-Agent at the edge as of 2026-06-20 (403/CloudFront error otherwise).
+        // Set it here on the base overload so EVERY Canvas client gets it — including the unauthenticated
+        // OAuth token exchange (CanvasOAuthService.GetAuthToken and TutorAI AuthController), which use this overload.
+        httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("CanvasAPI", "1.0"));
+        httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("(+https://tiberhealth.com)"));
 
         return httpClient;
     }

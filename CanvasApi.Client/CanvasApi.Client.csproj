@@ -40,14 +40,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <!-- Microsoft.Extensions.DependencyInjection.Abstractions is declared
-             per-target-framework in the conditional ItemGroups above; do NOT
-             also declare it here (that produced duplicate-PackageReference
-             NU1504 warnings). System.Text.Json was referenced but used by no
-             source file here (the framework provides it), so it was removed to
-             clear the NU1510 prune warning. -->
         <PackageReference Include="Newtonsoft.Json" Version="13.0.4"/>
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1"/>
     </ItemGroup>
 
     <ItemGroup>

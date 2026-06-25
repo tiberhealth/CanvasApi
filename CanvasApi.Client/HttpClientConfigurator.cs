@@ -13,10 +13,6 @@ public static class HttpClientConfigurator
         httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
         httpClient.DefaultRequestHeaders.Host = new Uri(canvasDomain).Host;
             
-        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("*/*"));
-
-
-        httpClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("identity", 1.0));
             
         return httpClient;
     }
@@ -31,6 +27,9 @@ public static class HttpClientConfigurator
         // OAuth token exchange (CanvasOAuthService.GetAuthToken and TutorAI AuthController), which use this overload.
         httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("CanvasAPI", "1.0"));
         httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("(+https://tiberhealth.com)"));
+
+        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("*/*"));
+        httpClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("identity", 1.0));
 
         return httpClient;
     }

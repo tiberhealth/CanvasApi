@@ -57,4 +57,13 @@ public interface IAssignmentNewEdit
 
     /// <summary>Whether the assignment is omitted from the final grade.</summary>
     bool? OmitFromFinalGrade { get; set; }
+
+    /// <summary>
+    /// When true, the assignment uses a <b>manual</b> posting policy: grades and
+    /// comments entered for it stay hidden from students until a grader posts
+    /// (releases) them in the Canvas gradebook. When false, the assignment uses
+    /// an automatic posting policy and grades are visible as soon as they're
+    /// entered. Serializes as <c>assignment[post_manually]</c>.
+    /// </summary>
+    bool? PostManually { get; set; }
 }

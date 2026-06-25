@@ -20,4 +20,5 @@ internal class AssignmentNewEdit : IAssignmentNewEdit
     public bool? Published { get; set; }
     public bool? NotifyOfUpdate { get; set; }
     public bool? OmitFromFinalGrade { get; set; }
+    public bool? PostManually { get; set; }
 }
